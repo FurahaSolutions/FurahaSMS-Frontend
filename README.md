@@ -1,14 +1,6 @@
 # FurahaApp
 
-[![Build Status](https://travis-ci.com/OwenKelvin/FurahaSMS-frontend.svg?branch=master)](https://travis-ci.com/OwenKelvin/FurahaSMS-frontend) 
-
-[![Maintainability](https://api.codeclimate.com/v1/badges/be6fe705bc6617da638c/maintainability)](https://codeclimate.com/github/FurahaSolutions/FurahaSMS-Frontend/maintainability) 
-
-[![Coverage Status](https://coveralls.io/repos/github/OwenKelvin/FurahaSMS-frontend/badge.svg?branch=develop)](https://coveralls.io/github/OwenKelvin/FurahaSMS-frontend?branch=develop) 
-
-[![Known Vulnerabilities](https://snyk.io/test/github/OwenKelvin/FurahaSMS-frontend/badge.svg?targetFile=package.json)](https://snyk.io/test/github/OwenKelvin/FurahaSMS-frontend?targetFile=package.json) 
-
-[![Test Coverage](https://api.codeclimate.com/v1/badges/be6fe705bc6617da638c/test_coverage)](https://codeclimate.com/github/FurahaSolutions/FurahaSMS-Frontend/test_coverage)
+[![Build](https://travis-ci.com/OwenKelvin/FurahaSMS-frontend.svg?branch=master)](https://travis-ci.com/OwenKelvin/FurahaSMS-frontend) [![Maintainability](https://api.codeclimate.com/v1/badges/be6fe705bc6617da638c/maintainability)](https://codeclimate.com/github/FurahaSolutions/FurahaSMS-Frontend/maintainability) [![Coverage Develop](https://coveralls.io/repos/github/FurahaSolutions/FurahaSMS-Frontend/badge.svg?branch=develop)](https://coveralls.io/github/FurahaSolutions/FurahaSMS-Frontend?branch=develop) [![Known Vulnerabilities](https://snyk.io/test/github/OwenKelvin/FurahaSMS-frontend/badge.svg?targetFile=package.json)](https://snyk.io/test/github/FurahaSolutions/FurahaSMS-Frontend?targetFile=package.json) [![Test Coverage](https://api.codeclimate.com/v1/badges/be6fe705bc6617da638c/test_coverage)](https://codeclimate.com/github/FurahaSolutions/FurahaSMS-Frontend/test_coverage)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0 and has been since updated to Angular version 11.2.0
