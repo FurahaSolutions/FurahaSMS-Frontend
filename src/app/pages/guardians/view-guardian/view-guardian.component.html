@@ -1,0 +1,15 @@
+
+<ng-container *ngIf='guardianProfile$ | ngrxPush as guardianProfile; else loading'>
+  <app-user-profile
+  (valueChanged)='changeProfile($event)'
+  title='Guardian'
+  [profile]='guardianProfile'
+  [linkBase]='["/guardians"]'
+  [links]='["info", "students"]'
+></app-user-profile>
+</ng-container>
+<ng-template #loading>
+  <h1>Guardian Profile</h1>
+  <app-loading-bubble></app-loading-bubble>
+</ng-template>
+

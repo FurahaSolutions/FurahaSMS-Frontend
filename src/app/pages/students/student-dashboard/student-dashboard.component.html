@@ -1,0 +1,71 @@
+<h1>Students</h1>
+<section class="card p-2">
+  <div class="d-flex flex-wrap">
+    <a [routerLink]="['/admissions','students','create']" class="btn btn-primary ml-auto"><span class="icon-plus-circled"></span>New Student Admission</a>
+    <div class="col-12 d-flex justify-content-between flex-wrap">
+      <h2>Student List</h2>
+      <form [formGroup]="studentFilterForm" (submit)="submitStudentFilterForm()"
+            class="col-12 d-flex justify-content-between flex-wrap">
+        <div class="mt-2 col-12 col-lg-4 col-md-6 col-sm-6">
+          <label for="AcademicYear">Academic Year</label>
+          <ng-select id="academicYear" style="width: 100%;" [items]="academicYears$ | ngrxPush" bindLabel="name"
+                     bindValue="id" formControlName='academicYear'>
+          </ng-select>
+        </div>
+        <div class="mt-2 col-12 col-lg-4 col-md-6 col-sm-6">
+          <label for="stream"> Select Stream</label>
+          <ng-select [multiple]="true" id='stream' [items]="streams$ | ngrxPush" bindLabel="name"
+                     bindValue="id" formControlName='streams'>
+          </ng-select>
+        </div>
+        <div class="mt-2 col-12 col-lg-4 col-md-6 col-sm-6">
+          <label for="classLevel">Class Level</label>
+          <ng-select [closeOnSelect]="false" [multiple]="true" style="width: 100%;" id='classLevel'
+                     [items]="classLevels$ | ngrxPush" bindLabel="name"
+                     bindValue="id" formControlName='classLevels'>
+          </ng-select>
+        </div>
+        <div class="mt-2 col-12">
+          <button class='btn btn-success' [disabled]='!studentFilterForm.dirty'>
+            Get Students
+            <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
+            <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-ok-1'></i>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-12 mt-3">
+      <app-print selector=".printable"></app-print>
+      <div class="printable">
+        <table class="table table-dark table-hover">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Class Level</th>
+            <th>Stream</th>
+            <th class="d-print-none">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <ng-container *ngIf="students$ | ngrxPush as students">
+            <tr *ngFor="let student of students$ | ngrxPush">
+              <td>#{{ student.id }}</td>
+              <td>{{ student.name}}</td>
+              <td>{{ student.genderAbbr}}</td>
+              <td>{{ student.classLevelName }}</td>
+              <td>{{ student.streamName }}</td>
+              <td><a aria-label="View Student" class="icon-eye" [routerLink]="[student.id]" ></a></td>
+            </tr>
+            <tr *ngIf="students.length === 0" class="alert alert-info d-print-none">
+              <td class="m-2" colspan="6"><span class="icon-info-circled"></span>No Data Found For Selected Criteria</td>
+            </tr>
+          </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

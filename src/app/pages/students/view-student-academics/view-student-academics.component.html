@@ -1,0 +1,48 @@
+<section *ngIf='v$ | ngrxPush as v; else loading'>
+  <button *ngIf="editMode$ | ngrxPush" [routerLink]='["/students", v.studentId,"academics", "create"]' type="button"
+          class="btn btn-sm btn-primary mt-2 mb-1">
+    <span class="icon-plus-circled">Add To Academic Year</span>
+  </button>
+  <section class="alert alert-info mt-3" *ngIf="v.academicYearSubjects.length < 1">
+    <span class="icon-info-circled">No Academic Allocations Found!</span>
+  </section>
+  <section *ngFor='let academicYearSubject of v.academicYearSubjects' class="card mt-1 p-2">
+    <h3>{{ academicYearSubject.academicYearName }}</h3>
+
+
+    <section *ngFor='let classLevel of academicYearSubject.class_levels' class="m-3">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-end  ml-1">
+          <h4 class="">{{ classLevel.class_level_name }}</h4>
+          <button *ngIf="editMode$ | ngrxPush"
+                  [routerLink]='["/students", v.studentId,"academics", academicYearSubject.academicYearId, "edit", { classLevelId: classLevel.class_level_id }]'
+                  type="button"
+                  class="btn btn-sm btn-primary mt-2 mb-1"
+                  aria-label="Edit Academic Year Allocation"
+          >
+            <span class="icon-edit"></span>
+          </button>
+        </div>
+        <div class="d-flex flex-wrap align-items-center ml-4">
+          <h5 class="m-3">Stream</h5>
+          {{  classLevel.stream_name }}
+          <span *ngIf="classLevel.stream_abbreviation; else streamNotSpecified" >({{ classLevel.stream_abbreviation }})</span>
+          <ng-template #streamNotSpecified>
+            <span class="text-warning">Not Specified</span>
+          </ng-template>
+        </div>
+        <div class="d-flex flex-wrap align-items-center ml-4">
+          <h5 class="m-3">Units</h5>
+          <span *ngFor='let unit of classLevel.units' class="badge badge-secondary m-3 p-3 mt-1">{{ unit.name }}</span>
+        </div>
+
+      </div>
+
+    </section>
+  </section>
+</section>
+<ng-template #loading>
+  <div>
+    <app-loading-bubble></app-loading-bubble>
+  </div>
+</ng-template>

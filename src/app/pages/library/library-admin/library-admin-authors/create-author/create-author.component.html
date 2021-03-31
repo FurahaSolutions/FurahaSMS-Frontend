@@ -1,0 +1,31 @@
+<section>
+  <h1 >{{ (editPage$ | ngrxPush) ? 'Edit': 'Create' }} Book Author</h1>
+  <form (submit)='submitNewBookAuthorForm()' [formGroup]='newBookAuthorForm' *ngIf='author$ | ngrxPush; else loading'>
+    <section class='col-lg-7'>
+      <app-input
+        labelClass='col-lg-5'
+        inputClass='col-lg-7'
+        formControlName='name'
+        [triggerValidation]='triggerValidationAction$ | ngrxPush'
+        id='name'
+        placeholder='Enter Authors Name'
+        label="Author's Name"></app-input>
+    </section>
+    <section class='col-lg-12'>
+      <label for="biography">Biography</label>
+
+      <div [hidden]='(editorInitializedAction$ | ngrxPush) === false'>
+        <editor id="biography" (onInit)='initializeEditor()' formControlName='biography' [init]="tinyMCEConfig"></editor>
+      </div>
+    </section>
+    <section class='col-lg-12 mt-3'>
+      <app-validate-submit-buttons [isSubmitting]='submitInProgressAction$ | ngrxPush'
+        (validationButtonClicked)='triggerValidationSubject$.next(true)' [formItem]='newBookAuthorForm'>
+      </app-validate-submit-buttons>
+    </section>
+  </form>
+  <ng-template #loading>
+    <app-loading-bubble></app-loading-bubble>
+  </ng-template>
+</section>
+

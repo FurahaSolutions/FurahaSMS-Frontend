@@ -1,0 +1,21 @@
+<h1>{{ title }}</h1>
+
+<form class="card pb-3" *ngIf='academicYears$ | ngrxPush as academicYears; else loading'>
+  <section class="p-2 d-flex align-items-end">
+    <section class="col-lg-4">
+      <label for="academic-year">Select Academic Year</label>
+      <ng-select [(ngModel)]='selectedAcademicYear' id="academic-year"
+        name="academicYear">
+        <ng-option *ngFor='let academicYear of academicYears' [value]="academicYear.id">
+          {{ academicYear.name }}
+        </ng-option>
+      </ng-select>
+    </section>
+    <div class="col-2">
+      <a type="button" (click)="goToAcademicYear()" class="btn btn-primary" >Go</a>
+    </div>
+  </section>
+</form>
+<ng-template #loading>
+  <app-loading-bubble></app-loading-bubble>
+</ng-template>

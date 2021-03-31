@@ -1,0 +1,9 @@
+<div [innerHTML]='value' *ngIf='(value && value !== ""); else no_value'>
+</div>
+<ng-template #no_value>
+  <section class='alert alert-info'>
+    No Description Available;
+  </section>
+
+</ng-template>
+
