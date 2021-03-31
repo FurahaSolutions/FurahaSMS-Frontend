@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://test-fsms-100-backend.furahacapital.com',
+  apiUrl: 'http://fssms.furahasolutions.tech',
   passportClient: {
     grantType: 'password',
     clientSecret: 'duK0bplTPn2BeyrsjX1939Y9OPIjPytEFUUNwjqD',
