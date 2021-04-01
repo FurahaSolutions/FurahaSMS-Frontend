@@ -12,7 +12,7 @@ export class ExamPaperService {
     private http: HttpClient
   ) { }
   getRecentExamPapers(): Observable<any> {
-    return this.http.get('api/academics/exam-papers/?latest=20');
+    return this.http.get('api/academics/exam-papers?latest=20');
   }
   getExamPaperWithId(id: number): Observable<any> {
     return this.http.get(`api/academics/exam-papers/${id}`);

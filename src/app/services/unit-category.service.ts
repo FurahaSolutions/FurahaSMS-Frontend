@@ -32,7 +32,7 @@ export class UnitCategoryService {
   }
 
   getActive() {
-    const url = 'api/curriculum/unit-categories/?active=1';
+    const url = 'api/curriculum/unit-categories/active=1';
     return this.http.get<any>(url).pipe(map(res => res as unknown)) as Observable<UnitCategoryInterface[]>;
   }
 

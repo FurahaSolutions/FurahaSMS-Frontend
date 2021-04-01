@@ -20,7 +20,7 @@ export class AcademicYearService {
 
   getFilter(data: { active: boolean } = {active: false}) {
     const {active} = data;
-    let url = 'api/academic-years/?';
+    let url = 'api/academic-years?';
     if (active) {
       url += 'active=1';
     }
@@ -32,7 +32,7 @@ export class AcademicYearService {
   get(data: { id: number; classLevels?: 1 }) {
 
     const {id, classLevels} = data;
-    let url = `api/academic-years/${id}/?`;
+    let url = `api/academic-years/${id}?`;
     if (classLevels === 1) {
       url += 'class_levels=1';
     }

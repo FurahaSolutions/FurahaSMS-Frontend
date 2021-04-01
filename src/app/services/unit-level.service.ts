@@ -23,13 +23,13 @@ export class UnitLevelService {
       ['academic_year_id']: data?.academicYearId,
       ['class_level_id']: data?.classLevelId
     };
-    const url = `api/curriculum/unit-levels/?${this.urlStringify.stringify(params)}`;
+    const url = `api/curriculum/unit-levels?${this.urlStringify.stringify(params)}`;
     return this.http.get<any>(url);
   }
 
   getAll(data: { unit: number | null } = {unit: null}) {
     const {unit} = data;
-    let url = 'api/curriculum/unit-levels/?';
+    let url = 'api/curriculum/unit-levels?';
     if (unit) {
       url += 'unit=' + unit;
     }
