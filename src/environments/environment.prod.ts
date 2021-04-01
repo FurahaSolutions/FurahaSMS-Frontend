@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://fssms.furahasolutions.tech',
+  apiUrl: 'https://fs-fssms-backend.herokuapp.com',
   passportClient: {
     grantType: 'password',
     clientSecret: 'duK0bplTPn2BeyrsjX1939Y9OPIjPytEFUUNwjqD',
