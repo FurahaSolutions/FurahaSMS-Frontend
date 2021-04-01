@@ -20,7 +20,7 @@ export class UnitsService {
 
   get(data: any): Observable<any> {
     const {includeUnitLevels, id, includeClassLevels} = data;
-    let url = `api/curriculum/units/${id}/?`;
+    let url = `api/curriculum/units/${id}?`;
     if (includeUnitLevels === 1) {
       url += `include_unit_levels=${includeUnitLevels}`;
       if (includeClassLevels) {
@@ -43,7 +43,7 @@ export class UnitsService {
   }
 
   getAllActiveSubjects(): Observable<any> {
-    const url = 'api/curriculum/units/all/?active=1';
+    const url = 'api/curriculum/units/all?active=1';
     return this.http.get<any>(url).pipe(shareReplay());
   }
 

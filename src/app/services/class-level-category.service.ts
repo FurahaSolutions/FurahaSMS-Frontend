@@ -22,7 +22,7 @@ export class ClassLevelCategoryService {
     const { id, classLevel } = data;
     let url = `${this.url}/${id}`;
     if (classLevel === 1) {
-      url += '/?class_level=1';
+      url += '?class_level=1';
     }
     return this.http.get<any>(url).pipe(
       map(res => res)

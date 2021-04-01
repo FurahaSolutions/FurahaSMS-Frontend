@@ -21,7 +21,7 @@ export const crudMixin = <T extends Constructor>(baseClass: T = class { } as T) 
       );;
     };
     get active$(): Observable<any[]> {
-      return this.http.get(`${this.url}/?active=${true}`).pipe(
+      return this.http.get(`${this.url}?active=${true}`).pipe(
         map(res => res as any)
       );
     }
