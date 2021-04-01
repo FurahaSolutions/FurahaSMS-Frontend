@@ -53,7 +53,7 @@ export class TeacherService {
   });
 
   getActiveTeachers() {
-    return this.http.get<any[]>(`${this.url}/?active=1`)
+    return this.http.get<any[]>(`${this.url}?active=1`)
       .pipe(
         map(users => users.map(this.transformTeacher)),
         catchError(error => throwError(error)),

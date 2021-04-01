@@ -23,7 +23,7 @@ export class SupportStaffService {
   }
 
   staffTypes(): Observable<any> {
-    return this.http.get(`api/permissions-and-roles/roles/?staff=${true}`);
+    return this.http.get(`api/permissions-and-roles/roles?staff=${true}`);
   }
 
   loadStaffWithId$ = (id: number) => this.store.pipe(

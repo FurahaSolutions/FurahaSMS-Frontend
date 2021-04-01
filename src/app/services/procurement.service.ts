@@ -84,7 +84,7 @@ export class ProcurementService {
   }
 
   getRequestsTendered(): Observable<any> {
-    return this.http.get('api/procurements/tenders/?tendered=1');
+    return this.http.get('api/procurements/tenders?tendered=1');
   }
 
   createBid({tenderId, data}: { tenderId: number; data: any }) {
@@ -106,7 +106,7 @@ export class ProcurementService {
   }
 
   getAwardedTenders(): Observable<any> {
-    return this.http.get('api/procurements/tenders/?awarded=1');
+    return this.http.get('api/procurements/tenders?awarded=1');
   }
 
   setFulfillment({tenderId, comment, fulfilled}: any): Observable<any> {
