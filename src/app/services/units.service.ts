@@ -49,7 +49,7 @@ export class UnitsService {
 
   getAll(data = {unitLevel: null}): Observable<any> {
     const {unitLevel} = data;
-    let url = `api/curriculum/units/`;
+    let url = `api/curriculum/units`;
     if (unitLevel) {
       url += `?unit_levels=1`;
     }
