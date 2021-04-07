@@ -205,7 +205,7 @@
         </fieldset>
       </section>
     </fieldset>
-    <section class="col-lg-12">
+    <section class="col-lg-12 p-0">
       <app-validate-submit-buttons [isSubmitting]='submitInProgressAction$ | ngrxPush'
                                    (validationButtonClicked)='triggerValidationSubject$.next(true)'
                                    [formItem]='newCourseForm'>
