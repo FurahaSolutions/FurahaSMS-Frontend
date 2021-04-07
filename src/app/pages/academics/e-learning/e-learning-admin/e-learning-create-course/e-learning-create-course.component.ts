@@ -53,7 +53,6 @@ export class ELearningCreateCourseComponent
     map(params => Number(params.get('id')))
   );
   course$ = this.courseId$.pipe(
-    // filter(id => id > 0),
     mergeMap(id => id > 0 ? this.store.pipe(select(selectAcademicsCourse(id))) : of(null)),
     tap(course => {
       if (course && course?.id && course?.id > 0) {
@@ -87,8 +86,7 @@ export class ELearningCreateCourseComponent
           numbering: course.topicNumberStyleName,
         });
       }
-    }),
-    map(() => true)
+    })
   );
   classLevelChangedSubject$ = new BehaviorSubject<null | number>(null);
   classLevelChangedAction$ = this.classLevelChangedSubject$.asObservable();
@@ -270,6 +268,8 @@ export class ELearningCreateCourseComponent
     }
     this.topicsControl.updateValueAndValidity();
     this.newCourseForm.updateValueAndValidity();
+    // this.newCourseForm.markAllAsTouched();
+    this.newCourseForm.markAsDirty();
   }
 
   addNewTopic() {
