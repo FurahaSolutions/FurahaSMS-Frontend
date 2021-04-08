@@ -1,6 +1,6 @@
 import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {TimeTableService} from '../../services/time-table.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {map, mergeMap, tap} from 'rxjs/operators';
 import {AcademicYearService} from 'src/app/pages/academics/services/academic-year.service';
 import {Observable, combineLatest, BehaviorSubject} from 'rxjs';
@@ -163,7 +163,8 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
     private unitsService: UnitsService,
     private schoolRoomService: SchoolRoomService,
     private classLevelsService: ClassLevelService,
-    private streamsService: ClassStreamService
+    private streamsService: ClassStreamService,
+    private router: Router
   ) {
     super();
   }
@@ -225,7 +226,7 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
     ]).pipe(
       mergeMap(([editedTimetable, params]) =>
         this.timeTableService.saveLessonsFor({...params, data: editedTimetable})),
-    ).subscribe();
+    ).subscribe({next: () => this.router.navigate(['../'], { relativeTo: this.route }).then()});
   }
 
 }

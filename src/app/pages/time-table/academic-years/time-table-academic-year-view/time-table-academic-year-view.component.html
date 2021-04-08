@@ -69,7 +69,7 @@
     </accordion-group>
   </accordion>
 
-  <div class="alert alert-info mt-2"><span class="icon-info"></span>No time table set up yet</div>
+  <div *ngIf="timeTableLessons.length < 1" class="alert alert-info mt-2"><span class="icon-info"></span>No time table set up yet</div>
 </div>
 
 <ng-template class="card p-2" #loading>
