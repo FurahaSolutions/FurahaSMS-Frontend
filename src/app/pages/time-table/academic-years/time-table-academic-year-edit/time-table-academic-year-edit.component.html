@@ -5,7 +5,7 @@
 
     <button (click)='saveChanges()' class="btn btn-success btn-sm">Save All Changes <span class="icon-floppy"></span></button>
   </div>
-
+<!--  <pre class="text-light">{{timeTableForm$ | ngrxPush | json }}</pre>-->
   <accordion *ngIf='timetableLessons$ | ngrxPush ' [closeOthers]='true' [isAnimated]='true'>
     <accordion-group class="mt-2" *ngFor='let classLevel of timeTableForm$ | ngrxPush; let i = index' [(isOpen)]="isOpen[i]"
                      [class.active-group]="isOpen[i]">
@@ -37,6 +37,7 @@
                   (click)='editLesson({ template:template, classLevelName: classLevel.name, stream:classLevel.streams[0], timing:timing, dayOfWeekName:dayOfWeek, lesson: classLevel.grouped[dayOfWeek] })'
                   hidden aria-label="Edit Lesson" class="btn btn-outline-primary btn-sm"><i
                   class="icon-edit"></i></button>
+<!--                <pre class="text-light">{{ classLevel?.grouped[dayOfWeek] }}</pre>-->
                 <ng-container
                   *ngIf='classLevel.grouped[dayOfWeek] && classLevel.grouped[dayOfWeek][classLevel.streams[0]] && classLevel.grouped[dayOfWeek][classLevel.streams[0]][timing] as lesson'>
                   <div class="d-flex flex-column">
@@ -121,5 +122,8 @@
       </button>
     </div>
   </ng-template>
+  <div class="p-3" *ngIf="loadingAction$ | ngrxPush">
+    <app-loading-bubble></app-loading-bubble>
+  </div>
 
 </div>
