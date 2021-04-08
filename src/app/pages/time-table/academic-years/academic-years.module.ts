@@ -14,6 +14,7 @@ import { CreateAcademicYearTimeTableComponent } from './create-academic-year-tim
 import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import {AppLoadingBubbleModule} from '../../../modules/app-loading-bubble';
 
 
 
@@ -26,16 +27,17 @@ import { ReactiveComponentModule } from '@ngrx/component';
     TimeTableAcademicYearDashboardComponent,
     CreateAcademicYearTimeTableComponent
   ],
-  imports: [
-    CommonModule,
-    AcademicYearsRoutingModule,
-    AccordionModule.forRoot(),
-    ModalModule.forRoot(),
-    NgSelectModule,
-    ReactiveFormsModule,
-    AppInputModule,
-    AppValidateSubmitButtonsModule,
-    ReactiveComponentModule
-  ]
+    imports: [
+        CommonModule,
+        AcademicYearsRoutingModule,
+        AccordionModule.forRoot(),
+        ModalModule.forRoot(),
+        NgSelectModule,
+        ReactiveFormsModule,
+        AppInputModule,
+        AppValidateSubmitButtonsModule,
+        ReactiveComponentModule,
+        AppLoadingBubbleModule
+    ]
 })
 export class AcademicYearsModule { }
