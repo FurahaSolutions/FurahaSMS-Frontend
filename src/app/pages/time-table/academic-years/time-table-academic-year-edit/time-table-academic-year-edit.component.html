@@ -116,7 +116,7 @@
     </div>
     <div class="modal-footer bg-dark">
       <button type="button" (click)='modalRef.hide()' class="btn btn-secondary">Cancel</button>
-      <button type="button" (click)='saveLesson()' class="btn btn-success">
+      <button type="button" [disabled]="editLessonForm.invalid || !editLessonForm.touched" (click)='saveLesson()' class="btn btn-success">
         <span>Save Content</span>
         <i class='icon-ok-1'></i>
       </button>

@@ -148,9 +148,9 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
   );
 
   editLessonForm: FormGroup = this.fb.group({
-    teacherId: [null, Validators.required],
+    teacherId: [null],
     roomId: [null],
-    subjectId: [null],
+    subjectId: [null, Validators.required],
   });
 
   constructor(
