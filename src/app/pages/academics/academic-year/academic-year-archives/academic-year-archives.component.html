@@ -17,6 +17,9 @@
       </ul>
     </section>
   </section>
+  <div *ngIf="academicYears.length < 1" class="col-12 alert alert-info"><span class="icon-info"></span>
+    No Archived academic years found
+  </div>
 </section>
 <ng-template #loading>
   <app-loading-bubble></app-loading-bubble>
