@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {MathDirective} from './math.directive';
 import {MathService} from './math.service';
 import { ReactiveComponentModule } from '@ngrx/component';
-console.log('<span class="math-tex">\\\(','\\\)</span>');
 
 @NgModule({
   declarations: [MathDirective],

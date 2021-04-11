@@ -11,6 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
 import {FormErrorsModule} from '../../../../shared/form-errors/form-errors.module';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {AppLoadingBubbleModule} from '../../../../modules/app-loading-bubble';
 
 describe('TimeTableAcademicYearViewComponent', () => {
   let component: TimeTableAcademicYearViewComponent;
@@ -31,7 +32,8 @@ describe('TimeTableAcademicYearViewComponent', () => {
           }
         }),
         FormErrorsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        AppLoadingBubbleModule
       ],
       declarations: [TimeTableAcademicYearViewComponent],
       providers: [

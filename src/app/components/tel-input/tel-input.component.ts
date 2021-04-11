@@ -96,7 +96,6 @@ export class TelInputComponent extends InputComponent implements OnInit, Validat
       this.countryCode.setValue(code);
       this.phoneNumber.setValue(phone);
     } else {
-      console.log({countryCode: this.countryCode});
       this.countryCode.setValue(this.localeCountryCode);
     }
   }

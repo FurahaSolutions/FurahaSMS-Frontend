@@ -22,7 +22,7 @@ import { ReactiveComponentModule } from '@ngrx/component';
     FormsModule,
     ReactiveFormsModule,
     AppInputModule,
-    ModalModule.forRoot(),
+    ModalModule.forChild(),
     FormsModule,
     ReactiveFormsModule,
     PasswordChangeFormModule,

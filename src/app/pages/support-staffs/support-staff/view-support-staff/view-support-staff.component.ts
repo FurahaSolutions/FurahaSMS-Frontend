@@ -22,8 +22,7 @@ export class ViewSupportStaffComponent {
     private supportStaffService: SupportStaffService
   ) { }
 
-  changeProfile($event: any) {
-    console.log($event);
+  changeProfile(_$event: any) {
   }
 
 }

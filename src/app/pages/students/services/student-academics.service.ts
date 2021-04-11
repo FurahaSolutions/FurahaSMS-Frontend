@@ -44,11 +44,7 @@ export class StudentAcademicsService {
   saveAcademicsFor(data: any) {
     const url = `api/students/${data.studentId}/academics/${data.academicYearId}`;
     return this.http.post(url, {...data, _method: 'PATCH'}).pipe(
-      catchError(res => {
-        console.log(res);
-        return throwError(res);
-      }),
-      tap(res => console.log(res))
+      catchError(res => throwError(res))
     );
   }
 }

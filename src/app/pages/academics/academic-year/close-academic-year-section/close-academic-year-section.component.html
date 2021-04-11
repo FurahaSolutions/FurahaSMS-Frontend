@@ -1,0 +1,24 @@
+<div class="modal-header bg-dark">
+  <h4 class="modal-title pull-left">{{isOpen ? 'Close' : 'Reopen'}} {{ name }}</h4>
+  <button type="button" class="close pull-right" [attr.aria-label]="isOpen ? 'Close' : 'Reopen'" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+
+  </button>
+</div>
+<div class="modal-body bg-dark">
+  <p class="text-danger">You are about to {{ isOpen ? 'Close' : 'Reopen' }} <span class="text-primary">"{{ slug }}"</span></p>
+
+  <p>Please Enter #{{ slug }} to confirm action</p>
+  <input placeholder="eg #xyz" aria-label="Course Name" type="text" class="form-control" [(ngModel)]='confirmation'>
+</div>
+<div class="modal-footer bg-dark">
+  <button (click)='closeModal()' class="btn btn-secondary" type="button">Cancel</button>
+  <button (click)='saveStatus()' [disabled]='(confirmation !=  "#" + slug) || (submitInProgressAction$ | ngrxPush)'
+          class="btn btn-danger">
+    <span *ngIf='(submitInProgressAction$ | ngrxPush) === false'>{{isOpen ? 'Close' : 'Reopen'}} {{ name }}</span>
+    <span *ngIf='submitInProgressAction$ | ngrxPush'>Saving...</span>
+    <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-trash'></i>
+    <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
+  </button>
+</div>
+{{ slug }}

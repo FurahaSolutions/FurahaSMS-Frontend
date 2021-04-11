@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { AcademicYearService } from 'src/app/pages/academics/services/academic-year.service';
-import { Observable } from 'rxjs';
+import {Component} from '@angular/core';
+import {AcademicYearService} from 'src/app/pages/academics/services/academic-year.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-academic-year-archives',
@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./academic-year-archives.component.css']
 })
 export class AcademicYearArchivesComponent {
-  academicYears$: Observable<any> = this.academicYearService.all$;;
-  constructor(private academicYearService: AcademicYearService) { }
+  academicYears$: Observable<any> = this.academicYearService.archived$;
+
+  constructor(private academicYearService: AcademicYearService) {
+  }
 
 }

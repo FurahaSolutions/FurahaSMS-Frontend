@@ -7,6 +7,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StoreModule } from '@ngrx/store';
 import { REDUCER_TOKEN, reducerProvider, metaReducers } from 'src/app/store/reducers';
 import { RouterTestingModule } from '@angular/router/testing';
+import {AppLoadingBubbleModule} from '../../../../modules/app-loading-bubble';
 
 describe('MyProfileEffects', () => {
   let actions$: Observable<any>;
@@ -24,7 +25,8 @@ describe('MyProfileEffects', () => {
             strictActionImmutability: true,
           }
         }),
-        RouterTestingModule
+        RouterTestingModule,
+        AppLoadingBubbleModule
       ],
       providers: [
         reducerProvider,

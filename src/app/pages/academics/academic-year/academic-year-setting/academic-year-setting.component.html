@@ -1,0 +1,50 @@
+<div class="card p-2">
+  <table class="table table-dark">
+    <thead>
+    <tr>
+      <th>Section Name</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngIf="archivableItems$ | ngrxPush as archivableItems; else loading;">
+      <tr *ngFor="let archivableItem of archivableItems">
+        <td>{{ archivableItem.name }}</td>
+        <td>
+          <button [disabled]="!archivableItem.allowed" (click)="openSaveModal({isOpen: true, slug:archivableItem.slug, name:archivableItem.name})"
+                  *ngIf="!archivableItem.closed"
+                  class="btn btn-outline-success"><span class="icon-lock-open"></span>open
+          </button>
+          <button [disabled]="!archivableItem.allowed" (click)="openSaveModal({isOpen: false, slug:archivableItem.slug, name:archivableItem.name})"
+                  *ngIf="archivableItem.closed" class="btn btn-outline-warning"><span
+            class="icon-lock"></span>closed
+          </button>
+        </td>
+      </tr>
+    </ng-container>
+    <ng-template #loading>
+      <tr>
+        <td colspan="2">
+          <app-loading-bubble></app-loading-bubble>
+        </td>
+      </tr>
+    </ng-template>
+
+    </tbody>
+  </table>
+</div>
+<div class="card mt-2">
+  <div class="p-2 d-flex justify-content-around">
+    <div class="col-lg-4">
+      <button (click)="openArchiveModal()" class="btn btn-warning"><span class="icon-archive"></span> Archive Academic Year</button>
+    </div>
+    <div class="col-lg-4">
+      <button (click)="openDeleteModal()" class="btn btn-danger"><span class="icon-trash"></span> Delete Academic Year</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #closeItem>
+
+</ng-template>
+

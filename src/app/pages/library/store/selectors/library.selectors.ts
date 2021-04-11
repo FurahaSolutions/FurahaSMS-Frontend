@@ -29,8 +29,5 @@ export const selectLibraryBookPublisher = (id: number) => createSelector(
 
 export const selectLibraryBookClassifications = createSelector(
   selectLibraryState,
-  library => {
-    console.log({library});
-    return library ? library.libraryBookClassifications : null;
-  }
+  library => library ? library.libraryBookClassifications : null
 );

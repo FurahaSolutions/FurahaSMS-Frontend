@@ -13,7 +13,6 @@ export class TakeOnlineExamDashboardComponent {
     map(params => Number(params.get('id')))
   );
   courseId$ = this.route.paramMap.pipe(
-    tap(res => console.log(res)),
     map(params => Number(params.get('id')))
   );
   assessment$ = this.assessmentId$.pipe(

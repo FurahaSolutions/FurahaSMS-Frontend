@@ -138,7 +138,7 @@ export class SelectComponent
       case 'academic-years:active':
         this.setParams({label: 'Academic Year'});
         this.categories$ = this.academicYearService
-          .getFilter({active: true});
+          .active$;
 
         break;
       case 'unit-levels':

@@ -226,7 +226,7 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
     ]).pipe(
       mergeMap(([editedTimetable, params]) =>
         this.timeTableService.saveLessonsFor({...params, data: editedTimetable})),
-    ).subscribe({next: () => this.router.navigate(['../'], { relativeTo: this.route }).then()});
+    ).subscribe({next: () => this.router.navigate(['../'], {relativeTo: this.route}).then()});
   }
 
 }

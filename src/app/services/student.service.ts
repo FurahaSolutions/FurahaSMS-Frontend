@@ -29,7 +29,6 @@ export class StudentService {
 
     const url = `${this.url}?${this.urlParamsStringifyService.stringify({...data, last: 30})}`;
     return this.http.get<any[]>(url).pipe(
-      tap(res => console.log(res)),
       map(res => res.map(item => ({
         ...item,
         genderAbbr: item.gender_abbreviation,
