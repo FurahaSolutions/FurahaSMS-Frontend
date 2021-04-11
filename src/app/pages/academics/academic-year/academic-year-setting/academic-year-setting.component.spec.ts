@@ -4,6 +4,10 @@ import {AcademicYearSettingComponent} from './academic-year-setting.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
 import {AppLoadingBubbleModule} from '../../../../modules/app-loading-bubble';
+import {ModalModule} from 'ngx-bootstrap/modal';
+import {RouterTestingModule} from '@angular/router/testing';
+import {StoreModule} from '@ngrx/store';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
 
 describe('AcademicYearSettingComponent', () => {
   let component: AcademicYearSettingComponent;
@@ -14,11 +18,21 @@ describe('AcademicYearSettingComponent', () => {
       imports: [
         HttpClientTestingModule,
         ReactiveComponentModule,
-        AppLoadingBubbleModule
+        AppLoadingBubbleModule,
+        ModalModule.forRoot(),
+        RouterTestingModule,
+        StoreModule.forRoot(REDUCER_TOKEN, {
+          metaReducers,
+          runtimeChecks: {
+            strictStateImmutability: true,
+            strictActionImmutability: true,
+          }
+        }),
       ],
       declarations: [
         AcademicYearSettingComponent
-      ]
+      ],
+      providers: [reducerProvider]
     })
       .compileComponents();
   }));

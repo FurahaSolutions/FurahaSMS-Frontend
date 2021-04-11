@@ -7,6 +7,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {reducers} from '../../../../store/reducers/app.reducer';
 
 describe('TimeTableAcademicYearDashboardComponent', () => {
   let component: TimeTableAcademicYearDashboardComponent;
@@ -25,6 +26,7 @@ describe('TimeTableAcademicYearDashboardComponent', () => {
             strictActionImmutability: true,
           }
         }),
+        StoreModule.forFeature('app', reducers),
         ReactiveComponentModule
       ],
       declarations: [TimeTableAcademicYearDashboardComponent],

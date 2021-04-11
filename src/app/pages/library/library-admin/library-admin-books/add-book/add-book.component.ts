@@ -93,7 +93,6 @@ export class AddBookComponent extends subscribedContainerMixin(formWithEditorMix
     // this.db.get('libraryClassifications')
     //   .then((doc: any) => {
     //     this.bookClassifications$ = of(doc.items);
-    //     console.log(doc.items)
     //   }).catch(() => {
     //   this.bookClassifications$ = this.store.pipe(select(selectLibraryBookClassifications));
     //   this.bookClassifications$.subscribe(items => {

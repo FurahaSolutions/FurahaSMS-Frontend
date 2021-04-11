@@ -7,9 +7,7 @@ import {tap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class LibraryBookClassificationService {
-  all$: Observable<any> = this.http.get('/api/library-books/classifications').pipe(
-    tap(res => console.log('==========>', {res}))
-  );
+  all$: Observable<any> = this.http.get('/api/library-books/classifications');
 
   constructor(private http: HttpClient) {
   }

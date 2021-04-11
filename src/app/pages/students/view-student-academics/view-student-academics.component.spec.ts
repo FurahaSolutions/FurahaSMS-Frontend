@@ -9,6 +9,7 @@ import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {reducers} from '../../../store/reducers/app.reducer';
 
 describe('ViewStudentAcademicsComponent', () => {
   let component: ViewStudentAcademicsComponent;
@@ -25,6 +26,7 @@ describe('ViewStudentAcademicsComponent', () => {
             strictActionImmutability: true,
           }
         }),
+        StoreModule.forFeature('app', reducers),
         RouterTestingModule,
         HttpClientTestingModule,
         AppLoadingBubbleModule,

@@ -33,7 +33,6 @@ export class FinancialCostsMaintenanceComponent extends subscribedContainerMixin
   ngOnInit() {
     this.resetEditForm();
     this.financialCosts$ = this.financialCostsService.all$.pipe(
-      tap(res => console.log({res})),
       map(item => (
         item.map(({id, name, cost_items:costItems}: any) => ({
           id, name, costItems: costItems.map(({id: costId, name: costName}: any) => ({id: costId, name: costName}))

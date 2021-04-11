@@ -1,17 +1,37 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import { CloseAcademicYearSectionComponent } from './close-academic-year-section.component';
+import {StoreModule} from '@ngrx/store';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
+import {ModalModule} from 'ngx-bootstrap/modal';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {ReactiveComponentModule} from '@ngrx/component';
+import {FormsModule} from '@angular/forms';
 
 describe('CloseAcademicYearSectionComponent', () => {
   let component: CloseAcademicYearSectionComponent;
   let fixture: ComponentFixture<CloseAcademicYearSectionComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ CloseAcademicYearSectionComponent ]
+  beforeEach(waitForAsync( () => {
+    TestBed.configureTestingModule({
+      imports: [
+        StoreModule.forRoot(REDUCER_TOKEN, {
+          metaReducers,
+          runtimeChecks: {
+            strictStateImmutability: true,
+            strictActionImmutability: true,
+          }
+        }),
+        ModalModule.forRoot(),
+        HttpClientTestingModule,
+        ReactiveComponentModule,
+        FormsModule
+      ],
+      declarations: [ CloseAcademicYearSectionComponent ],
+      providers: [reducerProvider]
     })
     .compileComponents();
-  });
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CloseAcademicYearSectionComponent);
