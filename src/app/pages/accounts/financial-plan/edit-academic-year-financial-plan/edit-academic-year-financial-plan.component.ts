@@ -107,7 +107,6 @@ export class EditAcademicYearFinancialPlanComponent extends subscribedContainerM
       );
     });
     if (this.plans.tuitionFee?.length > 0) {
-      console.log('=>>', this.plans.tuitionFee);
       this.tuitionFees.patchValue(this.plans.tuitionFee);
     }
     if (this.plans.otherFees?.length > 0) {

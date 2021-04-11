@@ -21,9 +21,6 @@ export class ViewTeacherSubjectsComponent {
   );
   units$ = this.unitsService.all$;
   teacherUnits$ = combineLatest([this.teaches$, this.units$]).pipe(
-    tap(([teaches, units]) => {
-      console.log({teaches, units});
-    }),
     map(
       ([teaches, units]) =>
         units.filter(({id}) =>

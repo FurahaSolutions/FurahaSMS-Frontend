@@ -2,6 +2,7 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {NetworkLoadingComponent} from './network-loading.component';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {FormsModule} from '@angular/forms';
 
 describe('NetworkLoadingComponent', () => {
   let component: NetworkLoadingComponent;
@@ -10,7 +11,8 @@ describe('NetworkLoadingComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FormsModule
       ],
       declarations: [NetworkLoadingComponent]
     })

@@ -23,7 +23,6 @@ export class TimeTableService {
   }
 
   groupByDayOfWeek(values: any[]) {
-
     return values.reduce((prev, next) => {
       const dayOfWeek = prev[next.dayOfWeekName] || {};
       const stream = dayOfWeek[next.streamName] || {};

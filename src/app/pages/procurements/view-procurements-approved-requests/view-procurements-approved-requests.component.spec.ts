@@ -8,6 +8,7 @@ import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {AppLoadingBubbleModule} from '../../../modules/app-loading-bubble';
 
 describe('ViewProcurementsApprovedRequestsComponent', () => {
   let component: ViewProcurementsApprovedRequestsComponent;
@@ -22,9 +23,11 @@ describe('ViewProcurementsApprovedRequestsComponent', () => {
           strictStateImmutability: true,
           strictActionImmutability: true,
         }
-      }), HttpClientTestingModule, AccordionModule.forRoot(),
+      }),
+        HttpClientTestingModule, AccordionModule.forRoot(),
         RouterTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        AppLoadingBubbleModule
       ],
       declarations: [ViewProcurementsApprovedRequestsComponent, LoadingBubbleComponent],
       providers: [reducerProvider]

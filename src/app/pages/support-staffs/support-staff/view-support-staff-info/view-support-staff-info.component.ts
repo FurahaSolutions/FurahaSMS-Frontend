@@ -20,8 +20,7 @@ export class ViewSupportStaffInfoComponent implements OnInit {
     private store: Store<AppState>
   ) { }
 
-  changeProfile($event: any) {
-    console.log($event, 'Method Not Implemented');
+  changeProfile(_$event: any) {
   }
 
   ngOnInit() {

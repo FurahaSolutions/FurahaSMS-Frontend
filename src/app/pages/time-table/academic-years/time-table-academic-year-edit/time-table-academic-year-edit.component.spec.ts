@@ -13,6 +13,7 @@ import {AppStarLabelRequiredModule} from '../../../../components/label-star-requ
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {AppLoadingBubbleModule} from '../../../../modules/app-loading-bubble';
 
 describe('TimeTableAcademicYearEditComponent', () => {
   let component: TimeTableAcademicYearEditComponent;
@@ -36,7 +37,8 @@ describe('TimeTableAcademicYearEditComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         AppStarLabelRequiredModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        AppLoadingBubbleModule
       ],
       declarations: [TimeTableAcademicYearEditComponent],
       providers: [

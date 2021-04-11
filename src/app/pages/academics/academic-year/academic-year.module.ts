@@ -19,7 +19,10 @@ import {ErrorModule} from 'src/app/components/error/error.module';
 import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import {AcademicYearTimeTablesComponent} from './academic-year-time-tables/academic-year-time-tables.component';
 import {FormErrorsModule} from '../../../shared/form-errors/form-errors.module';
-import { ReactiveComponentModule } from '@ngrx/component';
+import {ReactiveComponentModule} from '@ngrx/component';
+import {CloseAcademicYearSectionModule} from './close-academic-year-section/close-academic-year-section.module';
+import {DeleteAcademicYearModule} from './delete-academic-year/delete-academic-year.module';
+import {ArchiveAcademicYearModule} from './archive-academic-year/archive-academic-year.module';
 
 
 @NgModule({
@@ -47,7 +50,10 @@ import { ReactiveComponentModule } from '@ngrx/component';
     ErrorModule,
     AppValidateSubmitButtonsModule,
     FormErrorsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    CloseAcademicYearSectionModule,
+    DeleteAcademicYearModule,
+    ArchiveAcademicYearModule
   ]
 })
 export class AcademicYearModule {

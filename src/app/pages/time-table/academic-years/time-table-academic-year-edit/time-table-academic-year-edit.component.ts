@@ -1,6 +1,6 @@
 import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {TimeTableService} from '../../services/time-table.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {map, mergeMap, tap} from 'rxjs/operators';
 import {AcademicYearService} from 'src/app/pages/academics/services/academic-year.service';
 import {Observable, combineLatest, BehaviorSubject} from 'rxjs';
@@ -11,6 +11,7 @@ import {UnitsService} from 'src/app/services/units.service';
 import {SchoolRoomService} from 'src/app/pages/infrastructures/services/school-room.service';
 import {ClassLevelService} from 'src/app/services/class-level.service';
 import {ClassStreamService} from 'src/app/pages/academics/services/class-stream.service';
+import {loadingMixin} from '../../../../shared/mixins/loading.mixin';
 
 @Component({
   selector: 'app-time-table-academic-year-edit',
@@ -18,8 +19,7 @@ import {ClassStreamService} from 'src/app/pages/academics/services/class-stream.
   styleUrls: ['./time-table-academic-year-edit.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TimeTableAcademicYearEditComponent {
-
+export class TimeTableAcademicYearEditComponent extends loadingMixin() {
 
   academicYearId$: Observable<number> = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id')))
@@ -51,6 +51,7 @@ export class TimeTableAcademicYearEditComponent {
 
   activatedRouteParam$ = this.route.paramMap.pipe(map(params => Number(params.get('id'))));
   academicYearName$ = this.academicYearId$?.pipe(
+    tap(() => this.loadingSubject$.next(true)),
     mergeMap(id => this.academicYearService.getAcademicYearWithId({id})),
     map(({name}) => name)
   );
@@ -69,34 +70,38 @@ export class TimeTableAcademicYearEditComponent {
     this.streams$,
     this.weekDays$
   ]).pipe(
-    map(([timings, classLevels, editedTimeTable, teachers, units, rooms, streams, weekDays]: any[]) => editedTimeTable.map((item: any) => {
-
-        const classLevel = classLevels.find(({abbreviation, id}: any) => abbreviation === item.classLevelName || id === item.classLevelId);
+    map(([timings, classLevels, editedTimeTable, teachers, units, rooms, streams, weekDays]: any[]) =>
+      editedTimeTable.map((item: any) => {
+        const classLevel = classLevels.find(({abbreviation, id}: any) =>
+          abbreviation === item.classLevelName || id === item.classLevelId);
         const teacher = teachers.find(({id}: any) => id === item.teacherId);
-        const timing = timings.find(({start, end, id}: any) => start + ' - ' + end === item.timeValue || id === item.timeId);
-        const stream = streams.find(({abbreviation, id}: any) => abbreviation === item.streamName || id === item.streamId);
-        const weekDay = weekDays.find(({abbreviation, id}: any) => abbreviation === item.dayOfWeekName || id === item.dayOfWeekId);
+        const timing = timings.find(({start, end, id}: any) =>
+          start + ' - ' + end === item.timeValue || id === item.timeId);
+        const stream = streams.find(({abbreviation, id}: any) =>
+          abbreviation === item.streamName || id === item.streamId);
+        const weekDay = weekDays.find(({abbreviation, id}: any) =>
+          abbreviation === item.dayOfWeekName || id === item.dayOfWeekId);
         const unit = units.find(({id}: any) => id === item.subjectId);
         const room = rooms.find(({id}: any) => id === item.roomId);
-
         return {
           ...item,
           classLevelId: classLevel.id,
           classLevelName: classLevel.abbreviation,
-          teacherId: teacher.id,
-          teacherName: teacher.firstName + ' ' + teacher.lastName,
+          teacherId: teacher?.id,
+          teacherName: teacher ? teacher.firstName + ' ' + teacher.lastName : '',
           timeId: timing.id,
           streamId: stream.id,
           streamName: stream.abbreviation,
           dayOfWeekId: weekDay.id,
           dayOfWeekName: weekDay.abbreviation,
-          subjectName: unit.abbreviation,
-          roomAbbr: room.abbreviation,
-          roomId: room.id,
+          subjectName: unit ? unit.abbreviation : '',
+          roomAbbr: room ? room.abbreviation : '',
+          roomId: room?.id,
           timeValue: `${timing.start} - ${timing.end}`,
-          subjectId: item.unit_id,
+          subjectId: unit?.id,
         };
-      }))
+      })),
+    tap(() => this.loadingSubject$.next(false)),
   );
 
   timeTableForm$: Observable<any[]> = combineLatest([
@@ -107,7 +112,9 @@ export class TimeTableAcademicYearEditComponent {
     this.timings$
 
   ]).pipe(
-    map(([timetableLessons, classLevels, weekDays, streams, timings]) => classLevels.map(classLevel => ({
+    map(([timetableLessons, classLevels, weekDays, streams, timings]) =>
+      classLevels.map(classLevel =>
+        ({
           id: classLevel.id,
           name: `${classLevel.abbreviation}`,
           weekDays: weekDays.map(({abbreviation}) => abbreviation),
@@ -124,9 +131,9 @@ export class TimeTableAcademicYearEditComponent {
   editItemDetails$ = combineLatest([this.editedTimetable$, this.editItem$]).pipe(
     map(([timetable, editItem]: [any[], any]) => {
       const filteredItems = timetable.filter(item => item.classLevelName === editItem.classLevelName &&
-          item.dayOfWeekName === editItem.dayOfWeekName &&
-          item.streamName === editItem.streamName &&
-          item.timeValue === editItem.timeValue);
+        item.dayOfWeekName === editItem.dayOfWeekName &&
+        item.streamName === editItem.streamName &&
+        item.timeValue === editItem.timeValue);
       if (filteredItems.length > 0) {
         return filteredItems[0];
       }
@@ -141,10 +148,11 @@ export class TimeTableAcademicYearEditComponent {
   );
 
   editLessonForm: FormGroup = this.fb.group({
-    teacherId: [null, Validators.required],
+    teacherId: [null],
     roomId: [null],
-    subjectId: [null],
+    subjectId: [null, Validators.required],
   });
+
   constructor(
     private academicYearService: AcademicYearService,
     private timeTableService: TimeTableService,
@@ -155,14 +163,16 @@ export class TimeTableAcademicYearEditComponent {
     private unitsService: UnitsService,
     private schoolRoomService: SchoolRoomService,
     private classLevelsService: ClassLevelService,
-    private streamsService: ClassStreamService
+    private streamsService: ClassStreamService,
+    private router: Router
   ) {
+    super();
   }
 
   editLesson({template, classLevelName, stream: streamName, timing: timeValue, dayOfWeekName, lesson}: any) {
     const lessonValues = lesson?.[streamName]?.[timeValue];
     if (lessonValues) {
-      this.editLessonForm.setValue({
+      this.editLessonForm.patchValue({
         teacherId: lessonValues.teacherId,
         roomId: lessonValues.roomId,
         subjectId: lessonValues.subjectId
@@ -182,10 +192,11 @@ export class TimeTableAcademicYearEditComponent {
   saveLesson() {
     const editItem = this.editItem$.value;
     const timeTableItems = this.editedTimetableSubject$.value;
-    const filteredItems = timeTableItems.filter(item => item.classLevelName === editItem.classLevelName &&
-        item.dayOfWeekName === editItem.dayOfWeekName &&
-        item.streamName === editItem.streamName &&
-        item.timeValue === editItem.timeValue);
+    const filteredItems = timeTableItems.filter(item =>
+      item.classLevelName === editItem.classLevelName &&
+      item.dayOfWeekName === editItem.dayOfWeekName &&
+      item.streamName === editItem.streamName &&
+      item.timeValue === editItem.timeValue);
     if (filteredItems.length > 0) {
       timeTableItems[timeTableItems.indexOf(filteredItems[0])] = {
         ...timeTableItems[timeTableItems.indexOf(filteredItems[0])],
@@ -215,7 +226,7 @@ export class TimeTableAcademicYearEditComponent {
     ]).pipe(
       mergeMap(([editedTimetable, params]) =>
         this.timeTableService.saveLessonsFor({...params, data: editedTimetable})),
-    ).subscribe();
+    ).subscribe({next: () => this.router.navigate(['../'], {relativeTo: this.route}).then()});
   }
 
 }

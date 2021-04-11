@@ -14,6 +14,7 @@ import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {reducers} from '../../../store/reducers';
 
 describe('EditPublisherComponent', () => {
   let component: EditPublisherComponent;
@@ -30,6 +31,7 @@ describe('EditPublisherComponent', () => {
             strictActionImmutability: true,
           }
         }),
+        StoreModule.forFeature('library', reducers),
         HttpClientTestingModule,
         RouterTestingModule,
         FormsModule,

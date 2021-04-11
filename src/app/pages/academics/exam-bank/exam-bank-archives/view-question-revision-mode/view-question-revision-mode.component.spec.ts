@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppCheckboxModule } from 'src/app/shared/checkbox/checkbox.module';
+import {MathModule} from '../../../../../shared/math/math.module';
 
 describe('ViewQuestionRevisionModeComponent', () => {
   let component: ViewQuestionRevisionModeComponent;
@@ -18,7 +19,8 @@ describe('ViewQuestionRevisionModeComponent', () => {
         FormsModule,
         HttpClientTestingModule,
         RouterTestingModule,
-        AppCheckboxModule
+        AppCheckboxModule,
+        MathModule
       ],
       declarations: [ ViewQuestionRevisionModeComponent ]
     })

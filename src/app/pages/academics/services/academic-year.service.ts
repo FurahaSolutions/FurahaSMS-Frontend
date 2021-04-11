@@ -3,30 +3,30 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 
+interface IArchivableItem {
+  name: string;
+  permissionName: string;
+  slug: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AcademicYearService {
   url = 'api/academic-years';
   all$ = this.http.get<any>(this.url);
+  active$ = this.http.get<any>(this.url, {params: {archived: '0'}});
+  archived$ = this.http.get<any>(this.url, {params: {archived: '1'}});
+  archivableItems$ = this.http.get<IArchivableItem[]>(this.url + '/archivable-items');
+
   constructor(private http: HttpClient) {
   }
+
   urlWithId = (id: number) => `${this.url}/${id}`;
 
   saveUnitLevels(academicYearId: number, data: any): Observable<any> {
     const url = `api/academic-years/${academicYearId}/unit-levels`;
     return this.http.post(url, data);
-  }
-
-  getFilter(data: { active: boolean } = {active: false}) {
-    const {active} = data;
-    let url = 'api/academic-years?';
-    if (active) {
-      url += 'active=1';
-    }
-    return this.http.get<any>(url).pipe(
-      map(res => res)
-    );
   }
 
   get(data: { id: number; classLevels?: 1 }) {
@@ -78,7 +78,24 @@ export class AcademicYearService {
       map(res => res)
     );
   }
+
   getSemestersForAcademicYearWithId(id: number) {
     return this.http.get<any[]>(`${this.urlWithId(id)}/semesters`);
+  }
+
+  archivableItemsForAcademicYearWithId(id: number) {
+    return this.http.get<any[]>(`${this.urlWithId(id)}/archivable-items`);
+  }
+
+  saveClosedStatus({id, openClose, slug}: { id: number; openClose: 'close' | 'open'; slug: string }) {
+    return this.http.post<any>(`${this.urlWithId(id)}/${openClose}/${slug}`, {});
+  }
+
+  saveArchiveStatus({ id }: {id: number}) {
+    return this.http.post<any>(`${this.urlWithId(id)}/archive`, {});
+  }
+
+  saveDeletedStatus({ id }: {id: number}) {
+    return this.http.delete<any>(`${this.urlWithId(id)}`);
   }
 }
