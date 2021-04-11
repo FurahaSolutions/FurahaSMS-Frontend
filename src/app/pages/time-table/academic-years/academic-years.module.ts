@@ -31,7 +31,7 @@ import {AppLoadingBubbleModule} from '../../../modules/app-loading-bubble';
         CommonModule,
         AcademicYearsRoutingModule,
         AccordionModule.forRoot(),
-        ModalModule.forRoot(),
+        ModalModule.forChild(),
         NgSelectModule,
         ReactiveFormsModule,
         AppInputModule,
