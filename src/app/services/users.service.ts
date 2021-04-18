@@ -43,7 +43,7 @@ export class UsersService {
     headers.append('Accept', 'application/json');
     myFormData.append('profilePicture', file);
 
-    return this.http.post('api/users/profile-picture', myFormData, { headers });
+    return this.http.post('api/files', myFormData, { headers });
   }
 
   saveProfilePicture({ userId, profilePicId }: { userId: number; profilePicId: number }): Observable<any> {
@@ -55,7 +55,7 @@ export class UsersService {
     const headers = new HttpHeaders();
     headers.append('Accept', 'application/pdf');
     headers.append('Content-Type', 'application/pdf');
-    return this.http.get(`api/users/profile-picture/${userId}`, { headers, responseType: 'blob' });
+    return this.http.get(`api/files?userId=${userId}&profilePic=1`, { headers, responseType: 'blob' });
   }
 
   resetPasswordForUserWithId = ({ id, resetPassword }: { id: number; resetPassword: string }) =>
