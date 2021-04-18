@@ -6,7 +6,7 @@ import {
   createSelector,
   MetaReducer
 } from '@ngrx/store';
-import { environment } from './../../../environments/environment';
+import { environment } from '../../../environments/environment';
 import * as fromToast from './toast.reducer';
 import * as fromMenuToggle from './menu-toggle.reducer';
 import * as fromStudentProfileUpdate from './student-profile-update.reducer';
