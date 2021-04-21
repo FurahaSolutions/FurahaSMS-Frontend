@@ -20,6 +20,9 @@ jobs:
     - uses: actions/setup-node@v1 #this will install Node and npm on Ubuntu
       with:
         node-version: '14.x'
+    - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+    - run: chmod +x ./cc-test-reporter
+    - run: ./cc-test-reporter before-build
     - run: npm install
     - run: npm i -g @angular/cli
     - run: npm i coveralls
