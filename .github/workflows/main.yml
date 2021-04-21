@@ -14,6 +14,7 @@ jobs:
       with:
         node-version: '14.x'
     - run: npm install
+    - run: npm i -g @angular/cli
     - run: npm i coveralls
     - run: npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox --code-coverage
     - run: ng build --prod --output-path=dist --base-href="https://furahasolutions.github.io/FSMS-frontend/"
