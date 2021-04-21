@@ -1,0 +1,26 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main, develop]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Action Checkout
+      uses: actions/checkout@v1
+    - name: Action Node
+      uses: actions/setup-node@v1 #this will install Node and npm on Ubuntu
+      with:
+        node-version: '14.x'
+    - name: Install Packages
+      run: |
+        npm install
+        npm i -g @angular/cli
+        npm i coveralls
+    - name: Run Tests and Generate code coverage
+      run: npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox --code-coverage
+    - name: Build app
+    - run: ng build --prod --output-path=dist --base-href="https://furahasolutions.github.io/FSMS-frontend/"

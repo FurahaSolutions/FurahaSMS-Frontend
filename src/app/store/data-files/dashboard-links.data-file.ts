@@ -18,7 +18,7 @@ export const dashboardLinks = [
   },
   {
     name: 'Library', icon: 'icon-library', link: 'library',
-    permissions: ['edit library book tag', 'add library book tag', 'add library book', 'edit library book',
+    permissions: ['update library book tag', 'create library book tag', 'create library book', 'update library book',
       'issue Library book', 'mark library book returned', 'access library admin', 'access library account',
       'access library']
   },

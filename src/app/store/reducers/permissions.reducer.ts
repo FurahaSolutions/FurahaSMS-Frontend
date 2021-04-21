@@ -23,14 +23,14 @@ export const initialState: State = {
 
   libraryAdminUsers: [
     {
-      name: 'Add Library User', icon: 'icon-user-plus', link: 'library/admin/users/add', permissions: ['add library user']
+      name: 'Add Library User', icon: 'icon-user-plus', link: 'library/admin/users/add', permissions: ['create library user']
     },
   ],
 
   libraryAdminBooks: [
     {
-      name: 'Add Library Book', icon: 'icon-plus-squared', link: 'library/admin/books/create',
-      permissions: ['edit library book', 'add library book']
+      name: 'Create Library Book', icon: 'icon-plus-squared', link: 'library/admin/books/create',
+      permissions: ['update library book', 'create library book']
     },
   ],
 
@@ -39,23 +39,23 @@ export const initialState: State = {
   libraryAdmin: [
     {
       name: 'Users Management', icon: 'icon-users-1', link: 'library/admin/users',
-      permissions: ['add library user', 'block library user', 'unblock library user']
+      permissions: ['create library user', 'block library user', 'unblock library user']
     },
     {
       name: 'Books Management', icon: 'icon-book', link: 'library/admin/books',
-      permissions: ['add library book', 'edit library book']
+      permissions: ['create library book', 'update library book']
     },
     {
       name: 'Authors Management', icon: 'icon-pencil', link: 'library/admin/authors',
-      permissions: ['add library book author', 'edit library book author']
+      permissions: ['create library book author', 'update library book author']
     },
     {
       name: 'Publishers Management', icon: 'icon-library', link: 'library/admin/publishers',
-      permissions: ['add library book publisher', 'edit library book publisher']
+      permissions: ['create library book publisher', 'update library book publisher']
     },
     {
       name: 'Tags Management', icon: 'icon-tag', link: 'library/admin/tags',
-      permissions: ['add library book tag', 'edit library book tag']
+      permissions: ['create library book tag', 'update library book tag']
     }
   ],
 
