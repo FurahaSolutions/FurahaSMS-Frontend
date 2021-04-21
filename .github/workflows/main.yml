@@ -18,8 +18,3 @@ jobs:
     - run: npm i coveralls
     - run: npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox --code-coverage
     - run: ng build --prod --output-path=dist --base-href="https://furahasolutions.github.io/FSMS-frontend/"
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@4.1.1
-      with:
-        branch: gh-pages-deploy # The branch the action should deploy to.
-        folder: dist # The folder the action should deploy.
