@@ -11,6 +11,12 @@ jobs:
       CC_TEST_REPORTER_ID: d667f8ab675dcfb424b150f5942668f8d0827c9eadda936a03840e1194b68341
     steps:
     - uses: actions/checkout@v1
+
+    - uses: actions/cache@v2
+      with:
+        path: '**/node_modules'
+        key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
+
     - uses: actions/setup-node@v1 #this will install Node and npm on Ubuntu
       with:
         node-version: '14.x'
