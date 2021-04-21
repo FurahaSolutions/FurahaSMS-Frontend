@@ -1,4 +1,4 @@
-name: FrontEnd Continuous Integration
+name: CI
 on:
   push:
     branches: [ main ]
@@ -28,4 +28,5 @@ jobs:
     - run: npm i -g coveralls
     - run: npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox --code-coverage
     - run: ng build --prod
+    - run: npm run lint --fix
     - run: cat ./coverage/lcov.info | coveralls
