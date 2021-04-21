@@ -2,7 +2,7 @@ name: CI
 on:
   push:
     branches: [ main ]
-  pull_request: 
+  pull_request:
     branches: [ main, develop]
 jobs:
   build:
@@ -15,9 +15,8 @@ jobs:
         node-version: '14.x'
     - run: npm install
     - run: npm i coveralls
-    - run: npm install -g @angular/cli > /dev/null
     - run: npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox --code-coverage
-    - run: ng build --prod --output-path=dist --base-href="https://techiediaries.github.io/angular-bootstrap-demo/"
+    - run: ng build --prod --output-path=dist --base-href="https://furahasolutions.github.io/FSMS-frontend/"
     - name: Publish generated content to GitHub Pages
       uses: tsunematsu21/actions-publish-gh-pages@v1.0.1
       with:
