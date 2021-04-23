@@ -9,7 +9,7 @@ import {map, shareReplay} from 'rxjs/operators';
 export class UnitsService {
 
   url = 'api/curriculum/units';
-  all$ = this.http.get<any[]>(`${this.url}/all`);
+  all$ = this.http.get<any[]>(`${this.url}`);
 
   constructor(private http: HttpClient) {
   }
@@ -43,7 +43,7 @@ export class UnitsService {
   }
 
   getAllActiveSubjects(): Observable<any> {
-    const url = 'api/curriculum/units/all?active=1';
+    const url = 'api/curriculum/units?active=1';
     return this.http.get<any>(url).pipe(shareReplay());
   }
 

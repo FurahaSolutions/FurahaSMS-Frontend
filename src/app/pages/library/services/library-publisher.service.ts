@@ -17,7 +17,7 @@ export class LibraryPublisherService {
   );
 
 
-  all$: Observable<any> = this.http.get('api/library-books/publishers/all');
+  all$: Observable<any> = this.http.get('api/library-books/publishers');
   constructor(private http: HttpClient, private store: Store) {
   }
 
