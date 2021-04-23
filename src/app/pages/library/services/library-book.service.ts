@@ -25,6 +25,6 @@ export class LibraryBookService {
   }
 
   filter(params: any): Observable<any[]> {
-    return this.http.get<any[]>(`api/library-books/filter`, {params});
+    return this.http.get<any[]>(`api/library-books`, {params});
   }
 }

@@ -8,7 +8,7 @@ import {
 import {ICourse} from '../../e-learning/interfaces/course.interface';
 
 
-export const coursesFeatureKey = 'courses';
+  export const coursesFeatureKey = 'courses';
 
 export interface State {
   [id: number]: ICourse;

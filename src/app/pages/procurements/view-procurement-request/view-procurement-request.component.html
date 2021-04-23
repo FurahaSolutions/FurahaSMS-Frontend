@@ -1,15 +1,17 @@
 <h1>View Procurement Request </h1>
-<section *ngIf='(procurementItem$ | ngrxPush) as procurementItem; else item_loading'>
-
-  <table class="table table-bordered bg-dark text-light">
-    <caption>Procurement Item Request Description</caption>
-    <thead>
-     <tr>
+<div class="card p-2">
+  <div class="d-flex justify-content-end"><button class="btn btn-primary"><span class="icon-plus-circled"></span>New request</button></div>
+  <section *ngIf='(procurementItem$ | ngrxPush) as procurementItem; else item_loading'>
+    <h2>Request for "{{ procurementItem.name }}"</h2>
+    <table class="table table-bordered bg-dark text-light">
+      <caption>Procurement Item Request Description</caption>
+      <thead>
+      <tr>
         <th>Title</th>
         <th>Description</th>
-     </tr>
-    </thead>
-    <tbody>
+      </tr>
+      </thead>
+      <tbody>
       <tr>
         <td>Request ID</td>
         <td>#{{ procurementItem.id }}</td>
@@ -26,10 +28,13 @@
         <td>Requested by</td>
         <td>{{ procurementItem.user?.first_name }} {{procurementItem.user?.last_name}}</td>
       </tr>
-    </tbody>
-  </table>
-</section>
+      </tbody>
+    </table>
+  </section>
+</div>
 <ng-template #item_loading>
-  <app-loading-bubble></app-loading-bubble>
+  <div class="card p-2">
+    <app-loading-bubble></app-loading-bubble>
+  </div>
 </ng-template>
 

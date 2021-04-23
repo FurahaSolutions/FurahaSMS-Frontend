@@ -56,6 +56,20 @@ const routes: Routes = [
         data: {
           breadcrumb: null
         },
+      },
+      {
+        path: ':id/edit',
+        component: EditProcurementRequestComponent,
+        data: {
+          breadcrumb: null
+        },
+      },
+      {
+        path: ':id/view',
+        component: ViewProcurementRequestComponent,
+        data: {
+          breadcrumb: null
+        },
       }
     ]
   },
