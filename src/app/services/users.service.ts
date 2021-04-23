@@ -55,7 +55,7 @@ export class UsersService {
     const headers = new HttpHeaders();
     headers.append('Accept', 'application/pdf');
     headers.append('Content-Type', 'application/pdf');
-    return this.http.get(`api/files?userId=${userId}&profilePic=1`, { headers, responseType: 'blob' });
+    return this.http.get(`api/files?userId=${userId}&profilePicture=1`, { headers, responseType: 'blob' });
   }
 
   resetPasswordForUserWithId = ({ id, resetPassword }: { id: number; resetPassword: string }) =>
