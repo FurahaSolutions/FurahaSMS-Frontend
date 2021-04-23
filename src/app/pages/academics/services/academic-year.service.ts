@@ -79,8 +79,8 @@ export class AcademicYearService {
     );
   }
 
-  getSemestersForAcademicYearWithId(id: number) {
-    return this.http.get<any[]>(`${this.urlWithId(id)}/semesters`);
+  getAcademicYearWithSemesters(id: number) {
+    return this.http.get<any>(`${this.urlWithId(id)}?semesters=1`);
   }
 
   archivableItemsForAcademicYearWithId(id: number) {

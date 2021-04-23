@@ -11,10 +11,10 @@ export class CacheInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const cachedResponse: HttpResponse<any> | undefined = this.cacheService.get(req.url);
     const cachableUrl: string[] = [
-      `genders/all`,
-      `religions/all`,
-      `library-books/authors/all`,
-      `library-books/publishers/all`,
+      `genders`,
+      `religions`,
+      `library-books/authors`,
+      `library-books/publishers`,
       `library-books/classifications`,
       `curriculum/class-level-categories`,
       `phones/allowed-countries`

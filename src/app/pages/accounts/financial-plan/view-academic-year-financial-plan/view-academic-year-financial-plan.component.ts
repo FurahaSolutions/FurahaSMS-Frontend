@@ -21,7 +21,8 @@ export class ViewAcademicYearFinancialPlanComponent {
   );
 
   semesters$ = this.academicYearPlanId$.pipe(
-    mergeMap(id => this.academicYearService.getSemestersForAcademicYearWithId(id))
+    mergeMap(id => this.academicYearService.getAcademicYearWithSemesters(id)),
+    map(({semesters}) => semesters)
   );
   academicYear$ = this.academicYearPlan$.pipe(
     map((plan) => plan?.academicYear)
