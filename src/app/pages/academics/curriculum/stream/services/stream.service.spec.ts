@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
-import { StreamService } from './semester.service';
+import { StreamService } from './stream.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('SemesterService', () => {
+describe('StreamService', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [HttpClientTestingModule]
   }));
