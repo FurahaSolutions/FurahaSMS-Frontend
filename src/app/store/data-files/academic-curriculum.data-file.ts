@@ -33,6 +33,7 @@ export const academicCurriculumLinks = [
       'create subject curriculum']
   },
   {
-    name: 'Class Stream Management'
+    name: 'Class Stream Management', icon: 'icon-docs', link: 'academics/curriculum/streams',
+    permissions: ['create stream', 'update stream', 'delete stream']
   }
 ];
