@@ -32,4 +32,7 @@ export const academicCurriculumLinks = [
     permissions: ['access curriculum management', 'view subject curriculum', 'edit subject curriculum',
       'create subject curriculum']
   },
+  {
+    name: 'Class Stream Management'
+  }
 ];
