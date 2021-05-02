@@ -1,9 +1,9 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {RolesAndPermissionsComponent} from './roles-and-permissions.component';
 import {AppLinksModule} from 'src/app/shared/links/links.module';
 import {StoreModule} from '@ngrx/store';
-import {REDUCER_TOKEN, reducerProvider, metaReducers} from 'src/app/store/reducers';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {RouterTestingModule} from '@angular/router/testing';
 import {myProfileFeatureKey, reducer} from 'src/app/pages/my-profile/store/reducers/my-profile.reducer';
 import {appFeatureKey, reducers} from '../../store/reducers/app.reducer';

@@ -1,14 +1,14 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { CreateExamComponent } from './create-exam.component';
-import { AppInputModule } from 'src/app/components/input/app-input.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { StoreModule } from '@ngrx/store';
-import { REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
-import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
+import {CreateExamComponent} from './create-exam.component';
+import {AppInputModule} from 'src/app/components/input/app-input.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {StoreModule} from '@ngrx/store';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import {FormErrorsModule} from '../../../../../shared/form-errors/form-errors.module';
 
 describe('CreateExamComponent', () => {
@@ -37,7 +37,7 @@ describe('CreateExamComponent', () => {
       declarations: [CreateExamComponent],
       providers: [reducerProvider]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

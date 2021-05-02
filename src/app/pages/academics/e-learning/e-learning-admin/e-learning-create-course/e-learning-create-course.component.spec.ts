@@ -1,15 +1,15 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ELearningCreateCourseComponent } from './e-learning-create-course.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppInputModule } from 'src/app/components/input/app-input.module';
-import { EditorModule } from '@tinymce/tinymce-angular';
-import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { StoreModule } from '@ngrx/store';
-import { REDUCER_TOKEN, reducerProvider, metaReducers } from 'src/app/store/reducers';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
+import {ELearningCreateCourseComponent} from './e-learning-create-course.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AppInputModule} from 'src/app/components/input/app-input.module';
+import {EditorModule} from '@tinymce/tinymce-angular';
+import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
+import {ModalModule} from 'ngx-bootstrap/modal';
+import {StoreModule} from '@ngrx/store';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import {RouterTestingModule} from '@angular/router/testing';
 import {AppStarLabelRequiredModule} from '../../../../../components/label-star-required/app-star-label-required';
 import {SortableModule} from 'ngx-bootstrap/sortable';
@@ -59,7 +59,7 @@ describe('ELearningCreateCourseComponent', () => {
         }
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { AcademicYearsComponent } from './academic-years.component';
-import { AccordionModule } from 'ngx-bootstrap/accordion';
+import {AcademicYearsComponent} from './academic-years.component';
+import {AccordionModule} from 'ngx-bootstrap/accordion';
 
 describe('AcademicYearsComponent', () => {
   let component: AcademicYearsComponent;
@@ -12,9 +12,9 @@ describe('AcademicYearsComponent', () => {
       imports: [
         AccordionModule.forRoot()
       ],
-      declarations: [ AcademicYearsComponent ]
+      declarations: [AcademicYearsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

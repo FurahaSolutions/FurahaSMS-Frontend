@@ -1,13 +1,13 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ViewSupportStaffInfoComponent } from './view-support-staff-info.component';
-import { RouterTestingModule } from '@angular/router/testing';
-import { StoreModule, Store } from '@ngrx/store';
-import { REDUCER_TOKEN, reducerProvider, metaReducers } from 'src/app/store/reducers';
-import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
-import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
-import { reducers } from '../../store/reducers';
+import {ViewSupportStaffInfoComponent} from './view-support-staff-info.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {Store, StoreModule} from '@ngrx/store';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import {ActivatedRoute} from '@angular/router';
+import {of} from 'rxjs';
+import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
+import {reducers} from '../../store/reducers';
 
 describe('ViewSupportStaffInfoComponent', () => {
   let component: ViewSupportStaffInfoComponent;
@@ -34,7 +34,7 @@ describe('ViewSupportStaffInfoComponent', () => {
           provide: ActivatedRoute,
           useValue: {
             parent: {
-              paramMap: of({ get: () => 1 })
+              paramMap: of({get: () => 1})
             }
           }
         },

@@ -1,9 +1,9 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { EditStreamComponent } from './edit-stream.component';
-import { ErrorModule } from 'src/app/components/error/error.module';
-import { RouterTestingModule } from '@angular/router/testing';
-import { reducerProvider } from 'src/app/store/reducers';
+import {EditStreamComponent} from './edit-stream.component';
+import {ErrorModule} from 'src/app/components/error/error.module';
+import {RouterTestingModule} from '@angular/router/testing';
+import {reducerProvider} from 'src/app/store/reducers';
 
 describe('EditStreamComponent', () => {
   let component: EditStreamComponent;
@@ -17,7 +17,7 @@ describe('EditStreamComponent', () => {
       declarations: [EditStreamComponent],
       providers: [reducerProvider]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

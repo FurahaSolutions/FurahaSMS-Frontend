@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ELearningCourseComponent } from './e-learning-course.component';
-import { RouterTestingModule } from '@angular/router/testing';
+import {ELearningCourseComponent} from './e-learning-course.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('ELearningCourseComponent', () => {
   let component: ELearningCourseComponent;
@@ -12,9 +12,9 @@ describe('ELearningCourseComponent', () => {
       imports: [
         RouterTestingModule
       ],
-      declarations: [ ELearningCourseComponent ]
+      declarations: [ELearningCourseComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

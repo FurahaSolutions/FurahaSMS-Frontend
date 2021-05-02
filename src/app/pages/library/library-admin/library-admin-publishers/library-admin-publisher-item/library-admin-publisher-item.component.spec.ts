@@ -1,10 +1,10 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { LibraryAdminPublisherItemComponent } from './library-admin-publisher-item.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { StoreModule } from '@ngrx/store';
-import { REDUCER_TOKEN, reducerProvider, metaReducers } from 'src/app/store/reducers';
-import { RouterTestingModule } from '@angular/router/testing';
+import {LibraryAdminPublisherItemComponent} from './library-admin-publisher-item.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {StoreModule} from '@ngrx/store';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import {RouterTestingModule} from '@angular/router/testing';
 import {libraryFeatureKey, reducers} from '../../../store/reducers';
 
 describe('LibraryAdminPublisherItemComponent', () => {
@@ -28,7 +28,7 @@ describe('LibraryAdminPublisherItemComponent', () => {
       declarations: [LibraryAdminPublisherItemComponent],
       providers: [reducerProvider]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

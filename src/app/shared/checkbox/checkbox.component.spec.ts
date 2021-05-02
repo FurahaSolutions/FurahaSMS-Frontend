@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { CheckboxComponent } from './checkbox.component';
-import { FormsModule } from '@angular/forms';
+import {CheckboxComponent} from './checkbox.component';
+import {FormsModule} from '@angular/forms';
 
 describe('CheckboxComponent', () => {
   let component: CheckboxComponent;
@@ -12,9 +12,9 @@ describe('CheckboxComponent', () => {
       imports: [
         FormsModule
       ],
-      declarations: [ CheckboxComponent ]
+      declarations: [CheckboxComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
