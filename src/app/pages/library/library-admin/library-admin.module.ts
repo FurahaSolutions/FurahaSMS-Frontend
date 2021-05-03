@@ -15,7 +15,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AppSelectLibraryClassModule } from '../modules/select-library-class.module';
-import { EditorModule } from '@tinymce/tinymce-angular';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { ReactiveComponentModule } from '@ngrx/component';
 
@@ -40,7 +39,6 @@ import { ReactiveComponentModule } from '@ngrx/component';
     AppInputModule,
     TabsModule.forRoot(),
     AppSelectLibraryClassModule,
-    EditorModule,
     AppValidateSubmitButtonsModule,
     ReactiveComponentModule
   ]

@@ -1,13 +1,13 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {LibraryAdminComponent} from './library-admin.component';
-import {Store, StoreModule} from '@ngrx/store';
-import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {RouterTestingModule} from '@angular/router/testing';
-import {AppLinksModule} from 'src/app/shared/links/links.module';
-import {myProfileFeatureKey, reducer} from 'src/app/pages/my-profile/store/reducers/my-profile.reducer';
-import {appFeatureKey, reducers} from '../../../store/reducers/app.reducer';
-import {CreateUnitComponent} from '../../academics/curriculum/create-unit/create-unit.component';
+import { LibraryAdminComponent } from './library-admin.component';
+import { Store, StoreModule } from '@ngrx/store';
+import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AppLinksModule } from 'src/app/shared/links/links.module';
+import { myProfileFeatureKey, reducer } from 'src/app/pages/my-profile/store/reducers/my-profile.reducer';
+import { appFeatureKey, reducers } from '../../../store/reducers/app.reducer';
+import { CreateUnitComponent } from '../../academics/curriculum/create-unit/create-unit.component';
 
 describe('LibraryAdminComponent', () => {
   let component: LibraryAdminComponent;

@@ -1,13 +1,13 @@
-import {Component} from '@angular/core';
-import {Store} from '@ngrx/store';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import * as fromStore from '../../../../../store/reducers';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
-import {LibraryAuthorService} from 'src/app/pages/library/services/library-author.service';
-import {map, mergeMap, takeUntil, tap} from 'rxjs/operators';
-import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-container.mixin';
-import {formWithEditorMixin} from '../../../../../shared/mixins/form-with-editor.mixin';
-import {from} from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LibraryAuthorService } from 'src/app/pages/library/services/library-author.service';
+import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
+import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
+import { formWithEditorMixin } from '../../../../../shared/mixins/form-with-editor.mixin';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-create-author',

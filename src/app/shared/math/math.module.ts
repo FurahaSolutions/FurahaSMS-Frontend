@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {MathDirective} from './math.directive';
 import {MathService} from './math.service';
 import { ReactiveComponentModule } from '@ngrx/component';
-
+console.log({tr: 'this.elNativeElement'});
 @NgModule({
   declarations: [MathDirective],
   imports: [
