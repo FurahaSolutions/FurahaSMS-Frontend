@@ -24,6 +24,7 @@ export class MathService {
   }
 
   ready(): Observable<boolean> {
+    console.log({mathJax: MathJax});
     return this.notifier;
   }
 
@@ -35,7 +36,7 @@ export class MathService {
         element.innerHTML = this.removeTrailingBrackets(math.mathml ? math.mathml : '');
       }
     }
-
+    console.log({mathJax: MathJax});
     MathJax?.Hub?.Queue(['Typeset', MathJax?.Hub, element]);
   }
 

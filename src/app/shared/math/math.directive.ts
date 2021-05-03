@@ -15,16 +15,23 @@ export class MathDirective extends subscribedContainerMixin() implements OnInit 
   constructor(private service: MathService, private el: ElementRef) {
     super();
     this.elNativeElement = el.nativeElement as HTMLElement;
-    console.log({tr: this.elNativeElement});
-  }
-
-  ngOnInit(): void {
+    console.log('here');
     this.service.ready().pipe(
-      take(1),
+      take(10),
       takeUntil(this.destroyed$)
     ).subscribe(_res => {
       console.log({iii: this.elNativeElement});
       this.service.render(this.elNativeElement, this.appMath);
     });
+  }
+
+  ngOnInit(): void {
+    // this.service.ready().pipe(
+    //   take(1),
+    //   takeUntil(this.destroyed$)
+    // ).subscribe(_res => {
+    //   console.log({iii: this.elNativeElement});
+    //   this.service.render(this.elNativeElement, this.appMath);
+    // });
   }
 }

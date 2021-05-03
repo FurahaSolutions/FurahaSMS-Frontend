@@ -1,27 +1,28 @@
-import {Component, OnInit, TemplateRef} from '@angular/core';
-import {select, Store} from '@ngrx/store';
-import {AppState} from 'src/app/store/reducers';
-import {Observable} from 'rxjs';
-import {selectExamPaperItemState} from '../../store/selectors/exam-paper.selectors';
-import {BsModalService} from 'ngx-bootstrap/modal';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {map, mergeMap, takeUntil, tap} from 'rxjs/operators';
-import {CanDeactivateGuard} from 'src/app/guards/can-deactivate.guard';
-import {ExamPaperQuestionsService} from '../../services/exam-paper-questions.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {loadExamPapers} from '../../store/actions/exam-paper.actions';
-import {answersMatchValidator} from '../../validators/answers-match.validator';
-import {IExamPaperQuestion} from '../../interfaces/exam-paper-question.interface';
-import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-container.mixin';
-import {formWithEditorMixin} from '../../../../../shared/mixins/form-with-editor.mixin';
-import {modalMixin} from '../../../../../shared/mixins/modal.mixin';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/reducers';
+import { Observable } from 'rxjs';
+import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selectors';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
+import { CanDeactivateGuard } from 'src/app/guards/can-deactivate.guard';
+import { ExamPaperQuestionsService } from '../../services/exam-paper-questions.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { loadExamPapers } from '../../store/actions/exam-paper.actions';
+import { answersMatchValidator } from '../../validators/answers-match.validator';
+import { IExamPaperQuestion } from '../../interfaces/exam-paper-question.interface';
+import { subscribedContainerMixin } from 'src/app/shared/mixins/subscribed-container.mixin';
+
+import { modalMixin } from 'src/app/shared/mixins/modal.mixin';
+import { formWithMathEditorMixin } from 'src/app/shared/mixins/form-with-math-editor.mixin';
 
 @Component({
   selector: 'app-admin-exam-paper-edit',
   templateUrl: './admin-exam-paper-edit.component.html',
   styleUrls: ['./admin-exam-paper-edit.component.css']
 })
-export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalMixin(formWithEditorMixin()))
+export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalMixin(formWithMathEditorMixin()))
   implements OnInit, CanDeactivateGuard {
   examPaper$: Observable<any>;
   activeQuestion = 0;
@@ -63,7 +64,7 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
       takeUntil(this.destroyed$),
       mergeMap(id => this.store.pipe(select(selectExamPaperItemState(id)))),
       tap(res => {
-        if (res) {
+        if(res) {
           this.queries = res.questions.map((item: any) => ({
             id: item.id,
             correctAnswerDescription: item.correct_answer_description,
@@ -85,7 +86,7 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
     this.multipleChoices.valueChanges
       .pipe(takeUntil(this.destroyed$))
       .subscribe(value => {
-        if (value) {
+        if(value) {
           this.multipleAnswers.setValidators([Validators.required]);
         } else {
           this.multipleAnswers.setValidators([]);
@@ -97,10 +98,10 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
   resetForm(question?: any) {
     const answers = (question && question.answers) ? question.answers : [];
     const tags = (question && question.tags) ? question.tags : [];
-    while (this.answers.length) {
+    while(this.answers.length) {
       this.answers.removeAt(0);
     }
-    while (this.tags.length) {
+    while(this.tags.length) {
       this.tags.removeAt(0);
     }
     this.editDialogForm.patchValue({
@@ -123,10 +124,10 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
   openTemplateModal(template: TemplateRef<any>, action: string, i: number) {
     this.validated = false;
     this.submitted = false;
-    if (document.fullscreenElement !== null) {
+    if(document.fullscreenElement !== null) {
       document.exitFullscreen().then();
     }
-    switch (action) {
+    switch(action) {
 
       case 'add-before':
         this.dialog.title = `New Question before Qn ${i + 1}`;
@@ -176,10 +177,10 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
   saveQuestion() {
     this.editDialogForm.setValidators(answersMatchValidator);
     this.editDialogForm.updateValueAndValidity();
-    if (this.editDialogForm.invalid) {
+    if(this.editDialogForm.invalid) {
       this.validated = true;
     } else {
-      if (this.dialog.type === 'edit') {
+      if(this.dialog.type === 'edit') {
         this.queries[this.dialog.index] = {...this.editDialogForm.value};
       } else {
         this.queries.splice(this.dialog.index, 0, this.editDialogForm.value);
@@ -227,7 +228,7 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
 
   deleteTag(j: number) {
     const deletionConfirmed = confirm(`Are You sure you wish to delete tag ${this.tags.value[j]} ?`);
-    if (deletionConfirmed) {
+    if(deletionConfirmed) {
       this.tags.controls.splice(j, 1);
       this.tags.updateValueAndValidity();
     }
@@ -235,7 +236,7 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
 
   deleteAnswer(i: number) {
     const deletionConfirmed = confirm(`Are You sure you wish to delete answer`);
-    if (deletionConfirmed) {
+    if(deletionConfirmed) {
       this.answers.controls.splice(i, 1);
       this.answers.updateValueAndValidity();
     }

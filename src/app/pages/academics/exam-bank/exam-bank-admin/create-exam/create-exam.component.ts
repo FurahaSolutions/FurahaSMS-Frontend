@@ -1,15 +1,17 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Validators, FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExamPaperService } from '../../services/exam-paper.service';
 import { Router } from '@angular/router';
-import { takeWhile } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
+import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../../../../shared/mixins/form.mixin';
 
 @Component({
   selector: 'app-create-exam',
   templateUrl: './create-exam.component.html',
   styleUrls: ['./create-exam.component.css']
 })
-export class CreateExamComponent implements OnDestroy {
+export class CreateExamComponent extends subscribedContainerMixin(formMixin()) {
   newExamForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
     unit: ['', Validators.required],
@@ -18,14 +20,15 @@ export class CreateExamComponent implements OnDestroy {
       this.newInstructions
     ])
   });
-  triggerValidation: boolean;
-  isSubmitting = false;
-  componentIsActive = true;
+
   constructor(
     private fb: FormBuilder,
     private examPaperService: ExamPaperService,
     private router: Router
-  ) { }
+  ) {
+    super();
+  }
+
   get examInstructions(): FormArray {
     return this.newExamForm.get('instructions') as FormArray;
   }
@@ -33,31 +36,32 @@ export class CreateExamComponent implements OnDestroy {
   addInstruction() {
     this.examInstructions.push(this.newInstructions);
   }
+
   get newInstructions() {
     return this.fb.group({
       description: ['', [Validators.required]]
     });
   }
+
   deleteInstruction(i: number) {
     const deletionConfirmed = confirm(`Are You Sure you wish to delete instruction ${i + 1}`);
-    if (deletionConfirmed) {
+    if(deletionConfirmed) {
       this.examInstructions.controls.splice(i, 1);
     }
   }
+
   submitExamPaperForm() {
-    if (this.newExamForm.valid) {
-      this.isSubmitting = true;
+
+    if(this.newExamForm.valid) {
+      this.submitInProgressSubject$.next(true);
       this.examPaperService.save(this.newExamForm.value)
-        .pipe(takeWhile(() => this.componentIsActive))
+        .pipe(takeUntil(this.destroyed$))
         .subscribe(res => {
-        this.isSubmitting = false;
-        this.router.navigate(['academics', 'exam-bank', 'admin', 'exams', res.data.id, 'view']);
-      }, () => this.isSubmitting = false);
+          this.submitInProgressSubject$.next(false);
+          this.router.navigate(['academics', 'exam-bank', 'admin', 'exams', res.data.id, 'view']).then();
+        }, () => this.submitInProgressSubject$.next(false));
     } else {
-      this.triggerValidation = !this.triggerValidation;
+      this.triggerValidationSubject$.next(true);
     }
-  }
-  ngOnDestroy() {
-    this.componentIsActive = false;
   }
 }

@@ -8,26 +8,25 @@ import { stringify } from 'querystring';
   providedIn: 'root'
 })
 export class ExamPaperService {
+  url = 'api/exam-papers';
   constructor(
     private http: HttpClient
   ) { }
   getRecentExamPapers(): Observable<any> {
-    return this.http.get('api/academics/exam-papers?latest=20');
+    return this.http.get(`${this.url}?latest=20`);
   }
   getExamPaperWithId(id: number): Observable<any> {
-    return this.http.get(`api/academics/exam-papers/${id}`);
+    return this.http.get(`${this.url}/${id}`);
   }
   deleteItem(id: number): Observable<any> {
-    return this.http.delete(`api/academics/exam-papers/${id}`);
+    return this.http.delete(`${this.url}/${id}`);
   }
 
-  save(data: any): Observable<any> {
-    return this.http.post('api/academics/exam-papers', data);
+  save({ unitLevel, ...rest}: any): Observable<any> {
+    return this.http.post(`${this.url}`, {['unit_level_id']: unitLevel, ...rest});
   }
   getByFilter(params: any): Observable<any> {
-    const url = 'api/academics/exam-papers';
-    const queryString = stringify(params);
-    return this.http.get<any[]>(`${url}?${queryString}`)
+    return this.http.get<any[]>(this.url, {params})
       .pipe(map(res => res.map(item => ({ ...item, unitLevelName: item.unit_level_name }))));
   }
 }

@@ -1,9 +1,9 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {MathDirective} from './math.directive';
-import {MathService} from './math.service';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MathDirective } from './math.directive';
+import { MathService } from './math.service';
 import { ReactiveComponentModule } from '@ngrx/component';
-console.log({tr: 'this.elNativeElement'});
+
 @NgModule({
   declarations: [MathDirective],
   imports: [
@@ -17,7 +17,8 @@ export class MathModule {
     // see https://docs.mathjax.org/en/latest/advanced/dynamic.html
     const script = document.createElement('script') as HTMLScriptElement;
     script.type = 'text/javascript';
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML';
+    script.src = '../../../../../tinymce/plugins/tinymce-mathjax/plugin.min.js?config=TeX-MML-AM_CHTML';
+    // script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML';
     script.async = true;
 
     document.getElementsByTagName('head')[0].appendChild(script);
