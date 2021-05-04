@@ -1,9 +1,9 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { AdminExamPaperComponent } from './admin-exam-paper.component';
-import { RouterTestingModule } from '@angular/router/testing';
-import { StoreModule } from '@ngrx/store';
-import { REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
+import {AdminExamPaperComponent} from './admin-exam-paper.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {StoreModule} from '@ngrx/store';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 
 describe('AdminExamPaperComponent', () => {
   let component: AdminExamPaperComponent;
@@ -12,16 +12,16 @@ describe('AdminExamPaperComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, StoreModule.forRoot(REDUCER_TOKEN, {
-          metaReducers,
-          runtimeChecks: {
-            strictStateImmutability: true,
-            strictActionImmutability: true,
-          }
-        })],
+        metaReducers,
+        runtimeChecks: {
+          strictStateImmutability: true,
+          strictActionImmutability: true,
+        }
+      })],
       declarations: [AdminExamPaperComponent],
       providers: [reducerProvider]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

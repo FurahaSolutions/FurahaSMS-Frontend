@@ -13,6 +13,20 @@ import {ReligionService} from 'src/app/services/religion.service';
 import {ProcurementService} from 'src/app/services/procurement.service';
 import {UnitsService} from 'src/app/services/units.service';
 
+export type IType = 'unit-categories'
+  | 'units'
+  | 'units:academic-year'
+  | 'academic-years:active'
+  | 'class-level-categories'
+  | 'class-levels:level'
+  | 'unit-levels'
+  | 'gender'
+  | 'religion'
+  | 'support-staffs'
+  | 'procurement:items-categories'
+  | 'vendor'
+  ;
+
 @Component({
   selector: 'app-select',
   templateUrl: './select.component.html',
@@ -41,20 +55,7 @@ export class SelectComponent
   @Input() multiple: any;
   @Input() parentId: number | null;
   @Input() triggerValidation: boolean;
-  @Input() type:
-    'unit-categories'
-    | 'units'
-    | 'units:academic-year'
-    | 'academic-years:active'
-    | 'class-level-categories'
-    | 'class-levels:level'
-    | 'unit-levels'
-    | 'gender'
-    | 'religion'
-    | 'support-staffs'
-    | 'procurement:items-categories'
-    | 'vendor'
-  ;
+  @Input() type: IType;
   disabled: boolean;
   formControl: FormControl;
   hint: string;

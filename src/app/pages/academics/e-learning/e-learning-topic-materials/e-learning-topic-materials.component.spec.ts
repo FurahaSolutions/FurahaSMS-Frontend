@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ELearningTopicMaterialsComponent } from './e-learning-topic-materials.component';
-import { RouterTestingModule } from '@angular/router/testing';
+import {ELearningTopicMaterialsComponent} from './e-learning-topic-materials.component';
+import {RouterTestingModule} from '@angular/router/testing';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
 import {academicsFeatureKey, reducers} from '../../store/reducers';
@@ -25,10 +25,10 @@ describe('ELearningTopicMaterialsComponent', () => {
         ModalModule.forRoot(),
         RouterTestingModule
       ],
-      declarations: [ ELearningTopicMaterialsComponent ],
+      declarations: [ELearningTopicMaterialsComponent],
       providers: [reducerProvider]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

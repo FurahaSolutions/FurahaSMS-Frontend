@@ -1,10 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import * as fromStore from '../../../../store/reducers';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 
-import { VIEW_LIBRARY_PUBLISHER, EDIT_LIBRARY_PUBLISHER, CREATE_LIBRARY_PUBLISHER } from '../../helpers/links.helpers';
+import { CREATE_LIBRARY_PUBLISHER, EDIT_LIBRARY_PUBLISHER, VIEW_LIBRARY_PUBLISHER } from '../../helpers/links.helpers';
 import { LibraryPublisherService } from '../../services/library-publisher.service';
-import { takeWhile, map, filter } from 'rxjs/operators';
+import { takeWhile } from 'rxjs/operators';
 import { selectLibraryBookPublishers } from '../../store/selectors/library.selectors';
 import { removeLibraryBookPublisher } from '../../store/actions/library-book-publisher.actions';
 

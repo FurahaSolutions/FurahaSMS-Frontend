@@ -1,12 +1,12 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { EditTagComponent } from './edit-tag.component';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { LibraryAdminModule } from '../../library-admin.module';
-import { REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
+import {EditTagComponent} from './edit-tag.component';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {LibraryAdminModule} from '../../library-admin.module';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 
 describe('EditTagComponent', () => {
   let component: EditTagComponent;
@@ -29,7 +29,7 @@ describe('EditTagComponent', () => {
       declarations: [],
       providers: [reducerProvider]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AppSelectLibraryClassModule } from '../../modules/select-library-class.module';
-import { EditorModule } from '@tinymce/tinymce-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppLinksModule } from 'src/app/shared/links/links.module';
 import { LibraryAdminTagsRoutingModule } from './library-admin-tags-routing.module';
@@ -20,7 +19,6 @@ import { ReactiveComponentModule } from '@ngrx/component';
     AppInputModule,
     TabsModule.forRoot(),
     AppSelectLibraryClassModule,
-    EditorModule,
     FormsModule,
     ReactiveFormsModule,
     AppLinksModule,

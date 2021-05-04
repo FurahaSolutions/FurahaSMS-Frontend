@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {MySchedulesComponent} from './my-schedules.component';
 import {StoreModule} from '@ngrx/store';
@@ -22,7 +22,7 @@ describe('MySchedulesComponent', () => {
         StoreModule.forFeature(appFeatureKey, reducers),
       ],
       declarations: [MySchedulesComponent],
-      providers : [
+      providers: [
         reducerProvider
       ]
     })

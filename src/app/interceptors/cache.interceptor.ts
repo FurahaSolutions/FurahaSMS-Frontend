@@ -18,7 +18,7 @@ export class CacheInterceptor implements HttpInterceptor {
       `library-books/classifications`,
       `curriculum/class-level-categories`,
       `phones/allowed-countries`
-    ].map(item => `/api/${item}`);
+    ].map(item => `api/${item}`);
 
     if (
       (req.method === 'GET' && cachableUrl.includes(req.url)) ||

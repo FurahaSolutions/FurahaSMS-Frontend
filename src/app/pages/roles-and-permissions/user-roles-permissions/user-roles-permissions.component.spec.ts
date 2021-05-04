@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { UserRolesPermissionsComponent } from './user-roles-permissions.component';
-import { ErrorModule } from 'src/app/components/error/error.module';
-import { RouterTestingModule } from '@angular/router/testing';
+import {UserRolesPermissionsComponent} from './user-roles-permissions.component';
+import {ErrorModule} from 'src/app/components/error/error.module';
+import {RouterTestingModule} from '@angular/router/testing';
 import {FormErrorsModule} from '../../../shared/form-errors/form-errors.module';
 
 describe('UserRolesPermissionsComponent', () => {
@@ -16,9 +16,9 @@ describe('UserRolesPermissionsComponent', () => {
         RouterTestingModule,
         FormErrorsModule
       ],
-      declarations: [ UserRolesPermissionsComponent ]
+      declarations: [UserRolesPermissionsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -16,7 +16,7 @@ import { formWithEditorMixin } from 'src/app/shared/mixins/form-with-editor.mixi
 export class CreateUnitCategoriesComponent extends formWithEditorMixin() implements OnInit {
   newUnitCategoryForm: FormGroup = this.fb.group({
     id: [null],
-    name: [name, [Validators.required]],
+    name: ['', [Validators.required]],
     active: [false],
     description: [''],
     units: this.fb.array([])

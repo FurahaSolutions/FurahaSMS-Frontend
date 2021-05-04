@@ -8,7 +8,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {StoreModule} from '@ngrx/store';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {EditorModule} from '@tinymce/tinymce-angular';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {QuestionViewComponent} from '../question-view/question-view.component';
 import {Number2AlphabetModule} from 'src/app/shared/number-2-alphabet/number-2-alphabet.module';
@@ -45,6 +45,7 @@ describe('AdminExamPaperEditComponent', () => {
       ],
       declarations: [AdminExamPaperEditComponent, QuestionViewComponent],
       providers: [
+        { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
         reducerProvider,
         {
           provide: ActivatedRoute,

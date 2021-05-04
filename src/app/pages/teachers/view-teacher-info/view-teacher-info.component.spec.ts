@@ -1,16 +1,15 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {ViewTeacherInfoComponent} from './view-teacher-info.component';
-import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {StoreModule, Store} from '@ngrx/store';
-import {RouterTestingModule} from '@angular/router/testing';
-import {ActivatedRoute} from '@angular/router';
-import {of} from 'rxjs';
-import {REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {AppUserProfileModule} from 'src/app/components/user-profile/user-profile.module';
-import {ReactiveComponentModule} from '@ngrx/component';
-import {MathModule} from '../../../shared/math/math.module';
+import { ViewTeacherInfoComponent } from './view-teacher-info.component';
+import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Store, StoreModule } from '@ngrx/store';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { AppUserProfileModule } from 'src/app/components/user-profile/user-profile.module';
+import { ReactiveComponentModule } from '@ngrx/component';
 
 describe('ViewTeacherInfoComponent', () => {
   let component: ViewTeacherInfoComponent;
@@ -31,7 +30,6 @@ describe('ViewTeacherInfoComponent', () => {
         }),
         AppUserProfileModule,
         ReactiveComponentModule,
-        MathModule
       ],
       declarations: [ViewTeacherInfoComponent],
       providers: [

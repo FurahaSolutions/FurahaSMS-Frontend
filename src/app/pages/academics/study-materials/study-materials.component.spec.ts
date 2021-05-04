@@ -1,11 +1,11 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { StudyMaterialsComponent } from './study-materials.component';
-import { AppLinksModule } from 'src/app/shared/links/links.module';
-import { StoreModule } from '@ngrx/store';
-import { REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
-import { RouterTestingModule } from '@angular/router/testing';
-import { myProfileFeatureKey, reducer } from '../../my-profile/store/reducers/my-profile.reducer';
+import {StudyMaterialsComponent} from './study-materials.component';
+import {AppLinksModule} from 'src/app/shared/links/links.module';
+import {StoreModule} from '@ngrx/store';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import {RouterTestingModule} from '@angular/router/testing';
+import {myProfileFeatureKey, reducer} from '../../my-profile/store/reducers/my-profile.reducer';
 
 describe('StudyMaterialsComponent', () => {
   let component: StudyMaterialsComponent;
@@ -28,7 +28,7 @@ describe('StudyMaterialsComponent', () => {
       declarations: [StudyMaterialsComponent],
       providers: [reducerProvider]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

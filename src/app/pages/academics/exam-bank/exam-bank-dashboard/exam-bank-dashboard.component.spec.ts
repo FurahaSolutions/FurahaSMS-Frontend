@@ -1,10 +1,10 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {ExamBankDashboardComponent} from './exam-bank-dashboard.component';
 import {AppLinksModule} from 'src/app/shared/links/links.module';
 import {StoreModule} from '@ngrx/store';
 import {RouterTestingModule} from '@angular/router/testing';
-import {REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {myProfileFeatureKey, reducer} from 'src/app/pages/my-profile/store/reducers/my-profile.reducer';
 import {appFeatureKey, reducers} from '../../../../store/reducers/app.reducer';
 

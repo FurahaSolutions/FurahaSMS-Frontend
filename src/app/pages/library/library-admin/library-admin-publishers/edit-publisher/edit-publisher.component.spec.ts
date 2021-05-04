@@ -1,20 +1,20 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {EditPublisherComponent} from './edit-publisher.component';
-import {Store, StoreModule} from '@ngrx/store';
-import {AppState, metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {RouterTestingModule} from '@angular/router/testing';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AppInputModule} from 'src/app/components/input/app-input.module';
-import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
-import {CreatePublisherComponent} from '../create-publisher/create-publisher.component';
-import {EditorModule} from '@tinymce/tinymce-angular';
-import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
-import {ActivatedRoute} from '@angular/router';
-import {of} from 'rxjs';
-import {ReactiveComponentModule} from '@ngrx/component';
-import {reducers} from '../../../store/reducers';
+import { EditPublisherComponent } from './edit-publisher.component';
+import { Store, StoreModule } from '@ngrx/store';
+import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppInputModule } from 'src/app/components/input/app-input.module';
+import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
+import { CreatePublisherComponent } from '../create-publisher/create-publisher.component';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { reducers } from '../../../store/reducers';
 
 describe('EditPublisherComponent', () => {
   let component: EditPublisherComponent;
@@ -44,6 +44,7 @@ describe('EditPublisherComponent', () => {
       ],
       declarations: [EditPublisherComponent, CreatePublisherComponent],
       providers: [
+        { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
         reducerProvider,
         {
           provide: ActivatedRoute,

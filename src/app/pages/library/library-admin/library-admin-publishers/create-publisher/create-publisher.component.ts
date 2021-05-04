@@ -1,15 +1,15 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
-import {select, Store} from '@ngrx/store';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import * as fromStore from '../../../../../store/reducers';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {LibraryPublisherService} from 'src/app/pages/library/services/library-publisher.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {filter, map, mergeMap, takeUntil, tap} from 'rxjs/operators';
-import {selectLibraryBookPublisher} from '../../../store/selectors/library.selectors';
-import {CanvasService} from 'src/app/services/canvas.service';
-import {formWithEditorMixin} from '../../../../../shared/mixins/form-with-editor.mixin';
-import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-container.mixin';
-import {combineLatest} from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LibraryPublisherService } from 'src/app/pages/library/services/library-publisher.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { filter, map, mergeMap, takeUntil, tap } from 'rxjs/operators';
+import { selectLibraryBookPublisher } from '../../../store/selectors/library.selectors';
+import { CanvasService } from 'src/app/services/canvas.service';
+import { formWithEditorMixin } from '../../../../../shared/mixins/form-with-editor.mixin';
+import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-create-publisher',
@@ -58,8 +58,9 @@ export class CreatePublisherComponent extends subscribedContainerMixin(formWithE
   }
 
   ngAfterViewInit() {
-    this.canvasService.getProfilePicture({fileId: this.profPicId})
-      .pipe(takeUntil(this.destroyed$))
+    this.canvasService.getProfilePicture({fileId: this.profPicId}).pipe(
+      takeUntil(this.destroyed$)
+    )
       .subscribe(res => {
         (this.profilePicImgTag.nativeElement as HTMLImageElement).src = URL.createObjectURL(res);
       });
@@ -75,7 +76,7 @@ export class CreatePublisherComponent extends subscribedContainerMixin(formWithE
   submitNewBookPublisherForm() {
     this.submitInProgressSubject$.next(true);
 
-    if (this.newBookPublisherForm.invalid) {
+    if(this.newBookPublisherForm.invalid) {
       alert('Form is not fully filled');
       return;
     }

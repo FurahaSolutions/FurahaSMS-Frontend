@@ -1,9 +1,14 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { EditSemesterComponent } from './edit-semester.component';
-import { ErrorModule } from 'src/app/components/error/error.module';
-import { RouterTestingModule } from '@angular/router/testing';
-import { reducerProvider } from 'src/app/store/reducers';
+import {EditSemesterComponent} from './edit-semester.component';
+import {ErrorModule} from 'src/app/components/error/error.module';
+import {RouterTestingModule} from '@angular/router/testing';
+import {reducerProvider} from 'src/app/store/reducers';
+import { CreateSemesterComponent } from '../create-semester/create-semester.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AppCrudModule } from '../../../../../components/crud/app-crud.module';
 
 describe('EditSemesterComponent', () => {
   let component: EditSemesterComponent;
@@ -13,11 +18,16 @@ describe('EditSemesterComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        ErrorModule],
-      declarations: [EditSemesterComponent],
+        ErrorModule,
+        ReactiveFormsModule,
+        ReactiveComponentModule,
+        HttpClientTestingModule,
+        AppCrudModule
+      ],
+      declarations: [EditSemesterComponent, CreateSemesterComponent],
       providers: [reducerProvider]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

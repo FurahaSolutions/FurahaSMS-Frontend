@@ -3,24 +3,28 @@ import {ActivatedRoute} from '@angular/router';
 import {Store, select} from '@ngrx/store';
 import {AppState} from 'src/app/store/reducers';
 import {selectTeacher} from '../store/selectors/teacher-profile.selectors';
-import {map, mergeMap, takeWhile, tap} from 'rxjs/operators';
+import {map, mergeMap, takeUntil, tap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {GenderService} from 'src/app/services/gender.service';
 import {ReligionService} from 'src/app/services/religion.service';
 import {selectGenders, selectReligions} from 'src/app/store/selectors/app.selectors';
 import {loadTeacherProfilesSuccess} from '../store/actions/teacher-profile.actions';
+import {subscribedContainerMixin} from '../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
   selector: 'app-view-teacher-info',
   templateUrl: './view-teacher-info.component.html',
   styleUrls: ['./view-teacher-info.component.css']
 })
-export class ViewTeacherInfoComponent implements OnInit {
-  teacherProfile$: any;
-  componentIsActive: boolean;
-  genders$: Observable<any[]>;
-  religions$: Observable<any[]>;
+export class ViewTeacherInfoComponent extends subscribedContainerMixin() implements OnInit {
   teacherId: number;
+  teacherProfile$ = this.route.parent?.paramMap.pipe(
+    map(params => Number(params.get('id'))),
+    tap(id => this.teacherId = id),
+    mergeMap((id) => this.store.pipe(select(selectTeacher(id))))
+  );
+  genders$: Observable<any[]> = this.store.pipe(select(selectGenders));
+  religions$: Observable<any[]> = this.store.pipe(select(selectReligions));
 
   constructor(
     private route: ActivatedRoute,
@@ -28,18 +32,12 @@ export class ViewTeacherInfoComponent implements OnInit {
     private genderService: GenderService,
     private religionService: ReligionService
   ) {
+    super();
   }
 
   ngOnInit() {
-    this.componentIsActive = true;
-    this.genderService.loadAll$.pipe(takeWhile(() => this.componentIsActive)).subscribe();
-    this.religionService.loadAll$.pipe(takeWhile(() => this.componentIsActive)).subscribe();
-    this.genders$ = this.store.pipe(select(selectGenders));
-    this.religions$ = this.store.pipe(select(selectReligions));
-    this.teacherProfile$ = this.route.parent?.paramMap
-      .pipe(map(params => Number(params.get('id'))))
-      .pipe(tap(id => this.teacherId = id))
-      .pipe(mergeMap((id) => this.store.pipe(select(selectTeacher(id)))));
+    this.genderService.loadAll$.pipe(takeUntil(this.destroyed$)).subscribe();
+    this.religionService.loadAll$.pipe(takeUntil(this.destroyed$)).subscribe();
   }
 
   changeProfile(fieldName: string, $event: string | number) {
@@ -59,7 +57,5 @@ export class ViewTeacherInfoComponent implements OnInit {
         [fieldName + '_name']: $event.name,
       }
     }));
-
   }
-
 }

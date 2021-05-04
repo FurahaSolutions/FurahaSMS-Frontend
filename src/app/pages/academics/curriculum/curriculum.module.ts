@@ -34,7 +34,7 @@ import { AppViewItemsModule } from 'src/app/modules/app-view-items.module';
 import { AppCrudModule } from 'src/app/components/crud/app-crud.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
-import { EditorModule } from '@tinymce/tinymce-angular';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { ReactiveComponentModule } from '@ngrx/component';
 
 
@@ -75,6 +75,10 @@ import { ReactiveComponentModule } from '@ngrx/component';
     AppValidateSubmitButtonsModule,
     EditorModule,
     ReactiveComponentModule
+  ],
+  providers: [
+    {provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js'}
   ]
 })
-export class CurriculumModule { }
+export class CurriculumModule {
+}

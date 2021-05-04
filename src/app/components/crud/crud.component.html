@@ -1,46 +1,46 @@
-<h1> {{ ((editFormAction$ | ngrxPush) ? 'Update ': 'Create ') + title }}</h1>
+<h1> {{ ((editFormAction$ | ngrxPush) ? 'Update ' : 'Create ') + title }}</h1>
 <form class="card p-2 pt-4" [formGroup]="itemForm" (submit)="submitForm()">
   <fieldset>
     <section class="d-flex flex-wrap justify-content-start">
-      <section class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
-        <app-input *ngIf='itemForm.get("name")' [triggerValidation]='triggerValidationSubject$ | ngrxPush'
-          labelClass='col-md-12 col-lg-5' inputClass='col-md-12 col-lg-7' label='Name'
-          [id]='"name" + (idIndex !== undefined ? idIndex: "")' type="text" placeholder="Name" formControlName="name">
-        </app-input>
+      <section *ngFor="let field of fields" class="col-lg-5 col-md-6 col-sm-6 col-xs-12 m-sm-4 m-lg-1">
+        <section *ngIf='itemForm.get("parentCategory")' class="col-lg-5 col-md-4 col-sm-6 col-xs-12">
+          <app-select [triggerValidation]='triggerValidationSubject$ | ngrxPush' id='classLevelCategory' [type]="parent"
+                      formControlName="parentCategory"></app-select>
+        </section>
+        <ng-container [ngSwitch]="field.type">
+          <div *ngSwitchCase="'boolean'" class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"
+                   [id]='field.name + (idIndex !== undefined ? idIndex: "")'
+                   [formControlName]="field.name">
+            <label class="custom-control-label"
+                   [attr.for]="field.name + (idIndex !== undefined ? idIndex:'')">{{ field.label }}</label>
+          </div>
+          <section *ngSwitchCase="'html'" class="col-12 col-sm-12 col-lg-12">
+            <label for="description">{{ field.label }}</label>
+            <div [hidden]='(editorInitializedAction$ | ngrxPush) === false'>
+              <editor (onInit)='initializeEditor()' id='description' formControlName='description'
+                      [init]="tinyMCEConfig"></editor>
+            </div>
+            <div>
+              <app-loading-bubble *ngIf='(editorInitializedAction$ | ngrxPush) === false'></app-loading-bubble>
+            </div>
+          </section>
+          <app-input *ngSwitchDefault [triggerValidation]='triggerValidationSubject$ | ngrxPush'
+                     labelClass='col-md-12 col-lg-5' inputClass='col-md-12 col-lg-7' [label]='field.label | titlecase'
+                     [id]='field.name + (idIndex !== undefined ? idIndex: "")' [type]="field.type"
+                     [placeholder]="'Enter ' + field.label" [formControlName]="field.name">
+          </app-input>
+        </ng-container>
+
       </section>
-      <section *ngIf='itemForm.get("parentCategory")' class="col-lg-5 col-md-4 col-sm-6 col-xs-12">
-        <app-select [triggerValidation]='triggerValidationSubject$ | ngrxPush' id='classLevelCategory' [type]="parent"
-          formControlName="parentCategory"></app-select>
-      </section>
-      <section *ngIf='itemForm.get("abbreviation")' class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
-        <app-input [triggerValidation]='triggerValidationSubject$ | ngrxPush' labelClass='col-md-12 col-lg-5'
-          inputClass='col-md-12 col-lg-7' label='abbreviation'
-          [id]='"name-abbr" + (idIndex !== undefined ? idIndex: "")' type="text" [placeholder]='title + " Abbreviation"'
-          formControlName="abbreviation"></app-input>
-      </section>
-      <section *ngIf='itemForm.get("active")' class="col-lg-5 col-md-6 col-sm-6 col-xs-12 mt-sm-5 mt-lg-1">
-        <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" [id]='"active" + (idIndex !== undefined ? idIndex: "")'
-            formControlName="active">
-          <label class="custom-control-label" for="active">Subject Is Active</label>
-        </div>
-      </section>
-      <section *ngIf='itemForm.get("description")' class="col-12 col-sm-12 col-lg-12">
-        <label for="description">Description</label>
-        <div [hidden]='(editorInitializedAction$ | ngrxPush) === false'>
-          <editor (onInit)='initializeEditor()' id='description' formControlName='description' [init]="tinyMCEConfig"></editor>
-        </div>
-        <div>
-          <app-loading-bubble *ngIf='(editorInitializedAction$ | ngrxPush) === false'></app-loading-bubble>
-        </div>
-      </section>
+
     </section>
   </fieldset>
   <section class='d-flex justify-content-end'>
 
     <app-validate-submit-buttons [isSubmitting]='submitInProgressSubject$ | ngrxPush'
-      (validationButtonClicked)='triggerValidationSubject$.next(true)' [formItem]='itemForm'>
-      <span>{{ ((editFormAction$ | ngrxPush) ? 'Update ': 'Create ') }}</span>
+                                 (validationButtonClicked)='triggerValidationSubject$.next(true)' [formItem]='itemForm'>
+      <span>{{ ((editFormAction$ | ngrxPush) ? 'Update ' : 'Create ') }}</span>
     </app-validate-submit-buttons>
   </section>
 
