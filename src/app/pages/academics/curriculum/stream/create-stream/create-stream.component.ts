@@ -12,7 +12,7 @@ export class CreateStreamComponent {
     {name: 'name', label: 'Stream Name', type: 'text', validators: [Validators.required]},
     {name: 'associated_color', label: 'Assign Color', type: 'color', validators: [Validators.required]},
     {name: 'active', label: 'Active', type: 'boolean', validators: []},
-    {name: 'abbreviation', label: 'Abbreviation', type: 'boolean', validators: [Validators.required]},
+    {name: 'abbreviation', label: 'Abbreviation', type: 'text', validators: [Validators.required]},
   ];
 
   constructor(public streamService: StreamService) {

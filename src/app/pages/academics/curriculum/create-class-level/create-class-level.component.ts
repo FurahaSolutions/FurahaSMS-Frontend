@@ -15,10 +15,10 @@ export class CreateClassLevelComponent {
     {from: 'parentCategory', to: 'classLevelCategory'}
   ];
   fields = [
-    {name: 'name', type: 'text', validators: [Validators.required]},
-    {name: 'active', type: 'boolean', validators: []},
-    {name: 'abbreviation', type: 'text', validators: [Validators.required, Validators.maxLength(5)]},
-    {name: 'description', type: 'html', validators: []}
+    {name: 'name', label:'Name', type: 'text', validators: [Validators.required]},
+    {name: 'active', label:'Active', type: 'boolean', validators: []},
+    {name: 'abbreviation', label:'Abbreviation', type: 'text', validators: [Validators.required, Validators.maxLength(5)]},
+    {name: 'description', label:'Description', type: 'html', validators: []}
   ];
 
   constructor(public classLevelService: ClassLevelService) {
