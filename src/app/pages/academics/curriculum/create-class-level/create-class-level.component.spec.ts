@@ -10,7 +10,7 @@ import {ErrorComponent} from '../../../../components/error/error.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {InputComponent} from '../../../../components/input/input.component';
 import {SelectComponent} from '../../../../components/select/select.component';
-import {EditorModule} from '@tinymce/tinymce-angular';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {AppStarLabelRequiredModule} from '../../../../components/label-star-required/app-star-label-required';
@@ -48,7 +48,8 @@ describe('CreateClassLevelComponent', () => {
         InputComponent,
         SelectComponent
       ],
-      providers: [reducerProvider]
+      providers: [reducerProvider, { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }],
+
     });
 
     TestBed.compileComponents();

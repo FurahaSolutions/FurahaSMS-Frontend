@@ -9,7 +9,7 @@ import { AppViewItemsModule } from 'src/app/modules/app-view-items.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { LibraryAdminPublisherRoutingModule } from './library-admin-publisher-routing.module';
-import { EditorModule } from '@tinymce/tinymce-angular';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { LibraryAdminPublisherItemComponent } from './library-admin-publisher-item/library-admin-publisher-item.component';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { ReactiveComponentModule } from '@ngrx/component';
@@ -35,6 +35,9 @@ import { ReactiveComponentModule } from '@ngrx/component';
     EditorModule,
     AppValidateSubmitButtonsModule,
     ReactiveComponentModule
+  ],
+  providers: [
+    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
   ]
 })
 export class LibraryAdminPublisherModule { }
