@@ -30,7 +30,7 @@ import { ReactiveComponentModule } from '@ngrx/component';
     Number2AlphabetModule,
     AppCheckboxModule,
     FormsModule,
-    MathModule,
+    MathModule.forRoot(),
     ReactiveComponentModule
   ]
 })

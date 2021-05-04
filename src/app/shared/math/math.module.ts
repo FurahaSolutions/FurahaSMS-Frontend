@@ -17,8 +17,7 @@ export class MathModule {
     // see https://docs.mathjax.org/en/latest/advanced/dynamic.html
     const script = document.createElement('script') as HTMLScriptElement;
     script.type = 'text/javascript';
-    script.src = '../../../../../tinymce/plugins/tinymce-mathjax/plugin.min.js?config=TeX-MML-AM_CHTML';
-    // script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML';
+    script.src = '../../../../../tinymce/plugins/mathjax/plugin.min.js?config=TeX-MML-AM_CHTML';
     script.async = true;
 
     document.getElementsByTagName('head')[0].appendChild(script);
@@ -37,7 +36,7 @@ export class MathModule {
       });
     `;
 
-    document.getElementsByTagName('head')[0].appendChild(config);
+    document.getElementsByTagName('body')[0].appendChild(config);
   }
 
   // this is needed so service constructor which will bind

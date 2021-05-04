@@ -12,16 +12,16 @@ export const formWithMathEditorMixin = () =>
       ['paste_data_images']: true,
       menubar: false,
       plugins: [
+        'mathjax',
         'advlist autolink lists link image charmap print preview anchor',
         'searchreplace fullscreen',
         'insertdatetime media table paste code help wordcount'
       ],
-      ['external_plugins']: { mathjax: '/tinymce/plugins/tinymce-mathjax/plugin.min.js'},
+
       mathjax: {
         lib: '/mathjax/es5/tex-mml-chtml.js',
         symbols: {start: '\\\(', end: '\\\)'},
         className: 'math-tex',
-        configUrl: '/tinymce/plugins/tinymce-mathjax/plugin.min.js'
       },
       toolbar:
         'mathjax | \

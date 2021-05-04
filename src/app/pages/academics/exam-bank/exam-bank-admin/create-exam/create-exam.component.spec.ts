@@ -10,6 +10,7 @@ import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import {FormErrorsModule} from '../../../../../shared/form-errors/form-errors.module';
+import { ReactiveComponentModule } from '@ngrx/component';
 
 describe('CreateExamComponent', () => {
   let component: CreateExamComponent;
@@ -32,7 +33,8 @@ describe('CreateExamComponent', () => {
           }
         }),
         FormErrorsModule,
-        AppValidateSubmitButtonsModule
+        AppValidateSubmitButtonsModule,
+        ReactiveComponentModule
       ],
       declarations: [CreateExamComponent],
       providers: [reducerProvider]
