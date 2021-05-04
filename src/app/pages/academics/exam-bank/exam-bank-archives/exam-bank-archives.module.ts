@@ -11,7 +11,6 @@ import { ViewQuestionRevisionModeComponent } from './view-question-revision-mode
 import { Number2AlphabetModule } from 'src/app/shared/number-2-alphabet/number-2-alphabet.module';
 import { AppCheckboxModule } from 'src/app/shared/checkbox/checkbox.module';
 import { FormsModule } from '@angular/forms';
-import {MathModule} from '../../../../shared/math/math.module';
 import { ReactiveComponentModule } from '@ngrx/component';
 
 
@@ -30,7 +29,6 @@ import { ReactiveComponentModule } from '@ngrx/component';
     Number2AlphabetModule,
     AppCheckboxModule,
     FormsModule,
-    MathModule.forRoot(),
     ReactiveComponentModule
   ]
 })

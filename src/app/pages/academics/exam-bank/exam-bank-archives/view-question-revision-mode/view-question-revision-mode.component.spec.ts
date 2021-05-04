@@ -6,10 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppCheckboxModule } from 'src/app/shared/checkbox/checkbox.module';
-import { MathModule } from '../../../../../shared/math/math.module';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const MathJax = {};
 describe('ViewQuestionRevisionModeComponent', () => {
   let component: ViewQuestionRevisionModeComponent;
   let fixture: ComponentFixture<ViewQuestionRevisionModeComponent>;
@@ -22,7 +20,6 @@ describe('ViewQuestionRevisionModeComponent', () => {
         HttpClientTestingModule,
         RouterTestingModule,
         AppCheckboxModule,
-        MathModule.forRoot()
       ],
       declarations: [ViewQuestionRevisionModeComponent]
     })
