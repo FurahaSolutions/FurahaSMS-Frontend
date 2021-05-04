@@ -17,7 +17,7 @@
   </section>
   <section class="card-body mb-0 choices">
     <section aria-label="Question:" class="pb-2 border-bottom" tabindex="0">
-      <p [appMath]='{latex : question.description }'></p>
+      <p [innerHTML]='question.description'></p>
     </section>
     <fieldset class="bg-dark mt-1" tabindex="0">
       <legend>Choices</legend>

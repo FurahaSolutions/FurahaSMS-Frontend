@@ -17,7 +17,6 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { Number2AlphabetModule } from 'src/app/shared/number-2-alphabet/number-2-alphabet.module';
 import { QuestionViewComponent } from './question-view/question-view.component';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
-import { MathModule } from '../../../../shared/math/math.module';
 import { ReactiveComponentModule } from '@ngrx/component';
 
 
@@ -43,7 +42,6 @@ import { ReactiveComponentModule } from '@ngrx/component';
     EditorModule,
     Number2AlphabetModule,
     AppValidateSubmitButtonsModule,
-    MathModule.forRoot(),
     ReactiveComponentModule
   ]
 })
