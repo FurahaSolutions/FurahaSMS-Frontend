@@ -128,7 +128,13 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/robots.txt",
               "src/manifest.webmanifest",
+              {
+                "glob": "**/*",
+                "input": "node_modules/ng2-pdfjs-viewer/pdfjs",
+                "output": "/assets/pdfjs"
+              },
               {
                 "glob": "**/*",
                 "input": "node_modules/tinymce/skins",
@@ -153,6 +159,11 @@
                 "glob": "**/*",
                 "input": "node_modules/@dimakorotkov/tinymce-mathjax",
                 "output": "/tinymce/plugins/mathjax/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/mathjax",
+                "output": "mathjax"
               }
             ],
             "styles": [

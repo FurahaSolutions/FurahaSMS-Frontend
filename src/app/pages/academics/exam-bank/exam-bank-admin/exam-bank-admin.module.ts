@@ -13,7 +13,7 @@ import { AdminExamPaperComponent } from './admin-exam-paper/admin-exam-paper.com
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { AdminExamPaperEditComponent } from './admin-exam-paper-edit/admin-exam-paper-edit.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { EditorModule } from '@tinymce/tinymce-angular';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { Number2AlphabetModule } from 'src/app/shared/number-2-alphabet/number-2-alphabet.module';
 import { QuestionViewComponent } from './question-view/question-view.component';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
@@ -43,6 +43,9 @@ import { ReactiveComponentModule } from '@ngrx/component';
     Number2AlphabetModule,
     AppValidateSubmitButtonsModule,
     ReactiveComponentModule
+  ],
+  providers: [
+    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
   ]
 })
 export class ExamBankAdminModule { }
