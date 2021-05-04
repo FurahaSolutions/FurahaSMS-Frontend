@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ViewQuestionRevisionModeComponent } from './view-question-revision-mode.component';
 import { Number2AlphabetModule } from 'src/app/shared/number-2-alphabet/number-2-alphabet.module';
@@ -6,8 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppCheckboxModule } from 'src/app/shared/checkbox/checkbox.module';
-import {MathModule} from '../../../../../shared/math/math.module';
+import { MathModule } from '../../../../../shared/math/math.module';
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const MathJax = {};
 describe('ViewQuestionRevisionModeComponent', () => {
   let component: ViewQuestionRevisionModeComponent;
   let fixture: ComponentFixture<ViewQuestionRevisionModeComponent>;
@@ -20,11 +22,11 @@ describe('ViewQuestionRevisionModeComponent', () => {
         HttpClientTestingModule,
         RouterTestingModule,
         AppCheckboxModule,
-        MathModule
+        MathModule.forRoot()
       ],
-      declarations: [ ViewQuestionRevisionModeComponent ]
+      declarations: [ViewQuestionRevisionModeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

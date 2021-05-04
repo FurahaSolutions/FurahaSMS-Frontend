@@ -6,7 +6,7 @@ import { TransformInterface } from 'src/app/interfaces/transforms.interfaces';
 
 export const crudMixin = <T extends Constructor>(baseClass: T = class { } as T) =>
   class extends baseClass {
-    tranforms: TransformInterface[] = [];
+    transforms: TransformInterface[] = [];
     url = '';
     http: HttpClient;
     constructor(..._args: any[]) {
@@ -18,7 +18,7 @@ export const crudMixin = <T extends Constructor>(baseClass: T = class { } as T) 
       return this.http.get(this.url).pipe(
         map(res => res as any),
         shareReplay()
-      );;
+      );
     };
     get active$(): Observable<any[]> {
       return this.http.get(`${this.url}?active=${true}`).pipe(
@@ -35,7 +35,7 @@ export const crudMixin = <T extends Constructor>(baseClass: T = class { } as T) 
     }
 
     submit(data: any) {
-      const transformed = this.tranforms.reduce((prev, { to, from }) => ({ ...prev, [to]: data[from] }), {});
+      const transformed = this.transforms.reduce((prev, { to, from }) => ({ ...prev, [to]: data[from] }), {});
       if (data.id) {
         return this.http.patch<any>(`${this.url}/${data.id}`, { ...data, ...transformed });
       } else {

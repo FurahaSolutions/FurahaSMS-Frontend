@@ -1,12 +1,12 @@
-import {async, ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {ViewGuardianInfoComponent} from './view-guardian-info.component';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {RouterTestingModule} from '@angular/router/testing';
-import {StoreModule, Store} from '@ngrx/store';
+import {Store, StoreModule} from '@ngrx/store';
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
-import {REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {AppStarLabelRequiredModule} from '../../../components/label-star-required/app-star-label-required';
 import {ReactiveComponentModule} from '@ngrx/component';
 

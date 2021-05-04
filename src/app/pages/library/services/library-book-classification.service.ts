@@ -1,13 +1,12 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {tap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LibraryBookClassificationService {
-  all$: Observable<any> = this.http.get('/api/library-books/classifications');
+  all$: Observable<any> = this.http.get('api/library-books/classifications');
 
   constructor(private http: HttpClient) {
   }

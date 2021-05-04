@@ -7,6 +7,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { reducers } from '../../store/reducers';
 
 describe('StudentRecentlyCreatedComponent', () => {
   let component: StudentsRecentlyCreatedComponent;
@@ -23,6 +24,7 @@ describe('StudentRecentlyCreatedComponent', () => {
             strictActionImmutability: true,
           }
         }),
+        StoreModule.forFeature('app', reducers),
         HttpClientTestingModule,
         RouterTestingModule,
         AppLoadingBubbleModule,

@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class LibraryBookTagService {
-  all$: Observable<any> = this.http.get('/api/library-books/tags');
+  all$: Observable<any> = this.http.get('api/library-books/tags');
 
   constructor(private http: HttpClient) {
   }

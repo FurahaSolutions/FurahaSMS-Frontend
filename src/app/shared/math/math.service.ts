@@ -35,7 +35,6 @@ export class MathService {
         element.innerHTML = this.removeTrailingBrackets(math.mathml ? math.mathml : '');
       }
     }
-
     MathJax?.Hub?.Queue(['Typeset', MathJax?.Hub, element]);
   }
 

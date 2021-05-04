@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { LinksComponent } from './links.component';
-import { AppLinksModule } from 'src/app/shared/links/links.module';
+import {LinksComponent} from './links.component';
+import {AppLinksModule} from 'src/app/shared/links/links.module';
 
 describe('LinksComponent', () => {
   let component: LinksComponent;
@@ -13,7 +13,7 @@ describe('LinksComponent', () => {
       declarations: [],
       providers: []
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

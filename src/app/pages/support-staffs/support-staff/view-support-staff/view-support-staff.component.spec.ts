@@ -1,12 +1,12 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ViewSupportStaffComponent } from './view-support-staff.component';
-import { RouterTestingModule } from '@angular/router/testing';
-import { StoreModule } from '@ngrx/store';
-import { REDUCER_TOKEN, reducerProvider, metaReducers } from 'src/app/store/reducers';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
-import { supportStaffFeatureKey, reducer } from '../../store/reducers/support-staff.reducer';
+import {ViewSupportStaffComponent} from './view-support-staff.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {StoreModule} from '@ngrx/store';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
+import {reducer, supportStaffFeatureKey} from '../../store/reducers/support-staff.reducer';
 import {CreateUnitComponent} from '../../../academics/curriculum/create-unit/create-unit.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ReactiveComponentModule} from '@ngrx/component';
@@ -36,7 +36,7 @@ describe('ViewSupportStaffComponent', () => {
       declarations: [ViewSupportStaffComponent, CreateUnitComponent],
       providers: [reducerProvider],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

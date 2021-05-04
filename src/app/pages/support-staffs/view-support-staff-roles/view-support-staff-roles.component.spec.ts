@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ViewSupportStaffRolesComponent } from './view-support-staff-roles.component';
+import {ViewSupportStaffRolesComponent} from './view-support-staff-roles.component';
 
 describe('ViewSupportStaffRolesComponent', () => {
   let component: ViewSupportStaffRolesComponent;
@@ -8,9 +8,9 @@ describe('ViewSupportStaffRolesComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewSupportStaffRolesComponent ]
+      declarations: [ViewSupportStaffRolesComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,5 +1,5 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { FormErrorsComponent } from './form-errors.component';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {FormErrorsComponent} from './form-errors.component';
 import {FormGroup} from '@angular/forms';
 
 describe('FormErrorsComponent', () => {
@@ -8,9 +8,9 @@ describe('FormErrorsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormErrorsComponent ]
+      declarations: [FormErrorsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

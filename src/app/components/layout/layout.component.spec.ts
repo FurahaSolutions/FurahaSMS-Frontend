@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {LayoutComponent} from './layout.component';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -6,7 +6,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {AppLayoutModule} from 'src/app/modules/app-layout.module';
-import {REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {EffectsModule} from '@ngrx/effects';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {appFeatureKey, reducers} from '../../store/reducers/app.reducer';

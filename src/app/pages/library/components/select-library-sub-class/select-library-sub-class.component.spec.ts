@@ -1,11 +1,11 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { SelectLibrarySubClassComponent } from './select-library-sub-class.component';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { LibraryAdminModule } from '../../library-admin/library-admin.module';
-import { REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
+import {SelectLibrarySubClassComponent} from './select-library-sub-class.component';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {LibraryAdminModule} from '../../library-admin/library-admin.module';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 
 describe('SelectLibrarySubClassComponent', () => {
   let component: SelectLibrarySubClassComponent;
@@ -28,7 +28,7 @@ describe('SelectLibrarySubClassComponent', () => {
       declarations: [],
       providers: [reducerProvider]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

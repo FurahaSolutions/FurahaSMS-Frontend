@@ -1,12 +1,12 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { HeaderCollapseComponent } from './header-collapse.component';
-import { MenuSearchComponent } from '../menu-search/menu-search.component';
-import { UserButtonComponent } from '../user-button/user-button.component';
-import { StoreModule } from '@ngrx/store';
-import { REDUCER_TOKEN, reducerProvider, metaReducers } from 'src/app/store/reducers';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
+import {HeaderCollapseComponent} from './header-collapse.component';
+import {MenuSearchComponent} from '../menu-search/menu-search.component';
+import {UserButtonComponent} from '../user-button/user-button.component';
+import {StoreModule} from '@ngrx/store';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterTestingModule} from '@angular/router/testing';
 import {myProfileFeatureKey, reducer} from '../../../pages/my-profile/store/reducers/my-profile.reducer';
 import {appFeatureKey, reducers} from '../../../store/reducers/app.reducer';
 import {LogoutButtonComponent} from '../logout-button/logout-button.component';
@@ -41,7 +41,7 @@ describe('HeaderCollapseComponent', () => {
       ],
       providers: [reducerProvider]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

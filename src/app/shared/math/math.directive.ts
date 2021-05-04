@@ -22,6 +22,7 @@ export class MathDirective extends subscribedContainerMixin() implements OnInit 
       take(1),
       takeUntil(this.destroyed$)
     ).subscribe(_res => {
+      console.log({iii: this.elNativeElement});
       this.service.render(this.elNativeElement, this.appMath);
     });
   }

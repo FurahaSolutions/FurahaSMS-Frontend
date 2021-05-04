@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ExamViewModeComponent } from './exam-view-mode.component';
-import { RouterTestingModule } from '@angular/router/testing';
+import {ExamViewModeComponent} from './exam-view-mode.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('ExamViewModeComponent', () => {
   let component: ExamViewModeComponent;
@@ -10,9 +10,9 @@ describe('ExamViewModeComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [ ExamViewModeComponent ]
+      declarations: [ExamViewModeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

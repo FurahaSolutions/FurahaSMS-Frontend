@@ -1,6 +1,6 @@
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import {MathService} from './math.service';
+import { MathService } from './math.service';
 
 // eslint-disable-next-line
 const MathJax = {};

@@ -3,6 +3,8 @@ import { Action, createReducer } from '@ngrx/store';
 export const tinyMCEConfigFeatureKey = 'tinyMCEConfig';
 
 export interface State {
+  ['relative_urls']: boolean;
+  ['remove_script_host']: boolean;
   branding: boolean;
   height: number;
   ['base_url']: string;
@@ -15,10 +17,12 @@ export interface State {
 }
 
 export const initialState: State = {
+  ['relative_urls'] : true,
+  ['remove_script_host'] : true,
   ['forced_root_block']: '',
   branding: false,
   height: 150,
-  ['base_url']: '/tinymce',
+  ['base_url']: '../../../../../tinymce',
   ['paste_data_images']: true,
   menubar: false,
   plugins: [
