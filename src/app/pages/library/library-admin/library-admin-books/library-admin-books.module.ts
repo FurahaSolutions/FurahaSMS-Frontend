@@ -40,7 +40,7 @@ import { ReactiveComponentModule } from '@ngrx/component';
     ReactiveComponentModule
   ],
   providers: [
-    {provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js'},
+    {provide: TINYMCE_SCRIPT_SRC, useValue: '/tinymce/tinymce.min.js'},
   ]
 })
 export class LibraryAdminBooksModule {
