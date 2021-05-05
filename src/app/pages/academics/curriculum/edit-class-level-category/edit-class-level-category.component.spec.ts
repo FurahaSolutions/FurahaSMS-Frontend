@@ -39,7 +39,7 @@ describe('EditClassLevelCategoryComponent', () => {
       ],
       declarations: [EditClassLevelCategoryComponent, CreateClassLevelCategoryComponent],
       providers: [
-        {provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js'},
+        {provide: TINYMCE_SCRIPT_SRC, useValue: '/tinymce/tinymce.min.js'},
         reducerProvider
       ]
     });

@@ -45,7 +45,7 @@ describe('EditUnitCategoryComponent', () => {
         CreateUnitComponent,
         EditUnitCategoryComponent, CreateUnitCategoriesComponent],
       providers: [
-        {provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js'},
+        {provide: TINYMCE_SCRIPT_SRC, useValue: '/tinymce/tinymce.min.js'},
         reducerProvider
       ]
     });
