@@ -1,0 +1,11 @@
+<h1>Add Library User</h1>
+<div class="card p-2">
+  <form [formGroup]="itemForm" (ngSubmit)="saveAsLibraryUser()">
+    <app-user-search formControlName="userId"></app-user-search>
+    <div>
+      <app-validate-submit-buttons [isSubmitting]="submitInProgressAction$ | async" [formItem]="itemForm">
+        <span>Add as Library user</span>
+      </app-validate-submit-buttons>
+    </div>
+  </form>
+</div>

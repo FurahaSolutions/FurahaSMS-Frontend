@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LibraryAdminComponent } from './library-admin.component';
-import { LibraryAdminUsersComponent } from './library-admin-users/library-admin-users.component';
 
 
 const routes: Routes = [
@@ -15,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    component: LibraryAdminUsersComponent,
+    loadChildren: () => import ('./library-admin-users/library-admin-users.module')
+      .then(m => m.LibraryAdminUsersModule),
     data: {
       breadcrumb: 'Users'
     }
@@ -58,4 +58,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LibraryAdminRoutingModule { }
+export class LibraryAdminRoutingModule {
+}

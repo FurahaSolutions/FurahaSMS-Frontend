@@ -16,7 +16,7 @@ export class StudentSearchComponent implements OnInit {
   search: string;
   suggestions$: Observable<IUserProfile[]> = of([]);
   errorMessage: string;
-  selectedItemSubject$ = new Subject<any>();
+  selectedItemSubject$ = new Subject<IUserProfile>();
   selectedItemAction$ = this.selectedItemSubject$.asObservable();
 
   constructor(private studentService: StudentService) {
