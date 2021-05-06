@@ -5,7 +5,7 @@ export const formWithMathEditorMixin = () =>
 
   class extends formMixin() {
     tinyMCEConfig = {
-      ['forced_root_block']: 'div',
+      ['forced_root_block']: '',
       branding: false,
       height: 210,
       ['base_url']: '/tinymce',

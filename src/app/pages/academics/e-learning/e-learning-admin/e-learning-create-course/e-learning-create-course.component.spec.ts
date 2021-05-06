@@ -48,7 +48,7 @@ describe('ELearningCreateCourseComponent', () => {
       ],
       declarations: [ELearningCreateCourseComponent],
       providers: [
-        {provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js'},
+        {provide: TINYMCE_SCRIPT_SRC, useValue: '/tinymce/tinymce.min.js'},
         reducerProvider,
         {
           provide: ActivatedRoute,
