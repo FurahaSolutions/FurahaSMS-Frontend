@@ -23,6 +23,9 @@ export const initialState: State = {
 
   libraryAdminUsers: [
     {
+      name: 'Library Users', icon: 'icon-user', link: 'library/admin/users/view', permissions: [],
+    },
+    {
       name: 'Add Library User', icon: 'icon-user-plus', link: 'library/admin/users/add', permissions: ['create library user']
     },
   ],

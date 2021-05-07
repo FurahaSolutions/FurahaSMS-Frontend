@@ -1,0 +1,30 @@
+<h1>Library User Status</h1>
+
+<div class="card p-2">
+  <div class="d-flex flex-wrap" *ngIf="user$ | ngrxPush as user; else loading">
+    <div class="col-lg-1">
+      Name
+    </div>
+    <div class="col-lg-2">
+      {{ user.firstName + ' ' + user.lastName }}
+    </div>
+    <div class="col-lg-1">
+      Status
+    </div>
+    <div class="col-lg-2">
+      <span *ngIf="user.libraryUserId" class="badge badge-success p-2">
+        Registered
+      </span>
+      <span *ngIf="!user.libraryUserId" class="badge badge-secondary p-2">
+        Not Registered
+      </span>
+    </div>
+    <div class="col-12 d-flex justify-content-end align-items-end">
+      <button [disabled]="!user.libraryUserId" class="btn btn-danger mr-3">Block User</button>
+      <button *ngIf="!user.libraryUserId" class="btn btn-primary">Register User</button>
+    </div>
+  </div>
+  <ng-template #loading>
+    <app-loading-bubble></app-loading-bubble>
+  </ng-template>
+</div>

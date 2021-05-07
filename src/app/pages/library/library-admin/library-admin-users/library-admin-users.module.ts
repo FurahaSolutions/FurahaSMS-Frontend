@@ -6,14 +6,20 @@ import { LibraryAdminUsersComponent } from './library-admin-users.component';
 import { AppLinksModule } from '../../../../shared/links/links.module';
 import { AddLibraryUserComponent } from './add-library-user/add-library-user.component';
 import { AppValidateSubmitButtonsModule } from '../../../../components/validate-submit-buttons/validate-submit-buttons.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserSearchModule } from '../../../../components/user-search/user-search.module';
+import { ViewLibraryUserComponent } from './view-library-user/view-library-user.component';
+import { LibraryUserStatusComponent } from './library-user-status/library-user-status.component';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { AppLoadingBubbleModule } from '../../../../modules/app-loading-bubble';
 
 
 @NgModule({
   declarations: [
     LibraryAdminUsersComponent,
-    AddLibraryUserComponent
+    AddLibraryUserComponent,
+    ViewLibraryUserComponent,
+    LibraryUserStatusComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +27,11 @@ import { UserSearchModule } from '../../../../components/user-search/user-search
     AppLinksModule,
     AppValidateSubmitButtonsModule,
     ReactiveFormsModule,
-    UserSearchModule
+    UserSearchModule,
+    FormsModule,
+    ReactiveComponentModule,
+    AppLoadingBubbleModule
   ]
 })
-export class LibraryAdminUsersModule { }
+export class LibraryAdminUsersModule {
+}
