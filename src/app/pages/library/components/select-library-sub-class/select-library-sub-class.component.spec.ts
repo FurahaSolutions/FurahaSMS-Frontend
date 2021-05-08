@@ -22,10 +22,11 @@ describe('SelectLibrarySubClassComponent', () => {
           }
         }),
         EffectsModule.forRoot([]),
-        LibraryAdminModule,
         HttpClientTestingModule
       ],
-      declarations: [],
+      declarations: [
+        SelectLibrarySubClassComponent
+      ],
       providers: [reducerProvider]
     })
       .compileComponents();

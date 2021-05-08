@@ -15,9 +15,9 @@ export class LinkService {
   myPermissions$ = this.store.pipe(select(selectMyPermissions));
   myRoles$ = this.store.pipe(select(selectMyRoles));
 
-  dashboardLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectDashdoardLinks));
+  dashboardLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectDashboardLinks));
   accountsLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectAccountsLinks));
-  examBankLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectexamBankLinks));
+  examBankLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectExamBankLinks));
   libraryAdminBooksLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectLibraryAdminBooksLinks));
   academicsLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectAcademicsLinks));
   admissionsLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectAdmissionsLinks));
