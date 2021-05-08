@@ -1,4 +1,4 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {ViewAcademicYearComponent} from './view-academic-year.component';
 import {Store, StoreModule} from '@ngrx/store';
@@ -18,7 +18,7 @@ describe('ViewAcademicYearComponent', () => {
   let fixture: ComponentFixture<ViewAcademicYearComponent>;
   let store: Store<AppState>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(REDUCER_TOKEN, {
@@ -48,8 +48,8 @@ describe('ViewAcademicYearComponent', () => {
       ]
     });
 
-    await TestBed.compileComponents();
-  });
+     TestBed.compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ViewAcademicYearComponent);

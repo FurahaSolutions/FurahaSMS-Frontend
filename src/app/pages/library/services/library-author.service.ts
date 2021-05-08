@@ -28,6 +28,6 @@ export class LibraryAuthorService {
   }
 
   filter(searchString: string) {
-    return this.http.get(`api/library-books/authors/filter?name=${searchString}`);
+    return this.http.get(`api/library-books/authors?name=${searchString}`);
   }
 }

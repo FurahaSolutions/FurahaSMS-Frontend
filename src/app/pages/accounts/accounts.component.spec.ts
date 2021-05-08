@@ -1,4 +1,4 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {AccountsComponent} from './accounts.component';
 import {Store, StoreModule} from '@ngrx/store';
@@ -13,7 +13,7 @@ describe('AccountsComponent', () => {
   let fixture: ComponentFixture<AccountsComponent>;
   let store: Store<AppState>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
       imports: [
         AppLinksModule,
@@ -32,8 +32,8 @@ describe('AccountsComponent', () => {
       providers: [reducerProvider]
     });
 
-    await TestBed.compileComponents();
-  });
+     TestBed.compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AccountsComponent);

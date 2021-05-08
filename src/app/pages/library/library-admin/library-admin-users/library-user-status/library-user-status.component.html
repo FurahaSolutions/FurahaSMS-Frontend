@@ -1,0 +1,41 @@
+<h1>Library User Status</h1>
+
+<div class="card p-2">
+  <div class="d-flex flex-wrap" *ngIf="user$ | ngrxPush as user; else loading">
+    <div class="col-lg-2 col-md-6 mt-md-3 mt-sm-3">
+      Name
+    </div>
+    <div class="col-lg-2 col-md-4 mt-md-3 mt-sm-3">
+      {{ user.firstName + ' ' + user.lastName }}
+    </div>
+    <div class="col-lg-2 col-md-6 mt-md-3 mt-sm-3" >
+      Status
+    </div>
+    <div class="col-lg-2 col-md-3 mt-md-3 mt-sm-3">
+      <span *ngIf="user.libraryUserId" class="badge badge-success p-2">
+        Registered
+      </span>
+      <span *ngIf="!user.libraryUserId" class="badge badge-secondary p-2">
+        Not Registered
+      </span>
+    </div>
+    <div class="col-lg-2 col-md-3 mt-md-3 mt-sm-3">
+      <span *ngIf="!user.libraryBlocked" class="badge badge-success p-2">
+        Active
+      </span>
+      <span *ngIf="user.libraryBlocked" class="badge badge-danger p-2">
+        Blocked
+      </span>
+    </div>
+    <div class="col-12 d-flex justify-content-end align-items-end mt-md-3">
+      <button (click)="block()" type="button" *ngIf="!user.libraryBlocked" [disabled]="!user.libraryUserId" class="btn btn-danger mr-3">Block User
+      </button>
+      <button (click)="unblock()" type="button" *ngIf="user.libraryBlocked" [disabled]="!user.libraryUserId" class="btn btn-secondary mr-3">Unblock User
+      </button>
+      <button (click)="register()" type="button" *ngIf="!user.libraryUserId" class="btn btn-primary">Register User</button>
+    </div>
+  </div>
+  <ng-template #loading>
+    <app-loading-bubble></app-loading-bubble>
+  </ng-template>
+</div>

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LibraryAdminPublishersComponent } from './library-admin-publishers.component';
 import { Store, StoreModule } from '@ngrx/store';
@@ -13,7 +13,7 @@ describe('LibraryAdminPublishersComponent', () => {
   let fixture: ComponentFixture<LibraryAdminPublishersComponent>;
   let store: Store<AppState>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(REDUCER_TOKEN, {
@@ -40,8 +40,8 @@ describe('LibraryAdminPublishersComponent', () => {
       ]
     });
 
-    await TestBed.compileComponents();
-  });
+     TestBed.compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LibraryAdminPublishersComponent);

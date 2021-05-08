@@ -24,10 +24,11 @@ describe('SelectLibraryClassComponent', () => {
         }),
         StoreModule.forFeature('library', reducers),
         EffectsModule.forRoot([]),
-        HttpClientTestingModule,
-        LibraryAdminModule
+        HttpClientTestingModule
       ],
-      declarations: [],
+      declarations: [
+        SelectLibraryClassComponent
+      ],
       providers: [reducerProvider]
     })
       .compileComponents();

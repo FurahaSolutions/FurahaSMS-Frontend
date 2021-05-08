@@ -1,9 +1,9 @@
-import {selectAppPermissionsState} from './permissions.selectors';
-import {permissionsFeatureKey} from '../reducers/permissions.reducer';
-import {TestBed, waitForAsync} from '@angular/core/testing';
-import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN} from '../reducers';
-import {reducers} from '../reducers/app.reducer';
+import { selectAppPermissionsState } from './permissions.selectors';
+import { permissionsFeatureKey } from '../reducers/permissions.reducer';
+import { TestBed, waitForAsync } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../reducers';
+import { reducers } from '../reducers/app.reducer';
 
 
 describe('Permissions Selectors', () => {
@@ -17,13 +17,15 @@ describe('Permissions Selectors', () => {
             strictActionImmutability: true,
           }
         }),
-        StoreModule.forFeature('app', reducers),
-        ]
+        StoreModule.forFeature('app', reducers)
+      ],
+      providers: [
+        reducerProvider
+      ]
     });
+    TestBed.compileComponents();
   }));
   it('should select the feature state', () => {
-
-
     const result = selectAppPermissionsState({
       [permissionsFeatureKey]: {}
     });

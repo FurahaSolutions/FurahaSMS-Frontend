@@ -1,4 +1,4 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {CreateProcurementTenderComponent} from './create-procurement-tender.component';
 import {Store, StoreModule} from '@ngrx/store';
@@ -17,7 +17,7 @@ describe('CreateProcurementTenderComponent', () => {
   let fixture: ComponentFixture<CreateProcurementTenderComponent>;
   let store: Store<AppState>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(REDUCER_TOKEN, {
@@ -43,8 +43,8 @@ describe('CreateProcurementTenderComponent', () => {
       providers: [reducerProvider]
     });
 
-    await TestBed.compileComponents();
-  });
+    TestBed.compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CreateProcurementTenderComponent);

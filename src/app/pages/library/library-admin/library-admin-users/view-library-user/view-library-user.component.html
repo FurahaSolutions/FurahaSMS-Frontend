@@ -1,0 +1,8 @@
+<h1>Library user status</h1>
+<div class="card p-2">
+  <app-user-search [(ngModel)]="userId"></app-user-search>
+
+ <div class="d-flex justify-content-end pt-2" *ngIf="userId">
+   <a class="btn btn-primary" [routerLink]="['../', userId]">View User</a>
+ </div>
+</div>

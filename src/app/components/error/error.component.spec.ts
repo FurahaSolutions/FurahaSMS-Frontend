@@ -1,4 +1,4 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {ErrorComponent} from './error.component';
 import {Store, StoreModule} from '@ngrx/store';
@@ -10,7 +10,7 @@ describe('ErrorComponent', () => {
   let fixture: ComponentFixture<ErrorComponent>;
   let store: Store<AppState>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(REDUCER_TOKEN, {
@@ -26,8 +26,8 @@ describe('ErrorComponent', () => {
       providers: [reducerProvider]
     });
 
-    await TestBed.compileComponents();
-  });
+    TestBed.compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ErrorComponent);

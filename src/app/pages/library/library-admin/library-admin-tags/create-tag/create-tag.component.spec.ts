@@ -8,6 +8,8 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {LibraryAdminModule} from '../../library-admin.module';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppLoadingBubbleModule } from '../../../../../modules/app-loading-bubble';
 
 describe('CreateTagComponent', () => {
   let component: CreateTagComponent;
@@ -27,8 +29,10 @@ describe('CreateTagComponent', () => {
         EffectsModule.forRoot([]),
         HttpClientTestingModule,
         RouterTestingModule,
-        LibraryAdminModule],
-      declarations: [],
+        ReactiveFormsModule,
+        AppLoadingBubbleModule
+      ],
+      declarations: [CreateTagComponent],
       providers: [reducerProvider]
     })
       .compileComponents();

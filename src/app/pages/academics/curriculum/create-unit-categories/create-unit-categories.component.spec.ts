@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CreateUnitCategoriesComponent } from './create-unit-categories.component';
 import { Store, StoreModule } from '@ngrx/store';
@@ -20,7 +20,7 @@ describe('CreateUnitCategoriesComponent', () => {
   let fixture: ComponentFixture<CreateUnitCategoriesComponent>;
   let store: Store<AppState>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(REDUCER_TOKEN, {
@@ -53,8 +53,8 @@ describe('CreateUnitCategoriesComponent', () => {
       ]
     });
 
-    await TestBed.compileComponents();
-  });
+     TestBed.compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CreateUnitCategoriesComponent);

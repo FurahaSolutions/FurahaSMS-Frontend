@@ -4,87 +4,45 @@ import { permissionsFeatureKey } from '../reducers/permissions.reducer';
 
 export const selectAppPermissionsState = createSelector(
   selectAppState,
-  state => state ? state[permissionsFeatureKey] : { }
+  state => state ? state[permissionsFeatureKey] : {}
 );
 
-export const selectDashdoardLinks = createSelector(
+const createLinkSelector = (link: string) => createSelector(
   selectAppPermissionsState,
-  state => state.dashboard
+  state => state[link]
 );
 
-export const selectAccountsLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.accounts
-);
+export const selectDashboardLinks = createLinkSelector('dashboard');
 
-export const selectexamBankLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.examBank
-);
+export const selectAccountsLinks = createLinkSelector('accounts');
 
-export const selectLibraryAdminBooksLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.libraryAdminBooks
-);
-export const selectAcademicsLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.academics
-);
+export const selectExamBankLinks = createLinkSelector('examBank');
 
-export const selectAdmissionsLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.admissions
-);
+export const selectLibraryAdminBooksLinks = createLinkSelector('libraryAdminBooks');
 
-export const selectStudentAdmissionsLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.studentAdmissions
-);
+export const selectAcademicsLinks = createLinkSelector('academics');
 
-export const selectAcademicYearsLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.academicYears
-);
+export const selectAdmissionsLinks = createLinkSelector('admissions');
 
-export const selectLibraryLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.library
-);
+export const selectStudentAdmissionsLinks = createLinkSelector('studentAdmissions');
 
-export const selectAcademicCurriculumLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.academicCurriculum
-);
+export const selectAcademicYearsLinks = createLinkSelector('academicYears');
 
-export const selectLibraryAdminLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.libraryAdmin
-);
+export const selectLibraryLinks = createLinkSelector('library');
 
-export const selectProcurementLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.procurement
-);
+export const selectAcademicCurriculumLinks = createLinkSelector('academicCurriculum');
 
-export const selectLibraryAdminUsersLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.libraryAdminUsers
-);
+export const selectLibraryAdminLinks = createLinkSelector('libraryAdmin');
 
-export const selectTeachingStaffAdmissionsLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.teachingStaffAdmissions
-);
+export const selectProcurementLinks = createLinkSelector('procurement');
 
-export const selectTimeTableLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.timeTable
-);
+export const selectLibraryAdminUsersLinks = createLinkSelector('libraryAdminUsers');
 
-export const rolesAndPermissionsLinks = createSelector(
-  selectAppPermissionsState,
-  state => state.rolesAndPermissions
-);
+export const selectTeachingStaffAdmissionsLinks = createLinkSelector('teachingStaffAdmissions');
+
+export const selectTimeTableLinks = createLinkSelector('timeTable');
+
+export const rolesAndPermissionsLinks = createLinkSelector('rolesAndPermissions');
 
 export const allLinks = createSelector(
   selectAppPermissionsState,

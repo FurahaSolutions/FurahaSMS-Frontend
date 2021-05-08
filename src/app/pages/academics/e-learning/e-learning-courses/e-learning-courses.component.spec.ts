@@ -7,6 +7,7 @@ import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {FormsModule} from '@angular/forms';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { CommonModule } from '@angular/common';
 
 describe('ELearningCoursesComponent', () => {
   let component: ELearningCoursesComponent;
@@ -20,7 +21,8 @@ describe('ELearningCoursesComponent', () => {
         AppLoadingBubbleModule,
         FormsModule,
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        CommonModule
       ],
       declarations: [ELearningCoursesComponent]
     })
