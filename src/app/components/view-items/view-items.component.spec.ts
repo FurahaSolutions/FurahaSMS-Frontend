@@ -1,4 +1,4 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {ViewItemsComponent} from './view-items.component';
 import {Store, StoreModule} from '@ngrx/store';
@@ -15,7 +15,7 @@ describe('ViewItemsComponent', () => {
   let fixture: ComponentFixture<ViewItemsComponent>;
   let store: Store<AppState>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
       imports: [StoreModule.forRoot(REDUCER_TOKEN, {
         metaReducers,
@@ -31,8 +31,8 @@ describe('ViewItemsComponent', () => {
       providers: [reducerProvider]
     });
 
-    await TestBed.compileComponents();
-  });
+     TestBed.compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ViewItemsComponent);

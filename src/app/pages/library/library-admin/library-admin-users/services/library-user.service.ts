@@ -15,4 +15,10 @@ export class LibraryUserService {
 
   getUserWithId = (id: number) =>
     this.http.get(`${this.url}/${id}`);
+
+  block = ({userId}: { userId: string }) =>
+    this.http.post(`${this.url}/${userId}`, {['_method']: 'PATCH', blocked: true});
+
+  unblock = ({userId}: { userId: string }) =>
+    this.http.post(`${this.url}/${userId}`, {['_method']: 'PATCH', blocked: false});
 }

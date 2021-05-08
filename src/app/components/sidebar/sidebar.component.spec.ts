@@ -1,19 +1,19 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {SidebarComponent} from './sidebar.component';
-import {Store, StoreModule} from '@ngrx/store';
-import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {RouterTestingModule} from '@angular/router/testing';
-import {myProfileFeatureKey, reducer} from '../../pages/my-profile/store/reducers/my-profile.reducer';
-import {appFeatureKey, reducers} from '../../store/reducers/app.reducer';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { SidebarComponent } from './sidebar.component';
+import { Store, StoreModule } from '@ngrx/store';
+import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
+import { RouterTestingModule } from '@angular/router/testing';
+import { myProfileFeatureKey, reducer } from '../../pages/my-profile/store/reducers/my-profile.reducer';
+import { appFeatureKey, reducers } from '../../store/reducers/app.reducer';
+import { ReactiveComponentModule } from '@ngrx/component';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
   let fixture: ComponentFixture<SidebarComponent>;
   let store: Store<AppState>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(REDUCER_TOKEN, {
@@ -32,8 +32,8 @@ describe('SidebarComponent', () => {
       providers: [reducerProvider]
     });
 
-    await TestBed.compileComponents();
-  });
+    TestBed.compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SidebarComponent);

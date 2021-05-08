@@ -1,4 +1,4 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {TopicOnlineAssessmentListComponent} from './topic-online-assessment-list.component';
 import {ModalModule} from 'ngx-bootstrap/modal';
@@ -11,8 +11,8 @@ describe('TopicOnlineAssessmentListComponent', () => {
   let component: TopicOnlineAssessmentListComponent;
   let fixture: ComponentFixture<TopicOnlineAssessmentListComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(waitForAsync( () => {
+     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
         ModalModule.forRoot(),
@@ -29,7 +29,7 @@ describe('TopicOnlineAssessmentListComponent', () => {
       providers: [reducerProvider]
     })
       .compileComponents();
-  });
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TopicOnlineAssessmentListComponent);

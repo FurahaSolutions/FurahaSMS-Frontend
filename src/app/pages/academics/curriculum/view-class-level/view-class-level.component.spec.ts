@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ViewClassLevelComponent } from './view-class-level.component';
 import { Store, StoreModule } from '@ngrx/store';
@@ -16,7 +16,7 @@ describe('ViewClassLevelComponent', () => {
   let fixture: ComponentFixture<ViewClassLevelComponent>;
   let store: Store<AppState>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(REDUCER_TOKEN, {
@@ -40,8 +40,8 @@ describe('ViewClassLevelComponent', () => {
       providers: [reducerProvider]
     });
 
-    await TestBed.compileComponents();
-  });
+     TestBed.compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ViewClassLevelComponent);

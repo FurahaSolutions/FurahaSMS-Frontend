@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CreateClassLevelCategoryComponent } from './create-class-level-category.component';
 import { Store, StoreModule } from '@ngrx/store';
@@ -21,7 +21,7 @@ describe('CreateClassLevelCategoryComponent', () => {
   let fixture: ComponentFixture<CreateClassLevelCategoryComponent>;
   let store: Store<AppState>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(REDUCER_TOKEN, {
@@ -67,8 +67,8 @@ describe('CreateClassLevelCategoryComponent', () => {
       ]
     });
 
-    await TestBed.compileComponents();
-  });
+     TestBed.compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CreateClassLevelCategoryComponent);

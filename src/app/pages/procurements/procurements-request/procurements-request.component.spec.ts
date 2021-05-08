@@ -1,4 +1,4 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {ProcurementsRequestComponent} from './procurements-request.component';
 import {Store, StoreModule} from '@ngrx/store';
@@ -19,7 +19,7 @@ describe('ProcurementsRequestComponent', () => {
   let fixture: ComponentFixture<ProcurementsRequestComponent>;
   let store: Store<AppState>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
       imports: [
         AppStarLabelRequiredModule,
@@ -48,8 +48,8 @@ describe('ProcurementsRequestComponent', () => {
       providers: [reducerProvider]
     });
 
-    await TestBed.compileComponents();
-  });
+     TestBed.compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ProcurementsRequestComponent);

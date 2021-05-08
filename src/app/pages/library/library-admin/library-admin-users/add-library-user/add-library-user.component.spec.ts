@@ -3,7 +3,9 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { AddLibraryUserComponent } from './add-library-user.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AppValidateSubmitButtonsModule } from '../../../../../components/validate-submit-buttons/validate-submit-buttons.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserSearchComponent } from '../../../../../components/user-search/user-search.component';
+import { UserSearchModule } from '../../../../../components/user-search/user-search.module';
 
 describe('AddLibraryUserComponent', () => {
   let component: AddLibraryUserComponent;
@@ -14,7 +16,10 @@ describe('AddLibraryUserComponent', () => {
       imports: [
         HttpClientTestingModule,
         AppValidateSubmitButtonsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        UserSearchModule,
+        ReactiveFormsModule,
+        FormsModule
       ],
       declarations: [AddLibraryUserComponent]
     })

@@ -1,4 +1,4 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {AddBookComponent} from './add-book.component';
 import {Store, StoreModule} from '@ngrx/store';
@@ -25,7 +25,7 @@ describe('AddBookComponent', () => {
   let fixture: ComponentFixture<AddBookComponent>;
   let store: Store<AppState>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
       imports: [
         NgSelectModule,
@@ -65,8 +65,8 @@ describe('AddBookComponent', () => {
       ]
     });
 
-    await TestBed.compileComponents();
-  });
+     TestBed.compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AddBookComponent);
