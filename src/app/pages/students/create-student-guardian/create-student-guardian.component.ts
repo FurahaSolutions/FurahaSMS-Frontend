@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {debounceTime, filter, map, mergeMap, switchMap, takeUntil, tap} from 'rxjs/operators';
-import {UsersService} from 'src/app/services/users.service';
-import {GuardiansService} from 'src/app/services/guardians.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Observable} from 'rxjs';
-import {StudentService} from 'src/app/services/student.service';
-import {subscribedContainerMixin} from '../../../shared/mixins/subscribed-container.mixin';
-import {formMixin} from '../../../shared/mixins/form.mixin';
+import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { debounceTime, filter, map, mergeMap, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { UsersService } from 'src/app/services/users.service';
+import { GuardiansService } from 'src/app/services/guardians.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { StudentService } from 'src/app/services/student.service';
+import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../../shared/mixins/form.mixin';
 
 @Component({
   selector: 'app-create-student-guardian',
@@ -50,7 +50,7 @@ export class CreateStudentGuardianComponent extends subscribedContainerMixin(for
   }
 
   addGuardians(): void {
-    if (this.userIdentificationForm.valid) {
+    if(this.userIdentificationForm.valid) {
       this.guardians.push(this.buildGuardianProfile());
       this.usersData.push(null);
       this.confirmData.push(false);
@@ -83,7 +83,7 @@ export class CreateStudentGuardianComponent extends subscribedContainerMixin(for
   removeGuardian(i: number): void {
     (this.guardians.controls[i].get('phone') as FormControl).setErrors(null);
     const confirmed = confirm(' Are You sure you wish to remove Item?');
-    if (confirmed) {
+    if(confirmed) {
       this.guardians.controls.splice(i, 1);
       this.usersData.splice(i, 1);
       this.confirmData.splice(i, 1);
@@ -146,7 +146,7 @@ export class CreateStudentGuardianComponent extends subscribedContainerMixin(for
     // TODO admission number hard coded
 
     this.submitInProgressSubject$.next(true);
-    if (this.userIdentificationForm.valid) {
+    if(this.userIdentificationForm.valid) {
       this.userIdentificationForm.get('guardians')?.value.forEach((item: any) => {
 
         this.route.paramMap
