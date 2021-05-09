@@ -1,18 +1,18 @@
-<section class='form-group mb-4' style="position: relative;">
+<section  class='form-group mb-4' style="position: relative;" [formGroup]="inputGroup">
   <section class='d-flex flex-wrap m-0 p-0 align-items-center'>
   	<label [class]='"col-12 control-label " + labelClass' [attr.for]='id'>
       <app-star-required *ngIf="isRequired"></app-star-required>{{ label }}
 		</label>
 	  <section [class]='inputClass ? inputClass + " input-group" + " m-0 p-0": "col-12 " + inputClass + " input-group" + " m-0 p-0"'>
 	  	<section *ngIf='prependIcon' class='input-group-prepend' [class.is-invalid]='fieldError'>
-	      <span class='input-group-text' [id]='"inputGroupPrepend" + id'><i [class]='prependIcon'></i></span>
+	      <span *ngrxLet="valueChanges$" class='input-group-text' [id]='"inputGroupPrepend" + id'><i [class]='prependIcon'></i></span>
 	    </section>
 			<input
 				[step]='step'
 				[min]='min'
 	      [autocomplete]='autocomplete'
 	      [autofocus]='autofocus'
-	      [formControl]='formControl'
+	      formControlName='value'
 	      (keyup)='updateFieldValidation()'
 				class='form-control'
 				[class.is-invalid]='fieldError'
@@ -37,3 +37,6 @@
 	</section>
 	<app-password-meter *ngIf='showPasswordStrength' [passwordString]='passwordStringChangeAction$ | ngrxPush'></app-password-meter>
 </section>
+
+{{ formControl.value }}
+{{ formControl.valid }}

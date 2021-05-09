@@ -12,9 +12,10 @@ export class CustomValidators {
   }
 
   static emailExists = (control: FormControl) =>
-    timer(1000).pipe(
+    timer(500).pipe(
       switchMap(() => {
         if(CustomValidators.emailRegExp.test(control.value)) {
+          console.log(CustomValidators.userService);
           return CustomValidators.userService.findIfEmailExists(control.value);
         }
         return of(false);

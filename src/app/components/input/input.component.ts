@@ -1,18 +1,27 @@
 import { Component, OnInit, Input, forwardRef, SimpleChanges, SimpleChange, OnChanges } from '@angular/core';
-import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, AbstractControl } from '@angular/forms';
+import {
+  FormControl,
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  NG_VALIDATORS,
+  AbstractControl,
+  FormGroup
+} from '@angular/forms';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { AppFormService } from 'src/app/services/AppForm.service';
+import { tap } from 'rxjs/operators';
 
 export const isControlRequired = (abstractControl: FormControl): boolean => {
 
-  if (abstractControl.validator) {
+  if(abstractControl.validator) {
     const validator = abstractControl.validator(new FormControl(''));
-    if (validator && validator.required) {
+    if(validator && validator.required) {
       return true;
     }
   }
   return false;
 };
+
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
@@ -35,7 +44,6 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   @Input() placeholder: string;
   @Input() id: string;
   @Input() prependIcon: string;
-  @Input() formControl: FormControl = new FormControl();
   @Input() triggerValidation: boolean;
   @Input() autofocus: boolean;
   @Input() autocomplete: string;
@@ -50,6 +58,15 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   disabled: boolean;
   onChanges: ($value: any) => void;
   onTouched: () => void;
+  inputGroup = new FormGroup({
+    value: new FormControl('')
+  });
+  valueChanges$ = this.formControl.valueChanges.pipe(
+    tap(() => {
+      console.log('WOOOOOW');
+    })
+  );
+  onValidationChange: () => void;
   inputValue: any;
   passwordStringChangeSubject$: Subject<string> = new BehaviorSubject('');
   passwordStringChangeAction$: Observable<string> = this.passwordStringChangeSubject$.asObservable();
@@ -72,11 +89,15 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   //   return false;
   // }
 
+  get formControl() {
+    return this.inputGroup.get('value') as FormControl;
+  }
+
   setDisabledState?(isDisabled: boolean): void {
     if(!this.disabled) {
       if(!isDisabled) {
-        this.formControl.enable();
-        this.formControl.updateValueAndValidity();
+        this.inputGroup.get('value')?.enable();
+        this.inputGroup.get('value')?.updateValueAndValidity();
       } else {
         this.disabled = true;
       }
@@ -86,22 +107,24 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   ngOnChanges(changes: SimpleChanges) {
     const triggerValidation: SimpleChange = changes.triggerValidation;
     if(triggerValidation && !triggerValidation.firstChange) {
-      this.formControl.markAsTouched();
+      this.inputGroup.get('value')?.markAsTouched();
       this.validateField();
     }
   }
 
   validate(control: FormControl) {
-    this.formControl = control;
-    this.isRequired = isControlRequired(this.formControl);
+    this.isRequired = isControlRequired(control);
+    console.log(control.valid);
+    this.formControl.setValidators(control.validator);
+    this.formControl.updateValueAndValidity();
     if(this.showPasswordStrength) {
-      this.passwordStringChangeSubject$.next(this.formControl.value);
+      this.passwordStringChangeSubject$.next(this.inputGroup.get('value')?.value);
     }
   }
 
   writeValue(value: any): void {
     if(value !== undefined) {
-      this.inputValue = value;
+      this.inputGroup.setValue({value});
     }
     // console.log(this.formControl);
   }
@@ -115,7 +138,7 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   }
 
   validateField() {
-    this.fieldError = this.appFormService.getErrorMessage(this.formControl, this.label);
+    this.fieldError = this.appFormService.getErrorMessage(this.inputGroup.get('value') as FormControl, this.label);
     this.onTouched();
   }
 
@@ -123,5 +146,9 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
     if(this.fieldError) {
       this.validateField();
     }
+  }
+  registerOnValidatorChange?(fn: () => void): void {
+    console.log(fn);
+    this.onValidationChange = fn;
   }
 }
