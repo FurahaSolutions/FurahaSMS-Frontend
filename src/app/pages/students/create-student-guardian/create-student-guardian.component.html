@@ -22,7 +22,6 @@
               </legend>
               <section class="d-flex justify-content-between flex-wrap">
                 <section class="col-lg-5">
-                  {{ guardian.get('email').errors }} VALUE: {{ guardian.get('email').value }}
                   <app-input [triggerValidation]="triggerValidationAction$ | ngrxPush" label='Email'
                              id="{{ 'email' + i }}"
                              type="email"

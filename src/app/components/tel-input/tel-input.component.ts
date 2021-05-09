@@ -76,9 +76,9 @@ export class TelInputComponent extends InputComponent implements OnInit, Validat
 
   validatePhone(phone: string | null | undefined): void {
     if(!this.phoneNumbers.isValidPhoneNumber(phone)) {
-      this.inputGroup.get('value')?.markAsDirty();
+      this.formControl.markAsDirty();
       this.fieldError = 'The Phone Number Entered is Invalid';
-      this.inputGroup.get('value')?.setErrors({invalid: 'Phone Number is invalid'});
+      this.formControl.get('value')?.setErrors({invalid: 'Phone Number is invalid'});
     }
   }
 
