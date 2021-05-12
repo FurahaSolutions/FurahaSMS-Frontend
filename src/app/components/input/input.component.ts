@@ -1,18 +1,8 @@
-import { Component, OnInit, Input, forwardRef, SimpleChanges, SimpleChange, OnChanges } from '@angular/core';
-import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, AbstractControl } from '@angular/forms';
-import { Observable, Subject, BehaviorSubject } from 'rxjs';
-import { AppFormService } from 'src/app/services/AppForm.service';
+import { Component, forwardRef, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { AppFormService } from '../../services/AppForm.service';
 
-export const isControlRequired = (abstractControl: FormControl): boolean => {
-
-  if (abstractControl.validator) {
-    const validator = abstractControl.validator(new FormControl(''));
-    if (validator && validator.required) {
-      return true;
-    }
-  }
-  return false;
-};
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
@@ -53,24 +43,25 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   inputValue: any;
   passwordStringChangeSubject$: Subject<string> = new BehaviorSubject('');
   passwordStringChangeAction$: Observable<string> = this.passwordStringChangeSubject$.asObservable();
-  isRequired = false;
+  showRequiredIcon: any;
 
   constructor(private appFormService: AppFormService) {
   }
 
   ngOnInit() {
-    if(['color', 'tel', 'phone', 'password', 'number', 'date', 'datetime-local', 'time'].includes(this.type)) {
+    if(['tel', 'phone', 'password', 'number', 'date', 'datetime-local'].includes(this.type)) {
       this.fieldType = this.type;
     }
   }
 
-  // get isRequired(): boolean {
-  //   if(this.formControl.validator) {
-  //     const validationResult = this.formControl.validator(this.formControl);
-  //     return (validationResult !== null && validationResult.required === true);
-  //   }
-  //   return false;
-  // }
+  get isRequired(): boolean {
+    if(this.formControl.validator) {
+      const validationResult = this.formControl.validator(this.formControl);
+      return validationResult?.required === true;
+    }
+    return false;
+
+  }
 
   setDisabledState?(isDisabled: boolean): void {
     if(!this.disabled) {
@@ -93,7 +84,7 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
 
   validate(control: FormControl) {
     this.formControl = control;
-    this.isRequired = isControlRequired(this.formControl);
+
     if(this.showPasswordStrength) {
       this.passwordStringChangeSubject$.next(this.formControl.value);
     }
@@ -103,7 +94,6 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
     if(value !== undefined) {
       this.inputValue = value;
     }
-    // console.log(this.formControl);
   }
 
   registerOnChange(fn: any): void {

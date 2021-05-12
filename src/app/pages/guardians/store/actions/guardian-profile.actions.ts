@@ -3,7 +3,7 @@ import {IUserProfile} from '../../../../interfaces/user-profile.interface';
 
 export const loadGuardianProfiles = createAction(
   '[GuardianProfile] Load GuardianProfiles',
-  props<{ data: IUserProfile }>()
+  props<{ data: { id: number } }>()
 );
 
 export const loadGuardianProfilesSuccess = createAction(

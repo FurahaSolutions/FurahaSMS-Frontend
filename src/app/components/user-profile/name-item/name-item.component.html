@@ -3,7 +3,7 @@
     <div *ngIf='editable' class="edit-field p-3 pt-0">
 
       <app-input [type]='type' [label]='label' type="text"
-        id=itemNameInput labelClass='col-lg-12' inputClass='col-lg-12' formControlName='name'
+        id='itemNameInput' labelClass='col-lg-12' inputClass='col-lg-12' formControlName='name'
         [placeholder]='"Enter " + label '></app-input>
       <div class="d-flex justify-content-between">
         <button type="button" (click)='editable = false' class="btn btn-secondary mt-2">Cancel
@@ -14,8 +14,8 @@
           <span class="icon-save"></span>Save </button>
       </div>
     </div>
-    <div class='label col-xs-12 col-sm-4 col-lg-4'>{{ label | titlecase }}:</div>
-    <div class='value col col-xs-12 p-1 d-flex justify-content-between'>
+    <div class='label col-12'>{{ label | titlecase }}:</div>
+    <div class='value col col-12 p-1 d-flex justify-content-between mb-4 mt-0 mb-sm-2'>
 
       &nbsp; {{ name }}
       <button type="button" (click)='editable = true' (mouseout)='editHovered = false' (mouseover)='editHovered = true'

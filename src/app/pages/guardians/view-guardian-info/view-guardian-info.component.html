@@ -1,20 +1,30 @@
-<section class='d-flex flex-wrap name-field  mt-4' *ngIf='(guardianProfile$ | ngrxPush) as profile; else content_loading'>
+<section class='d-flex flex-wrap name-field  mt-4'
+         *ngIf='(guardianProfile$ | ngrxPush) as profile; else content_loading'>
   <section class='col-lg-4 col-md-5 col-sm-6'>
     <section class='d-flex flex-wrap'>
-      <span class='label-name col-xs-12 col-sm-4 col-md-5 col-lg-4'>Gender:</span>
-      <span class='label-value col col-xs-12'> {{ profile.gender }}</span>
+      <span class='label-name col-12'>Gender:</span>
+      <span class='label-value col col-xs-12'>
+        <ng-container *ngIf="!profile.genderName">
+          <span class="text-warning">Not Specified</span>
+        </ng-container>
+        {{ profile.genderName }}
+      </span>
     </section>
   </section>
   <section class='col-md-7 col-lg-4 col-sm-6'>
     <section class='d-flex flex-wrap'>
-      <span class='label-name col-xs-12 col-sm-4 col-md-6 col-lg-6'>Date Of Birth:</span>
-      <span class='label-value col col-xs-12'> {{ profile.dateOfBirth }}</span>
+      <span class='label-name col-12'>Date Of Birth:</span>
+      <span class='label-value col-12'> {{ profile.dateOfBirth }}</span>
     </section>
   </section>
   <section class='col-lg-4 col-md-5 col-sm-6'>
     <section class='d-flex flex-wrap'>
-      <span class='label-name col-xs-12 col-sm-4 col-lg-4 col-md-5'>Religion:</span>
-      <span class='label-value col col-xs-12'> {{ profile.religion }}</span>
+      <span class='label-name col-12'>Religion:</span>
+      <span class='label-value col-12'>
+        <ng-container *ngIf="!profile.religionName">
+          <span class="text-warning">Not Specified</span>
+        </ng-container>
+        {{ profile.religionName }}</span>
     </section>
   </section>
 </section>

@@ -1,14 +1,15 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {ViewGuardianInfoComponent} from './view-guardian-info.component';
-import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
-import {RouterTestingModule} from '@angular/router/testing';
-import {Store, StoreModule} from '@ngrx/store';
-import {ActivatedRoute} from '@angular/router';
-import {of} from 'rxjs';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
-import {AppStarLabelRequiredModule} from '../../../components/label-star-required/app-star-label-required';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { ViewGuardianInfoComponent } from './view-guardian-info.component';
+import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Store, StoreModule } from '@ngrx/store';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { AppStarLabelRequiredModule } from '../../../components/label-star-required/app-star-label-required';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ViewGuardianInfoComponent', () => {
   let component: ViewGuardianInfoComponent;
@@ -27,7 +28,8 @@ describe('ViewGuardianInfoComponent', () => {
         }),
         AppStarLabelRequiredModule,
         AppLoadingBubbleModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        HttpClientTestingModule
       ],
       declarations: [ViewGuardianInfoComponent],
       providers: [
