@@ -1,14 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { select, Store } from "@ngrx/store";
+import { selectGuardianProfileWithId } from "../pages/guardians/store/selectors/guardian-profile.selectors";
+import { loadGuardianProfiles } from "../pages/guardians/store/actions/guardian-profile.actions";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GuardiansService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private store: Store) { }
+
+  loadGuardianProfile$ = (id: number) => this.store.pipe(
+    select(selectGuardianProfileWithId(id)),
+    tap(profile => !profile ? this.store.dispatch(loadGuardianProfiles({data: {id}})) : null)
+  );
+
   submit(data: any): Observable<any> {
     const submitData = {
       id: data.id,

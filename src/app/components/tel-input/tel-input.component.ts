@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, forwardRef, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, forwardRef, OnDestroy, OnInit } from '@angular/core';
 import { InputComponent } from '../input/input.component';
 import { FormBuilder, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms';
 import { AppFormService } from 'src/app/services/AppForm.service';
@@ -37,7 +37,7 @@ export class TelInputComponent extends InputComponent implements OnInit, Validat
   constructor(
     appFormService: AppFormService,
     private phoneNumbers: PhoneNumbersService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) {
     super(appFormService);
   }

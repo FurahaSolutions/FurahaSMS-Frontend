@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, forwardRef, SimpleChanges, SimpleChange, OnChanges } from '@angular/core';
-import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
-import { Observable, Subject, BehaviorSubject } from 'rxjs';
+import { Component, forwardRef, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { AppFormService } from "../../services/AppForm.service";
 
 @Component({
@@ -43,24 +43,29 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   inputValue: any;
   passwordStringChangeSubject$: Subject<string> = new BehaviorSubject('');
   passwordStringChangeAction$: Observable<string> = this.passwordStringChangeSubject$.asObservable();
-  constructor(private appFormService: AppFormService) { }
+  showRequiredIcon: any;
+
+  constructor(private appFormService: AppFormService) {
+  }
 
   ngOnInit() {
-    if (['tel', 'phone', 'password', 'number', 'date', 'datetime-local'].includes(this.type)) {
+    if(['tel', 'phone', 'password', 'number', 'date', 'datetime-local'].includes(this.type)) {
       this.fieldType = this.type;
     }
   }
+
   get isRequired(): boolean {
-    if (this.formControl.validator) {
+    if(this.formControl.validator) {
       const validationResult = this.formControl.validator(this.formControl);
-      return (validationResult !== null && validationResult.required === true);
+      return validationResult?.required === true;
     }
     return false;
+
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    if (!this.disabled) {
-      if (!isDisabled) {
+    if(!this.disabled) {
+      if(!isDisabled) {
         this.formControl.enable();
         this.formControl.updateValueAndValidity();
       } else {
@@ -68,36 +73,44 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
       }
     }
   }
+
   ngOnChanges(changes: SimpleChanges) {
     const triggerValidation: SimpleChange = changes.triggerValidation;
-    if (triggerValidation && !triggerValidation.firstChange) {
+    if(triggerValidation && !triggerValidation.firstChange) {
       this.formControl.markAsTouched();
       this.validateField();
     }
   }
+
   validate(control: FormControl) {
     this.formControl = control;
-    if (this.showPasswordStrength) {
+
+    if(this.showPasswordStrength) {
       this.passwordStringChangeSubject$.next(this.formControl.value);
     }
   }
+
   writeValue(value: any): void {
-    if (value !== undefined) {
+    if(value !== undefined) {
       this.inputValue = value;
     }
   }
+
   registerOnChange(fn: any): void {
     this.onChanges = fn;
   }
+
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
+
   validateField() {
     this.fieldError = this.appFormService.getErrorMessage(this.formControl, this.label);
     this.onTouched();
   }
+
   updateFieldValidation() {
-    if (this.fieldError) {
+    if(this.fieldError) {
       this.validateField();
     }
   }

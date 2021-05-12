@@ -12,7 +12,7 @@ import {selectGenders, selectReligions} from 'src/app/store/selectors/app.select
 import {Observable} from 'rxjs';
 import {selectStaffType} from '../../store/selectors/staff-type.selectors';
 import {SupportStaffService} from 'src/app/pages/support-staffs/services/support-staff.service';
-import {EmailValidatorDirective} from 'src/app/shared/validators/email.validator';
+import {EmailValidatorDirective} from 'src/app/shared/validators/email-validator/email.validator';
 import {subscribedContainerMixin} from '../../../../shared/mixins/subscribed-container.mixin';
 import {formMixin} from '../../../../shared/mixins/form.mixin';
 
