@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/reducers';
-import { map, mergeMap, switchMap } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { GuardiansService } from 'src/app/services/guardians.service';
 

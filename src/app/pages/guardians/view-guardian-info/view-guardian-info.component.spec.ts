@@ -9,6 +9,7 @@ import {of} from 'rxjs';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {AppStarLabelRequiredModule} from '../../../components/label-star-required/app-star-label-required';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 describe('ViewGuardianInfoComponent', () => {
   let component: ViewGuardianInfoComponent;
@@ -27,7 +28,8 @@ describe('ViewGuardianInfoComponent', () => {
         }),
         AppStarLabelRequiredModule,
         AppLoadingBubbleModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        HttpClientTestingModule
       ],
       declarations: [ViewGuardianInfoComponent],
       providers: [
