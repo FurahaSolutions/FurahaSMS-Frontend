@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/reducers';
 import { map, mergeMap } from 'rxjs/operators';
-import { GuardiansService } from "../../../services/guardians.service";
+import { GuardiansService } from '../../../services/guardians.service';
 
 @Component({
   selector: 'app-view-guardian-info',
@@ -14,10 +14,10 @@ import { GuardiansService } from "../../../services/guardians.service";
 export class ViewGuardianInfoComponent {
   guardianId$ = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id')))
-  )
+  );
   guardianProfile$: Observable<any> = this.guardianId$.pipe(
     mergeMap(id => this.guardianService.loadGuardianProfile$(id))
-  )
+  );
 
   constructor(
     private route: ActivatedRoute,

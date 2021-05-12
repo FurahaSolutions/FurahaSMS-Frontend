@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { select, Store } from "@ngrx/store";
-import { selectGuardianProfileWithId } from "../pages/guardians/store/selectors/guardian-profile.selectors";
-import { loadGuardianProfiles } from "../pages/guardians/store/actions/guardian-profile.actions";
-import { IUserProfile } from "../interfaces/user-profile.interface";
+import { select, Store } from '@ngrx/store';
+import { selectGuardianProfileWithId } from '../pages/guardians/store/selectors/guardian-profile.selectors';
+import { loadGuardianProfiles } from '../pages/guardians/store/actions/guardian-profile.actions';
+import { IUserProfile } from '../interfaces/user-profile.interface';
 
 @Injectable({
   providedIn: 'root'

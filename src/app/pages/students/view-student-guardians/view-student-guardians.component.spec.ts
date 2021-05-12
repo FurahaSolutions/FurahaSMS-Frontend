@@ -9,7 +9,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
-import { guardianProfileFeatureKey, reducer } from "../../guardians/store/reducers/guardian-profile.reducer";
+import { guardianProfileFeatureKey, reducer } from '../../guardians/store/reducers/guardian-profile.reducer';
 
 describe('ViewStudentGuardiansComponent', () => {
   let component: ViewStudentGuardiansComponent;

@@ -4,7 +4,7 @@ import { catchError, concatMap, map } from 'rxjs/operators';
 import { EMPTY, of } from 'rxjs';
 
 import * as GuardianProfileActions from '../actions/guardian-profile.actions';
-import { GuardiansService } from "../../../../services/guardians.service";
+import { GuardiansService } from '../../../../services/guardians.service';
 
 
 @Injectable()
@@ -15,10 +15,10 @@ export class GuardianProfileEffects {
     concatMap(({data}) => {
         if(data?.id) {
           return this.guardianService.getGuardianWithId(data.id).pipe(
-            map(data => GuardianProfileActions.loadGuardianProfilesSuccess({data})),
-            catchError(error => of(GuardianProfileActions.loadGuardianProfilesFailure({error}))))
+            map(profileData => GuardianProfileActions.loadGuardianProfilesSuccess({data: profileData})),
+            catchError(error => of(GuardianProfileActions.loadGuardianProfilesFailure({error}))));
         }
-        return EMPTY
+        return EMPTY;
       }
     )
   ));

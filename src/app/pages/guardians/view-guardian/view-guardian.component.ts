@@ -14,10 +14,10 @@ import { GuardiansService } from 'src/app/services/guardians.service';
 export class ViewGuardianComponent {
   guardianId$ = this.route.paramMap.pipe(
     map(params => Number(params.get('id')))
-  )
+  );
   guardianProfile$: Observable<any> = this.guardianId$.pipe(
     mergeMap(id => this.guardianService.loadGuardianProfile$(id))
-  )
+  );
 
   constructor(
     private guardianService: GuardiansService,
