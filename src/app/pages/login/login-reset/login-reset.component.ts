@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationService} from 'src/app/services/authentication.service';
-import {EmailValidatorDirective} from 'src/app/shared/validators/email.validator';
+import {EmailValidatorDirective} from 'src/app/shared/validators/email-validator/email.validator';
 import {Router} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
 import {subscribedContainerMixin} from '../../../shared/mixins/subscribed-container.mixin';

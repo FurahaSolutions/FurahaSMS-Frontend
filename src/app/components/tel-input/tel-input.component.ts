@@ -1,10 +1,10 @@
-import {AfterViewInit, Component, forwardRef, OnDestroy, OnInit} from '@angular/core';
-import {InputComponent} from '../input/input.component';
-import {FormBuilder, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator} from '@angular/forms';
-import {AppFormService} from 'src/app/services/AppForm.service';
-import {PhoneNumbersService} from 'src/app/services/phone-numbers.service';
-import {Observable, Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import { AfterViewInit, ChangeDetectorRef, Component, forwardRef, OnDestroy, OnInit } from '@angular/core';
+import { InputComponent } from '../input/input.component';
+import { FormBuilder, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms';
+import { AppFormService } from 'src/app/services/AppForm.service';
+import { PhoneNumbersService } from 'src/app/services/phone-numbers.service';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tel-input',
@@ -37,7 +37,7 @@ export class TelInputComponent extends InputComponent implements OnInit, Validat
   constructor(
     appFormService: AppFormService,
     private phoneNumbers: PhoneNumbersService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) {
     super(appFormService);
   }
@@ -55,7 +55,7 @@ export class TelInputComponent extends InputComponent implements OnInit, Validat
     this.phoneNumberGroup.valueChanges
       .pipe(takeUntil(this.destroyed$))
       .subscribe(value => {
-        if (this.onChanges) {
+        if(this.onChanges) {
           this.onChanges('+' + value.code + (value.phoneNumber ? value.phoneNumber : ''));
         }
       });
@@ -64,7 +64,7 @@ export class TelInputComponent extends InputComponent implements OnInit, Validat
   ngAfterViewInit() {
     const queryString = '#' + this.id + '-container .ng-input [role=combobox]';
     const element = document.querySelector(queryString);
-    if (element) {
+    if(element) {
       element.setAttribute('aria-label', 'Select country code');
     }
   }
@@ -75,10 +75,10 @@ export class TelInputComponent extends InputComponent implements OnInit, Validat
   }
 
   validatePhone(phone: string | null | undefined): void {
-    if (!this.phoneNumbers.isValidPhoneNumber(phone)) {
+    if(!this.phoneNumbers.isValidPhoneNumber(phone)) {
       this.formControl.markAsDirty();
       this.fieldError = 'The Phone Number Entered is Invalid';
-      this.formControl.setErrors({invalid: 'Phone Number is invalid'});
+      this.formControl.get('value')?.setErrors({invalid: 'Phone Number is invalid'});
     }
   }
 
@@ -91,7 +91,7 @@ export class TelInputComponent extends InputComponent implements OnInit, Validat
   }
 
   writeValue(value: any): void {
-    if (value !== undefined && value !== '') {
+    if(value !== undefined && value !== '') {
       const {code, phone} = this.phoneNumbers.splitNumberFromCountryCode(value);
       this.countryCode.setValue(code);
       this.phoneNumber.setValue(phone);
@@ -107,11 +107,11 @@ export class TelInputComponent extends InputComponent implements OnInit, Validat
   }
 
   validate(c: FormControl) {
-    if (!c.hasError('required') && c.value !== '') {
+    if(!c.hasError('required') && c.value !== '') {
       return null;
     }
     super.validate(c);
-    if (c.hasError('required')) {
+    if(c.hasError('required')) {
       return {
         required: {
           valid: false,

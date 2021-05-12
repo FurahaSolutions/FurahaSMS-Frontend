@@ -1,8 +1,7 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import {InputComponent} from './input.component';
-import {AppStarLabelRequiredModule} from '../label-star-required/app-star-label-required';
+import { InputComponent } from './input.component';
 
 describe('InputComponent', () => {
   let component: InputComponent;
@@ -10,13 +9,10 @@ describe('InputComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        ReactiveFormsModule,
-        AppStarLabelRequiredModule
-      ],
-      declarations: [InputComponent]
+      imports: [ReactiveFormsModule],
+      declarations: [ InputComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {

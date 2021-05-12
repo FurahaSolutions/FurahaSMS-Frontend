@@ -31,10 +31,10 @@
       <section class='col-lg-6'>
         <app-name-item  (valueChanged)='changeProfile("lastName", $event)' [userId]='profile.id' label='Last Name' [name]='profile.lastName'></app-name-item>
       </section>
-      <section class='col-lg-6'>
+      <section class='col-lg-6' *ngIf='editMode || (profile.middleName && profile.middleName !== "")'>
         <app-name-item  (valueChanged)='changeProfile("middleName", $event)' [userId]='profile.id' label='Middle Name' [name]='profile.middleName'></app-name-item>
       </section>
-      <section class='col-lg-6'>
+      <section class='col-lg-6' *ngIf='editMode || (profile.otherNames && profile.otherNames !== "")'>
         <app-name-item (valueChanged)='changeProfile("otherNames", $event)'  [userId]='profile.id' label='Other Names' [name]='profile.otherNames'></app-name-item>
       </section>
     </section>

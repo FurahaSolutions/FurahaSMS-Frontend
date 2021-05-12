@@ -1,11 +1,25 @@
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import {GuardiansService} from './guardians.service';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
+import { GuardiansService } from './guardians.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../store/reducers';
 
 describe('GuardiansService', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [HttpClientTestingModule]
+    imports: [
+      HttpClientTestingModule,
+      StoreModule.forRoot(REDUCER_TOKEN, {
+        metaReducers,
+        runtimeChecks: {
+          strictStateImmutability: true,
+          strictActionImmutability: true,
+        }
+      }),
+    ],
+    providers: [
+      reducerProvider
+    ]
   }));
 
   it('should be created', () => {
