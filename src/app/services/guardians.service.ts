@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { select, Store } from "@ngrx/store";
 import { selectGuardianProfileWithId } from "../pages/guardians/store/selectors/guardian-profile.selectors";
 import { loadGuardianProfiles } from "../pages/guardians/store/actions/guardian-profile.actions";
+import { IUserProfile } from "../interfaces/user-profile.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -67,7 +68,9 @@ export class GuardiansService {
       })));
   }
   getStudents(userId: number | string): Observable<any> {
-    const url = `api/guardians/${userId}/students`;
-    return this.http.get<any>(url);
+    const url = `api/guardians/${userId}?withStudents=1`;
+    return this.http.get<any>(url).pipe(
+      map(({students}: {students: IUserProfile[]}) => students)
+    );
   }
 }
