@@ -1,9 +1,9 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {ViewTeacherComponent} from './view-teacher/view-teacher.component';
-import {TeachersDashboardComponent} from './teachers-dashboard/teachers-dashboard.component';
-import {ViewTeacherInfoComponent} from './view-teacher-info/view-teacher-info.component';
-import {ViewTeacherSubjectsComponent} from './view-teacher-subjects/view-teacher-subjects.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { ViewTeacherComponent } from './view-teacher/view-teacher.component';
+import { TeachersDashboardComponent } from './teachers-dashboard/teachers-dashboard.component';
+import { ViewTeacherInfoComponent } from './view-teacher-info/view-teacher-info.component';
+import { ViewTeacherSubjectsComponent } from './view-teacher-subjects/view-teacher-subjects.component';
 
 
 const routes: Routes = [

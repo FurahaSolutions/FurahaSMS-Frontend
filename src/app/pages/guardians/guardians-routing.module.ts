@@ -34,6 +34,11 @@ const routes: Routes = [
         data: {
           breadcrumb: 'Info'
         }
+      },
+      {
+        path: 'password-management',
+        loadChildren: () => import('./../login/password-management/password-management.module')
+          .then(m => m.PasswordManagementModule)
       }
    ]
  }
