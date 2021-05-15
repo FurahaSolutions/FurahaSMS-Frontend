@@ -22,7 +22,7 @@ export class UndeleteAcademicYearComponent extends formMixin(modalMixin()) {
 
   saveDelete() {
     this.submitInProgressSubject$.next(true);
-    this.academicYearService.saveDeletedStatus({id: this.id})
+    this.academicYearService.restore({id: this.id})
       .subscribe({
         next: () => {
           this.submitInProgressSubject$.next(false);

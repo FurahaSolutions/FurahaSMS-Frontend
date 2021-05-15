@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
 import { LinkInterface } from 'src/app/interfaces/link.interface';
 import { LinkService } from 'src/app/services/link.service';
@@ -10,13 +10,14 @@ import { AppState } from '../../../store/reducers';
 import { Store } from '@ngrx/store';
 import { modalMixin } from '../../../shared/mixins/modal.mixin';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { UndeleteAcademicYearComponent } from "./undelete-academic-year/undelete-academic-year.component";
 
 @Component({
   selector: 'app-academic-year',
   templateUrl: './academic-year.component.html',
   styleUrls: ['./academic-year.component.css']
 })
-export class AcademicYearComponent extends modalMixin() implements OnInit {
+export class AcademicYearComponent extends modalMixin() {
   showForm = this.fb.group({
     archived: [null],
     deleted: [null],
@@ -53,9 +54,10 @@ export class AcademicYearComponent extends modalMixin() implements OnInit {
     public store: Store<AppState>, modalService: BsModalService) {
     super(modalService, store);
   }
-
-  ngOnInit() {
-    this.showForm.patchValue({archived: false, deleted: false,});
+  openUndeleteModal(id: number) {
+    this.openModal({
+      id,
+      component: UndeleteAcademicYearComponent
+    });
   }
-
 }

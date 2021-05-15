@@ -1,12 +1,12 @@
 <div class="modal-header bg-dark">
-  <h4 class="modal-title pull-left">Academic Year Deletion</h4>
+  <h4 class="modal-title pull-left">Academic Year Restoration</h4>
   <button type="button" class="close pull-right" [attr.aria-label]="'Close'" (click)="closeModal()">
     <span aria-hidden="true">&times;</span>
 
   </button>
 </div>
 <div class="modal-body bg-dark">
-  <p class="text-danger">You are about to delete an academic Year</p>
+  <p class="text-danger">You are about to restore an academic Year</p>
 
   <p>Please Enter #{{ id }} to confirm action</p>
   <input placeholder="eg #xyz" aria-label="Course Name" type="text" class="form-control" [(ngModel)]='confirmation'>
@@ -15,7 +15,7 @@
   <button (click)='closeModal()' class="btn btn-secondary" type="button">Cancel</button>
   <button (click)='saveDelete()' [disabled]='(confirmation !=  "#" + id) || (submitInProgressAction$ | ngrxPush)'
           class="btn btn-danger">
-    <span *ngIf='(submitInProgressAction$ | ngrxPush) === false'>Delete Academic Year</span>
+    <span *ngIf='(submitInProgressAction$ | ngrxPush) === false'>Restore Academic Year</span>
     <span *ngIf='submitInProgressAction$ | ngrxPush'>Saving...</span>
     <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-trash'></i>
     <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>

@@ -106,6 +106,10 @@ export class AcademicYearService {
     return this.http.delete<any>(`${this.urlWithId(id)}`);
   }
 
+  restore({id}: { id: number }) {
+    return this.http.post<any>(`${this.urlWithId(id)}/restore`, {});
+  }
+
   transforms(academicYears: any[]) {
     return academicYears.map(academicYear => ({
       ...academicYear,

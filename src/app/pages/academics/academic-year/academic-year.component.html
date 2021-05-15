@@ -7,7 +7,8 @@
     <ng-container *ngrxLet="deletedValueChanges"></ng-container>
     <div class="d-flex justify-content-end mt-2">
       <app-checkbox formControlName="archived" label="Show Archived" class="mr-4"></app-checkbox>
-      <app-checkbox *ngIf="canViewDeletedAcademicYear" formControlName="deleted" label="Show Deleted" class="mr-2"></app-checkbox>
+      <app-checkbox *ngIf="canViewDeletedAcademicYear" formControlName="deleted" label="Show Deleted"
+                    class="mr-2"></app-checkbox>
     </div>
   </form>
   <section class="d-flex flex-wrap justify-content-around"
@@ -15,11 +16,13 @@
     <section class="card col-lg-12 mt-1" *ngFor='let academicYear of academicYears'>
       <section class="card-header d-flex justify-content-between">
         <h2>{{ academicYear.name }}</h2>
-        <button [routerLink]='["/academics", "academic-year", academicYear.id, "settings"]' *ngIf="!academicYear.deleted"
+        <button [routerLink]='["/academics", "academic-year", academicYear.id, "settings"]'
+                *ngIf="!academicYear.deleted"
                 class="btn btn-outline-info icon-cog">Settings
         </button>
       </section>
-      <section class="card-body p-2" [class.bg-warning]="academicYear.archived" [class.bg-danger]="academicYear.deleted">
+      <section class="card-body p-2" [class.bg-warning]="academicYear.archived"
+               [class.bg-danger]="academicYear.deleted">
         <ul class="list-group" *ngIf="!academicYear.deleted">
           <li class="list-group-item bg-dark list-group-flush mb-1">
             <a class="card-link  btn-block"
@@ -37,7 +40,9 @@
               Table</a>
           </li>
         </ul>
-        <div class="d-flex justify-content-end" *ngIf="academicYear.deleted"><button class="btn btn-outline-warning">Undelete Academic Year</button></div>
+        <div class="d-flex justify-content-end" *ngIf="academicYear.deleted">
+          <button (click)="openUndeleteModal(academicYear.id)" class="btn btn-outline-warning">Undelete Academic Year</button>
+        </div>
       </section>
     </section>
   </section>
