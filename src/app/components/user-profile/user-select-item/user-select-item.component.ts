@@ -19,11 +19,12 @@ import { fadeInOutAnimationMetadata } from "../../../shared/animations/fade-in-o
 })
 export class UserSelectItemComponent extends formMixin() implements OnInit {
 
+  @Input() key: string;
   @Input() label: string;
   @Input() value: number;
   @Input() userId: number;
   @Input() valueName: string;
-  @Output() valueChanged: EventEmitter<{ id: number; name: string }> = new EventEmitter();
+  @Output() valueChanged: EventEmitter<{ key: string, id: number; name: string }> = new EventEmitter();
   @Input() items: Observable<any[]>;
   @ViewChild('selectInput') selectInput: ElementRef;
   editMode$: Observable<boolean> | undefined = this.store.pipe(select(selectEditModeOnState));
@@ -60,6 +61,7 @@ export class UserSelectItemComponent extends formMixin() implements OnInit {
           complete: () => this.submitInProgressSubject$.next(false),
           next: () => {
             this.valueChanged.emit({
+              key: this.key,
               id: (this.selectInput.nativeElement as HTMLSelectElement).selectedIndex,
               name: (this.selectInput.nativeElement as HTMLSelectElement).selectedOptions[0].innerText.trim()
             });
@@ -70,7 +72,6 @@ export class UserSelectItemComponent extends formMixin() implements OnInit {
     } else {
       alert('Form not filled correctly');
     }
-
   }
 
 }

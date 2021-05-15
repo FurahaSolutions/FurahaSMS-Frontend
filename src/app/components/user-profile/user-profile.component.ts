@@ -135,8 +135,8 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
 
   }
 
-  changeProfile(fieldName: string, $event: string) {
-    this.valueChanged.emit({fieldName, fieldNewValue: $event});
+  changeProfile({fieldName, fieldNewValue}: {fieldName: string, fieldNewValue: string}) {
+    this.valueChanged.emit({fieldName, fieldNewValue});
   }
 
 }

@@ -24,7 +24,7 @@ export class NameItemComponent extends formMixin() implements OnInit {
   @Input() name: string;
   @Input() label = '';
   @Input() userId: number;
-  @Output() valueChanged = new EventEmitter();
+  @Output() valueChanged = new EventEmitter<{ fieldName: string; fieldNewValue: string }>();
   itemForm: FormGroup;
   editHovered = false;
   editable = false;
@@ -67,7 +67,7 @@ export class NameItemComponent extends formMixin() implements OnInit {
         .subscribe({
           complete: () => this.submitInProgressSubject$.next(false),
           next: () => {
-            this.valueChanged.emit(fieldNewValue);
+            this.valueChanged.emit({ fieldName: this.key, fieldNewValue });
             this.editable = false;
           },
           error: () => this.submitInProgressSubject$.next(false)
