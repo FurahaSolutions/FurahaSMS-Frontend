@@ -5,9 +5,9 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/reducers';
 import { map, mergeMap, take } from 'rxjs/operators';
 import { GuardiansService } from '../../../services/guardians.service';
-import { loadGuardianProfilesSuccess } from "../store/actions/guardian-profile.actions";
-import { GenderService } from "../../../services/gender.service";
-import { ReligionService } from "../../../services/religion.service";
+import { loadGuardianProfilesSuccess } from '../store/actions/guardian-profile.actions';
+import { GenderService } from '../../../services/gender.service';
+import { ReligionService } from '../../../services/religion.service';
 
 @Component({
   selector: 'app-view-guardian-info',
@@ -41,12 +41,12 @@ export class ViewGuardianInfoComponent {
         .subscribe({
           next: (id) => this.store.dispatch(loadGuardianProfilesSuccess(
             {data: {id, [eventTemp.fieldName]: eventTemp.fieldNewValue}}))
-        })
+        });
     }
 
   }
 
-  updateSelectValue({key, id, name}: { key: string, id: number; name: string }) {
+  updateSelectValue({key, id, name}: { key: string; id: number; name: string }) {
     this.guardianId$.pipe(take(1))
       .subscribe({
         next: (profileId) => this.store.dispatch(loadGuardianProfilesSuccess({

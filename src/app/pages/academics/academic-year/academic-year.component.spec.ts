@@ -10,8 +10,8 @@ import { appFeatureKey, reducers } from '../../../store/reducers/app.reducer';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { AppLoadingBubbleModule } from '../../../modules/app-loading-bubble';
-import { AppCheckboxModule } from "../../../shared/checkbox/checkbox.module";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AppCheckboxModule } from '../../../shared/checkbox/checkbox.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('AcademicYearComponent', () => {
   let component: AcademicYearComponent;

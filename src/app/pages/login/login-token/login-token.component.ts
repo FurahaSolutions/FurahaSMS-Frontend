@@ -6,8 +6,8 @@ import { filter, takeUntil, takeWhile, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { loadToastShowsSuccess } from 'src/app/store/actions/toast-show.actions';
-import { subscribedContainerMixin } from "../../../shared/mixins/subscribed-container.mixin";
-import { formMixin } from "../../../shared/mixins/form.mixin";
+import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../../shared/mixins/form.mixin';
 
 @Component({
   selector: 'app-login-token',

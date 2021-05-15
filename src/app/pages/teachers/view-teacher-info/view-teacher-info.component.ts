@@ -49,7 +49,7 @@ export class ViewTeacherInfoComponent extends subscribedContainerMixin() impleme
     }));
   }
 
-  updateSelectValue({key, id, name}: { key: string, id: number; name: string }) {
+  updateSelectValue({key, id, name}: { key: string; id: number; name: string }) {
     this.store.dispatch(loadTeacherProfilesSuccess({
       data: {
         id: this.teacherId,

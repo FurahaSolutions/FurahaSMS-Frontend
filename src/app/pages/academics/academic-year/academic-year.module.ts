@@ -23,7 +23,7 @@ import {ReactiveComponentModule} from '@ngrx/component';
 import {CloseAcademicYearSectionModule} from './close-academic-year-section/close-academic-year-section.module';
 import {DeleteAcademicYearModule} from './delete-academic-year/delete-academic-year.module';
 import {ArchiveAcademicYearModule} from './archive-academic-year/archive-academic-year.module';
-import { AppCheckboxModule } from "../../../shared/checkbox/checkbox.module";
+import { AppCheckboxModule } from '../../../shared/checkbox/checkbox.module';
 
 
 @NgModule({

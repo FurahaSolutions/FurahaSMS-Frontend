@@ -1,4 +1,4 @@
-import { animate, AnimationMetadata, state, style, transition, trigger } from "@angular/animations";
+import { animate, AnimationMetadata, state, style, transition, trigger } from '@angular/animations';
 
 export const fadeInOutAnimationMetadata: AnimationMetadata = trigger('openClose', [
   state('*', style({

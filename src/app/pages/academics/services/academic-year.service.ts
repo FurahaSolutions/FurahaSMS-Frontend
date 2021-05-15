@@ -109,8 +109,8 @@ export class AcademicYearService {
   transforms(academicYears: any[]) {
     return academicYears.map(academicYear => ({
       ...academicYear,
-      archived: !!academicYear['archived_at'],
-      deleted: !!academicYear['deleted_at'],
-    }))
+      archived: !!academicYear.archived_at,
+      deleted: !!academicYear.deleted_at,
+    }));
   }
 }
