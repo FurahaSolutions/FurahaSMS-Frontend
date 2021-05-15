@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { formMixin } from 'src/app/shared/mixins/form.mixin';
 import { fadeInOutAnimationMetadata } from "../../../shared/animations/fade-in-out.animation";
 
+type IKey = 'dateOfBirth' | 'firstName' | 'lastName' | 'otherNames' | 'email' | 'phone';
+
 @Component({
   selector: 'app-name-item',
   templateUrl: './name-item.component.html',
@@ -17,6 +19,7 @@ import { fadeInOutAnimationMetadata } from "../../../shared/animations/fade-in-o
 })
 export class NameItemComponent extends formMixin() implements OnInit {
 
+  @Input() key: IKey;
   @Input() type: string;
   @Input() name: string;
   @Input() label = '';
@@ -26,10 +29,6 @@ export class NameItemComponent extends formMixin() implements OnInit {
   editHovered = false;
   editable = false;
   editMode$: Observable<boolean> = this.store.pipe(select(selectEditModeOnState));
-
-  get isOpen() {
-    return this.editable ? 'open' : 'closed';
-  }
 
   constructor(
     private fb: FormBuilder,
@@ -52,10 +51,14 @@ export class NameItemComponent extends formMixin() implements OnInit {
 
   submitFormItem() {
     if(this.itemForm.valid) {
+
       this.submitInProgressSubject$.next(true);
-      const fieldNewValue = this.itemForm.get('name')?.value;
+      let fieldNewValue = this.itemForm.get('name')?.value;
+      if(this.key === 'dateOfBirth') {
+        fieldNewValue = new Date(fieldNewValue).toISOString().substr(0, 10)
+      }
       this.usersService.update({
-        fieldName: this.label.replace(' ', ''),
+        fieldName: this.key,
         fieldNewValue,
         userId: this.userId
       })
@@ -64,7 +67,8 @@ export class NameItemComponent extends formMixin() implements OnInit {
           next: () => {
             this.valueChanged.emit(fieldNewValue);
             this.editable = false;
-          }
+          },
+          error: () => this.submitInProgressSubject$.next(false)
         });
     } else {
       alert('Form not filled correctly');

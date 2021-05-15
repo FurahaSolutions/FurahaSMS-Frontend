@@ -8,7 +8,7 @@ export const fadeInOutAnimationMetadata: AnimationMetadata = trigger('openClose'
   state('void', style({
     height: '100px',
     opacity: 0.5,
-    backgroundColor: 'yellow'
+    backgroundColor: 'greenyellow'
   })),
   transition(':leave', [
     animate('200ms')

@@ -26,16 +26,16 @@
         <h2>{{ fullName | uppercase }}</h2>
       </section>
       <section class='col-lg-6'>
-        <app-name-item (valueChanged)='changeProfile("firstName", $event)' [userId]='profile.id' label='First Name' [name]='profile.firstName'></app-name-item>
+        <app-name-item key="firstName" (valueChanged)='changeProfile("firstName", $event)' [userId]='profile.id' label='First Name' [name]='profile.firstName'></app-name-item>
       </section>
       <section class='col-lg-6'>
-        <app-name-item  (valueChanged)='changeProfile("lastName", $event)' [userId]='profile.id' label='Last Name' [name]='profile.lastName'></app-name-item>
+        <app-name-item key="lastName"  (valueChanged)='changeProfile("lastName", $event)' [userId]='profile.id' label='Last Name' [name]='profile.lastName'></app-name-item>
       </section>
       <section class='col-lg-6' *ngIf='editMode || (profile.middleName && profile.middleName !== "")'>
-        <app-name-item  (valueChanged)='changeProfile("middleName", $event)' [userId]='profile.id' label='Middle Name' [name]='profile.middleName'></app-name-item>
+        <app-name-item key="middleName"   (valueChanged)='changeProfile("middleName", $event)' [userId]='profile.id' label='Middle Name' [name]='profile.middleName'></app-name-item>
       </section>
       <section class='col-lg-6' *ngIf='editMode || (profile.otherNames && profile.otherNames !== "")'>
-        <app-name-item (valueChanged)='changeProfile("otherNames", $event)'  [userId]='profile.id' label='Other Names' [name]='profile.otherNames'></app-name-item>
+        <app-name-item key="otherNames"  (valueChanged)='changeProfile("otherNames", $event)'  [userId]='profile.id' label='Other Names' [name]='profile.otherNames'></app-name-item>
       </section>
     </section>
   </section>
