@@ -12,10 +12,10 @@
           </button>
 
           <button class='btn btn-success'
-                  [disabled]='!tokenLoginForm.dirty || !tokenLoginForm.valid || (isSubmittingActions$ | ngrxPush)'>
+                  [disabled]='!tokenLoginForm.dirty || !tokenLoginForm.valid || (submitInProgressAction$ | ngrxPush)'>
             Submit
-            <i *ngIf='(isSubmittingActions$ | ngrxPush)' class='icon-spin3 animate-spin'></i>
-            <i *ngIf='(isSubmittingActions$ | ngrxPush) === false && tokenLoginForm.valid && tokenLoginForm.dirty'
+            <i *ngIf='(submitInProgressAction$ | ngrxPush)' class='icon-spin3 animate-spin'></i>
+            <i *ngIf='(submitInProgressAction$ | ngrxPush) === false && tokenLoginForm.valid && tokenLoginForm.dirty'
                class='icon-ok-1'></i>
           </button>
         </section>

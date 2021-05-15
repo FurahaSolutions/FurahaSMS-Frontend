@@ -1,7 +1,6 @@
 <section>
   <form (submit)='submitFormItem()' [formGroup]='itemForm' class='d-flex flex-wrap align-items-center'>
-    <div *ngIf='editable' class="edit-field p-3 pt-0">
-
+    <div *ngIf='editable' [@openClose]="editable" class="edit-field p-3 pt-0">
       <app-input [type]='type' [label]='label' type="text"
         id='itemNameInput' labelClass='col-lg-12' inputClass='col-lg-12' formControlName='name'
         [placeholder]='"Enter " + label '></app-input>

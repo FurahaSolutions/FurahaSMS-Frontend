@@ -23,9 +23,12 @@ const guardianProfileReducer = createReducer(
   initialState,
 
   on(GuardianProfileActions.loadGuardianProfiles, (state, ) => state),
-  on(GuardianProfileActions.loadGuardianProfilesSuccess, (state, payload) => ({
+  on(GuardianProfileActions.loadGuardianProfilesSuccess, (state, action) => ({
     ...state,
-    [payload.data.id]: payload.data
+    [action.data.id]: {
+      ...state[action.data.id],
+      ...action.data
+    }
   })),
   on(GuardianProfileActions.loadGuardianProfilesFailure, (state, _action) => state),
 

@@ -1,26 +1,25 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {BehaviorSubject, Observable, timer} from 'rxjs';
-import {AuthenticationService} from 'src/app/services/authentication.service';
-import {filter, takeWhile, tap} from 'rxjs/operators';
-import {Router} from '@angular/router';
-import {Store} from '@ngrx/store';
-import {loadToastShowsSuccess} from 'src/app/store/actions/toast-show.actions';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BehaviorSubject, Observable, timer } from 'rxjs';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { filter, takeUntil, takeWhile, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { loadToastShowsSuccess } from 'src/app/store/actions/toast-show.actions';
+import { subscribedContainerMixin } from "../../../shared/mixins/subscribed-container.mixin";
+import { formMixin } from "../../../shared/mixins/form.mixin";
 
 @Component({
   selector: 'app-login-token',
   templateUrl: './login-token.component.html',
   styleUrls: ['./login-token.component.css']
 })
-export class LoginTokenComponent implements OnInit, OnDestroy {
+export class LoginTokenComponent extends subscribedContainerMixin(formMixin()) implements OnInit {
 
   tokenLoginForm: FormGroup = this.fb.group({
     token: ['', [Validators.required]]
   });
-  isSubmittingSubject$: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  isSubmittingActions$: Observable<boolean> = this.isSubmittingSubject$.asObservable();
   clipBoardChange$: Observable<any> = timer(500, 500);
-  componentIsActive = true;
 
   constructor(
     private fb: FormBuilder,
@@ -28,17 +27,18 @@ export class LoginTokenComponent implements OnInit, OnDestroy {
     private router: Router,
     private store: Store
   ) {
+    super();
   }
 
   submitTokenLoginForm() {
 
-    this.isSubmittingSubject$.next(true);
-    if (this.tokenLoginForm.valid) {
+    this.submitInProgressSubject$.next(true);
+    if(this.tokenLoginForm.valid) {
       this.authService.tokenLogin(this.tokenLoginForm.value).pipe(
-        takeWhile(() => this.componentIsActive)
+        takeUntil(this.destroyed$)
       ).subscribe({
         next: ({token}: { token: string }) => {
-          this.isSubmittingSubject$.next(false);
+          this.submitInProgressSubject$.next(false);
           this.router.navigate(['/login/password-change'], {queryParams: {token}, queryParamsHandling: 'merge'});
           this.store.dispatch(loadToastShowsSuccess({
             toastHeader: 'Login Successful!',
@@ -47,7 +47,7 @@ export class LoginTokenComponent implements OnInit, OnDestroy {
             toastTime: 'Just Now'
           }));
         },
-        error: () => this.isSubmittingSubject$.next(false)
+        error: () => this.submitInProgressSubject$.next(false)
       });
     } else {
       this.tokenLoginForm.get('email')?.markAsTouched();
@@ -74,9 +74,5 @@ export class LoginTokenComponent implements OnInit, OnDestroy {
       tap(res => this.tokenLoginForm.get('token')?.setValue(res)),
       tap(() => this.tokenLoginForm.markAsDirty())
     ).subscribe();
-  }
-
-  ngOnDestroy() {
-    this.componentIsActive = false;
   }
 }

@@ -40,21 +40,21 @@ export class ViewTeacherInfoComponent extends subscribedContainerMixin() impleme
     this.religionService.loadAll$.pipe(takeUntil(this.destroyed$)).subscribe();
   }
 
-  changeProfile(fieldName: string, $event: string | number) {
+  changeProfile({fieldName, fieldNewValue}: { fieldName: string; fieldNewValue: string }) {
     this.store.dispatch(loadTeacherProfilesSuccess({
       data: {
         id: this.teacherId,
-        [fieldName]: $event,
+        [fieldName]: fieldNewValue,
       }
     }));
   }
 
-  updateSelectValue(fieldName: string, $event: { id: number; name: string }) {
+  updateSelectValue({key, id, name}: { key: string, id: number; name: string }) {
     this.store.dispatch(loadTeacherProfilesSuccess({
       data: {
         id: this.teacherId,
-        [fieldName + '_id']: $event.id,
-        [fieldName + '_name']: $event.name,
+        [key + '_id']: id,
+        [key + '_name']: name,
       }
     }));
   }

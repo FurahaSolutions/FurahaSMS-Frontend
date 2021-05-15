@@ -10,6 +10,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { guardianProfileFeatureKey, reducer } from '../../guardians/store/reducers/guardian-profile.reducer';
+import { UserSelectItemComponent } from "../../../components/user-profile/user-select-item/user-select-item.component";
+import { NameItemComponent } from "../../../components/user-profile/name-item/name-item.component";
 
 describe('ViewStudentGuardiansComponent', () => {
   let component: ViewStudentGuardiansComponent;
@@ -30,7 +32,7 @@ describe('ViewStudentGuardiansComponent', () => {
         RouterTestingModule, HttpClientTestingModule,
         ReactiveComponentModule
       ],
-      declarations: [ViewStudentGuardiansComponent, LoadingBubbleComponent],
+      declarations: [ViewStudentGuardiansComponent, LoadingBubbleComponent, UserSelectItemComponent, NameItemComponent],
       providers: [
         reducerProvider,
         {

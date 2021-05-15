@@ -4,6 +4,7 @@
 @import './vendor/fontello/css/animation.css';
 @import './vendor/daneden/animate.css';
 @import '~flag-icon-css/css/flag-icon.css';
+@import "~ngx-bootstrap/datepicker/bs-datepicker.css";
 
 .control-label {
   margin-bottom: 0.1rem;

@@ -52,15 +52,15 @@ export class UsersService {
       [fieldName]: fieldNewValue
     };
     return this.http.patch(`api/users/${userId}`, {
-      ['first_name']: data.FirstName,
-      ['last_name']: data.LastName,
-      ['middle_name']: data.MiddleName,
-      ['other_names']: data.OtherNames,
+      ['first_name']: data.firstName,
+      ['last_name']: data.lastName,
+      ['middle_name']: data.middleName,
+      ['other_names']: data.otherNames,
       ['gender_id']: data.gender,
       ['religion_id']: data.religion,
-      ['date_of_birth']: data.DateOfBirth,
-      email: data.Email,
-      phone: data.Phone,
+      ['date_of_birth']: data.dateOfBirth,
+      email: data.email,
+      phone: data.phone,
     });
   }
 
