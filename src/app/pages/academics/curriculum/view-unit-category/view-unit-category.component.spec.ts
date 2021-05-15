@@ -7,6 +7,7 @@ import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { UserSelectItemComponent } from "../../../../components/user-profile/user-select-item/user-select-item.component";
 
 describe('ViewUnitCategoryComponent', () => {
   let component: ViewUnitCategoryComponent;
@@ -25,9 +26,9 @@ describe('ViewUnitCategoryComponent', () => {
         AppLoadingBubbleModule,
         RouterTestingModule,
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
       ],
-      declarations: [ViewUnitCategoryComponent],
+      declarations: [ViewUnitCategoryComponent, UserSelectItemComponent],
       providers: [reducerProvider]
     });
 
