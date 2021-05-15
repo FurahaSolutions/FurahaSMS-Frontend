@@ -10,7 +10,7 @@ import { AppState } from '../../../store/reducers';
 import { Store } from '@ngrx/store';
 import { modalMixin } from '../../../shared/mixins/modal.mixin';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { UndeleteAcademicYearComponent } from "./undelete-academic-year/undelete-academic-year.component";
+import { UndeleteAcademicYearComponent } from './undelete-academic-year/undelete-academic-year.component';
 
 @Component({
   selector: 'app-academic-year',

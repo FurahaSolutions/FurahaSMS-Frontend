@@ -12,6 +12,7 @@ import { ReactiveComponentModule } from '@ngrx/component';
 import { AppLoadingBubbleModule } from '../../../modules/app-loading-bubble';
 import { AppCheckboxModule } from '../../../shared/checkbox/checkbox.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 describe('AcademicYearComponent', () => {
   let component: AcademicYearComponent;
@@ -36,7 +37,8 @@ describe('AcademicYearComponent', () => {
         AppLoadingBubbleModule,
         AppCheckboxModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ModalModule.forRoot()
       ],
       declarations: [AcademicYearComponent],
       providers: [reducerProvider]
