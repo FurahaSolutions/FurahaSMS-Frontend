@@ -40,10 +40,12 @@ export class NameItemComponent extends formMixin() implements OnInit {
 
   ngOnInit(): void {
     this.itemForm = this.fb.group({
-      name: [this.name, Validators.minLength(2)]
+      name: [this.name, Validators.required]
     });
-    if(['first', 'last', 'email'].includes(this.label.toLocaleLowerCase())) {
+    if(['firstName', 'lastName'].includes(this.key)) {
       this.itemForm.get('name')?.setValidators([Validators.required, Validators.minLength(2)]);
+    } else if(this.key === 'email') {
+      this.itemForm.get('name')?.setValidators([Validators.email, Validators.required])
     }
     this.itemForm.updateValueAndValidity();
 
@@ -75,6 +77,4 @@ export class NameItemComponent extends formMixin() implements OnInit {
     }
 
   }
-
-
 }

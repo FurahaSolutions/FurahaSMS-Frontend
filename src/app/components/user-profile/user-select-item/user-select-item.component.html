@@ -4,7 +4,7 @@
       <label [attr.for]='"editItem + label"'>{{ label | titlecase }}</label>
       <select #selectInput formControlName='fieldName' [id]='"editItem + label"' class="custom-select">
         <ng-container *ngIf='items | ngrxPush as itemsAsync'>
-          <option value="">Prefer not to specify</option>
+          <option value="">Please Select</option>
           <option *ngFor='let item of itemsAsync' [value]="item.id"> {{ item.name }}</option>
         </ng-container>
 

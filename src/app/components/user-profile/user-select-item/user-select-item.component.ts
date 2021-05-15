@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild }
 import { Observable } from 'rxjs';
 import { selectEditModeOnState } from 'src/app/store/selectors/app.selectors';
 import { select, Store } from '@ngrx/store';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
 import { takeUntil } from 'rxjs/operators';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
@@ -30,7 +30,7 @@ export class UserSelectItemComponent extends formMixin() implements OnInit {
   editable = false;
   editHovered = false;
   itemForm: FormGroup = this.fb.group({
-    fieldName: ['']
+    fieldName: ['', Validators.required]
   });
 
   constructor(
