@@ -98,8 +98,9 @@ export class AcademicYearService {
     return this.http.post<any>(`${this.urlWithId(id)}/${openClose}/${slug}`, {});
   }
 
-  saveArchiveStatus({id}: { id: number }) {
-    return this.http.post<any>(`${this.urlWithId(id)}/archive`, {});
+  saveArchiveStatus({id, archive}: { id: number, archive: boolean }) {
+    const $appendUrl = archive ? '' : 'un';
+    return this.http.post<any>(`${this.urlWithId(id)}/${$appendUrl}archive`, {});
   }
 
   saveDeletedStatus({id}: { id: number }) {

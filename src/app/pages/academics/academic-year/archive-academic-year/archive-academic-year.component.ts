@@ -12,6 +12,7 @@ import {AcademicYearService} from '../../services/academic-year.service';
 })
 export class ArchiveAcademicYearComponent extends formMixin(modalMixin()) {
   @Input() id = 0;
+  @Input() archive = true;
   confirmation = '';
 
   constructor(store: Store, modalService: BsModalService,
@@ -20,9 +21,13 @@ export class ArchiveAcademicYearComponent extends formMixin(modalMixin()) {
     this.store = store;
   }
 
+  get title() {
+    return (this.archive ?  'Archive' : 'Unarchive') + ' Academic Year'
+  }
+
   saveArchive() {
     this.submitInProgressSubject$.next(true);
-    this.academicYearService.saveArchiveStatus({id: this.id})
+    this.academicYearService.saveArchiveStatus({id: this.id, archive: this.archive})
       .subscribe({
         next: () => {
           this.submitInProgressSubject$.next(false);
