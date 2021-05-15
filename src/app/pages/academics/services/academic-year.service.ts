@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
-import {Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 interface IArchivableItem {
   name: string;
@@ -15,8 +15,15 @@ interface IArchivableItem {
 export class AcademicYearService {
   url = 'api/academic-years';
   all$ = this.http.get<any>(this.url);
-  active$ = this.http.get<any>(this.url, {params: {archived: '0'}});
-  archived$ = this.http.get<any>(this.url, {params: {archived: '1'}});
+  active$ = this.http.get<any>(this.url, {params: {archived: '0'}}).pipe(
+    map(this.transforms)
+  );
+  archived$ = this.http.get<any>(this.url, {params: {archived: '1'}}).pipe(
+    map(this.transforms)
+  );
+  deleted$ = this.http.get<any>(this.url, {params: {deleted: '1'}}).pipe(
+    map(this.transforms)
+  );
   archivableItems$ = this.http.get<IArchivableItem[]>(this.url + '/archivable-items');
 
   constructor(private http: HttpClient) {
@@ -33,7 +40,7 @@ export class AcademicYearService {
 
     const {id, classLevels} = data;
     let url = `api/academic-years/${id}?`;
-    if (classLevels === 1) {
+    if(classLevels === 1) {
       url += 'class_levels=1';
     }
 
@@ -48,7 +55,7 @@ export class AcademicYearService {
 
   save(data: any) {
     let url = `api/academic-years`;
-    if (data.id) {
+    if(data.id) {
       url += '/' + data.id;
       return this.http
         .patch<any>(url, {
@@ -91,11 +98,19 @@ export class AcademicYearService {
     return this.http.post<any>(`${this.urlWithId(id)}/${openClose}/${slug}`, {});
   }
 
-  saveArchiveStatus({ id }: {id: number}) {
+  saveArchiveStatus({id}: { id: number }) {
     return this.http.post<any>(`${this.urlWithId(id)}/archive`, {});
   }
 
-  saveDeletedStatus({ id }: {id: number}) {
+  saveDeletedStatus({id}: { id: number }) {
     return this.http.delete<any>(`${this.urlWithId(id)}`);
+  }
+
+  transforms(academicYears: any[]) {
+    return academicYears.map(academicYear => ({
+      ...academicYear,
+      archived: !!academicYear['archived_at'],
+      deleted: !!academicYear['deleted_at'],
+    }))
   }
 }
