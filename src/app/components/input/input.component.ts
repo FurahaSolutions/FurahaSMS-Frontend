@@ -47,9 +47,13 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   showRequiredIcon: any;
   minDate = new Date((new Date()).getFullYear() - 100);
   maxDate = new Date((new Date()).setFullYear((new Date()).getFullYear() - 1))
-  dateOfBirthPickerConfig: Partial<BsDatepickerConfig> = {
+  dateConfig: Partial<BsDatepickerConfig> = {
     containerClass: 'theme-default',
+    dateInputFormat: 'YYYY-MM-DD',
     showWeekNumbers: false,
+  }
+  dateOfBirthPickerConfig: Partial<BsDatepickerConfig> = {
+    ...this.dateConfig,
     minDate: this.minDate,
     maxDate: this.maxDate
   }

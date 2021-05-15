@@ -3,7 +3,7 @@ import {Store} from '@ngrx/store';
 import {selectShowMenu} from '../../store/selectors/menu-toggle.selector';
 import {AppState} from '../../store/reducers';
 import {Observable} from 'rxjs';
-import {routerTransition} from './route.animation';
+import {routerTransition} from '../../shared/animations/route.animation';
 import {RouterOutlet} from '@angular/router';
 
 @Component({

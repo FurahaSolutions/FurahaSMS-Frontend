@@ -11,7 +11,6 @@
       <ng-container [ngSwitch]="type">
         <ng-container *ngSwitchCase="'dob'">
           <input
-            *ngIf="type === 'dob'"
             bsDatepicker
             [bsConfig]="dateOfBirthPickerConfig"
             [step]='step'
@@ -28,10 +27,10 @@
             type="text"
             [placeholder]='placeholder'>
         </ng-container>
-        <ng-container *ngSwitchCase="'dob'">
+        <ng-container *ngSwitchCase="'date'">
           <input
-            *ngIf="type === 'date'"
             bsDatepicker
+            [bsConfig]="dateConfig"
             [step]='step'
             [min]='min'
             [autocomplete]='autocomplete'
@@ -48,7 +47,6 @@
         </ng-container>
         <ng-container *ngSwitchDefault>
           <input
-            *ngIf="type !== 'date'"
             [step]='step'
             [min]='min'
             [autocomplete]='autocomplete'
