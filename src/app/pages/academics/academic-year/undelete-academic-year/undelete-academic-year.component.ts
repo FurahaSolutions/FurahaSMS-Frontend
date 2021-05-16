@@ -6,13 +6,12 @@ import {modalMixin} from '../../../../shared/mixins/modal.mixin';
 import {AcademicYearService} from '../../services/academic-year.service';
 
 @Component({
-  selector: 'app-archive-academic-year',
-  templateUrl: './archive-academic-year.component.html',
-  styleUrls: ['./archive-academic-year.component.css']
+  selector: 'app-delete-academic-year',
+  templateUrl: './undelete-academic-year.component.html',
+  styleUrls: ['./undelete-academic-year.component.css']
 })
-export class ArchiveAcademicYearComponent extends formMixin(modalMixin()) {
+export class UndeleteAcademicYearComponent extends formMixin(modalMixin()) {
   @Input() id = 0;
-  @Input() archive = true;
   confirmation = '';
 
   constructor(store: Store, modalService: BsModalService,
@@ -21,13 +20,9 @@ export class ArchiveAcademicYearComponent extends formMixin(modalMixin()) {
     this.store = store;
   }
 
-  get title() {
-    return (this.archive ?  'Archive' : 'Unarchive') + ' Academic Year';
-  }
-
-  saveArchive() {
+  saveDelete() {
     this.submitInProgressSubject$.next(true);
-    this.academicYearService.saveArchiveStatus({id: this.id, archive: this.archive})
+    this.academicYearService.restore({id: this.id})
       .subscribe({
         next: () => {
           this.submitInProgressSubject$.next(false);
@@ -36,4 +31,5 @@ export class ArchiveAcademicYearComponent extends formMixin(modalMixin()) {
         error: () => this.submitInProgressSubject$.next(false)
       });
   }
+
 }

@@ -6,8 +6,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
 import { takeUntil } from 'rxjs/operators';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
-import { formMixin } from "../../../shared/mixins/form.mixin";
-import { fadeInOutAnimationMetadata } from "../../../shared/animations/fade-in-out.animation";
+import { formMixin } from '../../../shared/mixins/form.mixin';
+import { fadeInOutAnimationMetadata } from '../../../shared/animations/fade-in-out.animation';
 
 @Component({
   selector: 'app-user-select-item',
@@ -24,7 +24,7 @@ export class UserSelectItemComponent extends formMixin() implements OnInit {
   @Input() value: number;
   @Input() userId: number;
   @Input() valueName: string;
-  @Output() valueChanged: EventEmitter<{ key: string, id: number; name: string }> = new EventEmitter();
+  @Output() valueChanged: EventEmitter<{ key: string; id: number; name: string }> = new EventEmitter();
   @Input() items: Observable<any[]>;
   @ViewChild('selectInput') selectInput: ElementRef;
   editMode$: Observable<boolean> | undefined = this.store.pipe(select(selectEditModeOnState));
@@ -68,7 +68,7 @@ export class UserSelectItemComponent extends formMixin() implements OnInit {
             this.editable = false;
           },
           error: () => this.submitInProgressSubject$.next(false)
-        })
+        });
     } else {
       alert('Form not filled correctly');
     }

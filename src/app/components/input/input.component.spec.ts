@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { InputComponent } from './input.component';
-import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 describe('InputComponent', () => {
   let component: InputComponent;

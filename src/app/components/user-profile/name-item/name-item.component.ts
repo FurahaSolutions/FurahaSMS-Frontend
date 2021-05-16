@@ -5,7 +5,7 @@ import { select, Store } from '@ngrx/store';
 import { selectEditModeOnState } from 'src/app/store/selectors/app.selectors';
 import { Observable } from 'rxjs';
 import { formMixin } from 'src/app/shared/mixins/form.mixin';
-import { fadeInOutAnimationMetadata } from "../../../shared/animations/fade-in-out.animation";
+import { fadeInOutAnimationMetadata } from '../../../shared/animations/fade-in-out.animation';
 
 type IKey = 'dateOfBirth' | 'firstName' | 'lastName' | 'otherNames' | 'email' | 'phone';
 
@@ -45,7 +45,7 @@ export class NameItemComponent extends formMixin() implements OnInit {
     if(['firstName', 'lastName'].includes(this.key)) {
       this.itemForm.get('name')?.setValidators([Validators.required, Validators.minLength(2)]);
     } else if(this.key === 'email') {
-      this.itemForm.get('name')?.setValidators([Validators.email, Validators.required])
+      this.itemForm.get('name')?.setValidators([Validators.email, Validators.required]);
     }
     this.itemForm.updateValueAndValidity();
 
@@ -57,7 +57,7 @@ export class NameItemComponent extends formMixin() implements OnInit {
       this.submitInProgressSubject$.next(true);
       let fieldNewValue = this.itemForm.get('name')?.value;
       if(this.key === 'dateOfBirth') {
-        fieldNewValue = new Date(fieldNewValue).toISOString().substr(0, 10)
+        fieldNewValue = new Date(fieldNewValue).toISOString().substr(0, 10);
       }
       this.usersService.update({
         fieldName: this.key,
