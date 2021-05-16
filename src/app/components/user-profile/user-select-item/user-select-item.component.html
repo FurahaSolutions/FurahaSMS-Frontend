@@ -1,10 +1,10 @@
 <form (submit)='submitFormItem()' action="" [formGroup]='itemForm'>
   <section class='d-flex flex-wrap'>
-    <div *ngIf='editable' class="edit-field p-3 pt-0">
+    <div *ngIf='editable' [@openClose]="editable" class="edit-field p-3 pt-0">
       <label [attr.for]='"editItem + label"'>{{ label | titlecase }}</label>
       <select #selectInput formControlName='fieldName' [id]='"editItem + label"' class="custom-select">
         <ng-container *ngIf='items | ngrxPush as itemsAsync'>
-          <option value="">Prefer not to specify</option>
+          <option value="">Please Select</option>
           <option *ngFor='let item of itemsAsync' [value]="item.id"> {{ item.name }}</option>
         </ng-container>
 
@@ -13,8 +13,8 @@
         <button type="button" (click)='editable = false' class="btn btn-secondary mt-2">Cancel
         </button>
         <button [disabled]='itemForm.invalid || !itemForm.dirty' class="btn btn-success mt-2">
-          <i *ngIf='itemForm.valid && !isSubmitting' class='icon-ok'></i>
-          <i *ngIf='isSubmitting' class='icon-spin3 animate-spin'></i>
+          <i *ngIf='itemForm.valid && (submitInProgressAction$ | ngrxPush) === false' class='icon-ok'></i>
+          <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
           <span class="icon-save"></span>Save </button>
       </div>
     </div>

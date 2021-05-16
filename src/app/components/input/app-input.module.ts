@@ -6,6 +6,7 @@ import { PasswordMeterModule } from 'src/app/pages/login/password-meter/password
 import { ShowPasswordDirective } from './directives/show-password.directive';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { SelectComponent } from '../select/select.component';
+import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SelectComponent } from '../select/select.component';
     ReactiveFormsModule,
     CommonModule,
     PasswordMeterModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    BsDatepickerModule.forRoot()
   ]
 })
 export class AppInputModule {
