@@ -24,7 +24,7 @@ export class AcademicYearSettingComponent extends modalMixin() {
   );
   academicYear$ = this.academicYearId$.pipe(
     mergeMap(id => this.academicYearService.getAcademicYearWithId({id}))
-  )
+  );
   archivableItems$ = this.academicYearId$.pipe(
     switchMap(id => this.academicYearService.archivableItemsForAcademicYearWithId(id)),
     mergeMap(archivableItems => combineLatest(archivableItems.map(
@@ -36,7 +36,7 @@ export class AcademicYearSettingComponent extends modalMixin() {
   );
   v$ = combineLatest([this.academicYear$, this.archivableItems$]).pipe(
     map(([academicYear, archivableItems]) =>({academicYear, archivableItems}))
-  )
+  );
 
   constructor(
     private modalService: BsModalService,

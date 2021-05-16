@@ -98,7 +98,7 @@ export class AcademicYearService {
     return this.http.post<any>(`${this.urlWithId(id)}/${openClose}/${slug}`, {});
   }
 
-  saveArchiveStatus({id, archive}: { id: number, archive: boolean }) {
+  saveArchiveStatus({id, archive}: { id: number; archive: boolean }) {
     const $appendUrl = archive ? '' : 'un';
     return this.http.post<any>(`${this.urlWithId(id)}/${$appendUrl}archive`, {});
   }

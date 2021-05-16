@@ -22,7 +22,7 @@ export class ArchiveAcademicYearComponent extends formMixin(modalMixin()) {
   }
 
   get title() {
-    return (this.archive ?  'Archive' : 'Unarchive') + ' Academic Year'
+    return (this.archive ?  'Archive' : 'Unarchive') + ' Academic Year';
   }
 
   saveArchive() {

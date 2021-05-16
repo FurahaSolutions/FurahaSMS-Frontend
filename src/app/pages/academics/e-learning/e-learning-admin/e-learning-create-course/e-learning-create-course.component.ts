@@ -242,7 +242,7 @@ export class ELearningCreateCourseComponent
 
       const valueLength = this.newTopicSubTopics.value.length;
       while (this.topicsControl.controls[editedItemIndex].get('subTopics')?.value.length > valueLength) {
-        (this.topicsControl.controls[editedItemIndex].get('subTopics') as FormArray).removeAt(0);
+        (this.topicsControl.controls[editedItemIndex].get('subTopics') as FormArray)?.removeAt(0);
       }
       while (this.topicsControl.controls[editedItemIndex].get('subTopics')?.value.length < valueLength) {
         (this.topicsControl.controls[editedItemIndex].get('subTopics') as FormArray).push(
