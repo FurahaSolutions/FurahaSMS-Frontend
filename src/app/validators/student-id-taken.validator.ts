@@ -1,31 +1,20 @@
 import { FormControl } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { StudentService } from '../services/student.service';
+import { map } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
 export class IdNumberValidator {
-  constructor(private studentService: StudentService) { }
+  constructor(private studentService: StudentService) {
+  }
 
   studentIdTaken(control: FormControl): any {
 
-    return new Promise((resolve, reject) => {
-      this.studentService.getStudentBySchoolId(control.value).subscribe(
-        data => {
-          if (data.id) {
-            resolve({
-              ['id_taken']: true
-            });
-          } else {
-            resolve(null);
-          }
-
-        },
-        () => {
-          reject();
-        }
-      );
-    });
+    return this.studentService.getStudentBySchoolId(control.value).pipe(
+      map(data => data.id ? {['id_taken']: true} : null)
+    );
   }
 
 }

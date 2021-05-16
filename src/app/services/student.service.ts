@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
-import {Observable, throwError} from 'rxjs';
-import {catchError, map, tap} from 'rxjs/operators';
-import {HttpClient} from '@angular/common/http';
-import {Store, select} from '@ngrx/store';
-import {selectStudent} from '../pages/students/store/selectors/student-profile.selectors';
-import {loadStudentProfiles} from '../pages/students/store/actions/student-profile.actions';
-import {UrlParamsStringifyService} from '../shared/url-params-stringify/services/url-params-stringify.service';
+import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { select, Store } from '@ngrx/store';
+import { selectStudent } from '../pages/students/store/selectors/student-profile.selectors';
+import { loadStudentProfiles } from '../pages/students/store/actions/student-profile.actions';
+import { UrlParamsStringifyService } from '../shared/url-params-stringify/services/url-params-stringify.service';
 
 @Injectable({
   providedIn: 'root'
@@ -52,24 +52,23 @@ export class StudentService {
       ['middle_name']: data.middleName,
       ['other_names']: data.otherNames,
       ['date_of_birth']: data.dateOfBirth,
-      ['student_school_id_number']: data.idNumber,
+      ['student_school_id_number']: data.autoGenerateId ? null: data.schoolIdNumber,
       ['birth_cert_number']: data.birthCertNumber,
       ['gender_id']: data.gender,
       ['religion_id']: data.religion
-
     };
-    let url = `api/admissions/students/identification`;
 
-    if (idNumber) {
+    let url = this.url;
+    if(idNumber) {
       url = `${url}/${data.id}`;
-      return this.http.patch<any>(url, {...submitData}).pipe(map(user => user));
+      return this.http.patch<any>(url, {...submitData});
     } else {
-      return this.http.post<any>(url, submitData).pipe(map(user => user));
+      return this.http.post<any>(url, submitData);
     }
   }
 
   getStudentById(id: string | number): Observable<any> {
-    const url = `api/students?id=${id}`;
+    const url = `api/students/${id}`;
     return this.http.get<any>(url)
       .pipe(
         map(user => ({

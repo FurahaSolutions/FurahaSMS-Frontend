@@ -14,6 +14,7 @@ export const formMixin = <T extends Constructor>(baseClass: T = class {
     editFormAction$ = this.editFormSubject$.asObservable();
     submitSubject$ = new Subject();
     submitAction$ = this.submitSubject$.asObservable();
+    submitted = false;
 
     clearFormArray(formArrayControl: FormArray) {
       while (formArrayControl.length) {
