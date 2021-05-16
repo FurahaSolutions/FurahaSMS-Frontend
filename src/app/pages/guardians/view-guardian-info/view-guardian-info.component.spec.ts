@@ -10,9 +10,9 @@ import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/redu
 import { AppStarLabelRequiredModule } from '../../../components/label-star-required/app-star-label-required';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { NameItemComponent } from "../../../components/user-profile/name-item/name-item.component";
-import { UserSelectItemComponent } from "../../../components/user-profile/user-select-item/user-select-item.component";
-import { ReactiveFormsModule } from "@angular/forms";
+import { NameItemComponent } from '../../../components/user-profile/name-item/name-item.component';
+import { UserSelectItemComponent } from '../../../components/user-profile/user-select-item/user-select-item.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('ViewGuardianInfoComponent', () => {
   let component: ViewGuardianInfoComponent;

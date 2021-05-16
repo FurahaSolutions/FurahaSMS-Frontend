@@ -2,7 +2,7 @@ import { Component, forwardRef, Input, OnChanges, OnInit, SimpleChange, SimpleCh
 import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { AppFormService } from '../../services/AppForm.service';
-import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-input',
@@ -46,17 +46,17 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   passwordStringChangeAction$: Observable<string> = this.passwordStringChangeSubject$.asObservable();
   showRequiredIcon: any;
   minDate = new Date((new Date()).getFullYear() - 100);
-  maxDate = new Date((new Date()).setFullYear((new Date()).getFullYear() - 1))
+  maxDate = new Date((new Date()).setFullYear((new Date()).getFullYear() - 1));
   dateConfig: Partial<BsDatepickerConfig> = {
     containerClass: 'theme-default',
     dateInputFormat: 'YYYY-MM-DD',
     showWeekNumbers: false,
-  }
+  };
   dateOfBirthPickerConfig: Partial<BsDatepickerConfig> = {
     ...this.dateConfig,
     minDate: this.minDate,
     maxDate: this.maxDate
-  }
+  };
 
   constructor(private appFormService: AppFormService) {
   }
@@ -103,7 +103,7 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
 
     if(this.formControl.value !== '') {
       if(this.type === 'dob' && (new Date(this.formControl.value) < this.minDate || new Date(this.formControl.value) > this.maxDate)) {
-        return { date: 'invalid' }
+        return { date: 'invalid' };
       }
     }
   }

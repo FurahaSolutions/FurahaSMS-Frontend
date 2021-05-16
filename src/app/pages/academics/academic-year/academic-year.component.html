@@ -1,21 +1,35 @@
 <h1>Academics <span class="icon-right-dir"></span> Academic Years</h1>
-<div class="card p-2">
+<div class="card p-2" *ngrxLet="canViewDeletedAcademicYear$ as canViewDeletedAcademicYear">
   <app-links [links$]='links$'></app-links>
+
+  <form [formGroup]="showForm">
+    <ng-container *ngrxLet="archiveValueChanges"></ng-container>
+    <ng-container *ngrxLet="deletedValueChanges"></ng-container>
+    <div class="d-flex justify-content-end mt-2">
+      <app-checkbox formControlName="archived" label="Show Archived" class="mr-4"></app-checkbox>
+      <app-checkbox *ngIf="canViewDeletedAcademicYear" formControlName="deleted" label="Show Deleted"
+                    class="mr-2"></app-checkbox>
+    </div>
+  </form>
   <section class="d-flex flex-wrap justify-content-around"
            *ngIf='academicYears$ | ngrxPush as academicYears; else loading'>
     <section class="card col-lg-12 mt-1" *ngFor='let academicYear of academicYears'>
       <section class="card-header d-flex justify-content-between">
         <h2>{{ academicYear.name }}</h2>
-        <button  [routerLink]='["/academics", "academic-year", academicYear.id, "settings"]' class="btn btn-outline-info icon-cog">Settings</button>
+        <button [routerLink]='["/academics", "academic-year", academicYear.id, "settings"]'
+                *ngIf="!academicYear.deleted"
+                class="btn btn-outline-info icon-cog">Settings
+        </button>
       </section>
-      <section class="card-body p-2">
-        <ul class="list-group">
+      <section class="card-body p-2" [class.bg-warning]="academicYear.archived"
+               [class.bg-danger]="academicYear.deleted">
+        <ul class="list-group" *ngIf="!academicYear.deleted">
           <li class="list-group-item bg-dark list-group-flush mb-1">
             <a class="card-link  btn-block"
                [routerLink]='["/academics", "academic-year", academicYear.id, "unit-allocations"]'>
               Subject/Unit Allocations</a>
           </li>
-          <li class="list-group-item bg-dark">
+          <li class="list-group-item bg-dark list-group-flush mb-1">
             <a class="card-link btn-block"
                [routerLink]='["/academics", "academic-year", academicYear.id, "financial-plan"]'>Financial
               Plan</a>
@@ -26,6 +40,9 @@
               Table</a>
           </li>
         </ul>
+        <div class="d-flex justify-content-end" *ngIf="academicYear.deleted">
+          <button (click)="openUndeleteModal(academicYear.id)" class="btn btn-outline-warning">Undelete Academic Year</button>
+        </div>
       </section>
     </section>
   </section>
