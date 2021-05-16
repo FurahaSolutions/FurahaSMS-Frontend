@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StudentService } from 'src/app/services/student.service';
 
@@ -7,18 +7,16 @@ import { StudentService } from 'src/app/services/student.service';
   templateUrl: './students-recently-created.component.html',
   styleUrls: ['./students-recently-created.component.css']
 })
-export class StudentsRecentlyCreatedComponent implements OnInit {
+export class StudentsRecentlyCreatedComponent {
   @Input() linksTo: string[];
-  students$: Observable<any[]>;
+  students$: Observable<any[]> = this.studentsService.getRecentlyCreatedStudents();
 
   constructor(
-    private studentsService: StudentService) { }
-
-  ngOnInit() {
-    this.students$ = this.studentsService.getRecentlyCreatedStudents();
+    private studentsService: StudentService) {
   }
+
   getRouterLinks(id: number) {
-    if (this.linksTo) {
+    if(this.linksTo) {
       return this.linksTo.map(link => link.replace(':id', String(id)));
     }
     return ['/students', id];
