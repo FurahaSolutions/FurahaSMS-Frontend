@@ -5,11 +5,11 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './e-learning-course.component.html',
   styleUrls: ['./e-learning-course.component.css']
 })
-export class ELearningCourseComponent implements OnInit {
+export class ELearningCourseComponent {
   @Input() course: any;
-  constructor() { }
+  @Input() edit = false;
 
-  ngOnInit(): void {
+  constructor() {
   }
 
 }
