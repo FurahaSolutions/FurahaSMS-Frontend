@@ -5,8 +5,8 @@
         <h1>Login</h1>
       </section>
       <form [formGroup]='loginForm' (ngSubmit)='submitLoginForm()' class='card-body form-horizontal'>
-        <app-input [triggerValidation]='triggerValidation' label='Username' placeholder='Enter username/email'
-                   icon-lock-filled id='username' formControlName='username' prependIcon='icon-user'
+        <app-input [triggerValidation]='triggerValidation' label='Username' placeholder='Enter username/email/admission number'
+                   id='username' formControlName='username' prependIcon='icon-user'
                    autocomplete='username'>
         </app-input>
         <app-input [triggerValidation]='triggerValidation' label='Password' placeholder='Enter Password' id='password'

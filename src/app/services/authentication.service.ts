@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject, EMPTY, Observable, of, throwError} from 'rxjs';
-import {OauthInterface} from '../interfaces/oauth.interface';
-import {UserInterface} from '../interfaces/user.interface';
-import {catchError, map, tap} from 'rxjs/operators';
-import {IUserProfile} from '../interfaces/user-profile.interface';
-import {environment} from 'src/environments/environment';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, EMPTY, Observable, of, throwError } from 'rxjs';
+import { OauthInterface } from '../interfaces/oauth.interface';
+import { UserInterface } from '../interfaces/user.interface';
+import { catchError, map, tap } from 'rxjs/operators';
+import { IUserProfile } from '../interfaces/user-profile.interface';
+import { environment } from 'src/environments/environment';
 
 const PASSPORT_CLIENT = environment.passportClient;
 
@@ -19,16 +19,17 @@ export class AuthenticationService {
   sessionStorageUser = JSON.parse(String(sessionStorage.getItem('currentUser')));
   isLoggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   revokeToken: Observable<any> = this.http.get('api/users/auth/logout');
+
   constructor(private http: HttpClient) {
     this.isLoggedInSubject.next(!!this.authorizationToken);
   }
 
   get authorizationToken(): string | undefined {
 
-    if (this.sessionStorageUser) {
+    if(this.sessionStorageUser) {
       return `Bearer ${this.sessionStorageUser.access_token}`;
     }
-    if (this.localStorageUser) {
+    if(this.localStorageUser) {
       return `Bearer ${this.localStorageUser.access_token}`;
     }
     return;
@@ -39,14 +40,14 @@ export class AuthenticationService {
   }
 
   public get currentUserProfile$(): Observable<IUserProfile> {
-    if (!this.isLoggedInSubject.value) {
+    if(!this.isLoggedInSubject.value) {
       return EMPTY;
     }
 
     return this.http.get('api/users/auth')
       .pipe(
         catchError(error => {
-          if (error.status === 401) {
+          if(error.status === 401) {
             this.clearStorage();
           }
 
@@ -131,7 +132,7 @@ export class AuthenticationService {
   };
 
   logout(): Observable<any> {
-    if (!this.isLoggedInSubject.value) {
+    if(!this.isLoggedInSubject.value) {
       return EMPTY;
     }
 
