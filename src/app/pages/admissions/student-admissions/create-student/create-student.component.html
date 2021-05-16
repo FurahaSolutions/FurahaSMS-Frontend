@@ -5,26 +5,26 @@
     <fieldset>
       <legend>School Id Number</legend>
       <section class='group-gap'>
-        <h5 class='mb-3'>Generate Student Id</h5>
+        <h5 class='mb-3 mt-2'>Generate Student Id</h5>
         <section class='my-3'>
           <section class='d-flex flex-wrap'>
             <section class='col-lg-3'>
               <section class='custom-control custom-radio'>
-                <input id='auto-generate' type='radio' class='custom-control-input' [value]='false'
+                <input id='auto-generate' type='radio' class='custom-control-input' [value]='true'
                        name='autoGenerateId' formControlName='autoGenerateId'>
                 <label class='custom-control-label' for='auto-generate'>Automatically Generate</label>
               </section>
             </section>
             <section class='col-lg-3'>
               <section class='custom-control custom-radio'>
-                <input id='auto-generate-false' type='radio' class='custom-control-input' [value]='true'
+                <input id='auto-generate-false' type='radio' class='custom-control-input' [value]='false'
                        name='autoGenerateId' formControlName='autoGenerateId'>
                 <label class='custom-control-label' for='auto-generate-false'>Enter Manually</label>
               </section>
             </section>
-            <section class='col'>
-              <app-input labelClass='col-lg-6' inputClass='col-sm-6 col-lg-6' [triggerValidation]='triggerValidation'
-                         *ngIf='autoGenerate.value === true' formControlName='schoolIdNumber' label='School Id Number'
+            <section class='col-12'>
+              <app-input labelClass='col-lg-6' inputClass='col-sm-6 col-lg-6' [triggerValidation]='triggerValidationAction$ | ngrxPush'
+                         *ngIf='autoGenerate.value === false' formControlName='schoolIdNumber' label='School Id Number'
                          placeholder='Enter School Id Number'>
               </app-input>
             </section>
@@ -38,12 +38,12 @@
       <legend>Name</legend>
       <section class='d-flex flex-wrap align-items-center'>
         <section class='col-lg-4 col-sm-6 col-xs-12'>
-          <app-input [triggerValidation]='triggerValidation' placeholder='Enter First Name' id='firstName'
+          <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' placeholder='Enter First Name' id='firstName'
                      label='First Name' formControlName='firstName'>
           </app-input>
         </section>
         <section class='col-lg-4 col-sm-6 col-xs-12'>
-          <app-input [triggerValidation]='triggerValidation' placeholder='Enter Last Name' id='lastName'
+          <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' placeholder='Enter Last Name' id='lastName'
                      label='Last Name' formControlName='lastName'>
           </app-input>
         </section>
@@ -64,7 +64,7 @@
       <section class='d-flex flex-wrap align-items-start' >
         <section class='col-lg-4 col-sm-6 col-xs-12'>
           <app-input type='dob'
-                     [triggerValidation]='triggerValidation'
+                     [triggerValidation]='triggerValidationAction$ | ngrxPush'
                      placeholder='Enter Date Of Birth' id='dateOfBirth' label='Date Of Birth'
                      formControlName='dateOfBirth'>
           </app-input>
@@ -115,8 +115,8 @@
   </div>
 
   <section class="col-lg-12 mt-2">
-    <app-validate-submit-buttons [isSubmitting]='isSubmitting'
-                                 (validationButtonClicked)='triggerValidation = !triggerValidation'
+    <app-validate-submit-buttons [isSubmitting]='submitInProgressAction$ | ngrxPush'
+                                 (validationButtonClicked)='triggerValidationSubject$.next(true)'
                                  [formItem]='newStudentForm'>
       <span>Create Student</span>
     </app-validate-submit-buttons>

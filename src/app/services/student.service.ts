@@ -52,16 +52,13 @@ export class StudentService {
       ['middle_name']: data.middleName,
       ['other_names']: data.otherNames,
       ['date_of_birth']: data.dateOfBirth,
-      ['student_school_id_number']: data.idNumber,
+      ['student_school_id_number']: data.autoGenerateId ? null: data.schoolIdNumber,
       ['birth_cert_number']: data.birthCertNumber,
       ['gender_id']: data.gender,
       ['religion_id']: data.religion
-
     };
+
     let url = this.url;
-
-    console.log({submitData})
-
     if(idNumber) {
       url = `${url}/${data.id}`;
       return this.http.patch<any>(url, {...submitData});
