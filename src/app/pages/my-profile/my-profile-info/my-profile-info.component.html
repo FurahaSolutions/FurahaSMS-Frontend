@@ -1,33 +1,18 @@
-<section class='d-flex flex-wrap name-field  mt-4' *ngIf='(profile$ | ngrxPush) as profile; else content_loading'>
-  <section class='col-lg-6 col-md-10 col-sm-12 mt-3'>
-    <section class='d-flex flex-wrap'>
-      <span class='label-name col-xs-12 col-sm-4 col-md-5 col-lg-4'>Email:</span>
-      <span class='label-value col-lg-8 col-md-7 col-sm-8 col-xs-12'> {{ profile.email }}</span>
-    </section>
+<section class='d-flex flex-wrap name-field mt-4' *ngIf='(profile$ | ngrxPush) as profile; else content_loading'>
+  <section class='col-md-6 col-lg-4 col-sm-12 mb-3'>
+    <app-name-item type='email' label='Email' [name]='profile.email'></app-name-item>
   </section>
-  <section class='col-lg-6 col-md-10 col-sm-12 mt-3'>
-    <section class='d-flex flex-wrap'>
-      <span class='label-name col-xs-12 col-sm-4 col-md-5 col-lg-4'>Phone:</span>
-      <span class='label-value col-lg-8 col-md-7 col-sm-8 col-xs-12'> {{ profile.phine }}</span>
-    </section>
+  <section class='col-md-6 col-lg-4 col-sm-12 mb-3'>
+    <app-name-item type='tel' label='Phone' [name]='profile.phone'></app-name-item>
   </section>
-  <section class='col-lg-6 col-md-10 col-sm-12 mt-3'>
-    <section class='d-flex flex-wrap'>
-      <span class='label-name col-12'>Gender:</span>
-      <span class='label-value col-12'> {{ profile.genderName }}</span>
-    </section>
+  <section class='col-md-6 col-lg-4 col-sm-12 mb-3'>
+    <app-name-item type='tel' label='Gender' [name]='profile.genderName'></app-name-item>
   </section>
-  <section class='col-lg-6 col-md-10 col-sm-12 mt-3'>
-    <section class='d-flex flex-wrap'>
-      <span class='label-name col-12'>Date of Birth:</span>
-      <span class='label-value col-12'> {{ profile.dateOfBirth }}</span>
-    </section>
+  <section class='col-md-6 col-lg-4 col-sm-12 mb-3'>
+    <app-name-item type='tel' label='Date of Birth' [name]='profile.dateOfBirth'></app-name-item>
   </section>
-  <section class='col-lg-6 col-md-10 col-sm-12 mt-3'>
-    <section class='d-flex flex-wrap'>
-      <span class='label-name col-12'>Religion:</span>
-      <span class='label-value col-12'> {{ profile.religionName }}</span>
-    </section>
+  <section class='col-md-6 col-lg-4 col-sm-12 mb-3'>
+    <app-name-item type='tel' label='Date of Birth' [name]='profile.religionName'></app-name-item>
   </section>
 </section>
 <ng-template #content_loading>
