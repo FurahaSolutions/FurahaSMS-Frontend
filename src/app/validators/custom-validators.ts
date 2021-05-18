@@ -22,4 +22,12 @@ export class CustomValidators {
       }),
       map(exists => (exists ? {emailExists: true} : null))
     );
+
+  static startEndDate(control: FormControl) {
+    console.log(control.get('startDate')?.value);
+    if(control.get('startDate')?.value > control.get('endDate')?.value) {
+      return {startGreaterThanEnd: true};
+    }
+    return null;
+  }
 }

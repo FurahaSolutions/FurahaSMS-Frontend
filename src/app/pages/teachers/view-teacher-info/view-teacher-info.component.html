@@ -1,24 +1,24 @@
-<section class='d-flex flex-wrap name-field  mt-4' *ngIf='(teacherProfile$ | ngrxPush) as profile; else content_loading'>
-  <section class='col-md-7 col-lg-5 col-sm-12 mb-3'>
+<section class='d-flex flex-wrap name-field mt-4' *ngIf='(teacherProfile$ | ngrxPush) as profile; else content_loading'>
+  <section class='col-md-6 col-lg-4 col-sm-12 mb-3'>
     <app-name-item key="email" type='email' (valueChanged)='changeProfile($event)' [userId]='profile.id'
       label='Email' [name]='profile.email'></app-name-item>
   </section>
 
-    <section class='col-md-7 col-lg-5 col-sm-12 mb-3'>
+  <section class='col-md-6 col-lg-4 col-sm-12 mb-3'>
       <app-name-item key="phone" type='tel' (valueChanged)='changeProfile($event)' [userId]='profile.id' label='Phone'
         [name]='profile.phone'></app-name-item>
     </section>
 
-  <section class='col-md-7 col-lg-5 col-sm-12 mb-3'>
+  <section class='col-md-6 col-lg-4 col-sm-12 mb-3'>
     <app-user-select-item key="gender" (valueChanged)='updateSelectValue($event)' [valueName]='profile.gender_name'
       [value]='profile.gender_id' [label]='"gender"' [items]='genders$' [userId]='profile.id'></app-user-select-item>
   </section>
-  <section class='col-md-7 col-lg-5 col-sm-12 mb-3'>
+  <section class='col-md-6 col-lg-4 col-sm-12 mb-3'>
     <app-name-item key="dateOfBirth" type='dob' (valueChanged)='changeProfile( $event)' [userId]='profile.id'
       label='Date of Birth' [name]='profile.dateOfBirth'></app-name-item>
   </section>
 
-  <section class='col-md-7 col-lg-5 col-sm-12 mb-3'>
+  <section class='col-md-6 col-lg-4 col-sm-12 mb-3'>
     <app-user-select-item key="religion" (valueChanged)='updateSelectValue( $event)' [valueName]='profile.religion_name'
       [value]='profile.religion_id' [label]='"religion"' [items]='religions$' [userId]='profile.id'>
     </app-user-select-item>

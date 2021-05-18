@@ -6,7 +6,7 @@ export const dashboardLinks = [
   {
     name: 'Students', icon: 'icon-school', link: 'students',
     permissions: ['access student academic reports', 'upload curriculum content', 'update curriculum content',
-      'access academics', 'view subject curriculum', 'edit subject curriculum', 'create subject curriculum',
+      'access academics', 'edit subject curriculum', 'create subject curriculum',
       'access curriculum management', 'view academic year', 'create academic year', 'access academic year',
       'access academic year management', 'update curriculum system', 'create curriculum system',
       'create e-learning course']
