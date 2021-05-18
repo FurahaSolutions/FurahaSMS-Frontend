@@ -1,12 +1,14 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../../../store/reducers';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import {AcademicYearService} from 'src/app/pages/academics/services/academic-year.service';
 import {Router} from '@angular/router';
-import {takeUntil} from 'rxjs/operators';
+import { takeUntil, tap } from 'rxjs/operators';
 import {subscribedContainerMixin} from '../../../../shared/mixins/subscribed-container.mixin';
 import {formMixin} from '../../../../shared/mixins/form.mixin';
+import { combineLatest } from 'rxjs';
+import { CustomValidators } from '../../../../validators/custom-validators';
 
 @Component({
   selector: 'app-create-academic-year',
@@ -19,7 +21,7 @@ export class CreateAcademicYearComponent extends subscribedContainerMixin(formMi
     name: ['', [Validators.required]],
     startDate: ['', [Validators.required]],
     endDate: ['', [Validators.required]],
-  });
+  }, {validators: [CustomValidators.startEndDate]});
 
   constructor(
     private store: Store<AppState>,

@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormArray, FormGroup, ValidationErrors} from '@angular/forms';
+import { subscribedContainerMixin } from '../../../mixins/subscribed-container.mixin';
+import { takeUntil, tap } from 'rxjs/operators';
 
 interface AllValidationErrors {
   controlName: string;
@@ -12,22 +14,37 @@ interface AllValidationErrors {
   templateUrl: './form-errors.component.html',
   styleUrls: ['./form-errors.component.css']
 })
-export class FormErrorsComponent implements OnInit {
+export class FormErrorsComponent extends subscribedContainerMixin() implements OnInit {
   @Input() form: FormGroup;
   @Input() validated: boolean;
   @Input() messages: { [id: string ]: string };
   errors: AllValidationErrors[];
   constructor(
   ) {
+    super();
     this.errors = [];
     this.messages = { };
   }
 
   ngOnInit(): void {
-    this.form.valueChanges.subscribe(() => {
-      this.errors = [];
-      this.calculateErrors(this.form);
-    });
+    this.form.valueChanges.pipe(
+      takeUntil(this.destroyed$),
+      tap(() => {
+        const formErrors = this.form?.errors as ValidationErrors;
+        this.errors = [];
+        if(formErrors) {
+          Object.keys(formErrors).forEach((keyError, val) => {
+            this.errors.push({
+              controlName: 'Form',
+              errorName: keyError,
+              errorValue: val
+            });
+          });
+        }
+
+        this.calculateErrors(this.form);
+      })
+    ).subscribe();
 
     this.calculateErrors(this.form);
   }

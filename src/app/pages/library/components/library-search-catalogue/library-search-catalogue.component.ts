@@ -8,7 +8,7 @@ import { LibraryBookService } from '../../services/library-book.service';
 import { LibraryPublisherService } from '../../services/library-publisher.service';
 import { switchMap, tap } from 'rxjs/operators';
 import { loadLibraryBooksSuccess } from '../../store/actions/library-book.actions';
-import { formMixin } from "../../../../shared/mixins/form.mixin";
+import { formMixin } from '../../../../shared/mixins/form.mixin';
 
 @Component({
   selector: 'app-library-search-catalogue',
@@ -43,7 +43,7 @@ export class LibrarySearchCatalogueComponent extends formMixin() {
 
   books$ = this.bookSearchedSubject$.pipe(
     tap(searched => {
-      if(searched) this.submitInProgressSubject$.next(true);
+      if(searched) {this.submitInProgressSubject$.next(true);}
     }),
     switchMap(x => x ? this.booksService.filter(this.searchParamsForm.value) : []),
     tap((books) => {
@@ -68,7 +68,7 @@ export class LibrarySearchCatalogueComponent extends formMixin() {
       title: '',
       author: '',
       publisher: '',
-    })
+    });
   }
 
   get author(): FormControl {
@@ -87,6 +87,6 @@ export class LibrarySearchCatalogueComponent extends formMixin() {
   submitSearchParamsForm() {
 
     this.bookSearchedSubject$.next(true);
-    this.cdr.detectChanges()
+    this.cdr.detectChanges();
   }
 }
