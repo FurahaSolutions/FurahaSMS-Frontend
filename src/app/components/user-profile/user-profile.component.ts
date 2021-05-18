@@ -9,14 +9,14 @@ import {
   TemplateRef,
   ViewChild
 } from '@angular/core';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
-import {UsersService} from 'src/app/services/users.service';
-import {map, mergeMap, takeUntil} from 'rxjs/operators';
-import {Store} from '@ngrx/store';
-import {loadEditModesFailure, loadEditModesSuccess} from 'src/app/store/actions/edit-mode.actions';
-import {CanvasService} from 'src/app/services/canvas.service';
-import {BehaviorSubject, Subject} from 'rxjs';
-import {subscribedContainerMixin} from '../../shared/mixins/subscribed-container.mixin';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { UsersService } from 'src/app/services/users.service';
+import { map, mergeMap, takeUntil } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { loadEditModesFailure, loadEditModesSuccess } from 'src/app/store/actions/edit-mode.actions';
+import { CanvasService } from 'src/app/services/canvas.service';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { subscribedContainerMixin } from '../../shared/mixins/subscribed-container.mixin';
 
 @Component({
   selector: 'app-user-profile',
@@ -55,7 +55,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
   }
 
   editModeChangeHandler() {
-    if (this.editMode) {
+    if(this.editMode) {
       this.store.dispatch(loadEditModesSuccess());
     } else {
       this.store.dispatch(loadEditModesFailure());
@@ -80,7 +80,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
   }
 
   fullLink(link: string) {
-    if (this.includeProfileId) {
+    if(this.includeProfileId) {
       return [...this.linkBase, this.profile.id, link];
     }
     return [...this.linkBase, link];
@@ -118,7 +118,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
   onFileSelected(template: TemplateRef<any>) {
     const $input: HTMLInputElement = document.querySelector('#profilePhotoInput') as HTMLInputElement;
     this.photoFile = ($input.files as FileList)[0];
-    if (this.photoFile) {
+    if(this.photoFile) {
       this.openModal(template);
       const $canvas: any = document.querySelector('#profilePhotoCanvas');
       this.context = $canvas.getContext('2d');
@@ -135,7 +135,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
 
   }
 
-  changeProfile({fieldName, fieldNewValue}: {fieldName: string; fieldNewValue: string}) {
+  changeProfile({fieldName, fieldNewValue}: { fieldName: string; fieldNewValue: string }) {
     this.valueChanged.emit({fieldName, fieldNewValue});
   }
 

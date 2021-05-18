@@ -44,9 +44,7 @@ export class AcademicYearService {
       url += 'class_levels=1';
     }
 
-    return this.http.get<any>(url).pipe(
-      map(res => res)
-    );
+    return this.http.get<any>(url);
   }
 
   getAcademicYearWithId({id}: { id: number }): Observable<any> {
@@ -60,30 +58,22 @@ export class AcademicYearService {
       return this.http
         .patch<any>(url, {
           ...data,
-          ['start_date']: data.startDate,
-          ['end_date']: data.endDate
-        })
-        .pipe(
-          map(res => res)
-        );
+          ['start_date']: data.startDate.toISOString().substr(0, 10),
+          ['end_date']: data.endDate.toISOString().substr(0, 10)
+        });
     } else {
       return this.http
         .post<any>(url, {
           ...data,
-          ['start_date']: data.startDate,
-          ['end_date']: data.endDate
-        })
-        .pipe(
-          map(res => res)
-        );
+          ['start_date']: data.startDate.toISOString().substr(0, 10),
+          ['end_date']: data.endDate.toISOString().substr(0, 10)
+        });
     }
   }
 
   delete(id: number): Observable<any> {
     const url = `api/academic-years/${id}`;
-    return this.http.delete<any>(url).pipe(
-      map(res => res)
-    );
+    return this.http.delete<any>(url);
   }
 
   getAcademicYearWithSemesters(id: number) {

@@ -1,5 +1,6 @@
 <div class="d-flex justify-content-between align-items-start">
-  <h1>{{ title }} Profile </h1>
+  <h1 *ngIf="title === 'My Profile'">{{ title }} </h1>
+  <h1 *ngIf="title !== 'My Profile'">{{ title }} Profile </h1>
   <div class="custom-control custom-switch mt-3">
     <input [(ngModel)]='editMode' (ngModelChange)='editModeChangeHandler()' type="checkbox" class="custom-control-input" id="editMode">
     <label class="custom-control-label" for="editMode">

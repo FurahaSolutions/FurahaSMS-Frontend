@@ -3,13 +3,15 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse } fr
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { HttpCacheService } from './../services/http-cache.service';
+import { HttpCacheService } from '../services/http-cache.service';
 
 @Injectable()
 export class CacheInterceptor implements HttpInterceptor {
-  constructor(private cacheService: HttpCacheService) { }
+  constructor(private cacheService: HttpCacheService) {
+  }
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const cachedResponse: HttpResponse<any> | undefined = this.cacheService.get(req.url);
+    const cachedResponse: HttpResponse<any> | undefined = this.cacheService.get(req.urlWithParams);
     const cachableUrl: string[] = [
       `genders`,
       `religions`,
@@ -20,18 +22,18 @@ export class CacheInterceptor implements HttpInterceptor {
       `phones/allowed-countries`
     ].map(item => `api/${item}`);
 
-    if (
+    if(
       (req.method === 'GET' && cachableUrl.includes(req.url)) ||
-      (req.method === 'GET' && /api\/library-books\/classifications\/(\d)+\/classes/.test(req.url)) ||
-      (req.method === 'GET' && /api\/academic-year\/\d\/time-tables\/\d\/timings/.test(req.url))
-      ) {
-      if (cachedResponse) {
+      (req.method === 'GET' && /api\/library-books\/classifications\/(\d)+\/classes/.test(req.urlWithParams)) ||
+      (req.method === 'GET' && /api\/academic-year\/\d\/time-tables\/\d\/timings/.test(req.urlWithParams))
+    ) {
+      if(cachedResponse) {
         return of(cachedResponse);
       }
       return next.handle(req)
         .pipe(tap(event => {
-          if (event instanceof HttpResponse) {
-            this.cacheService.put(req.url, event);
+          if(event instanceof HttpResponse) {
+            this.cacheService.put(req.urlWithParams, event);
           }
         }));
     } else {
