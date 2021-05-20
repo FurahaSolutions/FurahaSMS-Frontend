@@ -1,1 +1,47 @@
-<p>library-my-account works!</p>
+<h1>My Account</h1>
+>>{{ books$ | async | json }}<<
+<div class="card p-2">
+  <div class="card-header">
+    <form [formGroup]="itemForm" class="d-flex justify-content-end">
+      <app-checkbox formControlName="heldOnly" label="Show only held books"></app-checkbox>
+    </form>
+    <div class="card-body">
+      <table class="table table-dark">
+        <thead>
+        <tr>
+          <th>Book Id</th>
+          <th>Title</th>
+          <th>MSDN</th>
+          <th>Borrowed Date</th>
+          <th>Due Date</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let book of books$ | ngrxPush">
+          <td>{{ book | json }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.category }}</td>
+          <td>{{ book.publisher }}</td>
+          <td>
+            {{ book.publication_date }}
+          </td>
+          <td>
+            {{ book.ref }}
+          </td>
+          <td>
+            {{ book.borrowed_date }}
+          </td>
+          <td>
+            {{ book.due_date }}
+          </td><td>
+          {{ book.returned_date }}
+        </td>
+          <td>Hold</td>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
