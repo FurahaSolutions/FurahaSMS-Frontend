@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +26,13 @@ export class LibraryBookService {
 
   filter(params: any): Observable<any[]> {
     return this.http.get<any[]>(`api/library-books`, {params});
+  }
+
+  issueBook({bookItemId, userId}: { bookItemId: number; userId: number }) {
+    return this.http.post<any[]>('api/library-books/issue', {['book_item_id']: bookItemId, ['user_id']: userId});
+  }
+
+  getUserByName(q: string) {
+    return this.http.get<any[]>('api/library-books/users', {params: {q}});
   }
 }

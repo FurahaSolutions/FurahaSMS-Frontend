@@ -1,0 +1,14 @@
+<div class="form-group">
+  <label for="userSearch">Search Library Book Ref</label>
+  <input (typeaheadOnSelect)="onSelect($event)" typeaheadOptionField="name" [typeahead]="suggestions$"
+         [typeaheadAsync]="true" [(ngModel)]="search" type="text" class="form-control" id="userSearch"
+         aria-describedby="userInfo"
+         placeholder="Enter Search">
+  <ng-container *ngrxLet="selectedItemSubject$; let selectedUser">
+    <small *ngIf="selectedUser" id="userInfo" class="form-text text-success">
+      {{ selectedUser.name }} ({{  selectedUser.id }})
+    </small>
+    <small *ngIf="!selectedUser" class="form-text text-warning">No Book Ref selected</small>
+  </ng-container>
+
+</div>
