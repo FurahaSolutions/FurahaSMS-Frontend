@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { formMixin } from "../../../../shared/mixins/form.mixin";
-import { FormBuilder } from "@angular/forms";
-import { BehaviorSubject, combineLatest } from "rxjs";
-import { map, switchMap } from "rxjs/operators";
-import { LibraryBookService } from "../../services/library-book.service";
+import { formMixin } from '../../../../shared/mixins/form.mixin';
+import { FormBuilder } from '@angular/forms';
+import { BehaviorSubject, combineLatest } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+import { LibraryBookService } from '../../services/library-book.service';
 
 @Component({
   selector: 'app-library-my-account',

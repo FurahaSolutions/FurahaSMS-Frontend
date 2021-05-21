@@ -1,7 +1,7 @@
 <div class="d-flex align-items-center flex-wrap">
   <div class="col-lg-4 p-0">
     <label for="studentName">Please enter One Name and Select from List</label>
-    <input [(ngModel)]="search" typeaheadOptionField="name" [typeahead]="suggestions$" [typeaheadAsync]="true"
+    <input id="studentName" [(ngModel)]="search" typeaheadOptionField="name" [typeahead]="suggestions$" [typeaheadAsync]="true"
       class="form-control" placeholder="Enter Student Name" (typeaheadOnSelect)="onSelect($event)">
   </div>
   <div class="col-lg-8 p-0">
@@ -12,7 +12,7 @@
     <div class="col-12 col-xl-6 mt-1">Last Name: <strong>{{ selectedItem.lastName }}</strong></div>
     <div class="col-12 col-xl-6 mt-1">Middle Name: <strong>{{ selectedItem.middleName }}</strong></div>
     <div class="col-12 col-xl-6 mt-1">Other Names: <strong>{{ selectedItem.otherNames }}</strong></div>
-    
+
     <div class="col-12 mt-3 text-right">
       <a [routerLink]='["/students", selectedItem.id, "info"]' class="btn btn-primary"><span class="icon-ok"></span>
         Continue

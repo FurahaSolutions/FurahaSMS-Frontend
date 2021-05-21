@@ -1,27 +1,12 @@
 <h1>Book Issue</h1>
 <div class="card p-2">
   <form (ngSubmit)="saveIssuedBook()" [formGroup]="itemForm">
-    <div class="d-flex flex-wrap align-items-lg-end">
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        <app-input
-          placeholder="Please select User"
-          label="User"
-          formControlName="userId">
-        </app-input>
+    <div class="d-flex flex-wrap align-items-lg-start">
+      <div class="col-xl-4 col-lg-5 col-md-6">
+        <app-select-library-user formControlName="userId"></app-select-library-user>
       </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        <app-input
-          placeholder="Please select book"
-          label="Book"
-          formControlName="bookId">
-        </app-input>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        <app-input
-          placeholder="Please select book reference"
-          label="Book Ref"
-          formControlName="bookRefId">
-        </app-input>
+      <div class="col-xl-4 col-lg-5 col-md-6">
+        <app-select-library-book-ref formControlName="bookItemId"></app-select-library-book-ref>
       </div>
       <div class="col-12">
         <app-validate-submit-buttons

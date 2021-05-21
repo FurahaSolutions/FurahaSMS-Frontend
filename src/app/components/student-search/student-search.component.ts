@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {noop, Observable, Observer, of, Subject} from 'rxjs';
-import {switchMap, tap} from 'rxjs/operators';
-import {IUserProfile} from 'src/app/interfaces/user-profile.interface';
-import {StudentService} from 'src/app/services/student.service';
-import {TypeaheadMatch} from 'ngx-bootstrap/typeahead';
+import { noop, Observable, Observer, of, Subject } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
+import { IUserProfile } from 'src/app/interfaces/user-profile.interface';
+import { StudentService } from 'src/app/services/student.service';
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 
 @Component({
   selector: 'app-student-search',
@@ -28,7 +28,7 @@ export class StudentSearchComponent implements OnInit {
     }).pipe(
       switchMap((query: string) => {
 
-        if (query) {
+        if(query) {
 
           return this.studentService.getStudentByName(query)
             .pipe(

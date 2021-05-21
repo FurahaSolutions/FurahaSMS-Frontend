@@ -5,9 +5,9 @@ import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { AppValidateSubmitButtonsModule } from '../../../../components/validate-submit-buttons/validate-submit-buttons.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ReactiveFormsModule } from "@angular/forms";
-import { AppCheckboxModule } from "../../../../shared/checkbox/checkbox.module";
-import { ReactiveComponentModule } from "@ngrx/component";
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppCheckboxModule } from '../../../../shared/checkbox/checkbox.module';
+import { ReactiveComponentModule } from '@ngrx/component';
 
 describe('LibraryMyAccountComponent', () => {
   let component: LibraryMyAccountComponent;

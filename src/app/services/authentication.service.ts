@@ -44,7 +44,7 @@ export class AuthenticationService {
       return EMPTY;
     }
 
-    return this.http.get('api/users/auth')
+    return this.http.get('api/users?auth=1')
       .pipe(
         catchError(error => {
           if(error.status === 401) {

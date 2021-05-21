@@ -1,9 +1,13 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { BookIssueComponent } from './book-issue.component';
-import { RouterTestingModule } from "@angular/router/testing";
-import { AppInputModule } from "../../../../components/input/app-input.module";
-import { ReactiveFormsModule } from "@angular/forms";
+import { RouterTestingModule } from '@angular/router/testing';
+import { AppInputModule } from '../../../../components/input/app-input.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SelectLibraryUserModule } from '../select-library-user/select-library-user.module';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { AppValidateSubmitButtonsModule } from "../../../../components/validate-submit-buttons/validate-submit-buttons.module";
+import { SelectLibraryBookRefModule } from "../select-library-book-ref/select-library-book-ref.module";
 
 describe('BookIssueComponent', () => {
   let component: BookIssueComponent;
@@ -14,7 +18,11 @@ describe('BookIssueComponent', () => {
       imports: [
         RouterTestingModule,
         AppInputModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        SelectLibraryUserModule,
+        HttpClientTestingModule,
+        AppValidateSubmitButtonsModule,
+        SelectLibraryBookRefModule
       ],
       declarations: [BookIssueComponent]
     })

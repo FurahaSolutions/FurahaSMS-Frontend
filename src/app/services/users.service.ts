@@ -40,9 +40,10 @@ export class UsersService {
     otherNames: item.other_names,
     dateOfBirth: item.date_of_birth,
   });
+
   findIfEmailExists(email: string): Observable<any> {
-    const url = `api/users/email?q=${email}`;
-    return this.http.get(url);
+    const url = `api/users`;
+    return this.http.get(url, {params: {email}});
   }
 
   update(

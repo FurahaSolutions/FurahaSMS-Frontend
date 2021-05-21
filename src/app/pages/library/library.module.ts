@@ -17,7 +17,7 @@ import { ViewLibraryBookComponent } from './components/view-library-book/view-li
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { LibraryBookEffects } from './store/effects/library-book.effects';
 import { ReactiveComponentModule } from '@ngrx/component';
-import { AppCheckboxModule } from "../../shared/checkbox/checkbox.module";
+import { AppCheckboxModule } from '../../shared/checkbox/checkbox.module';
 
 
 

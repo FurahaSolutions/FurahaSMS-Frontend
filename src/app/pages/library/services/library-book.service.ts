@@ -28,7 +28,11 @@ export class LibraryBookService {
     return this.http.get<any[]>(`api/library-books`, {params});
   }
 
-  issueBook({bookItemId, userId}: { bookItemId: number, userId: number }) {
+  issueBook({bookItemId, userId}: { bookItemId: number; userId: number }) {
     return this.http.post<any[]>('api/library-books/issue', {['book_item_id']: bookItemId, ['user_id']: userId});
+  }
+
+  getUserByName(q: string) {
+    return this.http.get<any[]>('api/library-books/users', {params: {q}});
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { formMixin } from "../../../../shared/mixins/form.mixin";
-import { LibraryBookService } from "../../services/library-book.service";
-import { FormBuilder, Validators } from "@angular/forms";
+import { formMixin } from '../../../../shared/mixins/form.mixin';
+import { LibraryBookService } from '../../services/library-book.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-book-issue',
@@ -11,9 +11,8 @@ import { FormBuilder, Validators } from "@angular/forms";
 export class BookIssueComponent extends formMixin() {
   itemForm = this.fb.group({
     userId: [null, Validators.required],
-    bookId: [null, Validators.required],
-    bookRefId: [null, Validators.required],
-  })
+    bookItemId: [null, Validators.required],
+  });
 
   constructor(private libraryBookService: LibraryBookService, private fb: FormBuilder) {
     super();
@@ -27,9 +26,9 @@ export class BookIssueComponent extends formMixin() {
           next: () => this.submitInProgressSubject$.next(false),
           error: () => this.submitInProgressSubject$.next(false),
         }
-      )
+      );
     } else {
-      this.triggerValidationSubject$.next(true)
+      this.triggerValidationSubject$.next(true);
     }
   }
 }
