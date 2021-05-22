@@ -25,7 +25,7 @@
             (bsValueChange)='updateFieldValidation()'
             [id]='[id]'
             type="text"
-            [placeholder]='placeholder'>
+            [placeholder]='placeholder ? placeholder : ""'>
         </ng-container>
         <ng-container *ngSwitchCase="'date'">
           <input
@@ -43,7 +43,7 @@
             (bsValueChange)='updateFieldValidation()'
             [id]='[id]'
             type="text"
-            [placeholder]='placeholder'>
+            [placeholder]='placeholder ? placeholder : ""'>
         </ng-container>
         <ng-container *ngSwitchDefault>
           <input
@@ -59,7 +59,7 @@
             (blur)='validateField()'
             [id]='[id]'
             [type]='fieldType'
-            [placeholder]='placeholder'>
+            [placeholder]='placeholder ? placeholder : ""'>
         </ng-container>
 
       </ng-container>

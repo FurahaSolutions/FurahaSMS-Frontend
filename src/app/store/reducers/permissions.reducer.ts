@@ -59,6 +59,10 @@ export const initialState: State = {
     {
       name: 'Tags Management', icon: 'icon-tag', link: 'library/admin/tags',
       permissions: ['create library book tag', 'update library book tag']
+    },
+    {
+      name: 'Book Issue', icon: 'icon-tag', link: 'library/admin/issue-book',
+      permissions: ['issue book', 'mark issued book as returned']
     }
   ],
 
