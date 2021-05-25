@@ -38,7 +38,6 @@ export class GuardiansService {
 
     };
     let url = `api/students/${data.student_id}/guardians`;
-    // let url = 'api/admissions/students/guardians';
 
     if (data.id) {
       url = `${url}/${data.id}`;
@@ -68,7 +67,7 @@ export class GuardiansService {
       })));
   }
   getStudents(userId: number | string): Observable<any> {
-    const url = `api/guardians/${userId}?withStudents=1`;
+    const url = `api/guardians/${userId}?with-students=1`;
     return this.http.get<any>(url).pipe(
       map(({students}: {students: IUserProfile[]}) => students)
     );

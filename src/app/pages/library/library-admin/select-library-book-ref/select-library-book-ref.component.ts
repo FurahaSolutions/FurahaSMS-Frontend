@@ -1,9 +1,8 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BehaviorSubject, Observable, Observer, of } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
-import { IUserProfile } from '../../../../interfaces/user-profile.interface';
 import { LibraryBookService } from '../../services/library-book.service';
 
 @Component({
@@ -19,6 +18,7 @@ import { LibraryBookService } from '../../services/library-book.service';
   ]
 })
 export class SelectLibraryBookRefComponent implements ControlValueAccessor {
+  @Input() borrowed = false;
 
   selectedItemSubject$ = new BehaviorSubject<any | null>(null);
   controlValue: number;
@@ -32,9 +32,8 @@ export class SelectLibraryBookRefComponent implements ControlValueAccessor {
       query && query !== '' ? this.libraryService.filter({title: query}) : of([])
     ),
     map(books => books.reduce((prev, next) =>
-        ([...prev, ...next.book_items.map((bookItem: any) => ({id: next.id, name: next.title + ' - ' +bookItem.ref}))]),
+        ([...prev, ...next.book_items.map((bookItem: any) => ({id: next.id, name: next.title + ' - ' + bookItem.ref}))]),
       [])),
-    tap(console.log)
   );
 
   constructor(private libraryService: LibraryBookService) {

@@ -32,7 +32,7 @@ export class SupportStaffService {
   );
 
   getSupportStaffById(id: number): Observable<any> {
-    return this.http.get<any>(`api/admissions/support-staffs/${id}`)
+    return this.http.get<any>(`api/support-staffs/${id}`)
       .pipe(
         map((user) => ({
           ...user,
@@ -49,7 +49,7 @@ export class SupportStaffService {
 
   save(data: any): Observable<any> {
 
-    return this.http.post('api/admissions/support-staffs', {
+    return this.http.post('api/support-staffs', {
       ...data,
       ['date_of_birth']: data.dateOfBirth,
       ['first_name']: data.firstName,

@@ -32,6 +32,10 @@ export class LibraryBookService {
     return this.http.post<any[]>('api/library-books/issue', {['book_item_id']: bookItemId, ['user_id']: userId});
   }
 
+  returnBook({bookItemId}: { bookItemId: number }) {
+    return this.http.post<any[]>('api/library-books/return', {['book_item_id']: bookItemId});
+  }
+
   getUserByName(q: string) {
     return this.http.get<any[]>('api/library-books/users', {params: {q}});
   }

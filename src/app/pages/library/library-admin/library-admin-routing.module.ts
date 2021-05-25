@@ -59,6 +59,14 @@ const routes: Routes = [
     },
     loadChildren: () => import('./book-issue/book-issue.module')
       .then(m => m.BookIssueModule)
+  },
+  {
+    path: 'return-book',
+    data: {
+      breadcrumb: 'Book Issue'
+    },
+    loadChildren: () => import('./book-return/book-return.module')
+      .then(m => m.BookReturnModule)
   }
 ];
 
