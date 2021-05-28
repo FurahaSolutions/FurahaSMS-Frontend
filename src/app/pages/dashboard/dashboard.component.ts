@@ -10,5 +10,7 @@ import { LinkInterface } from 'src/app/interfaces/link.interface';
 })
 export class DashboardComponent {
   links$: Observable<LinkInterface[]> = this.linkService.dashboardLinks;
-  constructor( private linkService: LinkService ) { }
+
+  constructor(private linkService: LinkService) {
+  }
 }

@@ -29,11 +29,12 @@ export class SelectLibraryBookRefComponent implements ControlValueAccessor {
     observer.next(this.search);
   }).pipe(
     switchMap((query: string) =>
-      query && query !== '' ? this.libraryService.filter({title: query}) : of([])
+      query && query !== '' ? this.libraryService.getBooksByRef({
+        ['book_ref']: query,
+        ['borrowed_only']: this.borrowed
+      }) : of([])
     ),
-    map(books => books.reduce((prev, next) =>
-        ([...prev, ...next.book_items.map((bookItem: any) => ({id: next.id, name: next.title + ' - ' + bookItem.ref}))]),
-      [])),
+    map(books => books.map(book => ({...book, name: '[' + book.ref + '] ' + book.title}))),
   );
 
   constructor(private libraryService: LibraryBookService) {

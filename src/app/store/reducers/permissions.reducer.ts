@@ -64,13 +64,22 @@ export const initialState: State = {
       permissions: ['create library book tag', 'update library book tag']
     },
     {
-      name: 'Book Issue', icon: 'icon-tag', link: 'library/admin/issue-book',
-      permissions: ['issue book']
-    },
-    {
-      name: 'Book Returns', icon: 'icon-tag', link: 'library/admin/return-book',
-      permissions: ['mark issued book as returned']
+      name: 'Books Lending', icon: 'icon-tag', link: 'library/admin/books-lending',
+      permissions: ['issue book', 'mark issued book as returned']
     }
+  ],
+
+  libraryLending: [
+    {
+      name: 'Lending History', icon: 'icon-book', link: '/library/admin/books-lending/history',
+      permissions: ['access library']
+    }, {
+      name: 'Book Issue', icon: 'icon-book', link: '/library/admin/books-lending/issue-book',
+      permissions: ['access library']
+    }, {
+      name: 'Book Returny', icon: 'icon-book', link: '/library/admin/books-lending/return-book',
+      permissions: ['access library']
+    },
   ],
 
   academicCurriculum: academicCurriculumLinks,

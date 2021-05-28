@@ -25,6 +25,8 @@ export class LinkService {
   academicYearsLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectAcademicYearsLinks));
   libraryLinks: Observable<LinkInterface[]>
     = this.filerAllowed(this.store.select(fromLinks.selectLibraryLinks));
+  libraryLendingLinks: Observable<LinkInterface[]>
+    = this.filerAllowed(this.store.select(fromLinks.selectLibraryLendingLinks));
   academicCurriculumLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectAcademicCurriculumLinks));
   libraryAdminLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectLibraryAdminLinks));
   procurementLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectProcurementLinks));
