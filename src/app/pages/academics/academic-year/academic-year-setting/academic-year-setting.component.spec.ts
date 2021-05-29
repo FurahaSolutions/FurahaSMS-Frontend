@@ -22,7 +22,7 @@ describe('AcademicYearSettingComponent', () => {
         ReactiveComponentModule,
         AppLoadingBubbleModule,
         ModalModule.forRoot(),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,
           runtimeChecks: {

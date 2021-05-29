@@ -22,7 +22,7 @@ describe('ViewAcademicYearInfoComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLinksModule,
         StoreModule.forFeature(myProfileFeatureKey, reducer)
       ],

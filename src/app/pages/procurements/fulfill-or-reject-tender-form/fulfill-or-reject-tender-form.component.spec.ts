@@ -25,7 +25,8 @@ describe('FulfillOrRejectTenderFormComponent', () => {
           strictStateImmutability: true,
           strictActionImmutability: true,
         }
-      }), HttpClientTestingModule, RouterTestingModule,
+      }), HttpClientTestingModule,
+        RouterTestingModule.withRoutes([]),
         FormsModule,
         ReactiveFormsModule,
         FormErrorsModule,

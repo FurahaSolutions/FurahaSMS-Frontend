@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from "rxjs";
-import { LinkInterface } from "../../../../interfaces/link.interface";
-import { LinkService } from "../../../../services/link.service";
+import { Observable } from 'rxjs';
+import { LinkInterface } from '../../../../interfaces/link.interface';
+import { LinkService } from '../../../../services/link.service';
 
 @Component({
   selector: 'app-books-lending',

@@ -25,7 +25,9 @@ describe('ViewProcurementTendersAwardedComponent', () => {
           strictActionImmutability: true,
         }
       }),
-          RouterTestingModule, HttpClientTestingModule, ModalModule.forRoot(),
+          RouterTestingModule.withRoutes([]),
+          HttpClientTestingModule,
+          ModalModule.forRoot(),
           ReactiveComponentModule
         ],
       declarations: [ViewProcurementTendersAwardedComponent, LoadingBubbleComponent],

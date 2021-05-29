@@ -48,7 +48,7 @@ describe('BreadcrumbComponent', () => {
           }
         }),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [BreadcrumbComponent, BreadcrumbComponent],

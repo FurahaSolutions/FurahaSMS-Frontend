@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { LibraryBookService } from "../../services/library-book.service";
-import { map, switchMap } from "rxjs/operators";
-import { BehaviorSubject } from "rxjs";
+import { LibraryBookService } from '../../services/library-book.service';
+import { map, switchMap } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-book-lending-history',
@@ -13,10 +13,10 @@ export class BookLendingHistoryComponent {
 
   booksPaginator$ = this.pageSubject$.pipe(
     switchMap(page => this.libraryService.issuedBooks({limit: 20, page}))
-  )
+  );
   books$ = this.booksPaginator$.pipe(
     map(({data}: any) => data.map((x: any) =>
-      ({...x, overdue: (new Date(x['due_date']) > new Date(x['returned_date']))})))
+      ({...x, overdue: (new Date(x.due_date) > new Date(x.returned_date))})))
   );
 
   maxSize = 10;

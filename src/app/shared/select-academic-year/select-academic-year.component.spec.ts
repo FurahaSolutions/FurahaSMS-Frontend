@@ -20,7 +20,7 @@ describe('SelectAcademicYearComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         NgSelectModule,
         ReactiveComponentModule
       ],

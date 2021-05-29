@@ -25,7 +25,7 @@ describe('SidebarComponent', () => {
         }),
         StoreModule.forFeature(myProfileFeatureKey, reducer),
         StoreModule.forFeature(appFeatureKey, reducers),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [SidebarComponent],

@@ -28,7 +28,7 @@ describe('CrudComponent', () => {
         }
       }),
         FormsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveFormsModule,
         HttpClientTestingModule,
         AppValidateSubmitButtonsModule,

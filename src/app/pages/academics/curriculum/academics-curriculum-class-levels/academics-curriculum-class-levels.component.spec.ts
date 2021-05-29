@@ -26,7 +26,7 @@ describe('AcademicsCurriculumClassLevelsComponent', () => {
         }
       }),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [

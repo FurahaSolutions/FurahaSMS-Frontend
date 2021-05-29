@@ -33,7 +33,7 @@ describe('EditPublisherComponent', () => {
         }),
         StoreModule.forFeature('library', reducers),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         FormsModule,
         ReactiveFormsModule,
         AppInputModule,

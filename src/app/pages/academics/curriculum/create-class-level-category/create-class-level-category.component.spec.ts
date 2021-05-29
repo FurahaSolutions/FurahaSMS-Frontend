@@ -34,7 +34,7 @@ describe('CreateClassLevelCategoryComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         EditorModule,
         AppLoadingBubbleModule,
         AppStarLabelRequiredModule,

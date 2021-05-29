@@ -33,7 +33,7 @@ describe('CreateAuthorComponent', () => {
         AppInputModule,
         AppLoadingBubbleModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppValidateSubmitButtonsModule,
         ReactiveComponentModule
       ],

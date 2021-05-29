@@ -19,7 +19,7 @@ describe('LoginResetComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ErrorModule,
         FormsModule,
         ReactiveFormsModule,

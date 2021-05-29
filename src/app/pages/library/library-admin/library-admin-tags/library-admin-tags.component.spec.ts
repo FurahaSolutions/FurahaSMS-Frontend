@@ -26,7 +26,7 @@ describe('LibraryAdminTagsComponent', () => {
         StoreModule.forFeature('library', reducers),
         EffectsModule.forRoot([]),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         LibraryAdminModule
       ],
       declarations: [],

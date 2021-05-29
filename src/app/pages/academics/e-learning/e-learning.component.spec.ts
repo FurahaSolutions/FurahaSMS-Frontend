@@ -22,7 +22,7 @@ describe('ELearningComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         StoreModule.forFeature(myProfileFeatureKey, reducer)
       ],
       declarations: [ELearningComponent],

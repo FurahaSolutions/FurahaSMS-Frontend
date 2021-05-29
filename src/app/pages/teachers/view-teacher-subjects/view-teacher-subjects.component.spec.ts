@@ -17,7 +17,7 @@ describe('ViewTeacherSubjectsComponent', () => {
       imports: [
         HttpClientTestingModule,
         AppLoadingBubbleModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
 
       ],

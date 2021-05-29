@@ -22,7 +22,7 @@ describe('TimeTableAcademicYearViewComponent', () => {
       imports: [
         HttpClientTestingModule,
         AccordionModule.forRoot(),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         BrowserAnimationsModule,
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,

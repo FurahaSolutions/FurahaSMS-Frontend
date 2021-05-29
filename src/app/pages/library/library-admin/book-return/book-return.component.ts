@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { formMixin } from "../../../../shared/mixins/form.mixin";
-import { FormBuilder, Validators } from "@angular/forms";
-import { LibraryBookService } from "../../services/library-book.service";
+import { formMixin } from '../../../../shared/mixins/form.mixin';
+import { FormBuilder, Validators } from '@angular/forms';
+import { LibraryBookService } from '../../services/library-book.service';
 
 @Component({
   selector: 'app-book-return',
@@ -11,7 +11,7 @@ import { LibraryBookService } from "../../services/library-book.service";
 export class BookReturnComponent extends formMixin() {
   itemForm = this.fb.group({
     bookItemId: ['', Validators.required]
-  })
+  });
 
   constructor(private libraryBookService: LibraryBookService, private fb: FormBuilder) {
     super();

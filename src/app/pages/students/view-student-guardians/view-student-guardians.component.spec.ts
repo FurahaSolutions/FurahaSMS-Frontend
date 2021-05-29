@@ -29,7 +29,8 @@ describe('ViewStudentGuardiansComponent', () => {
           }
         }),
         StoreModule.forFeature(guardianProfileFeatureKey, reducer),
-        RouterTestingModule, HttpClientTestingModule,
+        RouterTestingModule.withRoutes([]),
+        HttpClientTestingModule,
         ReactiveComponentModule
       ],
       declarations: [ViewStudentGuardiansComponent, LoadingBubbleComponent, UserSelectItemComponent, NameItemComponent],

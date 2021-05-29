@@ -18,7 +18,7 @@ describe('ViewGuardianStudentsComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,

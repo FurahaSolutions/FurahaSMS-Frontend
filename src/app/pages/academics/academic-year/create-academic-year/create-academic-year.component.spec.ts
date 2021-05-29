@@ -35,7 +35,7 @@ describe('CreateAcademicYearComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ErrorModule,
         AppValidateSubmitButtonsModule,
         FormErrorsModule,

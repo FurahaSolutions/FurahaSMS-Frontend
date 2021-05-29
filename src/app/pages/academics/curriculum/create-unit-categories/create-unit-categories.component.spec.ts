@@ -33,7 +33,7 @@ describe('CreateUnitCategoriesComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppInputModule,
         AppValidateSubmitButtonsModule,
         EditorModule,

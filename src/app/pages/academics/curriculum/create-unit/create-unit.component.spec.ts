@@ -28,7 +28,7 @@ describe('CreateUnitComponent', () => {
         }),
         FormsModule,
         ReactiveFormsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         AppInputModule,
         AppValidateSubmitButtonsModule,

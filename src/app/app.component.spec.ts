@@ -20,7 +20,7 @@ describe('AppComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         NetworkLoadingModule,
         ErrorModule,
         ReactiveComponentModule

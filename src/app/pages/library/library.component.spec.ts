@@ -36,7 +36,7 @@ describe('LibraryComponent', () => {
         LibraryModule,
         ReactiveFormsModule,
         FormsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLayoutModule,
         AppLinksModule,
         AppViewItemsModule,

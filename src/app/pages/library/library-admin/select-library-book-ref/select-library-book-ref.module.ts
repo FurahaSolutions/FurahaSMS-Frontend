@@ -17,7 +17,7 @@ import { ReactiveComponentModule } from '@ngrx/component';
   imports: [
     CommonModule,
     FormsModule,
-    TypeaheadModule,
+    TypeaheadModule.forRoot(),
     ReactiveComponentModule
   ]
 })

@@ -15,7 +15,7 @@ import { AppBarcodeModule } from 'src/app/shared/barcode/barcode.module';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ReactiveComponentModule } from '@ngrx/component';
-import { AppCheckboxModule } from "../../../../shared/checkbox/checkbox.module";
+import { AppCheckboxModule } from '../../../../shared/checkbox/checkbox.module';
 
 
 @NgModule({

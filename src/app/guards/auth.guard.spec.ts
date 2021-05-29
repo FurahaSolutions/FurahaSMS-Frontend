@@ -7,7 +7,9 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 describe('AuthGuard', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientTestingModule],
+      imports: [
+        RouterTestingModule.withRoutes([]),
+        HttpClientTestingModule],
       providers: [AuthGuard]
     });
   }));

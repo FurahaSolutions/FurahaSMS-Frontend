@@ -26,7 +26,7 @@ describe('ViewClassLevelCategoryComponent', () => {
         }),
         StoreModule.forFeature('app', reducers),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         ReactiveComponentModule
       ],

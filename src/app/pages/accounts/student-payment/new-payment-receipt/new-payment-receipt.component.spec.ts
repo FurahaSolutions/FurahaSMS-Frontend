@@ -22,7 +22,7 @@ describe('NewPaymentReceiptComponent', () => {
         NewPaymentReceiptComponent],
       imports: [
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         FormsModule,
         ReactiveFormsModule,
         StoreModule.forRoot(REDUCER_TOKEN, {

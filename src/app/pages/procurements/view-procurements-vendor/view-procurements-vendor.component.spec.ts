@@ -25,7 +25,7 @@ describe('ViewProcurementsVendorComponent', () => {
         }
       }),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule,
       ],
       declarations: [ViewProcurementsVendorComponent, LoadingBubbleComponent],

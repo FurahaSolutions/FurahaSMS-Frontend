@@ -19,7 +19,7 @@ import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-subm
 import { AppStarLabelRequiredModule } from '../../../../../components/label-star-required/app-star-label-required';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ReactiveComponentModule } from '@ngrx/component';
-import { AppCheckboxModule } from "../../../../../shared/checkbox/checkbox.module";
+import { AppCheckboxModule } from '../../../../../shared/checkbox/checkbox.module';
 
 describe('AddBookComponent', () => {
   let component: AddBookComponent;
@@ -39,7 +39,7 @@ describe('AddBookComponent', () => {
         }),
         EffectsModule.forRoot([]),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLinksModule,
         AppLayoutModule,
         FormsModule,

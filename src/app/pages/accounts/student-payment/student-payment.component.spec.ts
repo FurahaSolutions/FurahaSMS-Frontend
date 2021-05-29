@@ -17,7 +17,7 @@ describe('StudentPaymentComponent', () => {
       imports: [
         HttpClientTestingModule,
         AppRecentlyCreatedStudent,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         TabsModule,
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,

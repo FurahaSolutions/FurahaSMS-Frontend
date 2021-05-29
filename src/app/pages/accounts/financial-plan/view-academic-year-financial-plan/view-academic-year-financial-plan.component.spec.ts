@@ -18,7 +18,7 @@ describe('ViewAcademicYearFinancialPlanComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,

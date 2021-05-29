@@ -20,7 +20,7 @@ describe('ViewTeacherInfoComponent', () => {
       imports: [
         AppLoadingBubbleModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,
           runtimeChecks: {

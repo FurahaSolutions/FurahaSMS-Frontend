@@ -15,7 +15,7 @@ describe('TakeOnlineExamDashbpardComponent', () => {
       imports: [
         AppLoadingBubbleModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [ TakeOnlineExamDashboardComponent ]

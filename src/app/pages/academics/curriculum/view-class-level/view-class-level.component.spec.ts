@@ -28,7 +28,7 @@ describe('ViewClassLevelComponent', () => {
         }),
         HttpClientTestingModule,
         AppLoadingBubbleModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [

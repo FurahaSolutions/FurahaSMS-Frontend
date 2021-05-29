@@ -11,7 +11,9 @@ describe('AdminExamPaperComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, StoreModule.forRoot(REDUCER_TOKEN, {
+      imports: [
+        RouterTestingModule.withRoutes([]),
+        StoreModule.forRoot(REDUCER_TOKEN, {
         metaReducers,
         runtimeChecks: {
           strictStateImmutability: true,

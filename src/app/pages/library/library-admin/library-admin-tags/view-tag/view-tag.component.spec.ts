@@ -31,7 +31,7 @@ describe('ViewTagComponent', () => {
         StoreModule.forFeature('library', reducers),
         EffectsModule.forRoot([]),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveFormsModule,
         ReactiveComponentModule,
         AppLoadingBubbleModule

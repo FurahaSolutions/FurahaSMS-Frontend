@@ -27,7 +27,7 @@ describe('ViewStudentAcademicsComponent', () => {
           }
         }),
         StoreModule.forFeature('app', reducers),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         AppLoadingBubbleModule,
         ReactiveComponentModule

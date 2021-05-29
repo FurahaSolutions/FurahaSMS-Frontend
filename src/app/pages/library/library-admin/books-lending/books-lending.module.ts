@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from "@angular/router";
+import { RouterModule } from '@angular/router';
 import { BooksLendingComponent } from './books-lending.component';
-import { AppLinksModule } from "../../../../shared/links/links.module";
+import { AppLinksModule } from '../../../../shared/links/links.module';
 
 
 @NgModule({

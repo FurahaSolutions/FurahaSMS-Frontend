@@ -41,7 +41,7 @@ describe('ELearningCreateCourseComponent', () => {
         StoreModule.forFeature(academicsFeatureKey, reducers),
         HttpClientTestingModule,
         AppValidateSubmitButtonsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppStarLabelRequiredModule,
         SortableModule.forRoot(),
         ReactiveComponentModule

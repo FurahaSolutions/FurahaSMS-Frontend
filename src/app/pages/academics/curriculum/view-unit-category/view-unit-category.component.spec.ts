@@ -24,7 +24,7 @@ describe('ViewUnitCategoryComponent', () => {
         }
       }),
         AppLoadingBubbleModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         ReactiveComponentModule,
       ],

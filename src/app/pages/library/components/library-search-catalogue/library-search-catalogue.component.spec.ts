@@ -24,7 +24,7 @@ describe('LibrarySearchCatalogueComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         FormsModule,
         ReactiveFormsModule,

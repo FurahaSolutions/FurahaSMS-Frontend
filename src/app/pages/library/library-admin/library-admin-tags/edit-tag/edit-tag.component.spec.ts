@@ -24,7 +24,7 @@ describe('EditTagComponent', () => {
         }),
         EffectsModule.forRoot([]),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         LibraryAdminModule],
       declarations: [],
       providers: [reducerProvider]

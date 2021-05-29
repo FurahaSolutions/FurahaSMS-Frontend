@@ -24,7 +24,7 @@ describe('AcademicsCurriculumComponent', () => {
           }
         }),
         StoreModule.forFeature(appFeatureKey, reducers),
-        RouterTestingModule, AppLinksModule,
+        RouterTestingModule.withRoutes([]), AppLinksModule,
         StoreModule.forFeature(myProfileFeatureKey, reducer)],
       declarations: [AcademicsCurriculumComponent],
       providers: [reducerProvider]

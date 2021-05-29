@@ -28,7 +28,7 @@ describe('AcademicsCurriculumUnitsComponent', () => {
           }
         }),
         StoreModule.forFeature(appFeatureKey, reducers),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         ReactiveComponentModule
       ],

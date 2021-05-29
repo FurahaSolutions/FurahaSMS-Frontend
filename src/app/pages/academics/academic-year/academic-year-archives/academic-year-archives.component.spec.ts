@@ -24,7 +24,7 @@ describe('AcademicYearArchivesComponent', () => {
           }
         }),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         ReactiveComponentModule
       ],

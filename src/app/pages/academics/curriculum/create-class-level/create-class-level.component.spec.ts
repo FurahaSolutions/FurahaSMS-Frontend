@@ -31,7 +31,7 @@ describe('CreateClassLevelComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         FormsModule,
         ReactiveFormsModule,

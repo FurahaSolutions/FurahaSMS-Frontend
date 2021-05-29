@@ -32,7 +32,7 @@ describe('TimeTableAcademicYearEditComponent', () => {
         HttpClientTestingModule,
         AccordionModule.forRoot(),
         ModalModule.forRoot(),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,

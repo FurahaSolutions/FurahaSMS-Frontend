@@ -27,7 +27,7 @@ describe('TeachingStaffAdmissionComponent', () => {
         }),
         StoreModule.forFeature(myProfileFeatureKey, reducer),
         StoreModule.forFeature(appFeatureKey, reducers),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         HttpClientTestingModule,
         AppLinksModule

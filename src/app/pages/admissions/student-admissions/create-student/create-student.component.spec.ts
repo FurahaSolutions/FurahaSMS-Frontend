@@ -33,7 +33,7 @@ describe('CreateStudentComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppInputModule,
         AppValidateSubmitButtonsModule,
         ReactiveComponentModule

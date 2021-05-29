@@ -15,7 +15,7 @@ describe('CreateSemesterComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ErrorModule,
         HttpClientTestingModule,
         FormsModule,

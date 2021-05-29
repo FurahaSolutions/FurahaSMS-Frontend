@@ -14,7 +14,7 @@ describe('ViewStudyMaterialComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         PdfViewerModule,
         HttpClientTestingModule,
         AppLoadingBubbleModule,

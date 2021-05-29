@@ -22,7 +22,7 @@ describe('CreateExamComponent', () => {
         AppInputModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         HttpClientTestingModule,
         StoreModule.forRoot(REDUCER_TOKEN, {

@@ -27,7 +27,7 @@ describe('ViewStudentComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         StoreModule.forFeature('studentProfiles', reducer),
         StoreModule.forFeature('app', reducers),

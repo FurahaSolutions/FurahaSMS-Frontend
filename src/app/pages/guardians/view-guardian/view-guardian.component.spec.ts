@@ -21,7 +21,7 @@ describe('ViewGuardianComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppUserProfileModule,
         AppLoadingBubbleModule,
         StoreModule.forRoot(REDUCER_TOKEN, {

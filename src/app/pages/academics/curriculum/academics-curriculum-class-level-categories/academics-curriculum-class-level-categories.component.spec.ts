@@ -24,7 +24,9 @@ describe('AcademicsCurriculumClassLevelCategoriesComponent', () => {
           strictStateImmutability: true,
           strictActionImmutability: true,
         }
-      }), RouterTestingModule, HttpClientTestingModule,
+      }),
+        RouterTestingModule.withRoutes([]),
+        HttpClientTestingModule,
         ReactiveComponentModule
       ],
       declarations: [

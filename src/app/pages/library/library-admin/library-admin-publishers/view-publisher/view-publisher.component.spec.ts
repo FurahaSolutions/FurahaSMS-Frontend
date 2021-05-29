@@ -25,7 +25,7 @@ describe('ViewPublisherComponent', () => {
         }),
         AppLoadingBubbleModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [ViewPublisherComponent],

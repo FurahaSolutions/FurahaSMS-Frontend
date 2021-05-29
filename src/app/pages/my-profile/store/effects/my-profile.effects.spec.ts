@@ -25,7 +25,7 @@ describe('MyProfileEffects', () => {
             strictActionImmutability: true,
           }
         }),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule
       ],
       providers: [

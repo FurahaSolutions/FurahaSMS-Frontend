@@ -27,7 +27,7 @@ describe('AdminExamPaperEditComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         AppLoadingBubbleModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,

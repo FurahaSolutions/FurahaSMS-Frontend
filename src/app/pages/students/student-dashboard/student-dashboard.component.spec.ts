@@ -33,7 +33,7 @@ describe('StudentDashboardComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [StudentDashboardComponent],

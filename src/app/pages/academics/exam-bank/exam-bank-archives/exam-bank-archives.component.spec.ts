@@ -15,7 +15,7 @@ describe('ExamBankArchivesComponent', () => {
       imports: [
         AppLoadingBubbleModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [ExamBankArchivesComponent]

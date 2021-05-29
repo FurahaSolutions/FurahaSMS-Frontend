@@ -17,7 +17,7 @@ describe('EditStreamComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ErrorModule,
         HttpClientTestingModule,
         AppCrudModule,

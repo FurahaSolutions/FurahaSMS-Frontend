@@ -30,7 +30,7 @@ describe('HeaderCollapseComponent', () => {
         StoreModule.forFeature(appFeatureKey, reducers),
         FormsModule,
         ReactiveFormsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [

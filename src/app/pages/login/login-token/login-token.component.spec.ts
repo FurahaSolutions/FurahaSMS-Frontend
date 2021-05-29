@@ -23,7 +23,7 @@ describe('LoginTokenComponent', () => {
         AppLayoutModule,
         ErrorModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,
           runtimeChecks: {

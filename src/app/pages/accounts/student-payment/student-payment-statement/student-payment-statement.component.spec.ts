@@ -23,7 +23,7 @@ describe('StudentPaymentStatementComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         AppLoadingBubbleModule,
         TabsModule.forRoot(),

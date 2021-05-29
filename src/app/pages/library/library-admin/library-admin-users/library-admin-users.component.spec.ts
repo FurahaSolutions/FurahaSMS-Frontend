@@ -26,7 +26,7 @@ describe('LibraryAdminUsersComponent', () => {
         }),
         StoreModule.forFeature(appFeatureKey, reducers),
         AppLinksModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         StoreModule.forFeature(myProfileFeatureKey, reducer)
       ],
       declarations: [LibraryAdminUsersComponent],

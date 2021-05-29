@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { BookReturnRoutingModule } from './book-return-routing.module';
 import { BookReturnComponent } from './book-return.component';
-import { ReactiveFormsModule } from "@angular/forms";
-import { SelectLibraryBookRefModule } from "../select-library-book-ref/select-library-book-ref.module";
-import { AppValidateSubmitButtonsModule } from "../../../../components/validate-submit-buttons/validate-submit-buttons.module";
+import { ReactiveFormsModule } from '@angular/forms';
+import { SelectLibraryBookRefModule } from '../select-library-book-ref/select-library-book-ref.module';
+import { AppValidateSubmitButtonsModule } from '../../../../components/validate-submit-buttons/validate-submit-buttons.module';
 
 
 @NgModule({

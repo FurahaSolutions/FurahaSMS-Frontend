@@ -26,7 +26,10 @@ describe('StudentAdmissionsEditComponent', () => {
           strictStateImmutability: true,
           strictActionImmutability: true,
         }
-      }), AppLoadingBubbleModule, RouterTestingModule, HttpClientTestingModule,
+      }),
+        AppLoadingBubbleModule,
+        RouterTestingModule.withRoutes([]),
+        HttpClientTestingModule,
         AppInputModule,
         FormsModule,
         ReactiveFormsModule,

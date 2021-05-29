@@ -28,7 +28,7 @@ describe('CreateTagComponent', () => {
         StoreModule.forFeature('library', reducers),
         EffectsModule.forRoot([]),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveFormsModule,
         AppLoadingBubbleModule
       ],

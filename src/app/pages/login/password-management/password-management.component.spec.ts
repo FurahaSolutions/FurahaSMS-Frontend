@@ -27,7 +27,7 @@ describe('PasswordManagementComponent', () => {
         HttpClientTestingModule,
         LoadMyProfileModule,
         AppLoadingBubbleModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,
           runtimeChecks: {

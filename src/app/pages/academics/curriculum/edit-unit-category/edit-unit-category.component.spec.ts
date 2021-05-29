@@ -34,7 +34,7 @@ describe('EditUnitCategoryComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppInputModule,
         EditorModule,
         ErrorModule,

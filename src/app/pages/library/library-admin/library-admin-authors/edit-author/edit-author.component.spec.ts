@@ -30,7 +30,7 @@ describe('EditAuthorComponent', () => {
           }
         }),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         FormsModule,
         ReactiveFormsModule,
         AppInputModule,
