@@ -15,7 +15,11 @@ export class LibraryBookService {
     const subData = {
       ...data,
       title: data.bookTitle,
-      ['book_items']: data.bookItems
+      ['book_items']: data.bookItems.map((book: any) => ({
+        ref: book.ref,
+        reserved: book.reserved,
+        ['procurement_date']: book.dateProcured.toISOString().substr(0, 10)
+      }))
     };
     return this.http.post('api/library-books', subData);
   }

@@ -56,13 +56,20 @@
         <th>Book Title</th>
         <th>Category</th>
         <th>Publisher</th>
+        <th>Availability</th>
         <th>Actions</th>
       </tr>
       </thead>
       <tbody>
-
       <tr *ngFor='let book of books'>
         <td>{{ book.title }}</td>
+        <td>
+          <ul>
+            <li *ngFor='let cat of book.category'>
+              {{ cat }}
+            </li>
+          </ul>
+        </td>
         <td>
           <ul>
             <li *ngFor='let publisher of book.publishers'>
@@ -71,13 +78,18 @@
           </ul>
         </td>
         <td>
-          <ul>
-            <li *ngFor='let cat of book.category'>
-              {{ cat }}
-            </li>
-          </ul>
+          <ng-container *ngIf="book.book_items.length < 1">
+            <div class="alert alert-info">No Available book copies</div>
+          </ng-container>
+          <ng-container *ngIf="book.book_items.length > 0">
+            <span class="badge badge-success p-2 mr-2">Available
+              <span class="badge badge-warning" [class.badge-danger]="book.available === 0">{{ book.available }}</span>
+            </span>
+            <span class="badge badge-warning p-2">Reserved
+              <span class="badge badge-danger" >{{ book.reserves }}</span>
+            </span>
+          </ng-container>
         </td>
-        <td>{{ book.book_items.length }}</td>
         <td>
           <a [routerLink]='["/library", "books", book.id]' class="btn btn-sm btn-primary"> <span
             class='icon-eye'></span>

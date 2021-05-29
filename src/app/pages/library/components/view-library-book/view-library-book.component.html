@@ -26,51 +26,51 @@
           <div class="col-lg-6 label-name mt-2">Overdue charge per hour</div>
           <div class="col-lg-6 label-value mt-2">{{ libraryBook['overdue_charge_per_hour']}}</div>
         </div>
-        <fieldset class="mt-4">
-          <legend>Available Book Items</legend>
-          <div class="mt-1">
-            <span class="badge badge-secondary p-2 mr-2" *ngFor="let item of libraryBook['library_book_items']">
-              {{ item.ref }} <span *ngIf="item.reserved" class="badge badge-danger">R</span>
-            </span>
-          </div>
-        </fieldset>
-        <fieldset class="mt-3">
-          <legend>Authors</legend>
-          <div class="mt-1">
-            <span class="badge badge-secondary p-2 mr-2" *ngFor="let author of libraryBook['library_book_authors']">
-              {{ author.name }}
-            </span>
-          </div>
-        </fieldset>
-        <fieldset class="mt-3">
-          <legend>Publishers</legend>
-          <div class="mt-1">
-            <span class="badge badge-secondary p-2 mr-2"
-                  *ngFor="let publisher of libraryBook['library_book_publishers']">
-              {{ publisher.name }}
-            </span>
-          </div>
-        </fieldset>
-        <fieldset class="mt-3">
-          <legend>Publishers</legend>
-          <div class="mt-1">
-            <span class="badge badge-secondary p-2 mr-2"
-                  *ngFor="let tag of libraryBook['library_book_tags']">
-              {{ tag.name }}
-            </span>
-          </div>
-        </fieldset>
-        <fieldset class="mt-3">
-          <legend>Category</legend>
-          <div class="mt-1">
+        <div class="d-flex flex-wrap">
+          <fieldset class="mt-3 mt-lg-4 col-lg-6">
+            <legend>Category</legend>
+            <div class="mt-1">
             <span class="badge badge-secondary p-2 mr-2"
                   *ngFor="let category of libraryBook['library_classes']">
               {{ category.name }}
             </span>
-          </div>
-        </fieldset>
-
-        <pre>{{ libraryBook | json }}</pre>
+            </div>
+          </fieldset>
+          <fieldset class="mt-3 mt-lg-4 col-lg-6">
+            <legend>Authors</legend>
+            <div class="mt-1">
+            <span class="badge badge-secondary p-2 mr-2" *ngFor="let author of libraryBook['library_book_authors']">
+              {{ author.name }}
+            </span>
+            </div>
+          </fieldset>
+          <fieldset class="mt-3 col-lg-6">
+            <legend>Publishers</legend>
+            <div class="mt-1">
+            <span class="badge badge-secondary p-2 mr-2"
+                  *ngFor="let publisher of libraryBook['library_book_publishers']">
+              {{ publisher.name }}
+            </span>
+            </div>
+          </fieldset>
+          <fieldset class="mt-3 col-lg-6">
+            <legend>Tags</legend>
+            <div class="mt-1">
+            <span class="badge badge-secondary p-2 mr-2"
+                  *ngFor="let tag of libraryBook['library_book_tags']">
+              {{ tag.name }}
+            </span>
+            </div>
+          </fieldset>
+          <fieldset class="mt-3 mt-lg-4 col-12">
+            <legend>Available Book Items</legend>
+            <div class="mt-1">
+            <span class="badge badge-secondary p-2 mr-2" *ngFor="let item of libraryBook['library_book_items']">
+              {{ item.ref }} <span *ngIf="item.reserved" class="badge badge-danger">R</span>
+            </span>
+            </div>
+          </fieldset>
+        </div>
       </div>
     </div>
 
