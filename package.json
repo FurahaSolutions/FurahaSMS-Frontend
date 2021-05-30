@@ -1,7 +1,7 @@
 {
   "engines": {
     "node": "14.15.4",
-    "npm": "7.11.2"
+    "npm": "7.15.0"
   },
   "name": "furaha-app",
   "version": "0.0.0",
@@ -36,6 +36,9 @@
     "@angular/router": "~11.2.12",
     "@angular/service-worker": "^11.2.12",
     "@dimakorotkov/tinymce-mathjax": "^1.0.7",
+    "@fortawesome/angular-fontawesome": "^0.8.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@ng-select/ng-select": "^6.1.0",
     "@ngrx/component": "^11.1.1",
     "@ngrx/effects": "^11.1.1",
