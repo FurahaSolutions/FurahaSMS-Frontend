@@ -1,15 +1,15 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {combineLatest, Observable, Subject} from 'rxjs';
-import {FormBuilder, Validators} from '@angular/forms';
-import {formMixin} from '../../../../../../shared/mixins/form.mixin';
-import {takeUntil, tap} from 'rxjs/operators';
-import {subscribedContainerMixin} from '../../../../../../shared/mixins/subscribed-container.mixin';
-import {OnlineAssessmentService} from '../../../services/online-assessment.service';
-import {modalMixin} from '../../../../../../shared/mixins/modal.mixin';
-import {BsModalService} from 'ngx-bootstrap/modal';
-import {Store} from '@ngrx/store';
-import {loadCourses} from '../../../../store/actions/courses.actions';
-import {AppState} from '../../../../../../store/reducers';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { combineLatest, Observable, Subject } from 'rxjs';
+import { FormBuilder, Validators } from '@angular/forms';
+import { formMixin } from '../../../../../../shared/mixins/form.mixin';
+import { takeUntil, tap } from 'rxjs/operators';
+import { subscribedContainerMixin } from '../../../../../../shared/mixins/subscribed-container.mixin';
+import { OnlineAssessmentService } from '../../../services/online-assessment.service';
+import { modalMixin } from '../../../../../../shared/mixins/modal.mixin';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { Store } from '@ngrx/store';
+import { loadCourses } from '../../../../store/actions/courses.actions';
+import { AppState } from '../../../../../../store/reducers';
 
 @Component({
   selector: 'app-manage-online-assessment',

@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ELearningEditCourseComponent } from './e-learning-edit-course.component';
 import { ELearningAdminCourseComponent } from '../e-learning-admin-course/e-learning-admin-course.component';
-import {ELearningCreateCourseComponent} from '../e-learning-create-course/e-learning-create-course.component';
+import { ELearningCreateCourseComponent } from '../e-learning-create-course/e-learning-create-course.component';
+import { EditOnlineAssessmentDetailsComponent } from "./edit-online-assessment-details/edit-online-assessment-details.component";
 
 
 const routes: Routes = [
@@ -26,6 +27,9 @@ const routes: Routes = [
         data: {
           breadcrumb: 'Edit Course'
         }
+      }, {
+        path: 'assessments/:id',
+        component: EditOnlineAssessmentDetailsComponent
       }
     ]
   }
@@ -35,4 +39,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ELearningEditCourseRoutingModule { }
+export class ELearningEditCourseRoutingModule {
+}

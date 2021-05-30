@@ -1,33 +1,31 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/reducers';
-import { map, tap, takeWhile } from 'rxjs/operators';
+import { map, takeUntil, tap } from 'rxjs/operators';
 import { loadExamPapers } from '../../store/actions/exam-paper.actions';
+import { subscribedContainerMixin } from "../../../../../shared/mixins/subscribed-container.mixin";
 
 @Component({
   selector: 'app-view-exam',
   templateUrl: './view-exam.component.html',
   styleUrls: ['./view-exam.component.css']
 })
-export class ViewExamComponent implements OnInit, OnDestroy {
+export class ViewExamComponent extends subscribedContainerMixin() implements OnInit {
 
-  componentIsActive: boolean;
   constructor(
     private store: Store<AppState>,
     private route: ActivatedRoute
-  ) { }
+  ) {
+    super();
+  }
 
   ngOnInit() {
-    this.componentIsActive = true;
-    this.route.paramMap
-      .pipe(map(params => Number(params.get('id'))))
-      .pipe(tap((id) => this.store.dispatch(loadExamPapers({ id }))))
-      .pipe(takeWhile(() => this.componentIsActive))
-      .subscribe();
-  }
-  ngOnDestroy() {
-    this.componentIsActive = false;
+    this.route.paramMap.pipe(
+      map(params => Number(params.get('id'))),
+      tap((id) => this.store.dispatch(loadExamPapers({id}))),
+      takeUntil(this.destroyed$)
+    ).subscribe();
   }
 
 }
