@@ -5,7 +5,7 @@ import {FormArray, FormGroup} from '@angular/forms';
 export const formMixin = <T extends Constructor>(baseClass: T = class {
 } as T) =>
   class extends baseClass {
-    itemForm: FormGroup;
+    itemForm: FormGroup = new FormGroup({});
     triggerValidationSubject$ = new BehaviorSubject<boolean>(false);
     triggerValidationAction$ = this.triggerValidationSubject$.asObservable();
     submitInProgressSubject$ = new BehaviorSubject<boolean>(false);

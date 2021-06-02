@@ -1,37 +1,32 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component} from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../../store/reducers';
 import { ProcurementService } from 'src/app/services/procurement.service';
-import { Observable } from 'rxjs';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { FulfillOrRejectTenderFormComponent } from '../fulfill-or-reject-tender-form/fulfill-or-reject-tender-form.component';
 import { selectDialogShowState } from 'src/app/store/selectors/dialog.selector';
 import { showDialog } from 'src/app/store/actions/dialog.actions';
-import { takeWhile } from 'rxjs/operators';
+import { takeUntil} from 'rxjs/operators';
+import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
   selector: 'app-view-procurement-tenders-awarded',
   templateUrl: './view-procurement-tenders-awarded.component.html',
   styleUrls: ['./view-procurement-tenders-awarded.component.css']
 })
-export class ViewProcurementTendersAwardedComponent implements OnInit, OnDestroy {
+export class ViewProcurementTendersAwardedComponent extends subscribedContainerMixin() {
 
-  procurementTenders$: Observable<any>;
+  procurementTenders$ = this.procurementService.getAwardedTenders();
   config = {
     backdrop: false,
     ignoreBackdropClick: true
   };
-  bsModalRef: BsModalRef;
-  componentIsActive: boolean;
+  bsModalRef: BsModalRef | undefined;
 
   constructor(
     private modalService: BsModalService,
-    private store: Store<fromStore.AppState>, private procurementService: ProcurementService) { }
-
-  ngOnInit() {
-    this.componentIsActive = true;
-
-    this.procurementTenders$ = this.procurementService.getAwardedTenders();
+    private store: Store<fromStore.AppState>, private procurementService: ProcurementService) {
+    super();
   }
 
   openModalWithComponent(tenderId: number, fulfilled: boolean) {
@@ -39,15 +34,12 @@ export class ViewProcurementTendersAwardedComponent implements OnInit, OnDestroy
     this.bsModalRef.content.tenderId = tenderId;
     this.bsModalRef.content.fulfilled = fulfilled;
     this.store.select(selectDialogShowState)
-      .pipe(takeWhile(() => this.componentIsActive))
+      .pipe(takeUntil(this.destroyed$))
       .subscribe(hide => {
       if (hide) {
-        this.bsModalRef.hide();
+        this.bsModalRef?.hide();
         this.store.dispatch(showDialog());
       }
     });
-  }
-  ngOnDestroy() {
-    this.componentIsActive = false;
   }
 }

@@ -3,6 +3,7 @@ import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } f
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { AppFormService } from '../../services/AppForm.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 
 @Component({
   selector: 'app-input',
@@ -22,29 +23,27 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
   ]
 })
 export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
-  @Input() label: string;
-  @Input() placeholder: string;
-  @Input() id: string;
-  @Input() prependIcon: string;
+  @Input() label = '';
+  @Input() placeholder = '';
+  @Input() id = '';
+  @Input() prependIcon = '';
   @Input() formControl: FormControl = new FormControl();
-  @Input() triggerValidation: boolean;
-  @Input() autofocus: boolean;
-  @Input() autocomplete: string;
-  @Input() type: string;
-  @Input() labelClass: string;
-  @Input() inputClass: string;
-  @Input() step: number;
-  @Input() min: number;
+  @Input() triggerValidation = false;
+  @Input() autofocus = false;
+  @Input() autocomplete = '';
+  @Input() type = 'text';
+  @Input() labelClass = '';
+  @Input() inputClass = '';
+  @Input() step = 1;
+  @Input() min = 0;
   @Input() showPasswordStrength = false;
-  fieldError: string | null;
+  fieldError: string | null = null;
   fieldType = 'text';
-  disabled: boolean;
-  onChanges: ($value: any) => void;
-  onTouched: () => void;
+  disabled = false;
+  faUser = faUser;
   inputValue: any;
   passwordStringChangeSubject$: Subject<string> = new BehaviorSubject('');
   passwordStringChangeAction$: Observable<string> = this.passwordStringChangeSubject$.asObservable();
-  showRequiredIcon: any;
   minDate = new Date((new Date()).getFullYear() - 100);
   maxDate = new Date((new Date()).setFullYear((new Date()).getFullYear() - 1));
   dateConfig: Partial<BsDatepickerConfig> = {
@@ -60,6 +59,11 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
 
   constructor(private appFormService: AppFormService) {
   }
+
+  onChanges: ($value: any) => void = () => {
+  };
+  onTouched: () => void = () => {
+  };
 
   ngOnInit() {
     if(['tel', 'phone', 'password', 'number', 'date', 'datetime-local'].includes(this.type)) {
@@ -103,7 +107,7 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
 
     if(this.formControl.value !== '') {
       if(this.type === 'dob' && (new Date(this.formControl.value) < this.minDate || new Date(this.formControl.value) > this.maxDate)) {
-        return { date: 'invalid' };
+        return {date: 'invalid'};
       }
     }
   }

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
 import { select, Store } from '@ngrx/store';
 import { selectEditModeOnState } from 'src/app/store/selectors/app.selectors';
@@ -19,13 +19,12 @@ type IKey = 'dateOfBirth' | 'firstName' | 'lastName' | 'otherNames' | 'email' | 
 })
 export class NameItemComponent extends formMixin() implements OnInit {
 
-  @Input() key: IKey;
-  @Input() type: string;
-  @Input() name: string;
+  @Input() key: IKey = 'email';
+  @Input() type = 'text';
+  @Input() name = '';
   @Input() label = '';
-  @Input() userId: number;
+  @Input() userId: number | undefined;
   @Output() valueChanged = new EventEmitter<{ fieldName: string; fieldNewValue: string }>();
-  itemForm: FormGroup;
   editHovered = false;
   editable = false;
   editMode$: Observable<boolean> = this.store.pipe(select(selectEditModeOnState));
@@ -62,7 +61,7 @@ export class NameItemComponent extends formMixin() implements OnInit {
       this.usersService.update({
         fieldName: this.key,
         fieldNewValue,
-        userId: this.userId
+        userId: this.userId as number
       })
         .subscribe({
           complete: () => this.submitInProgressSubject$.next(false),

@@ -32,12 +32,12 @@
         </td>
         <td class='d-flex  justify-content-between flex-wrap'>
           <button class='btn btn-primary btn-sm' [routerLink]='[item.id, "edit"]'
-                  attr.aria-label="{{ 'Edit subject item ' + item.name }}" title="Edit" type="button">
+                  [attr.aria-label]="'Edit subject item ' + item.name " title="Edit" type="button">
             <i class="icon-edit" color="primary"></i><span class="sr-only">edit</span>
           </button>
           <button [disabled]='deleting[i]' class='btn btn-danger btn-sm'
                   (click)="deleteItem({id: item.id, name: item.name, index: i})"
-                  attr.aria-label="{{ 'Delete subject item ' + item.name }}" title="Delete Item" type="button">
+                  [attr.aria-label]="'Delete subject item ' + item.name" title="Delete Item" type="button">
             <i class="icon-trash-1" [class.animate-spin]='deleting[i]' color="primary"></i><span
             class="sr-only">delete</span>
           </button>

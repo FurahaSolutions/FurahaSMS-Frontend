@@ -5,11 +5,14 @@
         <h1>Login</h1>
       </section>
       <form [formGroup]='loginForm' (ngSubmit)='submitLoginForm()' class='card-body form-horizontal'>
-        <app-input [triggerValidation]='triggerValidation' label='Username' placeholder='Enter username/email/admission number'
+        <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' label='Username' placeholder='Enter username/email/admission number'
                    id='username' formControlName='username' prependIcon='icon-user'
                    autocomplete='username'>
+          <div data-prependIcon>
+            Genius
+          </div>
         </app-input>
-        <app-input [triggerValidation]='triggerValidation' label='Password' placeholder='Enter Password' id='password'
+        <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' label='Password' placeholder='Enter Password' id='password'
                    formControlName='password' prependIcon='icon-lock-filled' autocomplete='current-password'
                    type='password'>
         </app-input>
@@ -23,8 +26,8 @@
           </section>
           <button [disabled]='(submitButtonActive$ | ngrxPush) === false' class='btn btn-success' type='submit'>
             Login
-            <i *ngIf='loginForm.valid && !isSubmitting' class='icon-login'></i>
-            <i *ngIf='isSubmitting' class='icon-spin3 animate-spin'></i>
+            <i *ngIf='loginForm.valid && ((submitInProgressAction$ | ngrxPush) === false)' class='icon-login'></i>
+            <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
           </button>
         </section>
       </form>

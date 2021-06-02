@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "inlineStyleLanguage": "css",
             "outputPath": "dist/furaha-sms",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -48,16 +49,6 @@
                 "glob": "**/*",
                 "input": "node_modules/tinymce/icons",
                 "output": "/tinymce/icons/"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/@dimakorotkov/tinymce-mathjax",
-                "output": "/tinymce/plugins/mathjax/"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/mathjax",
-                "output": "mathjax"
               }
             ],
             "styles": [
@@ -99,7 +90,8 @@
               "serviceWorker": true,
               "ngswConfigPath": "ngsw-config.json"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -154,16 +146,6 @@
                 "glob": "**/*",
                 "input": "node_modules/tinymce/icons",
                 "output": "/tinymce/icons/"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/@dimakorotkov/tinymce-mathjax",
-                "output": "/tinymce/plugins/mathjax/"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/mathjax",
-                "output": "mathjax"
               }
             ],
             "styles": [

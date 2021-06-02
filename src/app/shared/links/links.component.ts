@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-links',
@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./links.component.css']
 })
 export class LinksComponent implements OnInit {
-  @Input() links$: Observable<any[]>;
+  @Input() links$: Observable<any[]> = of([]);
   constructor() { }
 
   ngOnInit() {

@@ -16,7 +16,7 @@ import {CreateAcademicYearTimeTableComponent} from '../create-academic-year-time
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TimeTableAcademicYearDashboardComponent extends modalMixin() {
-  academicYearId: number;
+  academicYearId: number | undefined;
 
   academicYearId$: Observable<number> = this.route.paramMap.pipe(
     map(params => Number(params.get('id'))),
@@ -39,7 +39,7 @@ export class TimeTableAcademicYearDashboardComponent extends modalMixin() {
   }
 
   newTimeTablePlan() {
-    this.openModal({id: this.academicYearId, component: CreateAcademicYearTimeTableComponent});
+    this.openModal({id: this.academicYearId as number, component: CreateAcademicYearTimeTableComponent});
   }
 
 }

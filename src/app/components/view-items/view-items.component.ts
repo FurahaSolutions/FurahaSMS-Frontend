@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { loadingMixin } from 'src/app/shared/mixins/loading.mixin';
 
@@ -9,11 +9,11 @@ import { loadingMixin } from 'src/app/shared/mixins/loading.mixin';
   styleUrls: ['./view-items.component.css']
 })
 export class ViewItemsComponent extends loadingMixin() implements OnInit {
-  @Input() title: string;
+  @Input() title = '';
   @Input() itemService: any;
   @Output() deleted: EventEmitter<any> = new EventEmitter();
 
-  items$: Observable<any[]>;
+  items$: Observable<any[]> = of([]);
   deleting: boolean[] = [false];
   itemLoading = false;
   constructor() { super(); }

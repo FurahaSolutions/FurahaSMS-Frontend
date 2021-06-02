@@ -12,12 +12,12 @@ import {combineLatest} from 'rxjs';
   styleUrls: ['./student-payment-statement.component.css']
 })
 export class StudentPaymentStatementComponent {
-  costItems: any[];
-  otherFeesCosts: any[];
-  academicYears: any[];
-  semesters: any[];
-  otherFees: any[];
-  paymentReceipts: any[];
+  costItems: any[] = [];
+  otherFeesCosts: any[] = [];
+  academicYears: any[] = [];
+  semesters: any[] = [];
+  otherFees: any[] = [];
+  paymentReceipts: any[] = [];
   studentId$ = this.route.paramMap.pipe(
     map(params => Number(params.get('id'))));
   loadStudentFee$ = this.studentId$.pipe(mergeMap(id => this.studentFeePaymentService.loadStudentFee$(id)));

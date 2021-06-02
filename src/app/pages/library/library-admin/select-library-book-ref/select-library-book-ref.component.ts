@@ -1,7 +1,7 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BehaviorSubject, Observable, Observer, of } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { map, switchMap} from 'rxjs/operators';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { LibraryBookService } from '../../services/library-book.service';
 
@@ -21,7 +21,7 @@ export class SelectLibraryBookRefComponent implements ControlValueAccessor {
   @Input() borrowed = false;
 
   selectedItemSubject$ = new BehaviorSubject<any | null>(null);
-  controlValue: number;
+  controlValue: number | undefined;
   search = '';
   onChanges: any;
   onTouched: any;

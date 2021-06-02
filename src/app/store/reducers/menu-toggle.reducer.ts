@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { hideMenu, showMenu } from './../actions/menu-toggle.actions';
+import { hideMenu, showMenu } from '../actions/menu-toggle.actions';
 
 export const menuToggleFeatureKey = 'menuToggle';
 

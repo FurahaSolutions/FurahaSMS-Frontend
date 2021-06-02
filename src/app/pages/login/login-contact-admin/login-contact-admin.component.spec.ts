@@ -33,7 +33,7 @@ describe('LoginContactAdminComponent', () => {
   });
 
   it('should have as function submitLoginContactAdminForm', () => {
-    const inputElement = fixture.debugElement.query(By.css('input'));
+    fixture.debugElement.query(By.css('input'));
     const formElement = fixture.debugElement.query(By.css('form'));
     formElement.triggerEventHandler('submit', null);
     fixture.detectChanges();

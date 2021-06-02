@@ -1,6 +1,3 @@
-import { validateISBN } from './isbn.validator';
-import { FormControl } from '@angular/forms';
-
 describe('ISBN Validator' , () => {
   // it('Should return ISBN "ISBN 978-0-596-52068-7"', () => {
   //   const c = new FormControl();

@@ -15,7 +15,7 @@ import { map, mergeMap, takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { loadEditModesFailure, loadEditModesSuccess } from 'src/app/store/actions/edit-mode.actions';
 import { CanvasService } from 'src/app/services/canvas.service';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { subscribedContainerMixin } from '../../shared/mixins/subscribed-container.mixin';
 
 @Component({
@@ -24,21 +24,21 @@ import { subscribedContainerMixin } from '../../shared/mixins/subscribed-contain
   styleUrls: ['./user-profile.component.css'],
 })
 export class UserProfileComponent extends subscribedContainerMixin() implements OnInit, OnDestroy {
-  @Input() title: string;
+  @Input() title = '';
   @Input() profile: any;
-  @Input() linkBase: any[];
-  @Input() links: any[];
+  @Input() linkBase: any[] = [];
+  @Input() links: any[] = [];
   @Input() includeProfileId = true;
-  @ViewChild('profPic') profPic: ElementRef;
+  @ViewChild('profPic') profPic: ElementRef | undefined;
   @Output() valueChanged: EventEmitter<any> = new EventEmitter();
   editMode = false;
 
-  photoSrc: any;
+  photoSrc = '';
   context: any;
-  modalRef: BsModalRef;
-  savingProfPic: boolean;
-  photoFile: File;
-  profPicLoadingSubject$: Subject<boolean> = new BehaviorSubject(true);
+  modalRef: BsModalRef | undefined;
+  savingProfPic = false;
+  photoFile: File | undefined;
+  profPicLoadingSubject$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   profPicLoadingAction$ = this.profPicLoadingSubject$.asObservable();
 
   constructor(
@@ -67,7 +67,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
     this.usersService.getProfilePicture({userId: this.profile.id})
       .pipe(takeUntil(this.destroyed$))
       .subscribe(res => {
-        (this.profPic.nativeElement as HTMLImageElement).src = URL.createObjectURL(res);
+        (this.profPic?.nativeElement as HTMLImageElement).src = URL.createObjectURL(res);
         this.profPicLoadingSubject$.next(false);
       });
   }
@@ -88,7 +88,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
 
   saveProfilePic() {
     this.savingProfPic = true;
-    this.usersService.uploadPhoto({file: this.photoFile})
+    this.usersService.uploadPhoto({file: this.photoFile as File})
       .pipe(
         map((res: any) => res.data.id),
         mergeMap((id: number) => this.usersService.saveProfilePicture({userId: this.profile.id, profilePicId: id})),
@@ -98,7 +98,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
         next: () => {
           this.savingProfPic = false;
           this.hideModal();
-          (this.profPic.nativeElement as HTMLImageElement).src = this.photoSrc;
+          (this.profPic?.nativeElement as HTMLImageElement).src = this.photoSrc;
         },
         error: () => this.savingProfPic = false
       });
@@ -112,7 +112,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
   hideModal() {
     const $input: any = document.querySelector('#profilePhotoInput');
     ($input as HTMLInputElement).value = '';
-    this.modalRef.hide();
+    this.modalRef?.hide();
   }
 
   onFileSelected(template: TemplateRef<any>) {

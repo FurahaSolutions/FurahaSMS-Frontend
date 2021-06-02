@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { OnlineAssessmentService } from "../../../services/online-assessment.service";
-import { subscribedContainerMixin } from "../../../../../../shared/mixins/subscribed-container.mixin";
-import { formMixin } from "../../../../../../shared/mixins/form.mixin";
-import { FormBuilder, Validators } from "@angular/forms";
-import { map, mergeMap, switchMap, takeUntil, tap } from "rxjs/operators";
-import { ActivatedRoute } from "@angular/router";
+import { OnlineAssessmentService } from '../../../services/online-assessment.service';
+import { subscribedContainerMixin } from '../../../../../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../../../../../shared/mixins/form.mixin';
+import { FormBuilder, Validators } from '@angular/forms';
+import { map, mergeMap, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-online-assessment-details',
@@ -14,7 +14,7 @@ import { ActivatedRoute } from "@angular/router";
 export class EditOnlineAssessmentDetailsComponent extends subscribedContainerMixin(formMixin()) {
   assessmentId$ = this.route.paramMap.pipe(
     map(params => Number(params.get('id')))
-  )
+  );
   itemForm = this.fb.group({
     name: ['', Validators.required],
     availableDateTime: ['', [Validators.required]],
@@ -24,17 +24,17 @@ export class EditOnlineAssessmentDetailsComponent extends subscribedContainerMix
   assessment$ = this.assessmentId$.pipe(
     switchMap(id => this.assessmentService.getAssessmentWithId(id)),
     tap(val => {
-      this.topicId = val['e_learning_topic_id']
+      this.topicId = val.e_learning_topic_id;
       this.itemForm.patchValue({
-        name: val['exam_paper_name'],
-        availableDateTime: new Date(val['available_at']).toISOString().slice(0, 16),
-        closedDateTime: new Date(val['closing_at']).toISOString().slice(0, 16),
-        period: val['period'],
-      })
-      console.log(val)
+        name: val.exam_paper_name,
+        availableDateTime: new Date(val.available_at).toISOString().slice(0, 16),
+        closedDateTime: new Date(val.closing_at).toISOString().slice(0, 16),
+        period: val.period,
+      });
+      console.log(val);
     })
-  )
-  private topicId: number;
+  );
+  private topicId: number | undefined;
 
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private assessmentService: OnlineAssessmentService) {
     super();
@@ -49,7 +49,7 @@ export class EditOnlineAssessmentDetailsComponent extends subscribedContainerMix
       takeUntil(this.destroyed$)
     ).subscribe({
       next: () => {
-        this.submitInProgressSubject$.next(false)
+        this.submitInProgressSubject$.next(false);
       },
       error: () => this.submitInProgressSubject$.next(false)
     });

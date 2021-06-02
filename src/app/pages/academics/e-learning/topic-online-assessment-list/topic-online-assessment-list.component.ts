@@ -16,14 +16,14 @@ import {formMixin} from '../../../../shared/mixins/form.mixin';
   styleUrls: ['./topic-online-assessment-list.component.css']
 })
 export class TopicOnlineAssessmentListComponent extends subscribedContainerMixin(formMixin(modalMixin())) {
-  @Input() assessments: any[];
-  @Input() edit: boolean;
-  @Input() courseId: number;
-  @Input() topicId: number;
-  @ViewChild('deleteConfirmationDialogue') deleteConfirmationDialogue: ElementRef;
+  @Input() assessments: any[] = [];
+  @Input() edit = false;
+  @Input() courseId: number | undefined;
+  @Input() topicId: number | undefined;
+  @ViewChild('deleteConfirmationDialogue') deleteConfirmationDialogue: ElementRef | undefined;
   store: Store<AppState>;
-  editedItem: { id: number; name: string; ['exam_paper_name']: string };
-  contentId: string;
+  editedItem: { id: number; name: string; ['exam_paper_name']: string } | undefined;
+  contentId: string | undefined;
 
   constructor(
     modalService: BsModalService,
@@ -36,7 +36,7 @@ export class TopicOnlineAssessmentListComponent extends subscribedContainerMixin
   deleteItem(id: number) {
     this.editedItem = this.assessments.find(({id: assessmentId}: any) => assessmentId);
     this.openModal({id, component: this.deleteConfirmationDialogue});
-    this.modalRef.setClass('modal-md bg-dark text-light modal-container');
+    this.modalRef?.setClass('modal-md bg-dark text-light modal-container');
   }
 
   editItem(examId: number) {
@@ -46,11 +46,11 @@ export class TopicOnlineAssessmentListComponent extends subscribedContainerMixin
 
   deleteAssessmentItem() {
     this.submitInProgressSubject$.next(true);
-    this.onlineAssessmentService.deleteAssessmentWithId({assessmentId: this.editedItem.id, topicId: this.topicId}).pipe(
+    this.onlineAssessmentService.deleteAssessmentWithId({assessmentId: this.editedItem?.id, topicId: this.topicId}).pipe(
       takeUntil(this.destroyed$)
     ).subscribe({
       next: () => {
-        this.store.dispatch(loadCourses({data: {id: this.courseId}}));
+        this.store.dispatch(loadCourses({data: {id: this.courseId as number}}));
         this.submitInProgressSubject$.next(false);
         this.closeModal();
       },

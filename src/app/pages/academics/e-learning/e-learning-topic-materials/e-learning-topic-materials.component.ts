@@ -15,10 +15,10 @@ import {
   styleUrls: ['./e-learning-topic-materials.component.css']
 })
 export class ELearningTopicMaterialsComponent extends modalMixin() {
-  @Input() learningContents: any[];
-  @Input() edit: boolean;
-  @Input() courseId: number;
-  @Input() topicId: number;
+  @Input() learningContents: any[] = [];
+  @Input() edit = false;
+  @Input() courseId: number | undefined;
+  @Input() topicId: number | undefined;
 
   constructor(store: Store, modalService: BsModalService) {
     super(modalService, store);

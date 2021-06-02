@@ -1,10 +1,10 @@
 <section class='bg-dark text-light p-3 modal-container'>
-  <h1>Mark Tender as {{ fulfilled ? '': 'Not '}} Fulfilled</h1>
+  <h1>Mark Tender as {{ fulfilled ? '' : 'Not '}} Fulfilled</h1>
   <form (submit)='submitFulfilledTenderForm()' [formGroup]='fulfilledTenderForm'>
     <section class='m-4'>
-      
+
       <input [checked]='fulfilled' onclick='return false;' readonly='readonly' class="form-check-input" type="checkbox"
-        id='fulfilled-checkbox'>
+             id='fulfilled-checkbox'>
       <label class="form-check-label" for='fulfilled-checkbox'>
         Fulfilled
       </label>
@@ -16,8 +16,9 @@
     <app-error></app-error>
     <section class='d-flex justify-content-between mt-3'>
       <button (click)='closeDialog()' type='button' class='btn btn-danger'>Cancel</button>
-      <app-validate-submit-buttons [isSubmitting]='isSubmitting'
-        (validationButtonClicked)='triggerValidation = !triggerValidation' [formItem]='fulfilledTenderForm'>
+      <app-validate-submit-buttons [isSubmitting]='submitInProgressAction$ | ngrxPush'
+                                   (validationButtonClicked)='triggerValidationSubject$.next(true)'
+                                   [formItem]='fulfilledTenderForm'>
       </app-validate-submit-buttons>
     </section>
   </form>

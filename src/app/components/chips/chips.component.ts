@@ -6,11 +6,11 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   styleUrls: ['./chips.component.css']
 })
 export class ChipsComponent {
-  @Input() labelOnly: boolean;
-  @Input() successLabel: string;
-  @Input() failureLabel: string;
+  @Input() labelOnly = true;
+  @Input() successLabel = '';
+  @Input() failureLabel = '';
   @Output() remove: EventEmitter<any> = new EventEmitter();
-  @Input() value: boolean;
+  @Input() value: boolean | undefined;
 
   get labelValue() {
     // TODO-me change label for success and failure

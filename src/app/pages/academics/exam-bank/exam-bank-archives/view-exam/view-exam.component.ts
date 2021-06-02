@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/reducers';
 import { map, takeUntil, tap } from 'rxjs/operators';
 import { loadExamPapers } from '../../store/actions/exam-paper.actions';
-import { subscribedContainerMixin } from "../../../../../shared/mixins/subscribed-container.mixin";
+import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
   selector: 'app-view-exam',

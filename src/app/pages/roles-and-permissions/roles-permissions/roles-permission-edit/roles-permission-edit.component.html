@@ -5,16 +5,17 @@
   <form [formGroup]='permissionsForm' (submit)='submitPermission()'>
 
     <fieldset formArrayName='permissions'>
-      <legend >Permissions</legend>
+      <legend>Permissions</legend>
       <section class="d-flex flex-wrap">
         <section class="col-lg-4" *ngFor='let permission of formPermissions.controls; let i = index' [formGroupName]='i'
-          [class.text-success]='permission.value.hasPermission' [class.text-danger]='!permission.value.hasPermission'>
+                 [class.text-success]='permission.value.hasPermission'
+                 [class.text-danger]='!permission.value.hasPermission'>
           <app-checkbox formControlName='hasPermission' [label]='permission.value.name'></app-checkbox>
         </section>
       </section>
     </fieldset>
     <section class="p-2">
-      <app-validate-submit-buttons [isSubmitting]='isSubmitting' [formItem]='permissionsForm'>
+      <app-validate-submit-buttons [isSubmitting]='submitInProgressAction$ | ngrxPush' [formItem]='permissionsForm'>
       </app-validate-submit-buttons>
     </section>
 

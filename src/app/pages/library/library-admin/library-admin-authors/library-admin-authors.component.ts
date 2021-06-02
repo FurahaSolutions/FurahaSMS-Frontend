@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LibraryAuthorService } from 'src/app/pages/library/services/library-author.service';
 
 @Component({
@@ -6,16 +6,10 @@ import { LibraryAuthorService } from 'src/app/pages/library/services/library-aut
   templateUrl: './library-admin-authors.component.html',
   styleUrls: ['./library-admin-authors.component.css']
 })
-export class LibraryAdminAuthorsComponent implements OnInit {
-  categories: LibraryAuthorService;
-  createAuthor: string;
-  editAuthor: (id: string | number) => string;
-  viewAuthor: (id: string | number) => string;
+export class LibraryAdminAuthorsComponent {
+  categories: LibraryAuthorService = this.authorService;
 
-  constructor(private authorService: LibraryAuthorService) { }
-
-  ngOnInit() {
-    this.categories = this.authorService;
+  constructor(private authorService: LibraryAuthorService) {
   }
 
 }

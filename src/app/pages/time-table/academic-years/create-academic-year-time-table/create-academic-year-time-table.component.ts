@@ -15,7 +15,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./create-academic-year-time-table.component.css']
 })
 export class CreateAcademicYearTimeTableComponent extends formMixin(modalMixin()) {
-  @Input() id: number;
+  @Input() id = 0;
   timingTypes$ = this.timeTableTimingService.all$;
 
   newTimeTableForm = this.fb.group({
@@ -24,8 +24,8 @@ export class CreateAcademicYearTimeTableComponent extends formMixin(modalMixin()
   });
 
   constructor(
-    modal: BsModalService,
-    store: Store,
+    private modal: BsModalService,
+    private store: Store,
     private fb: FormBuilder,
     private timeTableTimingService: TimingTemplateService,
     private timeTableService: TimeTableService,

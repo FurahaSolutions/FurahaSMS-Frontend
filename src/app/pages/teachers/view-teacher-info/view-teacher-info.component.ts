@@ -17,7 +17,7 @@ import {subscribedContainerMixin} from '../../../shared/mixins/subscribed-contai
   styleUrls: ['./view-teacher-info.component.css']
 })
 export class ViewTeacherInfoComponent extends subscribedContainerMixin() implements OnInit {
-  teacherId: number;
+  teacherId: number | undefined;
   teacherProfile$ = this.route.parent?.paramMap.pipe(
     map(params => Number(params.get('id'))),
     tap(id => this.teacherId = id),
@@ -43,7 +43,7 @@ export class ViewTeacherInfoComponent extends subscribedContainerMixin() impleme
   changeProfile({fieldName, fieldNewValue}: { fieldName: string; fieldNewValue: string }) {
     this.store.dispatch(loadTeacherProfilesSuccess({
       data: {
-        id: this.teacherId,
+        id: this.teacherId as number,
         [fieldName]: fieldNewValue,
       }
     }));
@@ -52,7 +52,7 @@ export class ViewTeacherInfoComponent extends subscribedContainerMixin() impleme
   updateSelectValue({key, id, name}: { key: string; id: number; name: string }) {
     this.store.dispatch(loadTeacherProfilesSuccess({
       data: {
-        id: this.teacherId,
+        id: this.teacherId as number,
         [key + '_id']: id,
         [key + '_name']: name,
       }

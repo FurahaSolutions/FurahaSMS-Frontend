@@ -1,32 +1,30 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../../store/reducers';
 import { ActivatedRoute } from '@angular/router';
-import { takeWhile, map } from 'rxjs/operators';
+import { map, takeUntil } from 'rxjs/operators';
+import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
   selector: 'app-edit-procurement-request',
   templateUrl: './edit-procurement-request.component.html',
   styleUrls: ['./edit-procurement-request.component.css']
 })
-export class EditProcurementRequestComponent implements OnInit, OnDestroy {
-  requestId: number;
-  componentIsActive: boolean;
+export class EditProcurementRequestComponent extends subscribedContainerMixin() implements OnInit {
+  requestId: number | undefined;
 
-  constructor(private store: Store<fromStore.AppState>, private activatedRoute: ActivatedRoute) { }
+  constructor(private store: Store<fromStore.AppState>, private activatedRoute: ActivatedRoute) {
+    super();
+  }
 
   ngOnInit() {
-    this.componentIsActive = true;
-    this.activatedRoute.paramMap
-      .pipe(map(params => Number(params.get('id'))))
-      .pipe(takeWhile(() => this.componentIsActive))
-      .subscribe(id => {
-        this.requestId = id;
+    this.activatedRoute.paramMap.pipe(
+      map(params => Number(params.get('id'))),
+      takeUntil(this.destroyed$)
+    ).subscribe(id => {
+      this.requestId = id;
     });
 
-  }
-  ngOnDestroy() {
-    this.componentIsActive = false;
   }
 
 }

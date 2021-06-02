@@ -11,7 +11,7 @@
     <form (submit)='submitCostEditForm()' [formGroup]='financialCostEditForm'>
       <section class="d-flex flex-wrap">
         <section class="col-lg-12">
-          <app-input [triggerValidation]='triggerValidation' label='Name' id="name" placeholder="Name"
+          <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' label='Name' id="name" placeholder="Name"
                      formControlName="name"></app-input>
         </section>
         <section class="col-lg-12">
@@ -23,7 +23,7 @@
             <section class="col-lg-12 d-flex" *ngFor='let costItem of costItems.controls; let k = index'
                      [formGroupName]='k'>
               <section class="col-lg-11">
-                <app-input [triggerValidation]='triggerValidation' label='Name' [attr.id]="'name-' + k"
+                <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' label='Name' [attr.id]="'name-' + k"
                            placeholder="Name"
                            formControlName="name">
                 </app-input>
@@ -105,8 +105,8 @@
 </ng-template>
 <section class="d-flex justify-content-end">
   <button (click)='submitFinancialCosts()' class="btn btn-sm btn-success">
-    <i *ngIf='isSubmitting' class='icon-spin3 animate-spin'></i>
-    <i *ngIf='!isSubmitting' class='icon-ok-1'></i>
+    <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
+    <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-ok-1'></i>
 
     Save Changes
   </button>

@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../../store/reducers';
-import { Observable } from 'rxjs';
 import { ProcurementService } from 'src/app/services/procurement.service';
 
 @Component({
@@ -9,13 +8,11 @@ import { ProcurementService } from 'src/app/services/procurement.service';
   templateUrl: './procurement-tenders-bids.component.html',
   styleUrls: ['./procurement-tenders-bids.component.css']
 })
-export class ProcurementTendersBidsComponent implements OnInit {
+export class ProcurementTendersBidsComponent {
 
-  procurementItems$: Observable<any>;
-  constructor(private store: Store<fromStore.AppState>, private procurementService: ProcurementService) { }
+  procurementItems$ = this.procurementService.getRequestsTendered();
 
-  ngOnInit() {
-    this.procurementItems$ = this.procurementService.getRequestsTendered();
+  constructor(private store: Store<fromStore.AppState>, private procurementService: ProcurementService) {
   }
 
 }

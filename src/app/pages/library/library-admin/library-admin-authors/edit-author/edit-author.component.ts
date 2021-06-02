@@ -1,18 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import * as fromStore from '../../../../../store/reducers';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-edit-author',
   templateUrl: './edit-author.component.html',
   styleUrls: ['./edit-author.component.css']
 })
-export class EditAuthorComponent implements OnInit {
-  constructor(
-  private store: Store<fromStore.AppState>) { }
-
-  ngOnInit() {
-
+export class EditAuthorComponent {
+  constructor() {
   }
+
 
 }

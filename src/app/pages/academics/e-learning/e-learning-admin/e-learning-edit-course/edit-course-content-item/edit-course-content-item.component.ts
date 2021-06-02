@@ -33,15 +33,15 @@ export class EditCourseContentItemComponent extends formMixin(modalMixin()) {
   }
 
   get learningContent(): IStudyMaterialContent {
-    return this.currentLearningContent;
+    return this.currentLearningContent as IStudyMaterialContent;
   }
 
-  @Input() courseId: number;
-  @Input() topicId: number;
-  @Input() id: number;
+  @Input() courseId: number | undefined;
+  @Input() topicId: number | undefined;
+  @Input() id: number | undefined;
   itemForm: FormGroup = this.fb.group({title: ['', [Validators.required]]});
   store: Store<AppState>;
-  private currentLearningContent: IStudyMaterialContent;
+  private currentLearningContent: IStudyMaterialContent | undefined ;
 
   constructor(
     private fb: FormBuilder,
@@ -53,7 +53,7 @@ export class EditCourseContentItemComponent extends formMixin(modalMixin()) {
   itemFormSubmit() {
     this.submitInProgressSubject$.next(true);
     this.eLearningService.updateCourseContent({
-      topicId: this.topicId,
+      topicId: this.topicId as number,
       contentId: this.id,
       data: {...this.itemForm.value}
     })
@@ -61,7 +61,7 @@ export class EditCourseContentItemComponent extends formMixin(modalMixin()) {
         next: () => {
           this.submitInProgressSubject$.next(false);
           this.closeModal();
-          this.store.dispatch(loadCourses({data: {id: this.courseId}}));
+          this.store.dispatch(loadCourses({data: {id: this.courseId as number}}));
         },
         error: () => this.submitInProgressSubject$.next(false)
       });

@@ -21,7 +21,7 @@ import { LibraryBookService } from '../../services/library-book.service';
 export class SelectLibraryUserComponent implements ControlValueAccessor {
 
   selectedItemSubject$ = new BehaviorSubject<IUserProfile | null>(null);
-  controlValue: number;
+  controlValue: number | undefined;
   search = '';
   onChanges: any;
   onTouched: any;

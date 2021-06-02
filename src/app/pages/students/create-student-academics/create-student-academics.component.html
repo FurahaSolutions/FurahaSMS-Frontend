@@ -4,10 +4,15 @@
     <section class="col-12">
       <table class="table table-dark">
         <thead>
-        <th>Student Name</th>
+        <tr>
+          <th>Student Name</th>
+        </tr>
         </thead>
         <tbody>
-        <td><a [routerLink]='["/students", v.student?.id]' >{{ v.student?.firstName + ' ' + v.student?.lastName }}</a></td>
+        <tr>
+          <td><a [routerLink]='["/students", v.student?.id]'>{{ v.student?.firstName + ' ' + v.student?.lastName }}</a>
+          </td>
+        </tr>
         </tbody>
       </table>
     </section>
@@ -26,7 +31,7 @@
           <label class="control-label" for="classLevel">Select Class Levels</label>
           <select formControlName='classLevel' id="classLevel" class="form-control">
             <option></option>
-              <option [value]='classLevel.id' *ngFor='let classLevel of v.classLevels'> {{ classLevel.name }}</option>
+            <option [value]='classLevel.id' *ngFor='let classLevel of v.classLevels'> {{ classLevel.name }}</option>
           </select>
         </section>
       </section>

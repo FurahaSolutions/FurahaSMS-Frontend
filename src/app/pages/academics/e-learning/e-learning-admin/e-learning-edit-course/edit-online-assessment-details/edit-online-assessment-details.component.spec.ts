@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { EditOnlineAssessmentDetailsComponent } from './edit-online-assessment-details.component';
-import { ReactiveFormsModule } from "@angular/forms";
-import { ReactiveComponentModule } from "@ngrx/component";
-import { RouterTestingModule } from "@angular/router/testing";
-import { AppLoadingBubbleModule } from "../../../../../../modules/app-loading-bubble";
-import { AppInputModule } from "../../../../../../components/input/app-input.module";
+import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AppLoadingBubbleModule } from '../../../../../../modules/app-loading-bubble';
+import { AppInputModule } from '../../../../../../components/input/app-input.module';
 
 describe('EditOnlineAssessmentDetailsComponent', () => {
   let component: EditOnlineAssessmentDetailsComponent;

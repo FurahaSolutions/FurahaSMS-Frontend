@@ -7,7 +7,10 @@
 	  	<section *ngIf='prependIcon' class='input-group-prepend' [class.is-invalid]='fieldError'>
 	      <span class='input-group-text' [id]='"inputGroupPrepend" + id'><i [class]='prependIcon'></i></span>
 	    </section>
-
+      <div class="input-group-prepend">
+        <ng-content select="[data-prependIcon]">
+        </ng-content>
+      </div>
       <ng-container [ngSwitch]="type">
         <ng-container *ngSwitchCase="'dob'">
           <input

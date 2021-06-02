@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ELearningEditCourseComponent } from './e-learning-edit-course.component';
 import { ELearningAdminCourseComponent } from '../e-learning-admin-course/e-learning-admin-course.component';
 import { ELearningCreateCourseComponent } from '../e-learning-create-course/e-learning-create-course.component';
-import { EditOnlineAssessmentDetailsComponent } from "./edit-online-assessment-details/edit-online-assessment-details.component";
+import { EditOnlineAssessmentDetailsComponent } from './edit-online-assessment-details/edit-online-assessment-details.component';
 
 
 const routes: Routes = [

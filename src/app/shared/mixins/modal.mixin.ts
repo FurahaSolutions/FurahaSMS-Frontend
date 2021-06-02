@@ -18,7 +18,7 @@ export const modalMixin = <T extends Constructor>(baseClass: T = class { } as T)
       ignoreBackdropClick: true,
       animated: true,
     };
-    modalRef: BsModalRef;
+    modalRef: BsModalRef | undefined;
     private modalServiceInjected: BsModalService;
     private storeInjected: Store<any>;
     constructor(...args: any[]) {
@@ -35,7 +35,7 @@ export const modalMixin = <T extends Constructor>(baseClass: T = class { } as T)
       this.storeInjected.pipe(
         select(selectModalOpenState),
         filter(open => !open),
-        tap(() => this.modalRef.hide()),
+        tap(() => this.modalRef?.hide()),
         takeUntil(this.destroyed$)
       ).subscribe();
     }

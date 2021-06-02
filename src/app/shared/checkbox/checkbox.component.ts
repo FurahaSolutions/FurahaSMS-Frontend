@@ -1,5 +1,5 @@
-import {Component, forwardRef, Input, OnChanges, OnInit, SimpleChange, SimpleChanges} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import { Component, forwardRef, Input} from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-checkbox',
@@ -13,24 +13,21 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
     }
   ]
 })
-export class CheckboxComponent implements OnInit, ControlValueAccessor, OnChanges {
-  @Input() label: string;
-  @Input() readonly: boolean;
+export class CheckboxComponent implements ControlValueAccessor {
+  @Input() label = '';
+  @Input() readonly = false;
   inputValue: any;
-  onChanges: (val: any) => void;
-  onTouched: any;
-
 
   constructor() {
   }
 
-
-  ngOnInit() {
-
-  }
+  onChanges: (val: any) => void = () => {
+  };
+  onTouched: (val: any) => void = () => {
+  };
 
   writeValue(value: any): void {
-    if (value !== undefined) {
+    if(value !== undefined) {
       this.inputValue = value;
     }
   }
@@ -44,11 +41,6 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor, OnChange
     this.onTouched = fn;
   }
 
-
-  ngOnChanges(changes: SimpleChanges) {
-    const inputValue: SimpleChange = changes.inputValue;
-
-  }
 
   propagateValue(event: boolean) {
     this.onChanges(event);

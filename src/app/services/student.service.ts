@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { select, Store } from '@ngrx/store';
 import { selectStudent } from '../pages/students/store/selectors/student-profile.selectors';
 import { loadStudentProfiles } from '../pages/students/store/actions/student-profile.actions';
-import { UrlParamsStringifyService } from '../shared/url-params-stringify/services/url-params-stringify.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,6 @@ export class StudentService {
   constructor(
     private http: HttpClient,
     private store: Store,
-    private urlParamsStringifyService: UrlParamsStringifyService
   ) {
   }
 
@@ -27,8 +25,8 @@ export class StudentService {
 
   getStudents(data: { stream: number[]; academicYear: number; classLevel: number[] }) {
 
-    const url = `${this.url}?${this.urlParamsStringifyService.stringify({...data, last: 30})}`;
-    return this.http.get<any[]>(url).pipe(
+    const url = `${this.url}`;
+    return this.http.get<any[]>(url, {params: {...data, last: 30}}).pipe(
       map(res => res.map(item => ({
         ...item,
         genderAbbr: item.gender_abbreviation,
@@ -121,8 +119,8 @@ export class StudentService {
       ['academic_year_id']: params.academicYearId,
       ['class_level_id']: params.classLevelId
     };
-    const url = `api/students/${params.studentId}/streams?${this.urlParamsStringifyService.stringify(data)}`;
-    return this.http.get<any>(url).pipe(
+    const url = `api/students/${params.studentId}/streams`;
+    return this.http.get<any>(url, {params: data}).pipe(
       map(({id, name, abbreviation, ['associated_color']: associatedColor}) =>
         ({id, name, abbreviation, associatedColor}))
     );

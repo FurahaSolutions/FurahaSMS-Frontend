@@ -7,7 +7,7 @@ import {RouterModule} from '@angular/router';
 import {AppLoadingBubbleModule} from '../../../../../modules/app-loading-bubble';
 import { TakeOnlineTestComponent } from './take-online-test/take-online-test.component';
 import { ReactiveComponentModule } from '@ngrx/component';
-import { CountDownTimerModule } from "../../count-down-timer/count-down-timer.module";
+import { CountDownTimerModule } from '../../count-down-timer/count-down-timer.module';
 
 
 

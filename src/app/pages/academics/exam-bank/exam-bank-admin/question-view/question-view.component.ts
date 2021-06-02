@@ -1,26 +1,23 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-question-view',
   templateUrl: './question-view.component.html',
   styleUrls: ['./question-view.component.css']
 })
-export class QuestionViewComponent implements OnInit {
+export class QuestionViewComponent {
 
-  @Input() activeQuestion: number;
+  @Input() activeQuestion = 0;
   @Input() question: any;
-  @Input() i: number;
-  @Input() questionsLength: number;
-  @Input() editMode: boolean;
+  @Input() i = 0;
+  @Input() questionsLength = 0;
+  @Input() editMode = false;
   @Output() edit = new EventEmitter();
   @Output() activeQuestionChange = new EventEmitter();
   @Output() deleteQuestion = new EventEmitter();
   @Output() reorderQuestions = new EventEmitter();
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 
   editRequest(action: string, i: number) {

@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationService} from 'src/app/services/authentication.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -9,16 +9,14 @@ import {map, takeUntil, tap} from 'rxjs/operators';
 import {loadErrorMessagesFailure, loadErrorMessagesSuccess} from 'src/app/store/actions/error-message.actions';
 import {combineLatest, Observable, Subject} from 'rxjs';
 import {subscribedContainerMixin} from '../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../shared/mixins/form.mixin';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent extends subscribedContainerMixin() implements OnDestroy {
-  triggerValidation: boolean;
-  isSubmitting: boolean;
-
+export class LoginComponent extends subscribedContainerMixin(formMixin()) {
   loginForm: FormGroup = this.fb.group({
     username: ['', [Validators.required]],
     password: ['', [Validators.required]],

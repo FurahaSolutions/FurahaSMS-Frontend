@@ -3,16 +3,16 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { AuthenticationService } from './../services/authentication.service';
+import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { MessageInterface } from './../interfaces/message.interface';
+import { MessageInterface } from '../interfaces/message.interface';
 import { AppState } from '../store/reducers';
 import { loadErrorMessagesSuccess } from '../store/actions/error-message.actions';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  private message: MessageInterface;
+  private message: MessageInterface | undefined;
   constructor(
     private store: Store<AppState>,
     private authenticationService: AuthenticationService,
@@ -21,7 +21,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(catchError(err => {
-      let helperMessage = '';
+      let helperMessage: string;
       if (typeof err.error === 'string') {
         helperMessage = err.error;
       } else if (typeof err.message === 'string') {
@@ -92,8 +92,8 @@ export class ErrorInterceptor implements HttpInterceptor {
       this.store.dispatch(loadErrorMessagesSuccess({
         body: String(this.message?.help),
         show: true,
-        title: this.message.message,
-        status: this.message.status
+        title: this.message?.message as string,
+        status: this.message?.status
       }));
 
       return throwError(this.message);

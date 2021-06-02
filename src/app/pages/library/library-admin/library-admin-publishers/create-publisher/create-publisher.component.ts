@@ -17,15 +17,15 @@ import { combineLatest } from 'rxjs';
   styleUrls: ['./create-publisher.component.css']
 })
 export class CreatePublisherComponent extends subscribedContainerMixin(formWithEditorMixin()) implements AfterViewInit {
-  @ViewChild('profilePicImgTag') profilePicImgTag: ElementRef;
+  @ViewChild('profilePicImgTag') profilePicImgTag: ElementRef | undefined;
   newBookPublisherForm: FormGroup = this.fb.group({
     id: [0, []],
     name: ['', [Validators.required]],
     biography: ['']
   });
-  editPage: boolean;
-  profPicLoading: false;
-  photoFile: File;
+  editPage = false;
+  profPicLoading = false;
+  photoFile: File | undefined;
   profPicId: any;
   publisherId$ = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id'))),
@@ -62,7 +62,7 @@ export class CreatePublisherComponent extends subscribedContainerMixin(formWithE
       takeUntil(this.destroyed$)
     )
       .subscribe(res => {
-        (this.profilePicImgTag.nativeElement as HTMLImageElement).src = URL.createObjectURL(res);
+        (this.profilePicImgTag?.nativeElement as HTMLImageElement).src = URL.createObjectURL(res);
       });
   }
 

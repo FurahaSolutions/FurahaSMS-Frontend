@@ -34,8 +34,8 @@ export class ELearningEditCourseComponent extends subscribedContainerMixin(modal
   v$ = combineLatest([this.course$, this.courseId$]).pipe(
     map(([course, courseId]) => ({course, courseId}))
   );
-  courseNameConfirmation: string;
-  deletingCourse: boolean;
+  courseNameConfirmation = '';
+  deletingCourse = false;
   contentType = 'new-content';
   newLearningOutcomeForm: FormGroup = this.fb.group({
     description: ['', [Validators.required]],
@@ -68,7 +68,7 @@ export class ELearningEditCourseComponent extends subscribedContainerMixin(modal
     this.courseId$.pipe(mergeMap(id => this.eLearningService.deleteCourseWithId(id)))
       .subscribe({
         next: () => this.router.navigate(['academics/', 'e-learning', 'admin']).then(
-          () => this.modalRef.hide()
+          () => this.modalRef?.hide()
         )
       });
   }
@@ -126,7 +126,7 @@ export class ELearningEditCourseComponent extends subscribedContainerMixin(modal
           // this.store.dispatch(createLearningOutcomeAction({data: {courseId, topicId, learningOutcome}}));
           this.store.dispatch(loadCourses({data: {id: courseId}}));
           this.submitInProgressSubject$.next(false);
-          this.modalRef.hide();
+          this.modalRef?.hide();
         }, () => this.submitInProgressSubject$.next(false));
 
     } else {

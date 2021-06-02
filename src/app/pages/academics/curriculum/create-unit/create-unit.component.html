@@ -5,7 +5,7 @@
     <section class="d-flex flex-wrap justify-content-start">
       <section class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
         <app-input
-          [triggerValidation]='triggerValidation'
+          [triggerValidation]='triggerValidationAction$ | ngrxPush'
           labelClass='col-md-12 col-lg-5'
           inputClass='col-md-12 col-lg-7'
           label='Name'
@@ -15,16 +15,16 @@
           formControlName="name" ></app-input>
       </section>
       <section *ngIf="!category && hasCategories" class="col-lg-5 col-md-4 col-sm-6 col-xs-12">
-        <app-select [triggerValidation]='triggerValidation' id='unitCategory' type="unit-categories" formControlName="unitCategory"></app-select>
+        <app-select [triggerValidation]='triggerValidationAction$ | ngrxPush' id='unitCategory' type="unit-categories" formControlName="unitCategory"></app-select>
       </section>
       <section class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
         <app-input
-          [triggerValidation]='triggerValidation'
+          [triggerValidation]='triggerValidationAction$ | ngrxPush'
           labelClass='col-md-12 col-lg-5'
           inputClass='col-md-12 col-lg-7'
           label='Subject/Unit abbreviation'
           [id]='"name-abbr" + (idIndex !== undefined ? idIndex: "")' type="text"
-          placeholder="Subject/Unit Abbreviation" 
+          placeholder="Subject/Unit Abbreviation"
           formControlName="abbr" ></app-input>
       </section>
       <section class="col-lg-5 col-md-6 col-sm-6 col-xs-12 mt-sm-5 mt-lg-1">
@@ -41,11 +41,11 @@
   <app-error></app-error>
   </fieldset>
     <section class='d-flex justify-content-end'>
-      <button *ngIf='!unitForm.valid' (click)='triggerValidation = !triggerValidation' type='button'
+      <button *ngIf='!unitForm.valid' (click)='triggerValidationSubject$.next(true)' type='button'
         class='btn btn-secondary btn-sm'>Validate</button>
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <button *ngIf='!hideSubmit' class='btn btn-primary' [disabled]='!unitForm.valid || isSubmitting'>
-        {{ newForm ? 'Create': 'Update'}} Subject/Unit<i *ngIf='isSubmitting' class='icon-spin3 animate-spin'></i>
+      <button *ngIf='!hideSubmit' class='btn btn-primary' [disabled]='!unitForm.valid || (submitInProgressAction$ | ngrxPush) === false'>
+        {{ newForm ? 'Create': 'Update'}} Subject/Unit<i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
       </button>
     </section>
 

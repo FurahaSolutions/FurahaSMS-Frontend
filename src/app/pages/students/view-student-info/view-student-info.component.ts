@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import * as fromStore from '../../../store/reducers';
-import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
 import { selectStudent } from '../store/selectors/student-profile.selectors';
@@ -17,10 +16,14 @@ import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-cont
   styleUrls: ['./view-student-info.component.css']
 })
 export class ViewStudentInfoComponent extends subscribedContainerMixin() implements OnInit {
-  student$: Observable<any> | undefined;
-  genders$: Observable<any[]>;
-  religions$: Observable<any[]>;
-  studentId: number;
+  genders$  = this.store.pipe(select(selectGenders));
+  religions$ = this.store.pipe(select(selectReligions));
+  studentId: number | undefined;
+  student$= (this.route.parent as ActivatedRoute).paramMap.pipe(
+    map(params => Number(params.get('id'))),
+    tap(id => this.studentId = id),
+    mergeMap(id => this.store.pipe(select(selectStudent(id))))
+  );
 
   constructor(
     private store: Store<fromStore.AppState>,
@@ -34,20 +37,12 @@ export class ViewStudentInfoComponent extends subscribedContainerMixin() impleme
   ngOnInit() {
     this.genderService.loadAll$.pipe(takeUntil(this.destroyed$)).subscribe();
     this.religionService.loadAll$.pipe(takeUntil(this.destroyed$)).subscribe();
-    this.genders$ = this.store.pipe(select(selectGenders));
-    this.religions$ = this.store.pipe(select(selectReligions));
-    this.student$ = this.route.parent?.paramMap
-      .pipe(
-        map(params => Number(params.get('id'))),
-        tap(id => this.studentId = id),
-        mergeMap(id => this.store.pipe(select(selectStudent(id))))
-      );
   }
 
   changeProfile({fieldName, fieldNewValue}: { fieldName: string; fieldNewValue: string }) {
     this.store.dispatch(loadStudentProfilesSuccess({
       data: {
-        id: this.studentId,
+        id: this.studentId as number,
         [fieldName]: fieldNewValue,
       }
     }));
@@ -57,7 +52,7 @@ export class ViewStudentInfoComponent extends subscribedContainerMixin() impleme
 
     this.store.dispatch(loadStudentProfilesSuccess({
       data: {
-        id: this.studentId,
+        id: this.studentId as number,
         [fieldName + '_id']: $event.id,
         [fieldName + '_name']: $event.name
       }
