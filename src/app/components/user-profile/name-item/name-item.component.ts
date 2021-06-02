@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { formMixin } from 'src/app/shared/mixins/form.mixin';
 import { fadeInOutAnimationMetadata } from '../../../shared/animations/fade-in-out.animation';
 
-type IKey = 'dateOfBirth' | 'firstName' | 'lastName' | 'otherNames' | 'email' | 'phone';
+type IKey = 'dateOfBirth' | 'middleName' | 'firstName' | 'lastName' | 'otherNames' | 'email' | 'phone';
 
 @Component({
   selector: 'app-name-item',

@@ -1,7 +1,7 @@
 <ng-template #template>
   <div class="modal-header bg-dark">
     <h4 class="modal-title pull-left">{{ dialog.title }}</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef?.hide()">
       <span aria-hidden="true">&times;</span>
 
     </button>
@@ -133,7 +133,7 @@
 
           <button *ngIf='editDialogForm.invalid' (click)='validated = true' type="button"
                   class="btn btn-secondary btn-sm mb-2 mt-2">Validate</button>
-          <button (click)="modalRef.hide()" type="button" class="btn btn-secondary btn-sm mb-2 mt-2">Cancel</button>
+          <button (click)="modalRef?.hide()" type="button" class="btn btn-secondary btn-sm mb-2 mt-2">Cancel</button>
         </section>
 
       </form>

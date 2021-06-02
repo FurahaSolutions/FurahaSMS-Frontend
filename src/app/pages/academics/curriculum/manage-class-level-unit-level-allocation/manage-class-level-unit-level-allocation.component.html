@@ -16,7 +16,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let classLevel of allocations.controls; let i = index" class="d-flex flex-wrap" [formGroupName]="i">
-        <td class="col-lg-4">{{ classLevel.get('name').value }}</td>
+        <td class="col-lg-4">{{ classLevel.get('name')?.value }}</td>
         <td class="col-lg-8">
           <div class="d-flex flex-wrap">
             <ng-select formControlName="unitLevels" [closeOnSelect]="false" [multiple]="true" [items]="v.unitLevels" bindLabel="name" bindValue="id"></ng-select>

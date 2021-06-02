@@ -5,7 +5,7 @@ import { AppState } from 'src/app/store/reducers';
 import { selectPlanForAcademicYearWithId } from '../store/selectors/academic-year-plan.selectors';
 import { ClassLevelService } from 'src/app/services/class-level.service';
 import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { TabsetComponent } from 'ngx-bootstrap/tabs/public_api';
 import { FinancialPlanService } from '../../services/financial-plan.service';
 import { FinancialCostsService } from '../../services/financial-costs.service';
@@ -193,5 +193,9 @@ export class EditAcademicYearFinancialPlanComponent extends subscribedContainerM
       this.staticTabs.tabs[tabId].active = true;
     }
 
+  }
+
+  getFormArrayControls(control: AbstractControl | null) {
+    return (control as FormArray).controls as FormGroup[];
   }
 }

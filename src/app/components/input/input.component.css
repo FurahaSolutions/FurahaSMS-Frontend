@@ -1,19 +1,21 @@
 @media (max-width: 400px) {
   .input-group-prepend {
-  	display: none;
+    display: none;
   }
 }
+
 .invalid-feedback-message {
-	padding: 4px;
-	line-height: 80%;
-	font-size: 65%;
-	background: red;
-	right: 4%;
-	margin-bottom: -21px;
-	bottom: 0;
-	border-radius: 4px;
-	position: absolute;
+  padding: 4px;
+  line-height: 80%;
+  font-size: 65%;
+  background: red;
+  right: 4%;
+  margin-bottom: -21px;
+  bottom: 0;
+  border-radius: 4px;
+  position: absolute;
 }
+
 .arrow-up {
   width: 0;
   height: 0;
@@ -26,16 +28,22 @@
 }
 
 .required {
-	font-size: 0.5em;
-	position: absolute;
-	left: -10px;
-	color: greenyellow;
+  font-size: 0.5em;
+  position: absolute;
+  left: -10px;
+  color: greenyellow;
 }
+
 input ~ section .show-password {
-	color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.2);
 }
+
 input:focus ~ section .show-password,
 input ~ section .show-password:hover,
 section .show-password:focus {
-	color: rgba(0, 0, 0, 1) !important;
+  color: rgba(0, 0, 0, 1) !important;
+}
+
+.input-group-text:empty {
+  display: none;
 }

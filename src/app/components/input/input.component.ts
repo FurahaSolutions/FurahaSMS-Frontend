@@ -3,7 +3,6 @@ import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } f
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { AppFormService } from '../../services/AppForm.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
-import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 
 @Component({
   selector: 'app-input',
@@ -40,7 +39,6 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   fieldError: string | null = null;
   fieldType = 'text';
   disabled = false;
-  faUser = faUser;
   inputValue: any;
   passwordStringChangeSubject$: Subject<string> = new BehaviorSubject('');
   passwordStringChangeAction$: Observable<string> = this.passwordStringChangeSubject$.asObservable();

@@ -17,7 +17,7 @@
 <ng-template #editLearningOutcomeModal>
   <div class="modal-header bg-dark">
     <h4 class="modal-title pull-left">Learning Outcome Edit Form</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef?.hide()">
       <span aria-hidden="true">&times;</span>
 
     </button>
@@ -33,7 +33,7 @@
     </div>
     <div class="modal-footer bg-dark">
       <div class="col-12 d-flex align-items-center justify-content-between">
-        <button type="button" (click)='modalRef.hide()' class="btn btn-secondary mt-2">Cancel</button>
+        <button type="button" (click)='modalRef?.hide()' class="btn btn-secondary mt-2">Cancel</button>
         <app-validate-submit-buttons
           (validationButtonClicked)="triggerValidationSubject$.next(true)"
           [formItem]="itemForm" [isSubmitting]="submitInProgressAction$ | ngrxPush"></app-validate-submit-buttons>
