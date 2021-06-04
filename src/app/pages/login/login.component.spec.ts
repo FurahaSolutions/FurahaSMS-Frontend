@@ -11,7 +11,7 @@ import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/redu
 import { ErrorModule } from 'src/app/components/error/error.module';
 import { AppStarLabelRequiredModule } from '../../components/label-star-required/app-star-label-required';
 import { ReactiveComponentModule } from '@ngrx/component';
-import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import * as fromStore from 'src/app/store/reducers';
 import { LibraryPublisherService } from 'src/app/pages/library/services/library-publisher.service';
@@ -23,54 +23,59 @@ export class ViewPublisherComponent extends subscribedContainerMixin() implement
     tap(id => this.libraryPublisherService.loadItem(id)),
     mergeMap(id => this.store.pipe(select(selectLibraryBookPublisher(id)))),
     tap(publisher => {
-      if (publisher) {
+      if(publisher) {
         this.profilePicId = publisher.profile_pic_id;
         this.getProfilePic();
       }
     }),
   );
+
   constructor(
     private libraryPublisherService: LibraryPublisherService,
     private store: Store<fromStore.AppState>,
     private route: ActivatedRoute,
-    private canvasService: CanvasService
-
+    private canvasService: CanvasService,
+    private cdr: ChangeDetectorRef
   ) {
     super();
   }
+
   ngAfterViewInit() {
     this.placeholderImage();
     this.getProfilePic();
 
   }
+
   placeholderImage() {
     const img = document.querySelector('#placeholder');
     const ctx = (document.querySelector('#profPicCanvas') as HTMLCanvasElement);
-    if (ctx && img) {
+    if(ctx && img) {
       this.canvasService.fitImageOn(ctx, img);
       this.showPlaceholderImage = false;
+      this.cdr.detectChanges();
     } else {
       this.showPlaceholderImage = true;
+      this.cdr.detectChanges();
     }
   }
 
   getProfilePic() {
     this.profPicLoading = true;
-    this.canvasService.getProfilePicture({ fileId: this.profilePicId as number }).pipe(
+    this.canvasService.getProfilePicture({fileId: this.profilePicId as number}).pipe(
       takeWhile(() => Number(this.profilePicId) !== 0),
       takeUntil(this.destroyed$)
     ).subscribe({
-        next: res => {
-          const imageObj = new Image();
-          imageObj.src = URL.createObjectURL(res);
-          imageObj.onload = () => {
-            this.showPlaceholderImage = false;
-            this.canvasService.fitImageOn(document.querySelector('#profPicCanvas') as HTMLCanvasElement, imageObj);
-          };
+      next: res => {
+        const imageObj = new Image();
+        imageObj.src = URL.createObjectURL(res);
+        imageObj.onload = () => {
+          this.showPlaceholderImage = false;
+          this.canvasService.fitImageOn(document.querySelector('#profPicCanvas') as HTMLCanvasElement, imageObj);
+        };
 
-        },
-        complete: () => this.profPicLoading = false
-      });
+      },
+      complete: () => this.profPicLoading = false
+    });
   }
 
 }

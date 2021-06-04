@@ -6,7 +6,9 @@ import { StoreModule } from '@ngrx/store';
 import { REDUCER_TOKEN, reducerProvider, metaReducers } from 'src/app/store/reducers';
 import { myProfileFeatureKey, reducer } from '../store/reducers/my-profile.reducer';
 import { ReactiveComponentModule } from '@ngrx/component';
-import { NameItemComponent } from "../../../components/user-profile/name-item/name-item.component";
+import { NameItemComponent } from '../../../components/user-profile/name-item/name-item.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('MyProfileInfoComponent', () => {
   let component: MyProfileInfoComponent;
@@ -24,7 +26,9 @@ describe('MyProfileInfoComponent', () => {
           }
         }),
         StoreModule.forFeature(myProfileFeatureKey, reducer),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        ReactiveFormsModule,
+        HttpClientTestingModule
       ],
       declarations: [MyProfileInfoComponent, NameItemComponent],
       providers: [reducerProvider]

@@ -8,7 +8,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppCheckboxModule } from '../../../../shared/checkbox/checkbox.module';
 import { ReactiveComponentModule } from '@ngrx/component';
-import { AppLoadingBubbleModule } from "../../../../modules/app-loading-bubble";
+import { AppLoadingBubbleModule } from '../../../../modules/app-loading-bubble';
 
 describe('LibraryMyAccountComponent', () => {
   let component: LibraryMyAccountComponent;

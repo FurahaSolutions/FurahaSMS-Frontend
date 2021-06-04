@@ -25,7 +25,7 @@ export class CreateProcurementsVendorsComponent extends subscribedContainerMixin
     description: [''],
     procurementItemsCategory: this.fb.array([]),
     contactInfo: this.fb.group({
-      emails: this.fb.array([this.getNewEmailField]),
+      emails: this.fb.array([this.getNewEmailField()]),
       phones: this.fb.array([this.getNewPhoneField()])
     }),
   });

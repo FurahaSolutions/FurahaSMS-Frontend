@@ -1,12 +1,15 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {ViewPublisherComponent} from './view-publisher.component';
-import {Store, StoreModule} from '@ngrx/store';
-import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {RouterTestingModule} from '@angular/router/testing';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { ViewPublisherComponent } from './view-publisher.component';
+import { Store, StoreModule } from '@ngrx/store';
+import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
+import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { libraryFeatureKey, reducers } from '../../../store/reducers';
 
 describe('ViewPublisherComponent', () => {
   let component: ViewPublisherComponent;
@@ -23,13 +26,26 @@ describe('ViewPublisherComponent', () => {
             strictActionImmutability: true,
           }
         }),
+        StoreModule.forFeature(libraryFeatureKey, reducers),
         AppLoadingBubbleModule,
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [ViewPublisherComponent],
-      providers: [reducerProvider]
+      providers: [
+        reducerProvider,
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            parent: {
+              paramMap: of({
+                get: () => 1
+              })
+            }
+          }
+        }
+      ]
     });
 
     TestBed.compileComponents();

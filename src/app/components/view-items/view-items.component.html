@@ -42,7 +42,7 @@
             class="sr-only">delete</span>
           </button>
           <button class='btn btn-info btn-sm' [routerLink]="[item.id, 'view']"
-                  attr.aria-label="{{ 'View subject item ' + item.name }}" title="View Item" type="button">
+                  [attr.aria-label]="'View subject item ' + item.name" title="View Item" type="button">
             <i class="icon-eye" color="primary"></i><span class="sr-only">view</span>
           </button>
         </td>
