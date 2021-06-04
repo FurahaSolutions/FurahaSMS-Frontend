@@ -10,6 +10,7 @@ import { ICourse } from '../interfaces/course.interface';
   styleUrls: ['./e-learning-admin.component.css']
 })
 export class ELearningAdminComponent {
+  search = '';
   isCollapsed: boolean[] = [];
   limit = 100;
   courses$: Observable<ICourse[]> = this.eLearningService.getCourses({limit: this.limit});

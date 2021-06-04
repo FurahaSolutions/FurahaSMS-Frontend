@@ -43,7 +43,7 @@ export class ELearningCreateCourseComponent
     name: ['', Validators.required],
     subTopics: this.fb.array([this.fb.control('', [Validators.required])])
   });
-  modalRef: BsModalRef;
+  modalRef: BsModalRef | undefined;
   numberingStyles$: Observable<any[]> = this.topicNumberingService.all$;
   classLevels$: Observable<any[]> = this.classLevelService.getAllWithUnitLevels();
   topics: any[] = [];
@@ -275,7 +275,7 @@ export class ELearningCreateCourseComponent
   addNewTopic() {
     if (this.newTopicForm.valid) {
       this.addNewTopicCommit();
-      this.modalRef.hide();
+      this.modalRef?.hide();
     } else {
       alert('Please complete form to continue');
     }

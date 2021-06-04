@@ -9,10 +9,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./select-academic-year.component.css']
 })
 export class SelectAcademicYearComponent {
-  @Input() title: string;
-  @Input() routes: (string | number)[];
+  @Input() title = '';
+  @Input() routes: (string | number)[] = [];
   academicYears$: Observable<any> = this.academicYear.all$;
-  selectedAcademicYear: number;
+  selectedAcademicYear: number | null = null;
   constructor(private academicYear: AcademicYearService, private router: Router) {
   }
   routesLinks = (): (string | number)[] => this.routes

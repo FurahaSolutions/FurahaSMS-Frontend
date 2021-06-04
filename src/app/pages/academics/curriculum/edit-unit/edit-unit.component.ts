@@ -16,7 +16,7 @@ import { subscribedContainerMixin } from 'src/app/shared/mixins/subscribed-conta
 })
 
 export class EditUnitComponent extends subscribedContainerMixin(formWithEditorMixin()) implements OnInit {
-  @Input() idIndex: number;
+  @Input() idIndex: number | undefined;
   @Output() valueChange: EventEmitter<any> = new EventEmitter();
   generalInfoHasErrorSubject$ = new BehaviorSubject<boolean>(false);
   generalInfoHasErrorAction$ = this.generalInfoHasErrorSubject$.asObservable();

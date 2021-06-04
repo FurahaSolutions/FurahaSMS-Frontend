@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tab-error-state',
@@ -6,12 +6,12 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
   styleUrls: ['./tab-error-state.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TabErrorStateComponent implements OnInit {
-  @Input() hasError: boolean;
-  @Input() marked: boolean;
-  constructor() { }
+export class TabErrorStateComponent {
+  @Input() hasError = false;
+  @Input() marked = false;
 
-  ngOnInit() {
+  constructor() {
   }
+
 
 }

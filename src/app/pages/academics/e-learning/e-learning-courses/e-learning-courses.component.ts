@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
 import {ICourse} from '../interfaces/course.interface';
 import {ELearningService} from '../services/e-learning.service';

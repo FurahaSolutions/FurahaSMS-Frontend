@@ -10,11 +10,11 @@ h2 {
   max-height: 35px;
 }
 .nav {
-  border-bottom: 0px;
+  border-bottom: 0;
   margin-top: -5px;
 }
 .info-route {
-  
+
   margin-right: 15px;
   margin-left: 15px;
   min-height: 270px;
@@ -34,5 +34,5 @@ h2 {
    position: relative;
    border-top-left-radius: 15px;
    border-top-right-radius: 15px;
-  
+
 }

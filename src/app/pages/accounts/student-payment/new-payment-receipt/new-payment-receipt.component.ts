@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Store, select } from '@ngrx/store';
+import { FormBuilder, Validators } from '@angular/forms';
+import { select, Store } from '@ngrx/store';
 import { PaymentTypeService } from '../../services/payment-type.service';
 import { selectPaymentMethods } from '../../store/selectors/payment-type.selectors';
 import { StudentFeePaymentService } from '../../services/student-fee-payment.service';
 import { ActivatedRoute } from '@angular/router';
-import { mergeMap, map, takeWhile, tap } from 'rxjs/operators';
+import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
 import { loadNewPaymentReceiptSuccess } from '../../store/actions/student-fee-statement.actions';
+import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../../../shared/mixins/form.mixin';
 
 
 @Component({
@@ -14,29 +16,32 @@ import { loadNewPaymentReceiptSuccess } from '../../store/actions/student-fee-st
   templateUrl: './new-payment-receipt.component.html',
   styleUrls: ['./new-payment-receipt.component.css']
 })
-export class NewPaymentReceiptComponent implements OnInit {
-  newPaymentForm: FormGroup;
-  paymentMethods$: any;
-  isSubmitting: boolean;
-  componentIsActive: boolean;
-  studentId: number;
+export class NewPaymentReceiptComponent extends subscribedContainerMixin(formMixin()) implements OnInit {
+  newPaymentForm = this.fb.group({
+    paymentAmount: ['', [Validators.required]],
+    paymentType: ['', [Validators.required]],
+    paymentRef: [''],
+    paymentDate: ['', Validators.required],
+  });
+  paymentMethods$ = this.store.pipe(
+    select(selectPaymentMethods)
+  );
+  studentId: number | undefined;
+
   constructor(
     private fb: FormBuilder,
     private store: Store,
     private paymentTypeService: PaymentTypeService,
     private studentFeePaymentService: StudentFeePaymentService,
     private route: ActivatedRoute
-  ) { }
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
-    this.componentIsActive = true;
     this.paymentTypeService.loadAll$
-      .pipe(takeWhile(() => this.componentIsActive))
+      .pipe(takeUntil(this.destroyed$))
       .subscribe();
-    this.paymentMethods$ = this.store.pipe(
-      select(selectPaymentMethods)
-    );
-    this.resetForm();
   }
 
   resetForm() {
@@ -47,26 +52,28 @@ export class NewPaymentReceiptComponent implements OnInit {
       paymentDate: ['', Validators.required],
     });
   }
+
   validateForm() {
 
   }
+
   submitPayment() {
-    this.isSubmitting = true;
+    this.submitInProgressSubject$.next(true);
     this.route.paramMap.pipe(
       map((params) => Number(params.get('id'))),
       tap(id => this.studentId = id),
-      mergeMap((id) => this.studentFeePaymentService.save({ studentId: id, data: this.newPaymentForm.value })),
-      takeWhile(() => this.componentIsActive)
+      mergeMap((id) => this.studentFeePaymentService.save({studentId: id, data: this.newPaymentForm.value})),
+      takeUntil(this.destroyed$)
     )
       .subscribe({
         next: (res) => {
           this.isSubmitting = false;
           this.resetForm();
           this.store.dispatch(loadNewPaymentReceiptSuccess({
-            data: { studentId: this.studentId, newPayment: res.data }
-           }));
+            data: {studentId: this.studentId as number, newPayment: res.data}
+          }));
         },
-        error: () => this.isSubmitting = false
+        error: () => this.submitInProgressSubject$.next(false)
       });
   }
 

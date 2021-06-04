@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { EMPTY, of } from 'rxjs';
+import { EMPTY} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

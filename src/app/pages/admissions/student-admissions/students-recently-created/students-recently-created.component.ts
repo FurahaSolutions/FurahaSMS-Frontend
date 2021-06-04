@@ -8,7 +8,7 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./students-recently-created.component.css']
 })
 export class StudentsRecentlyCreatedComponent {
-  @Input() linksTo: string[];
+  @Input() linksTo: string[] = [];
   students$: Observable<any[]> = this.studentsService.getRecentlyCreatedStudents();
 
   constructor(

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { IUserProfile } from 'src/app/interfaces/user-profile.interface';
 import { Store, select } from '@ngrx/store';
 import { loadMyProfiles } from './store/actions/my-profile.actions';
 import { selectMyProfileState } from './store/selectors/my-profile.selectors';
@@ -11,7 +9,7 @@ import { selectMyProfileState } from './store/selectors/my-profile.selectors';
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
-  profile$: Observable<IUserProfile>;
+  profile$ = this.store.pipe(select(selectMyProfileState));
 
   constructor(
     private store: Store
@@ -19,7 +17,6 @@ export class MyProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(loadMyProfiles());
-    this.profile$ = this.store.pipe(select(selectMyProfileState));
   }
 
 }

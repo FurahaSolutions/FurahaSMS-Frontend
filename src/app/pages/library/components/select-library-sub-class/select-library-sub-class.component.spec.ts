@@ -4,7 +4,6 @@ import {SelectLibrarySubClassComponent} from './select-library-sub-class.compone
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {LibraryAdminModule} from '../../library-admin/library-admin.module';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 
 describe('SelectLibrarySubClassComponent', () => {

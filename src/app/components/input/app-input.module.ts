@@ -7,6 +7,7 @@ import { ShowPasswordDirective } from './directives/show-password.directive';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { SelectComponent } from '../select/select.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     CommonModule,
     PasswordMeterModule,
     ReactiveComponentModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    FontAwesomeModule
   ]
 })
 export class AppInputModule {

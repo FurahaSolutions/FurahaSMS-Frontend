@@ -9,7 +9,7 @@ import {PrintService} from '../../services/print.service';
 })
 export class PrintComponent {
 
-  @Input() selector: string;
+  @Input() selector = '';
   constructor(private printService: PrintService) { }
 
   print(): void {

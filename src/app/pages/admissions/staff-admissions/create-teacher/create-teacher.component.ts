@@ -35,9 +35,9 @@ export class CreateTeacherComponent extends subscribedContainerMixin(formMixin()
     phone: [''],
     namePrefix: ['']
   });
-  confirmData: boolean;
+  confirmData = false;
   usersData: any;
-  confirmedData: boolean;
+  confirmedData = false;
   genders$: Observable<any[]> = this.store.pipe(select(selectGenders));
   religions$: Observable<any[]> = this.store.pipe(select(selectReligions));
   staffType$: Observable<any> = this.store.pipe(

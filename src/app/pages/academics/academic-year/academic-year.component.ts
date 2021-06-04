@@ -19,8 +19,8 @@ import { UndeleteAcademicYearComponent } from './undelete-academic-year/undelete
 })
 export class AcademicYearComponent extends modalMixin() {
   showForm = this.fb.group({
-    archived: [null],
-    deleted: [null],
+    archived: [undefined],
+    deleted: [undefined],
   });
   canViewDeletedAcademicYear$ = this.store.select(selectICan('view deleted academic year'));
   archivedSubject$ = new BehaviorSubject<boolean>(false);

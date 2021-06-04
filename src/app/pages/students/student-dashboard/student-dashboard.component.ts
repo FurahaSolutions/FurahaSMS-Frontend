@@ -1,12 +1,12 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {formMixin} from '../../../shared/mixins/form.mixin';
-import {BehaviorSubject, Observable, of} from 'rxjs';
-import {ClassStreamService} from '../../academics/services/class-stream.service';
-import {ClassLevelService} from '../../../services/class-level.service';
-import {AcademicYearService} from '../../academics/services/academic-year.service';
-import {StudentService} from '../../../services/student.service';
-import {catchError, tap} from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { formMixin } from '../../../shared/mixins/form.mixin';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { ClassStreamService } from '../../academics/services/class-stream.service';
+import { ClassLevelService } from '../../../services/class-level.service';
+import { AcademicYearService } from '../../academics/services/academic-year.service';
+import { StudentService } from '../../../services/student.service';
+import { catchError, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-student-dashboard',
@@ -16,9 +16,9 @@ import {catchError, tap} from 'rxjs/operators';
 })
 export class StudentDashboardComponent extends formMixin() {
   studentFilterForm: FormGroup = this.fb.group({
-    classLevels: [],
-    streams: [],
-    academicYear: []
+    classLevels: [[]],
+    streams: [[]],
+    academicYear: ['']
   });
   streams$: Observable<any[]> = this.streamService.all$;
   classLevels$: Observable<any[]> = this.classLevelService.active$;
@@ -31,13 +31,14 @@ export class StudentDashboardComponent extends formMixin() {
     private streamService: ClassStreamService,
     private classLevelService: ClassLevelService,
     private academicYearService: AcademicYearService,
-    private  studentService: StudentService
+    private studentService: StudentService
   ) {
     super();
   }
 
   submitStudentFilterForm() {
     this.submitInProgressSubject$.next(true);
+    console.log(this.studentFilterForm.value);
     this.studentService.getStudents(this.studentFilterForm.value).pipe(
       catchError(() => of([])),
       tap(res => this.studentsSubject$.next(res)),

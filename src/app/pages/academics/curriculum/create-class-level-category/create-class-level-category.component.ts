@@ -17,7 +17,7 @@ export class CreateClassLevelCategoryComponent extends formWithEditorMixin() imp
 
   classLevelCategoryForm: FormGroup = this.fb.group({
     id: [null],
-    name: [name, [Validators.required]],
+    name: ['', [Validators.required]],
     active: [false],
     description: ['']
   });

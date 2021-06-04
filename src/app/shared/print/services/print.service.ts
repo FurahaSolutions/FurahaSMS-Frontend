@@ -9,7 +9,7 @@ export class PrintService {
     const popupWin = window.open('', '_blank', 'top=0,left=0,height=auto,width=auto');
     popupWin?.document.open();
     popupWin?.document.write(`
-      <html>
+      <html lang="en">
         <head>
           <title>Print tab</title>
           <style>
@@ -81,7 +81,7 @@ export class PrintService {
             background-color: rgba(0, 0, 0, 0.075);
             }
 
-            @media (max-width: 575.98px) {
+            @media (max-width: 576px) {
             .table-responsive-sm {
             display: block;
             width: 100%;
@@ -93,7 +93,7 @@ export class PrintService {
             }
             }
 
-            @media (max-width: 767.98px) {
+            @media (max-width: 768px) {
             .table-responsive-md {
             display: block;
             width: 100%;
@@ -105,7 +105,7 @@ export class PrintService {
             }
             }
 
-            @media (max-width: 991.98px) {
+            @media (max-width: 992px) {
             .table-responsive-lg {
             display: block;
             width: 100%;
@@ -117,7 +117,7 @@ export class PrintService {
             }
             }
 
-            @media (max-width: 1199.98px) {
+            @media (max-width: 1200px) {
             .table-responsive-xl {
             display: block;
             width: 100%;

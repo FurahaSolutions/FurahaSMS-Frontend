@@ -1,18 +1,18 @@
-import {Component, ViewChild} from '@angular/core';
-import {combineLatest, Observable} from 'rxjs';
-import {select, Store} from '@ngrx/store';
-import {AppState} from 'src/app/store/reducers';
-import {selectPlanForAcademicYearWithId} from '../store/selectors/academic-year-plan.selectors';
-import {ClassLevelService} from 'src/app/services/class-level.service';
-import {map, mergeMap, takeUntil, tap} from 'rxjs/operators';
-import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
-import {TabsetComponent} from 'ngx-bootstrap/tabs/public_api';
-import {FinancialPlanService} from '../../services/financial-plan.service';
-import {FinancialCostsService} from '../../services/financial-costs.service';
-import {subscribedContainerMixin} from '../../../../shared/mixins/subscribed-container.mixin';
-import {formMixin} from '../../../../shared/mixins/form.mixin';
-import {ActivatedRoute, Router} from '@angular/router';
-import {loadAcademicYearPlans} from '../store/actions/academic-year-plan.actions';
+import { Component, ViewChild } from '@angular/core';
+import { combineLatest, Observable } from 'rxjs';
+import { select, Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/reducers';
+import { selectPlanForAcademicYearWithId } from '../store/selectors/academic-year-plan.selectors';
+import { ClassLevelService } from 'src/app/services/class-level.service';
+import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
+import { AbstractControl, FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { TabsetComponent } from 'ngx-bootstrap/tabs/public_api';
+import { FinancialPlanService } from '../../services/financial-plan.service';
+import { FinancialCostsService } from '../../services/financial-costs.service';
+import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../../../shared/mixins/form.mixin';
+import { ActivatedRoute, Router } from '@angular/router';
+import { loadAcademicYearPlans } from '../store/actions/academic-year-plan.actions';
 
 @Component({
   selector: 'app-edit-academic-year-financial-plan',
@@ -20,7 +20,7 @@ import {loadAcademicYearPlans} from '../store/actions/academic-year-plan.actions
   styleUrls: ['./edit-academic-year-financial-plan.component.css']
 })
 export class EditAcademicYearFinancialPlanComponent extends subscribedContainerMixin(formMixin()) {
-  @ViewChild('staticTabs', {static: false}) staticTabs: TabsetComponent;
+  @ViewChild('staticTabs', {static: false}) staticTabs: TabsetComponent | undefined;
   isOpen = [false];
   isOpenTransport = [false];
   academicYearPlanId$ = (this.route.parent as ActivatedRoute).paramMap.pipe(
@@ -34,7 +34,7 @@ export class EditAcademicYearFinancialPlanComponent extends subscribedContainerM
     otherFees: this.fb.array([]),
   });
 
-  markTabsWithError: boolean;
+  markTabsWithError = false;
   plans: any;
   otherCosts$: Observable<any[]> = this.financialCostService.all$;
   allClassLevels$ = this.academicYearPlanId$.pipe(
@@ -57,6 +57,7 @@ export class EditAcademicYearFinancialPlanComponent extends subscribedContainerM
     map(([otherCosts, academicYearPlan, classLevels]) =>
       ({otherCosts, academicYearPlan, classLevels}))
   );
+
   constructor(
     private store: Store<AppState>,
     private classLevelService: ClassLevelService,
@@ -91,7 +92,7 @@ export class EditAcademicYearFinancialPlanComponent extends subscribedContainerM
   }
 
   setFees(item: any[]) {
-    while (this.tuitionFees?.length) {
+    while(this.tuitionFees?.length) {
       this.tuitionFees.removeAt(0);
     }
     item.forEach((i: any) => {
@@ -106,10 +107,10 @@ export class EditAcademicYearFinancialPlanComponent extends subscribedContainerM
       this.tuitionFees.push(this.fb.group({classLevelId: i.id, name: i.name, unitLevels})
       );
     });
-    if (this.plans.tuitionFee?.length > 0) {
+    if(this.plans.tuitionFee?.length > 0) {
       this.tuitionFees.patchValue(this.plans.tuitionFee);
     }
-    if (this.plans.otherFees?.length > 0) {
+    if(this.plans.otherFees?.length > 0) {
       this.plans.otherFees.forEach((fee: any) => {
         const financialCosts = this.fb.array([]);
         fee.financialCosts.forEach((cost: any) => {
@@ -144,13 +145,13 @@ export class EditAcademicYearFinancialPlanComponent extends subscribedContainerM
 
   totalClassLevelCost(i: number, j?: number, k?: number) {
 
-    if (typeof j === 'undefined') {
+    if(typeof j === 'undefined') {
       return this.otherFees.controls[i]?.value?.financialCosts
         .map((item: any) => item.costItems).flat()
         .map((item: any) => item.semesters).flat()
         .map((item: any) => item.amount).flat()
         .reduce((a: any, b: any) => +a + +b, 0);
-    } else if (typeof k === 'undefined') {
+    } else if(typeof k === 'undefined') {
       return this.otherFees.controls[i].value.financialCosts[j]
         .costItems.flat()
         .map((item: any) => item.semesters).flat()
@@ -167,7 +168,7 @@ export class EditAcademicYearFinancialPlanComponent extends subscribedContainerM
   }
 
   submitFeePlanForm() {
-    if (this.feePlanForm.valid) {
+    if(this.feePlanForm.valid) {
       let academicYearId: number;
       this.submitInProgressSubject$.next(true);
       this.academicYearPlanId$.pipe(
@@ -188,6 +189,13 @@ export class EditAcademicYearFinancialPlanComponent extends subscribedContainerM
   }
 
   selectTab(tabId: number) {
-    this.staticTabs.tabs[tabId].active = true;
+    if(this.staticTabs?.tabs) {
+      this.staticTabs.tabs[tabId].active = true;
+    }
+
+  }
+
+  getFormArrayControls(control: AbstractControl | null) {
+    return (control as FormArray).controls as FormGroup[];
   }
 }

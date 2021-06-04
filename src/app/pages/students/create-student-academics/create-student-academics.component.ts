@@ -97,7 +97,7 @@ export class CreateStudentAcademicsComponent
       }
     } else {
       let i = 0;
-      this.unitLevels.controls.forEach((item: FormControl) => {
+      this.unitLevels.controls.forEach(item => {
         if (Number(item.value) === Number(e.target.value)) {
           this.unitLevels.removeAt(i);
           return;

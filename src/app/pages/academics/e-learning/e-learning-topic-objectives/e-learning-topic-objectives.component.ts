@@ -19,11 +19,11 @@ import {
 })
 export class ELearningTopicObjectivesComponent extends subscribedContainerMixin(modalMixin(formMixin())) {
 
-  @Input() courseId: number;
-  @Input() edit: boolean;
-  @Input() topicId: number;
-  @Input() topicNumberStyleName: string;
-  @Input() learningOutcomes: any[];
+  @Input() courseId: number | undefined;
+  @Input() edit = false;
+  @Input() topicId: number | undefined;
+  @Input() topicNumberStyleName = 'Topic';
+  @Input() learningOutcomes: any[] = [];
   itemForm: FormGroup = this.fb.group({
     id: [null, [Validators.required]],
     description: ['', [Validators.required]]
@@ -48,13 +48,13 @@ export class ELearningTopicObjectivesComponent extends subscribedContainerMixin(
     this.eLearningService.updateCourseTopicsLearningOutcome({
       description: this.itemForm.value.description,
       learningOutcomeId: this.itemForm.value.id,
-      topicId: this.topicId
+      topicId: this.topicId as number
     }).pipe(takeUntil(this.destroyed$))
       .subscribe({
         next: () => {
           this.submitInProgressSubject$.next(false);
           this.closeModal();
-          this.store.dispatch(loadCourses({data: {id: this.courseId}}));
+          this.store.dispatch(loadCourses({data: {id: this.courseId as number}}));
         },
         error: () => this.submitInProgressSubject$.next(false)
       });

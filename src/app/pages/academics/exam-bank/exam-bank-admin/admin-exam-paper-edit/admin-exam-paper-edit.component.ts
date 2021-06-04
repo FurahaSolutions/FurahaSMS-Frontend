@@ -1,7 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/reducers';
-import { Observable } from 'rxjs';
 import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selectors';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -24,9 +23,8 @@ import { formWithMathEditorMixin } from 'src/app/shared/mixins/form-with-math-ed
 })
 export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalMixin(formWithMathEditorMixin()))
   implements OnInit, CanDeactivateGuard {
-  examPaper$: Observable<any>;
   activeQuestion = 0;
-  queries: IExamPaperQuestion[];
+  queries: IExamPaperQuestion[] = [];
   editDialogForm: FormGroup = this.fb.group({
     id: [],
     description: ['', Validators.required],
@@ -38,11 +36,33 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
     tags: this.fb.array([])
   });
   submitted = true;
-  questionId$: Observable<any>;
+  questionId$ = (this.route.parent as ActivatedRoute).paramMap.pipe(
+    map(params => Number(params.get('id')))
+  );
+  examPaper$ = this.questionId$.pipe(
+    takeUntil(this.destroyed$),
+    mergeMap(id => this.store.pipe(select(selectExamPaperItemState(id)))),
+    tap(res => {
+      if(res) {
+        this.queries = res.questions.map((item: any) => ({
+          id: item.id,
+          correctAnswerDescription: item.correct_answer_description,
+          multipleAnswers: item.multiple_answers,
+          multipleChoices: item.multiple_choices,
+          points: item.points,
+          description: item.description,
+          tags: item.tags_value,
+          answers: item.answers_value.map(({id, description, is_correct: isCorrect}: any) => ({
+            id,
+            description,
+            isCorrect
+          }))
+        }));
+      }
+    }));
   tagInput = '';
   validated = false;
   dialog: { title: string; value: any; index: number; type: any } = {title: '', value: '', index: 0, type: null};
-  editorInitialized = false;
   private store: Store<AppState>;
 
   constructor(
@@ -58,30 +78,6 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
   }
 
   ngOnInit() {
-    this.questionId$ =
-      (this.route.parent as ActivatedRoute).paramMap.pipe(map(params => params.get('id')));
-    this.examPaper$ = this.questionId$.pipe(
-      takeUntil(this.destroyed$),
-      mergeMap(id => this.store.pipe(select(selectExamPaperItemState(id)))),
-      tap(res => {
-        if(res) {
-          this.queries = res.questions.map((item: any) => ({
-            id: item.id,
-            correctAnswerDescription: item.correct_answer_description,
-            multipleAnswers: item.multiple_answers,
-            multipleChoices: item.multiple_choices,
-            points: item.points,
-            description: item.description,
-            tags: item.tags_value,
-            answers: item.answers_value.map(({id, description, is_correct: isCorrect}: any) => ({
-              id,
-              description,
-              isCorrect
-            }))
-          }));
-        }
-      }));
-
     this.resetForm();
     this.multipleChoices.valueChanges
       .pipe(takeUntil(this.destroyed$))
@@ -158,7 +154,7 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
     };
     this.openModal({component: template, id: 0, params: config});
 
-    this.modalRef.setClass('modal-lg bg-dark text-light modal-container ');
+    this.modalRef?.setClass('modal-lg bg-dark text-light modal-container ');
   }
 
   get questions() {
@@ -175,7 +171,7 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
   }
 
   saveQuestion() {
-    this.editDialogForm.setValidators(answersMatchValidator);
+    this.editDialogForm.setValidators([answersMatchValidator]);
     this.editDialogForm.updateValueAndValidity();
     if(this.editDialogForm.invalid) {
       this.validated = true;
@@ -186,7 +182,7 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
         this.queries.splice(this.dialog.index, 0, this.editDialogForm.value);
         this.activeQuestion = this.dialog.index;
       }
-      this.modalRef.hide();
+      this.modalRef?.hide();
     }
   }
 

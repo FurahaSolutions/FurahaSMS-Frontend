@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { loadToastShowsSuccess, loadToastShowsFailure } from './../actions/toast-show.actions';
+import { loadToastShowsSuccess, loadToastShowsFailure } from '../actions/toast-show.actions';
 
 export const toastFeatureKey = 'toast';
 

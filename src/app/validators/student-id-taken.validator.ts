@@ -1,4 +1,4 @@
-import { FormControl } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { StudentService } from '../services/student.service';
 import { map } from 'rxjs/operators';
@@ -10,7 +10,7 @@ export class IdNumberValidator {
   constructor(private studentService: StudentService) {
   }
 
-  studentIdTaken(control: FormControl): any {
+  studentIdTaken(control: AbstractControl): any {
 
     return this.studentService.getStudentBySchoolId(control.value).pipe(
       map(data => data.id ? {['id_taken']: true} : null)

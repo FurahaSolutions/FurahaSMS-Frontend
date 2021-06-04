@@ -1,9 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/reducers';
+import { Component} from '@angular/core';
 import { GuardiansService } from 'src/app/services/guardians.service';
-import { selectStudentId } from 'src/app/store/selectors/student-profile.selector';
 import { map, mergeMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 
@@ -12,20 +8,14 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './view-guardian-students.component.html',
   styleUrls: ['./view-guardian-students.component.css']
 })
-export class ViewGuardianStudentsComponent implements OnInit {
+export class ViewGuardianStudentsComponent {
 
-  students$: Observable<any>;
+  students$= (this.route.parent as ActivatedRoute).paramMap.pipe(
+    map(params => Number(params.get('id'))),
+    mergeMap(guardianId => this.guardianService.getStudents(guardianId)));
 
   constructor(
-    private store: Store<AppState>,
     private guardianService: GuardiansService,
     private route: ActivatedRoute
   ) { }
-
-  ngOnInit() {
-    this.students$ = (this.route.parent as ActivatedRoute).paramMap
-      .pipe(map(params => Number(params.get('id'))))
-      .pipe(mergeMap(guardianId => this.guardianService.getStudents(guardianId)));
-
-  }
 }

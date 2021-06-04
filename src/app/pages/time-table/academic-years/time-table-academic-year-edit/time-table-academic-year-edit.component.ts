@@ -1,17 +1,17 @@
-import {Component, ChangeDetectionStrategy} from '@angular/core';
-import {TimeTableService} from '../../services/time-table.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {map, mergeMap, tap} from 'rxjs/operators';
-import {AcademicYearService} from 'src/app/pages/academics/services/academic-year.service';
-import {Observable, combineLatest, BehaviorSubject} from 'rxjs';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {TeacherService} from 'src/app/pages/admissions/services/teacher.service';
-import {UnitsService} from 'src/app/services/units.service';
-import {SchoolRoomService} from 'src/app/pages/infrastructures/services/school-room.service';
-import {ClassLevelService} from 'src/app/services/class-level.service';
-import {ClassStreamService} from 'src/app/pages/academics/services/class-stream.service';
-import {loadingMixin} from '../../../../shared/mixins/loading.mixin';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TimeTableService } from '../../services/time-table.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map, mergeMap, tap } from 'rxjs/operators';
+import { AcademicYearService } from 'src/app/pages/academics/services/academic-year.service';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TeacherService } from 'src/app/pages/admissions/services/teacher.service';
+import { UnitsService } from 'src/app/services/units.service';
+import { SchoolRoomService } from 'src/app/pages/infrastructures/services/school-room.service';
+import { ClassLevelService } from 'src/app/services/class-level.service';
+import { ClassStreamService } from 'src/app/pages/academics/services/class-stream.service';
+import { loadingMixin } from '../../../../shared/mixins/loading.mixin';
 
 @Component({
   selector: 'app-time-table-academic-year-edit',
@@ -31,7 +31,7 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
   classLevels$ = this.classLevelsService.all$;
   weekDays$ = this.timeTableService.daysOfTheWeek$;
   streams$ = this.streamsService.all$;
-  modalRef: BsModalRef;
+  modalRef: BsModalRef | null = null;
   isOpen: boolean[] = [false];
   editItem$ = new BehaviorSubject({classLevelName: null, streamName: null, timeValue: null, dayOfWeekName: null});
 
@@ -56,7 +56,7 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
     map(({name}) => name)
   );
 
-  editedTimetableSubject$: BehaviorSubject<any[]> = new BehaviorSubject([]);
+  editedTimetableSubject$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   editedTimetable$: Observable<any[]> = this.editedTimetableSubject$.asObservable();
 
 
@@ -134,7 +134,7 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
         item.dayOfWeekName === editItem.dayOfWeekName &&
         item.streamName === editItem.streamName &&
         item.timeValue === editItem.timeValue);
-      if (filteredItems.length > 0) {
+      if(filteredItems.length > 0) {
         return filteredItems[0];
       }
       return {
@@ -171,7 +171,7 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
 
   editLesson({template, classLevelName, stream: streamName, timing: timeValue, dayOfWeekName, lesson}: any) {
     const lessonValues = lesson?.[streamName]?.[timeValue];
-    if (lessonValues) {
+    if(lessonValues) {
       this.editLessonForm.patchValue({
         teacherId: lessonValues.teacherId,
         roomId: lessonValues.roomId,
@@ -197,7 +197,7 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
       item.dayOfWeekName === editItem.dayOfWeekName &&
       item.streamName === editItem.streamName &&
       item.timeValue === editItem.timeValue);
-    if (filteredItems.length > 0) {
+    if(filteredItems.length > 0) {
       timeTableItems[timeTableItems.indexOf(filteredItems[0])] = {
         ...timeTableItems[timeTableItems.indexOf(filteredItems[0])],
         ...this.editLessonForm.value
@@ -216,7 +216,7 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
         }
       ]);
     }
-    this.modalRef.hide();
+    this.modalRef?.hide();
   }
 
   saveChanges() {

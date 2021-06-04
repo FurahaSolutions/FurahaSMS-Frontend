@@ -79,53 +79,55 @@
                       </section>
                     </section>
                     <section formArrayName='financialCosts'>
-                      <fieldset *ngFor='let otherCost of classLevel.get("financialCosts").controls; let j = index'
-                                [formGroupName]='j'>
-                        <legend>{{ otherCost.value.name }} [ {{ totalClassLevelCost(i, j) | currency: localCurrency }} ]
-                        </legend>
-                        <section class="d-flex flex-wrap justify-content-start">
-                          <table class="table table-flush table-dark">
-                            <thead>
-                            <tr>
-                              <th>Cost Item Name</th>
-                              <th colspan="3">Semester/ Term</th>
+                      <ng-container *ngIf='classLevel?.get("financialCosts") as financialCosts'>
+                        <fieldset *ngFor='let otherCost of getFormArrayControls(financialCosts); let j = index'
+                                  [formGroupName]='j'>
+                          <legend>{{ otherCost.value.name }} [ {{ totalClassLevelCost(i, j) | currency: localCurrency }} ]
+                          </legend>
+                          <section class="d-flex flex-wrap justify-content-start">
+                            <table class="table table-flush table-dark">
+                              <thead>
+                              <tr>
+                                <th>Cost Item Name</th>
+                                <th colspan="3">Semester/ Term</th>
 
-                            </tr>
-                            </thead>
-                            <tbody formArrayName='costItems'>
-                            <tr>
-                              <td></td>
-                              <td
-                                *ngFor='let sem of otherCost.get("costItems").controls[0].value.semesters; let k = index'>
-                                <span [id]='"semester" + k'>{{ sem.name }}</span> [
-                                {{ totalClassLevelCost(i, j, sem.id) | currency: localCurrency }} ]
-                              </td>
-                            </tr>
-                            <ng-container
-                              *ngFor='let otherCostItem of otherCost.get("costItems").controls; let l = index'
-                              [formGroupName]='l'>
-                              <tr formArrayName='semesters'>
-                                <td [id]='"costItemLabel" + j + "" + l'>{{ otherCostItem.value.name }}</td>
-                                <ng-container>
-                                  <td *ngFor='let sem of otherCostItem.get("semesters").controls; let m = index'
-                                      [formGroupName]='m'>
-                                    <input #amountValue (blur)='triggerChange()' [(ngModel)]='sem.value.amount'
-                                           [ngModelOptions]="{standalone: true}"
-                                           [attr.aria-labelledby]='"semester" + m + " costItemLabel" + j + "" + l'
-                                           min='0'
-                                           [id]='"amount" + i + j + m' placeholder='Enter Amount' type='number'
-                                           class='form-control'>
-                                  </td>
-
-                                </ng-container>
                               </tr>
+                              </thead>
+                              <tbody formArrayName='costItems'>
+                              <tr>
+                                <td></td>
+                                <td
+                                  *ngFor='let sem of getFormArrayControls(otherCost.get("costItems"))[0].value.semesters; let k = index'>
+                                  <span [id]='"semester" + k'>{{ sem.name }}</span> [
+                                  {{ totalClassLevelCost(i, j, sem.id) | currency: localCurrency }} ]
+                                </td>
+                              </tr>
+                              <ng-container
+                                *ngFor='let otherCostItem of getFormArrayControls(otherCost.get("costItems")); let l = index'
+                                [formGroupName]='l'>
+                                <tr formArrayName='semesters'>
+                                  <td [id]='"costItemLabel" + j + "" + l'>{{ otherCostItem.value.name }}</td>
+                                  <ng-container>
+                                    <td *ngFor='let sem of getFormArrayControls(otherCostItem.get("semesters")); let m = index'
+                                        [formGroupName]='m'>
+                                      <input #amountValue (blur)='triggerChange()' [(ngModel)]='sem.value.amount'
+                                             [ngModelOptions]="{standalone: true}"
+                                             [attr.aria-labelledby]='"semester" + m + " costItemLabel" + j + "" + l'
+                                             min='0'
+                                             [id]='"amount" + i + j + m' placeholder='Enter Amount' type='number'
+                                             class='form-control'>
+                                    </td>
 
-                            </ng-container>
+                                  </ng-container>
+                                </tr>
 
-                            </tbody>
-                          </table>
-                        </section>
-                      </fieldset>
+                              </ng-container>
+
+                              </tbody>
+                            </table>
+                          </section>
+                        </fieldset>
+                      </ng-container>
                     </section>
                   </accordion-group>
                 </accordion>

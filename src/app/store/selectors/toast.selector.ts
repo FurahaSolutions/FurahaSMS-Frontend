@@ -1,5 +1,5 @@
 import { createSelector } from '@ngrx/store';
-import { AppState } from './../reducers';
+import { AppState } from '../reducers';
 
 export const selectToastState = (state: AppState) => state.toast;
 export const selectShowToastMessage = createSelector(

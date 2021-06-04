@@ -1,9 +1,9 @@
-import {ComponentFixture, fakeAsync, flush, TestBed, tick, waitForAsync} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {CountDownTimerComponent} from './count-down-timer.component';
 import {take} from 'rxjs/operators';
 
-import createSpyObj = jasmine.createSpyObj;
+
 
 describe('CountDownTimerComponent', () => {
   let component: CountDownTimerComponent;
@@ -36,7 +36,6 @@ describe('CountDownTimerComponent', () => {
   }));
 
   it('should set exam ended when time is up', waitForAsync(() => {
-    window.MathJax = createSpyObj<typeof MathJax>([], ['Hub']);
     component.minutes = 1 / 60;
     component.timer$.pipe(take(1)).subscribe({
       next: (x) => {

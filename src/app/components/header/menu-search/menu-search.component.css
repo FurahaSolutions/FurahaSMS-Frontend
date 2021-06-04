@@ -10,7 +10,7 @@ form {
 .search:after {
   content: "";
   background: lightblue;
-  width: 3px;   
+  width: 3px;
   height: 15px;
   position: absolute;
   top: 20px;
@@ -38,7 +38,7 @@ form {
   opacity: 1;
 }
 
-.search > input::-ms-placeholder {
+.search > input::-ms-input-placeholder {
   color: #efefef;
 }
 

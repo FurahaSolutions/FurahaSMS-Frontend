@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/reducers';
 import { map, mergeMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { GuardiansService } from 'src/app/services/guardians.service';
@@ -21,8 +19,7 @@ export class ViewGuardianComponent {
 
   constructor(
     private guardianService: GuardiansService,
-    private route: ActivatedRoute,
-    private store: Store<AppState>
+    private route: ActivatedRoute
   ) {
   }
 

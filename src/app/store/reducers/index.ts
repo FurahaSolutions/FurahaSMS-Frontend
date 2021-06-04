@@ -1,9 +1,6 @@
 import { InjectionToken } from '@angular/core';
 import {
-  ActionReducer,
   ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
   MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
@@ -14,7 +11,6 @@ import * as fromErrorMessage from './error-message.reducer';
 import * as fromActivePage from './active-page.reducer';
 import * as fromDialog from './dialog.reducer';
 import * as fromTinyMCEConfig from './tiny-mce-config.reducer';
-import * as fromApp from './app.reducer';
 
 
 export interface AppState {

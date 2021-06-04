@@ -1,9 +1,9 @@
-import {Component, OnInit, TemplateRef, forwardRef, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, TemplateRef, forwardRef, Output, EventEmitter } from '@angular/core';
 
 import Quagga from 'quagga';
-import {validateISBN} from 'src/app/pages/library/validatots/isbn.validator';
-import {FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import { validateISBN } from 'src/app/pages/library/validatots/isbn.validator';
+import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-barcode',
@@ -20,16 +20,19 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 export class BarcodeComponent implements OnInit, ControlValueAccessor {
   @Output() private valueChange = new EventEmitter();
   showOpenScannerButton = false;
-  scannerIsRunning: boolean;
-  modalRef: BsModalRef;
+  scannerIsRunning = false;
+  modalRef: BsModalRef | undefined;
   attempt: any;
-  onTouched: any;
-  onChanges: ($value: any) => void;
 
   constructor(
     private modalService: BsModalService,
   ) {
   }
+
+  onTouched: () => void = () => {
+  };
+  onChanges: ($value: any) => void = () => {
+  };
 
   writeValue(obj: any): void {
     this.attempt = obj;
@@ -44,7 +47,7 @@ export class BarcodeComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit(): void {
-    if (navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia === 'function') {
+    if(navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia === 'function') {
       this.showOpenScannerButton = true;
     }
   }
@@ -90,7 +93,7 @@ export class BarcodeComponent implements OnInit, ControlValueAccessor {
       },
 
     }, (err: any) => {
-      if (err) {
+      if(err) {
         return;
       }
 
@@ -105,19 +108,19 @@ export class BarcodeComponent implements OnInit, ControlValueAccessor {
       const drawingCtx = Quagga.canvas.ctx.overlay;
       const drawingCanvas = Quagga.canvas.dom.overlay;
 
-      if (result) {
-        if (result.boxes) {
+      if(result) {
+        if(result.boxes) {
           drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute('width'), 10), parseInt(drawingCanvas.getAttribute('height'), 10));
           result.boxes.filter((box: any) => box !== result.box).forEach((box: any) => {
             Quagga.ImageDebug.drawPath(box, {x: 0, y: 1}, drawingCtx, {color: 'green', lineWidth: 2});
           });
         }
 
-        if (result.box) {
+        if(result.box) {
           Quagga.ImageDebug.drawPath(result.box, {x: 0, y: 1}, drawingCtx, {color: '#00F', lineWidth: 2});
         }
 
-        if (result.codeResult && result.codeResult.code) {
+        if(result.codeResult && result.codeResult.code) {
           Quagga.ImageDebug.drawPath(result.line, {x: 'x', y: 'y'}, drawingCtx, {color: 'red', lineWidth: 3});
         }
       }
@@ -127,11 +130,11 @@ export class BarcodeComponent implements OnInit, ControlValueAccessor {
       const c = new FormControl();
       c.setValue(result.codeResult.code);
       this.attempt = result.codeResult.code;
-      if (!validateISBN(c)) {
+      if(!validateISBN(c)) {
         this.onChanges(this.attempt);
         this.valueChange.emit(this.attempt);
         Quagga.stop();
-        this.modalRef.hide();
+        this.modalRef?.hide();
 
       }
     });
@@ -142,13 +145,13 @@ export class BarcodeComponent implements OnInit, ControlValueAccessor {
     this.modalRef = this.modalService.show(template);
     this.modalRef.setClass('modal-lg bg-dark text-light modal-container ');
 
-    if (this.showOpenScannerButton) {
+    if(this.showOpenScannerButton) {
       this.startScanner();
     }
   }
 
   closeModal() {
-    this.modalRef.hide();
+    this.modalRef?.hide();
     Quagga.stop();
   }
 

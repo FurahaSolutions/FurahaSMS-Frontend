@@ -7,5 +7,5 @@ import { LinkInterface } from '../../../interfaces/link.interface';
   styleUrls: ['./link.component.css']
 })
 export class LinkComponent {
-  @Input() link: LinkInterface;
+  @Input() link: LinkInterface = { name: '' };
 }

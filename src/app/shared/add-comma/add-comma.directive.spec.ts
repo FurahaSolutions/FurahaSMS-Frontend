@@ -1,5 +1,4 @@
 import { AddCommaDirective } from './add-comma.directive';
-import { ElementRef } from '@angular/core';
 
 describe('AddCommaDirective', () => {
   it('should create an instance', () => {

@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {loadCourses} from '../../store/actions/courses.actions';
+import {Component, Input} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {BsModalService} from 'ngx-bootstrap/modal';
 import {formMixin} from '../../../../shared/mixins/form.mixin';

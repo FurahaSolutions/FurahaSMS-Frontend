@@ -28,7 +28,7 @@ import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-
   styleUrls: ['./add-book.component.css']
 })
 export class AddBookComponent extends subscribedContainerMixin(formWithEditorMixin()) implements OnInit, CanComponentDeactivate, OnDestroy {
-  @ViewChild('staticTabs', {static: false}) staticTabs: TabsetComponent;
+  @ViewChild('staticTabs', {static: false}) staticTabs: TabsetComponent | undefined;
   newBookForm: FormGroup = this.fb.group({
     bookTitle: ['', Validators.required],
     authors: [[], [Validators.required]],
@@ -44,7 +44,7 @@ export class AddBookComponent extends subscribedContainerMixin(formWithEditorMix
   bookPublishers$ = this.store.pipe(select(selectLibraryBookPublishers));
   bookTags$ = this.libraryBookTagService.all$;
   bookClassifications$ = this.store.pipe(select(selectLibraryBookClassifications));
-  markTabsWithError: boolean;
+  markTabsWithError = false;
   formSubmitted = false;
 
   constructor(
@@ -129,7 +129,9 @@ export class AddBookComponent extends subscribedContainerMixin(formWithEditorMix
   }
 
   selectTab(tabId: number) {
-    this.staticTabs.tabs[tabId].active = true;
+    if(this.staticTabs?.tabs) {
+      this.staticTabs.tabs[tabId].active = true;
+    }
   }
 
   validateForm() {

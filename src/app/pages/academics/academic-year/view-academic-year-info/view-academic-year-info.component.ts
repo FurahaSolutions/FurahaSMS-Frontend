@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectActivePageStateId } from 'src/app/store/selectors/active-page.selector';
-import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/reducers';
 
 @Component({
@@ -9,13 +8,9 @@ import { AppState } from 'src/app/store/reducers';
   templateUrl: './view-academic-year-info.component.html',
   styleUrls: ['./view-academic-year-info.component.css']
 })
-export class ViewAcademicYearInfoComponent implements OnInit {
-  @Input() params: { id: number };
-  id$: Observable<number | null | undefined>;
+export class ViewAcademicYearInfoComponent {
+  @Input() params: { id: number } | undefined;
+  id$ = this.store.select(selectActivePageStateId);
   constructor(private store: Store<AppState>) { }
-
-  ngOnInit() {
-    this.id$ = this.store.select(selectActivePageStateId);
-  }
 
 }

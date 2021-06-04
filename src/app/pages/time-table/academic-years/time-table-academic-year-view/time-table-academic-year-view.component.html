@@ -24,10 +24,11 @@
 
         <table class="table table-dark table-bordered">
           <thead>
-          <th>Day of Week</th>
-          <th>Stream</th>
-          <th *ngFor='let timing of classLevel.timings'>{{ timing }}</th>
-
+          <tr>
+            <th>Day of Week</th>
+            <th>Stream</th>
+            <th *ngFor='let timing of classLevel.timings'>{{ timing }}</th>
+          </tr>
           </thead>
           <tbody>
           <ng-container *ngFor='let dayOfWeek of classLevel.daysOfWeek'>
@@ -69,7 +70,9 @@
     </accordion-group>
   </accordion>
 
-  <div *ngIf="timeTableLessons.length < 1" class="alert alert-info mt-2"><span class="icon-info"></span>No time table set up yet</div>
+  <div *ngIf="timeTableLessons.length < 1" class="alert alert-info mt-2"><span class="icon-info"></span>No time table
+    set up yet
+  </div>
 </div>
 
 <ng-template class="card p-2" #loading>

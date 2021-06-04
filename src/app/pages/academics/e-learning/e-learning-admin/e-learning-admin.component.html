@@ -5,7 +5,7 @@
 
     <section class="col-lg-4 col-md-6 col-sm-6">
       <label for="search">Search Courses</label>
-      <input (keyup)="filterStringSubject$.next($event.target.value)" type="search" id='search' class='form-control'>
+      <input [(ngModel)]="search" (ngModelChange)="filterStringSubject$.next(search)" type="search" id='search' class='form-control'>
     </section>
     <button class="btn btn-primary" [routerLink]='["create-course"]'><span class="icon-plus-circled"></span>New
       Course
