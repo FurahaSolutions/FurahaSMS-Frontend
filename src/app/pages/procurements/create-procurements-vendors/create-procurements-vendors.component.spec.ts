@@ -32,7 +32,7 @@ describe('CreateProcurementsVendorsComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         TabsModule.forRoot(),
         NgSelectModule,
         AppStarLabelRequiredModule,

@@ -26,17 +26,20 @@ import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } f
 })
 export class UserSearchComponent implements OnInit, ControlValueAccessor {
   @Input() type = '';
-  search: string;
+  search = '';
   selectedUserId = 0;
   suggestions$: Observable<IUserProfile[]> = of([]);
-  errorMessage: string;
+  errorMessage: string | undefined;
   selectedItemSubject$ = new Subject<IUserProfile>();
   selectedItemAction$ = this.selectedItemSubject$.asObservable();
-  onChanges: ($value: any) => void;
-  onTouched: () => void;
 
   constructor(private userService: UsersService) {
   }
+
+  onChanges: ($value: any) => void = () => {
+  };
+  onTouched: () => void = () => {
+  };
 
   ngOnInit(): void {
     this.suggestions$ = new Observable((observer: Observer<string>) => {

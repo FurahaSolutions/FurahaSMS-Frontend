@@ -19,7 +19,7 @@ describe('ViewTeacherComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         AppUserProfileModule,
         StoreModule.forRoot(REDUCER_TOKEN, {

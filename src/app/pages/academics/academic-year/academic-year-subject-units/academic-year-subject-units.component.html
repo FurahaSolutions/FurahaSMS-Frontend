@@ -11,8 +11,8 @@
     </section>
   </section>
   <section class="p-2">
-    <app-validate-submit-buttons [isSubmitting]='isSubmitting'
-      (validationButtonClicked)='triggerValidation = !triggerValidation' [formItem]='allocationsForm'>
+    <app-validate-submit-buttons [isSubmitting]='submitInProgressAction$ | ngrxPush'
+      (validationButtonClicked)='triggerValidationSubject$.next(true)' [formItem]='allocationsForm'>
     </app-validate-submit-buttons>
   </section>
 </form>

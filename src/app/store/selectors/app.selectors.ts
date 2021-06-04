@@ -20,7 +20,7 @@ export const selectGender = (id: number | string) => createSelector(
 
 export const selectReligions = createSelector(
   selectAppState,
-  app => app ? Object.values(app[religionFeatureKey]) : ([{ }])
+  app => (app ? Object.values(app[religionFeatureKey]) : ([]))
 );
 
 export const selectReligion = (id: number | string) => createSelector(

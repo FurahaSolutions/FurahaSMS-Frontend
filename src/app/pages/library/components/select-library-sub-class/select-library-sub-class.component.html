@@ -2,7 +2,7 @@
   <section *ngIf='(libraryBookClasses$ | ngrxPush) as libraryBookClasses; else item_loading'>
     <label *ngIf='libraryBookClasses.length > 0' [attr.for]='"library-book-category" + id'>Select Sub Category</label>
     <section>
-      <section *ngIf='libraryBookClasses.length > 0; no_more_items'>
+      <section *ngIf='libraryBookClasses.length > 0; else no_more_items'>
         <select (change)='emitChange()' [(ngModel)]='selectedCategoryId' id="bookCLass" class="form-control">
           <option *ngFor='let libraryBookClass of libraryBookClasses' [value]="libraryBookClass.id">
             {{ libraryBookClass.name }}</option>

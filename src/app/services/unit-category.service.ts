@@ -26,7 +26,7 @@ export class UnitCategoryService {
   }
 
   get(data: any) {
-    const {units, id} = data;
+    const {id} = data;
     const url = `api/curriculum/unit-categories/${id}?units=1`;
     return this.http.get<any>(url).pipe(map(res => res as unknown)) as Observable<UnitCategoryInterface>;
   }

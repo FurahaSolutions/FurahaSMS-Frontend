@@ -23,7 +23,7 @@ describe('RolesPermissionEditComponent', () => {
         ReactiveFormsModule,
         AppCheckboxModule,
         AppInputModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,
           runtimeChecks: {

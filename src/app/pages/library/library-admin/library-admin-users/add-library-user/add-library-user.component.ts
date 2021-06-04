@@ -10,7 +10,7 @@ import { LibraryUserService } from '../services/library-user.service';
 })
 export class AddLibraryUserComponent extends formMixin() {
   itemForm = this.fb.group({
-    userId: null
+    userId: [undefined]
   });
 
   constructor(private fb: FormBuilder, private libraryUserService: LibraryUserService) {

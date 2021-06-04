@@ -40,7 +40,7 @@ describe('CreateStudentGuardianComponent', () => {
         NgSelectModule,
         HttpClientTestingModule,
         AppLoadingBubbleModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [

@@ -14,8 +14,8 @@ import { selectShowMenu } from 'src/app/store/selectors/menu-toggle.selector';
 })
 
 export class HeaderComponent implements OnInit {
-  isMenuClosed$: Observable<boolean>;
-  isMenuClosed: boolean;
+  isMenuClosed$ = this.store.select(selectShowMenu);
+  isMenuClosed = true;
   isCollapsed = true;
   isSmallDevice$: Observable<boolean> = this.breakpointObserver
     .observe([Breakpoints.XSmall, Breakpoints.Small])
@@ -27,9 +27,6 @@ export class HeaderComponent implements OnInit {
     public breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
-    this.isMenuClosed = true;
-    this.isMenuClosed$ = this.store.select(selectShowMenu);
-
     this.isMenuClosed$.subscribe(isMenuClosed => {
       this.isMenuClosed = isMenuClosed;
     });

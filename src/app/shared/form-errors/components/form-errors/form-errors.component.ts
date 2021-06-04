@@ -15,8 +15,8 @@ interface AllValidationErrors {
   styleUrls: ['./form-errors.component.css']
 })
 export class FormErrorsComponent extends subscribedContainerMixin() implements OnInit {
-  @Input() form: FormGroup;
-  @Input() validated: boolean;
+  @Input() form: FormGroup = new FormGroup({});
+  @Input() validated = false;
   @Input() messages: { [id: string ]: string };
   errors: AllValidationErrors[];
   constructor(

@@ -17,7 +17,7 @@ describe('ELearningAdminComponent', () => {
         FormsModule,
         HttpClientTestingModule,
         AppLoadingBubbleModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [ELearningAdminComponent]

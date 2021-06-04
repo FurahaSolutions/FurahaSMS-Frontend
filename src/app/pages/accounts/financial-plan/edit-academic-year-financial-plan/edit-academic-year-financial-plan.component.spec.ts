@@ -27,7 +27,7 @@ describe('EditAcademicYearFinancialPlanComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         TabsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,
           runtimeChecks: {

@@ -1,4 +1,4 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createSelector } from '@ngrx/store';
 import * as fromModal from '../reducers/modal.reducer';
 import { selectAppState } from './app.selectors';
 

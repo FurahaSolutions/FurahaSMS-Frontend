@@ -4,8 +4,6 @@ import { selectEditModeOnState } from 'src/app/store/selectors/app.selectors';
 import { select, Store } from '@ngrx/store';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
-import { takeUntil } from 'rxjs/operators';
-import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../shared/mixins/form.mixin';
 import { fadeInOutAnimationMetadata } from '../../../shared/animations/fade-in-out.animation';
 
@@ -19,14 +17,14 @@ import { fadeInOutAnimationMetadata } from '../../../shared/animations/fade-in-o
 })
 export class UserSelectItemComponent extends formMixin() implements OnInit {
 
-  @Input() key: string;
-  @Input() label: string;
-  @Input() value: number;
-  @Input() userId: number;
-  @Input() valueName: string;
+  @Input() key: string | undefined;
+  @Input() label = '';
+  @Input() value: number | undefined;
+  @Input() userId: number | undefined;
+  @Input() valueName: string | undefined;
   @Output() valueChanged: EventEmitter<{ key: string; id: number; name: string }> = new EventEmitter();
-  @Input() items: Observable<any[]>;
-  @ViewChild('selectInput') selectInput: ElementRef;
+  @Input() items: Observable<any[]> | undefined;
+  @ViewChild('selectInput') selectInput: ElementRef | undefined;
   editMode$: Observable<boolean> | undefined = this.store.pipe(select(selectEditModeOnState));
   editable = false;
   editHovered = false;
@@ -54,16 +52,16 @@ export class UserSelectItemComponent extends formMixin() implements OnInit {
       this.usersService.update({
         fieldName: this.label,
         fieldNewValue,
-        userId: this.userId
+        userId: this.userId as number
       })
 
         .subscribe({
           complete: () => this.submitInProgressSubject$.next(false),
           next: () => {
             this.valueChanged.emit({
-              key: this.key,
-              id: (this.selectInput.nativeElement as HTMLSelectElement).selectedIndex,
-              name: (this.selectInput.nativeElement as HTMLSelectElement).selectedOptions[0].innerText.trim()
+              key: this.key as string,
+              id: (this.selectInput?.nativeElement as HTMLSelectElement).selectedIndex,
+              name: (this.selectInput?.nativeElement as HTMLSelectElement).selectedOptions[0].innerText.trim()
             });
             this.editable = false;
           },

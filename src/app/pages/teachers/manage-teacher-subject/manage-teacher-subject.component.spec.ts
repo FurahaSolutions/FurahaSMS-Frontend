@@ -26,7 +26,8 @@ describe('ManageTeacherSubjectComponent', () => {
           }
         }),
         StoreModule.forFeature(teacherProfileFeatureKey, reducer),
-        RouterTestingModule, HttpClientTestingModule,
+        RouterTestingModule.withRoutes([]),
+        HttpClientTestingModule,
         ReactiveFormsModule,
         FormsModule,
         ReactiveComponentModule

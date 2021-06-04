@@ -1,8 +1,83 @@
 <h1>View Book</h1>
-<section *ngIf='libraryBook$ | ngrxPush as libraryBook'>
-  Book Title: <strong>{{ libraryBook.title }}</strong>
-</section>
+<div class="card p-2">
+  <section *ngIf='libraryBook$ | ngrxPush as libraryBook; else loading'>
+    <div class="d-flex flex-wrap align-items-start">
+      <div class="col-lg-5 d-flex flex-wrap justify-content-start">
+        <div class="col-lg-12">
+          <img class="img-fluid" id='placeholder' src="assets/images/placeholder.webp" alt="Book Picture">
+        </div>
+        <div class="col-lg-5 mt-2">Title:</div>
+        <div class="col-lg-7 mt-2"><strong>{{ libraryBook.title }}</strong></div>
+        <div class="col-lg-5 mt-2">ISBN:</div>
+        <div class="col-lg-7 mt-2"><strong>{{ libraryBook.ISBN }}</strong></div>
+        <div class="col-lg-5 mt-2">Volume:</div>
+        <div class="col-lg-7 mt-2"><strong>{{ libraryBook.volume ? libraryBook.volume : 'NA' }}</strong></div>
+        <div class="col-lg-5 mt-2">Publication Date:</div>
+        <div class="col-lg-7 mt-2"><strong>{{ libraryBook['publication_date']? libraryBook.volume : 'Not defined' }}</strong></div>
+      </div>
+      <div class="col-lg-7">
+        <div class="d-flex flex-wrap">
+          <div class="col-lg-6 label-name mt-2">Minimum book reservations</div>
+          <div class="col-lg-6 label-value mt-2">{{ libraryBook['minimum_reserve']}}</div>
+          <div class="col-lg-6 label-name mt-2">Maximum Borrowing Days</div>
+          <div class="col-lg-6 label-value mt-2">{{ libraryBook['max_borrowing_days']}}</div>
+          <div class="col-lg-6 label-name mt-2">Minimum book reservations</div>
+          <div class="col-lg-6 label-value mt-2">{{ libraryBook['minimum_reserve']}}</div>
+          <div class="col-lg-6 label-name mt-2">Overdue charge per hour</div>
+          <div class="col-lg-6 label-value mt-2">{{ libraryBook['overdue_charge_per_hour']}}</div>
+        </div>
+        <div class="d-flex flex-wrap">
+          <fieldset class="mt-3 mt-lg-4 col-lg-6">
+            <legend>Category</legend>
+            <div class="mt-1">
+            <span class="badge badge-secondary p-2 mr-2"
+                  *ngFor="let category of libraryBook['library_classes']">
+              {{ category.name }}
+            </span>
+            </div>
+          </fieldset>
+          <fieldset class="mt-3 mt-lg-4 col-lg-6">
+            <legend>Authors</legend>
+            <div class="mt-1">
+            <span class="badge badge-secondary p-2 mr-2" *ngFor="let author of libraryBook['library_book_authors']">
+              {{ author.name }}
+            </span>
+            </div>
+          </fieldset>
+          <fieldset class="mt-3 col-lg-6">
+            <legend>Publishers</legend>
+            <div class="mt-1">
+            <span class="badge badge-secondary p-2 mr-2"
+                  *ngFor="let publisher of libraryBook['library_book_publishers']">
+              {{ publisher.name }}
+            </span>
+            </div>
+          </fieldset>
+          <fieldset class="mt-3 col-lg-6">
+            <legend>Tags</legend>
+            <div class="mt-1">
+            <span class="badge badge-secondary p-2 mr-2"
+                  *ngFor="let tag of libraryBook['library_book_tags']">
+              {{ tag.name }}
+            </span>
+            </div>
+          </fieldset>
+          <fieldset class="mt-3 mt-lg-4 col-12">
+            <legend>Available Book Items</legend>
+            <div class="mt-1">
+            <span class="badge badge-secondary p-2 mr-2" *ngFor="let item of libraryBook['library_book_items']">
+              {{ item.ref }} <span *ngIf="item.reserved" class="badge badge-danger">R</span>
+            </span>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
 
-<ng-template #loading>
-  <app-loading-bubble></app-loading-bubble>
-</ng-template>
+  </section>
+
+  <ng-template #loading>
+    <app-loading-bubble></app-loading-bubble>
+  </ng-template>
+
+</div>

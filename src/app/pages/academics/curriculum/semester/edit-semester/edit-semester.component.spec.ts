@@ -17,7 +17,7 @@ describe('EditSemesterComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ErrorModule,
         ReactiveFormsModule,
         ReactiveComponentModule,

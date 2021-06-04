@@ -10,7 +10,9 @@ import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/
 describe('GuestGuard', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientTestingModule,
+      imports: [
+        RouterTestingModule.withRoutes([]),
+        HttpClientTestingModule,
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,
           runtimeChecks: {

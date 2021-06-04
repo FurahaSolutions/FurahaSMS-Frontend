@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ExamBankDashboardComponent } from './exam-bank-dashboard/exam-bank-dashboard.component';
-import { ExamBankArchivesComponent } from './exam-bank-archives/exam-bank-archives.component';
 
 
 const routes: Routes = [

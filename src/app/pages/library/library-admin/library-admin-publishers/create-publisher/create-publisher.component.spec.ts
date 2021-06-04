@@ -36,7 +36,7 @@ describe('CreatePublisherComponent', () => {
         AppInputModule,
         AppLoadingBubbleModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         EditorModule,
         AppValidateSubmitButtonsModule,
         ReactiveComponentModule

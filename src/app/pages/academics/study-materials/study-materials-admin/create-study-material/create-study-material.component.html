@@ -2,7 +2,7 @@
 
 <form class="d-flex flex-wrap" (submit)='saveStudyMaterial()' [formGroup]='studyMaterialForm'>
   <section class="col-lg-5 col-md-6">
-    <app-input [triggerValidation]='triggerValidation' labelClass='col-md-12 col-lg-12' inputClass='col-md-12 col-lg-12'
+    <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' labelClass='col-md-12 col-lg-12' inputClass='col-md-12 col-lg-12'
       label='Title' id='title' type="text" placeholder="Enter Title" formControlName="title"></app-input>
     <fieldset>
       <legend>Subjects/ Units</legend>
@@ -36,7 +36,7 @@
         <button class="btn btn-secondary btn-sm" type="button" (click)="nextPage()"
           [disabled]="page === totalPages">Next</button>
       </div>
-    
+
       <pdf-viewer [page]="page" (after-load-complete)="afterLoadComplete($event)" [show-all]='false' [fit-to-page]="true"
         [src]="pdfSrc" [render-text]="true" style="display: block;"></pdf-viewer>
     </section>
@@ -46,9 +46,9 @@
     </fieldset>
   </fieldset>
 
-  <button class='btn btn-success' [disabled]='isSubmitting || studyMaterialForm.invalid'>
+  <button class='btn btn-success' [disabled]='(submitInProgressAction$ | ngrxPush) || studyMaterialForm.invalid'>
     Save Study Material
-    <i *ngIf='isSubmitting' class='icon-spin3 animate-spin'></i>
-    <i *ngIf='!isSubmitting' class='icon-ok-1'></i>
+    <i *ngIf='(submitInProgressAction$ | ngrxPush)' class='icon-spin3 animate-spin'></i>
+    <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-ok-1'></i>
   </button>
 </form>

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {map, mergeMap, tap} from 'rxjs/operators';
+import {map, mergeMap} from 'rxjs/operators';
 import {TeacherSubjectService} from '../services/teacher-subject.service';
 import {UnitsService} from '../../../services/units.service';
 import {combineLatest, Observable} from 'rxjs';

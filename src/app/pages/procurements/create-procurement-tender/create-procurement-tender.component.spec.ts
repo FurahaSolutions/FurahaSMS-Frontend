@@ -28,7 +28,7 @@ describe('CreateProcurementTenderComponent', () => {
           }
         }),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppStarLabelRequiredModule,
         FormsModule,
         ReactiveFormsModule,

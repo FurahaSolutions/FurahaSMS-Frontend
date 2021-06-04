@@ -28,7 +28,7 @@ export class CreateStudentGuardianComponent extends subscribedContainerMixin(for
       mergeMap(id => this.studentService.loadStudentProfile$(id))
     );
 
-  studentId: number;
+  studentId: number | undefined;
 
   constructor(
     private studentGuardian: GuardiansService,

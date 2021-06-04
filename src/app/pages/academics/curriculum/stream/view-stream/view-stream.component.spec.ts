@@ -17,7 +17,7 @@ describe('ViewStreamComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ErrorModule,
         HttpClientTestingModule,
         AppViewItemsModule,

@@ -12,12 +12,12 @@ import { IType } from '../select/select.component';
   styleUrls: ['./crud.component.css']
 })
 export class CrudComponent extends formWithEditorMixin() implements OnInit {
-  @Input() title: boolean;
+  @Input() title: string | undefined;
   @Input() fields: { label: string; name: string; type: string; validators: ValidatorFn[] }[] = [];
-  @Input() parent: IType;
+  @Input() parent: IType | undefined;
   @Input() itemService: any;
-  @Input() transforms: TransformInterface[];
-  @Input() idIndex: number;
+  @Input() transforms: TransformInterface[] | undefined;
+  @Input() idIndex: number | undefined;
 
   // controls: { name: string; validators: any[] }[] = [
   //   {name: 'name', validators: [Validators.required]},

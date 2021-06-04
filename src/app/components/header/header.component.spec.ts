@@ -27,7 +27,7 @@ describe('HeaderComponent', () => {
       imports: [
         FormsModule,
         ReactiveFormsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,

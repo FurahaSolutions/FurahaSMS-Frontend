@@ -1,6 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import {BehaviorSubject} from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Component({
@@ -10,12 +10,14 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class ValidateSubmitButtonsComponent {
 
-  @Input() formItem: FormGroup;
-  @Input() isSubmitting: boolean;
+  @Input() formItem: FormGroup = new FormGroup({});
+  @Input() isSubmitting = false;
   @Output() validationButtonClicked = new EventEmitter();
-  validatedSubject$= new BehaviorSubject<boolean>(false);
+  validatedSubject$ = new BehaviorSubject<boolean>(false);
   validatedAction$ = this.validatedSubject$.asObservable();
-  constructor() { }
+
+  constructor() {
+  }
 
   triggerValidation() {
     this.validatedSubject$.next(true);

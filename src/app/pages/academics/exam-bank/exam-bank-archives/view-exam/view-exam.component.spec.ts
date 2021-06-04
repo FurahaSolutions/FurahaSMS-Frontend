@@ -13,7 +13,7 @@ describe('ViewExamComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,

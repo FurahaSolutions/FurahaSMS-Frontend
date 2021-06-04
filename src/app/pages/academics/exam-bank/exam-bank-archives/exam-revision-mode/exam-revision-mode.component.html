@@ -1,8 +1,8 @@
 <section *ngIf='examPaper$ | ngrxPush as examPaper; else loading'>
   <h1>Exam Revision <span class="icon-right-dir"></span> {{ examPaper.name }}</h1>
   <section class="d-flex justify-content-between">
-    <button type="button" 
-      (click)='showInstructions = ! showInstructions' 
+    <button type="button"
+      (click)='showInstructions = ! showInstructions'
       class="btn btn-primary btn-sm">Show Instructions</button>
     <a [routerLink]='["../view"]' class="btn btn-primary btn-sm">View Mode</a>
   </section>
@@ -36,3 +36,4 @@
 <ng-template #loading>
   <h1>Exam Revision</h1>
   <app-loading-bubble></app-loading-bubble>
+</ng-template>

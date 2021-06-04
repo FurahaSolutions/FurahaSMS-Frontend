@@ -1,5 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-import { IUserProfile } from 'src/app/interfaces/user-profile.interface';
 
 export interface IUserProfileAction {
   id: number;

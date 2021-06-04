@@ -28,7 +28,7 @@ describe('ViewUnitComponent', () => {
         EffectsModule.forRoot([]),
         AcademicsModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         ReactiveComponentModule
       ],

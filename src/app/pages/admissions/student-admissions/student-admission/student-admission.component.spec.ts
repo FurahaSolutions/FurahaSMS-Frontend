@@ -22,7 +22,9 @@ describe('StudentAdmissionComponent', () => {
             strictStateImmutability: true,
             strictActionImmutability: true,
           }
-        }), RouterTestingModule, AppLinksModule,
+        }),
+        RouterTestingModule.withRoutes([]),
+        AppLinksModule,
         StoreModule.forFeature(myProfileFeatureKey, reducer),
         StoreModule.forFeature(appFeatureKey, reducers)
       ],

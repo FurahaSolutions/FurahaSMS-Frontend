@@ -6,9 +6,12 @@ import { fileExtentionData } from './file-extention.data';
 })
 export class FileExtentionPipe implements PipeTransform {
 
-  transform(value: string, ...args: unknown[]): string {
+  transform(value: string | undefined, ...args: unknown[]): string {
+    if(!value) {
+      return '';
+    }
     const data = fileExtentionData.find(item => item.fileTypes.includes(value.toLowerCase()));
-    if (args[0] === 'color') {
+    if(args[0] === 'color') {
       return data ? data.color : '#ffffff';
     }
     return data ? data.icon : 'icon-doc';

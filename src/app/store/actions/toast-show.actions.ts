@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ToastStateInterface } from './../reducers/toast.reducer';
+import { ToastStateInterface } from '../reducers/toast.reducer';
 export const loadToastShows = createAction(
   '[ToastShow] Load ToastShows'
 );

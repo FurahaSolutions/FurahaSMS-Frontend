@@ -19,7 +19,7 @@ describe('LayoutComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         FormsModule,
         ReactiveFormsModule,
         StoreModule.forRoot(REDUCER_TOKEN, {

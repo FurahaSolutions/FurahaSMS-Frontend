@@ -29,7 +29,7 @@ describe('SupportStaffAdmissionComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [SupportStaffAdmissionComponent, SelectComponent],

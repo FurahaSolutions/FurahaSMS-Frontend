@@ -1,25 +1,26 @@
-import {Component, OnInit} from '@angular/core';
-import {Store, select} from '@ngrx/store';
+import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import * as fromStore from '../../../../store/reducers';
-import {RolesAndPermissionsService} from '../../../roles-and-permissions/services/roles-and-permissions.service';
-import {Observable} from 'rxjs';
-import {tap, takeWhile} from 'rxjs/operators';
-import {loadStaffTypesSuccess} from '../../store/actions/staff-type.actions';
-import {Router} from '@angular/router';
-import {selectStaffTypes} from '../../store/selectors/staff-type.selectors';
-import {FormBuilder, Validators, FormGroup} from '@angular/forms';
-import {SupportStaffService} from 'src/app/pages/support-staffs/services/support-staff.service';
+import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { selectStaffTypes } from '../../store/selectors/staff-type.selectors';
+import { FormBuilder, Validators } from '@angular/forms';
+import { SupportStaffService } from 'src/app/pages/support-staffs/services/support-staff.service';
+import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
   selector: 'app-support-staff-admission',
   templateUrl: './support-staff-admission.component.html',
   styleUrls: ['./support-staff-admission.component.css']
 })
-export class SupportStaffAdmissionComponent implements OnInit {
-  staffTypes$: Observable<any>;
+export class SupportStaffAdmissionComponent extends subscribedContainerMixin() implements OnInit {
+  staffTypes$ = this.store.pipe(
+    select(selectStaffTypes)
+  );
   staffType: any;
-  staffTypeFrom: FormGroup;
-  componentIsActive: boolean;
+  staffTypeFrom = this.fb.group({
+    staffTypeId: ['', [Validators.required]]
+  });
 
   constructor(
     private store: Store<fromStore.AppState>,
@@ -27,22 +28,17 @@ export class SupportStaffAdmissionComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder
   ) {
+    super();
   }
 
   ngOnInit() {
     this.supportStaffService.loadAllStaffTypes$
-      .pipe(takeWhile(() => this.componentIsActive))
+      .pipe(takeUntil(this.destroyed$))
       .subscribe();
-    this.staffTypes$ = this.store.pipe(
-      select(selectStaffTypes)
-    );
-    this.staffTypeFrom = this.fb.group({
-      staffTypeId: ['', [Validators.required]]
-    });
   }
 
   staffTypeFormSubmit() {
-    if (this.staffTypeFrom.valid) {
+    if(this.staffTypeFrom.valid) {
       this.router.navigate(['admissions', 'staff', 'support', this.staffTypeFrom.get('staffTypeId')?.value, 'create']);
     }
 

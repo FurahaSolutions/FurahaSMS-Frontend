@@ -30,7 +30,7 @@ describe('CreateStudentAcademicsComponent', () => {
         FormsModule,
         StudentsModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule
       ],
       declarations: [],

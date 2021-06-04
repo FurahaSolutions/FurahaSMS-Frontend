@@ -34,7 +34,7 @@ describe('EditUnitComponent', () => {
         }),
         EffectsModule.forRoot([]),
         AcademicsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         FormsModule,
         ReactiveFormsModule,

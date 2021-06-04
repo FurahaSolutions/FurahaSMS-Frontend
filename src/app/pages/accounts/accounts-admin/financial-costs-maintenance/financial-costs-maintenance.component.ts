@@ -1,26 +1,35 @@
-import {Component, OnInit, TemplateRef} from '@angular/core';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {FinancialCostsService} from '../../services/financial-costs.service';
-import {Observable} from 'rxjs';
-import {map, takeUntil, tap} from 'rxjs/operators';
-import {subscribedContainerMixin} from '../../../../shared/mixins/subscribed-container.mixin';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { FinancialCostsService } from '../../services/financial-costs.service';
+import { map, takeUntil, tap } from 'rxjs/operators';
+import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../../../shared/mixins/form.mixin';
 
 @Component({
   selector: 'app-financial-costs-maintenance',
   templateUrl: './financial-costs-maintenance.component.html',
   styleUrls: ['./financial-costs-maintenance.component.css']
 })
-export class FinancialCostsMaintenanceComponent extends subscribedContainerMixin() implements OnInit {
-  modalRef: BsModalRef;
-  financialCosts$: Observable<any[]>;
+export class FinancialCostsMaintenanceComponent extends subscribedContainerMixin(formMixin()) implements OnInit {
+  modalRef: BsModalRef | undefined;
   financialCosts: any[] = [];
-  financialCostEditForm: FormGroup;
-  triggerValidation: boolean;
-  isSubmitting: boolean;
-  editedIndex: number;
+  financialCostEditForm = this.fb.group({
+    id: [null],
+    name: ['', Validators.required],
+    costItems: this.fb.array([]),
+  });
+  editedIndex: number | undefined;
   isLoading = true;
   deleting = [false];
+  financialCosts$ = this.financialCostsService.all$.pipe(
+    map(item => (
+      item.map(({id, name, cost_items: costItems}: any) => ({
+        id, name, costItems: costItems.map(({id: costId, name: costName}: any) => ({id: costId, name: costName}))
+      }))
+    )),
+    tap((financialCosts) => this.financialCosts = financialCosts)
+  );
 
   constructor(
     private modalService: BsModalService,
@@ -32,14 +41,6 @@ export class FinancialCostsMaintenanceComponent extends subscribedContainerMixin
 
   ngOnInit() {
     this.resetEditForm();
-    this.financialCosts$ = this.financialCostsService.all$.pipe(
-      map(item => (
-        item.map(({id, name, cost_items:costItems}: any) => ({
-          id, name, costItems: costItems.map(({id: costId, name: costName}: any) => ({id: costId, name: costName}))
-        }))
-      )),
-      tap((financialCosts) => this.financialCosts = financialCosts)
-    );
   }
 
   resetEditForm() {
@@ -54,7 +55,7 @@ export class FinancialCostsMaintenanceComponent extends subscribedContainerMixin
   openModal(template: TemplateRef<any>, j?: number) {
     this.resetEditForm();
     this.editedIndex = -1;
-    if (j || j === 0) {
+    if(j || j === 0) {
       this.editedIndex = j;
       this.deleteCostItem(0);
       this.financialCosts[j].costItems.forEach(() => this.addCostItem());
@@ -65,7 +66,7 @@ export class FinancialCostsMaintenanceComponent extends subscribedContainerMixin
   }
 
   hideModal() {
-    this.modalRef.hide();
+    this.modalRef?.hide();
     this.resetEditForm();
 
   }
@@ -87,16 +88,16 @@ export class FinancialCostsMaintenanceComponent extends subscribedContainerMixin
   }
 
   submitCostEditForm() {
-    if (this.financialCostEditForm.valid) {
-      if (this.editedIndex > -1) {
-        this.financialCosts[this.editedIndex] = this.financialCostEditForm.value;
+    if(this.financialCostEditForm.valid) {
+      if(this.editedIndex as number > -1) {
+        this.financialCosts[this.editedIndex as number] = this.financialCostEditForm.value;
 
       } else {
         this.financialCosts.push(this.financialCostEditForm.value);
       }
       this.hideModal();
     } else {
-      this.triggerValidation = !this.triggerValidation;
+      this.triggerValidationSubject$.next(true);
     }
 
 
@@ -115,7 +116,7 @@ export class FinancialCostsMaintenanceComponent extends subscribedContainerMixin
   deleteItem(j: number) {
     const confirmedDeletion = confirm(`Are you sure you wish to delete cost item "${this.financialCosts[j].name}" `);
 
-    if (confirmedDeletion) {
+    if(confirmedDeletion) {
       this.deleting[j] = true;
       this.financialCostsService.destroy(this.financialCosts[j].id)
         .pipe(takeUntil(this.destroyed$))

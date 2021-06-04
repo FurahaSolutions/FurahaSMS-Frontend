@@ -12,7 +12,10 @@ describe('ClassLevelUnitLevelAllocationComponent', () => {
 
   beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterTestingModule, AppLoadingBubbleModule,
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule.withRoutes([]),
+        AppLoadingBubbleModule,
         ReactiveComponentModule
       ],
       declarations: [ClassLevelUnitLevelAllocationComponent]

@@ -19,6 +19,7 @@ import { ManageOnlineAssessmentComponent } from './manage-online-assessment/mana
 import {DurationPickerModule} from 'ngx-duration-picker';
 import {TopicOnlineAssessmentListModule} from '../../topic-online-assessment-list/topic-online-assessment-list.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { EditOnlineAssessmentDetailsComponent } from './edit-online-assessment-details/edit-online-assessment-details.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
     ELearningEditCourseComponent,
     EditCourseContentItemComponent,
     DeleteCourseContentItemComponent,
-    ManageOnlineAssessmentComponent
+    ManageOnlineAssessmentComponent,
+    EditOnlineAssessmentDetailsComponent
   ],
   imports: [
     CommonModule,

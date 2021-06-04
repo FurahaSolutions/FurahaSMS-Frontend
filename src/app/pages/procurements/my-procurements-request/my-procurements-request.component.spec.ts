@@ -28,7 +28,8 @@ describe('MyProcurementsRequestComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        RouterTestingModule, HttpClientTestingModule,
+        RouterTestingModule.withRoutes([]),
+        HttpClientTestingModule,
         ReactiveComponentModule
       ],
       declarations: [

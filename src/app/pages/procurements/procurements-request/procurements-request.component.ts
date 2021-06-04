@@ -1,10 +1,10 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
-import {Router} from '@angular/router';
-import {ProcurementService} from 'src/app/services/procurement.service';
-import {takeUntil} from 'rxjs/operators';
-import {subscribedContainerMixin} from '../../../shared/mixins/subscribed-container.mixin';
-import {formMixin} from '../../../shared/mixins/form.mixin';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ProcurementService } from 'src/app/services/procurement.service';
+import { takeUntil } from 'rxjs/operators';
+import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../../shared/mixins/form.mixin';
 
 @Component({
   selector: 'app-procurements-request',
@@ -12,7 +12,7 @@ import {formMixin} from '../../../shared/mixins/form.mixin';
   styleUrls: ['./procurements-request.component.css']
 })
 export class ProcurementsRequestComponent extends subscribedContainerMixin(formMixin()) implements OnInit {
-  @Input() requestId: number;
+  @Input() requestId: number | undefined;
   procurementRequestForm: FormGroup = this.fb.group({
     id: [0],
     name: ['', [Validators.required]],
@@ -20,8 +20,8 @@ export class ProcurementsRequestComponent extends subscribedContainerMixin(formM
     description: [''],
     quantity: ['', [Validators.required, Validators.pattern('[0-9]+')]],
   });
-  formSubmitted: boolean;
-  loadingContents: boolean;
+  formSubmitted = false;
+  loadingContents = false;
 
   constructor(
     private fb: FormBuilder,
@@ -36,7 +36,7 @@ export class ProcurementsRequestComponent extends subscribedContainerMixin(formM
   }
 
   ngOnInit() {
-    if (this.requestId) {
+    if(this.requestId) {
       this.loadingContents = true;
       this.procurementService.getProcurementRequestWithId(this.requestId)
         .pipe(takeUntil(this.destroyed$))
@@ -55,7 +55,7 @@ export class ProcurementsRequestComponent extends subscribedContainerMixin(formM
 
   submitProcurementRequestForm() {
     this.submitInProgressSubject$.next(true);
-    if (this.procurementRequestForm.valid) {
+    if(this.procurementRequestForm.valid) {
       this.procurementService.saveProcurementRequest(this.procurementRequestForm.value)
         .pipe(takeUntil(this.destroyed$))
         .subscribe(res => {

@@ -20,7 +20,7 @@ describe('StudyMaterialsArchiveComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         FormsModule,
         StoreModule.forRoot(REDUCER_TOKEN, {

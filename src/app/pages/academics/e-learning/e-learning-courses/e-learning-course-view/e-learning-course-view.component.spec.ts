@@ -31,7 +31,7 @@ describe('ELearningCourseViewComponent', () => {
         }),
         StoreModule.forFeature(academicsFeatureKey, reducers),
         StoreModule.forFeature(myProfileFeatureKey, profileReducer),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         ReactiveComponentModule
       ],

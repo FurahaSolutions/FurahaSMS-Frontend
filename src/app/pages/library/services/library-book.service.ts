@@ -15,7 +15,11 @@ export class LibraryBookService {
     const subData = {
       ...data,
       title: data.bookTitle,
-      ['book_items']: data.bookItems
+      ['book_items']: data.bookItems.map((book: any) => ({
+        ref: book.ref,
+        reserved: book.reserved,
+        ['procurement_date']: book.dateProcured.toISOString().substr(0, 10)
+      }))
     };
     return this.http.post('api/library-books', subData);
   }
@@ -28,11 +32,23 @@ export class LibraryBookService {
     return this.http.get<any[]>(`api/library-books`, {params});
   }
 
+  getBooksByRef(params: any): Observable<any[]> {
+    return this.http.get<any[]>(`api/library-books/library-book-items`, {params});
+  }
+
   issueBook({bookItemId, userId}: { bookItemId: number; userId: number }) {
     return this.http.post<any[]>('api/library-books/issue', {['book_item_id']: bookItemId, ['user_id']: userId});
   }
 
+  returnBook({bookItemId}: { bookItemId: number }) {
+    return this.http.delete<any[]>(`api/library-books/issue/${bookItemId}`);
+  }
+
   getUserByName(q: string) {
     return this.http.get<any[]>('api/library-books/users', {params: {q}});
+  }
+
+  issuedBooks({limit, page}: { limit: number; page: number }) {
+    return this.http.get<any[]>(`api/library-books/issue`, {params: {limit: String(limit), page: String(page)}});
   }
 }

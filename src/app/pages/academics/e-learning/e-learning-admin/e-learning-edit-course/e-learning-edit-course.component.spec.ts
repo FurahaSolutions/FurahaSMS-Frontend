@@ -24,7 +24,7 @@ describe('ELearningEditCourseComponent', () => {
       imports: [
         ModalModule.forRoot(),
         AppLoadingBubbleModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         FormsModule,
         ReactiveFormsModule,
         ELearningTopicObjectivesModule,

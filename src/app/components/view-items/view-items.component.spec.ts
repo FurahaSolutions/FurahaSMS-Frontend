@@ -24,7 +24,7 @@ describe('ViewItemsComponent', () => {
           strictActionImmutability: true,
         }
       }),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [ViewItemsComponent, ChipsComponent, LoadingBubbleComponent, ErrorComponent],

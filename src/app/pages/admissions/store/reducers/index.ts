@@ -1,5 +1,4 @@
-import { Action, createReducer, on, ActionReducerMap } from '@ngrx/store';
-import * as AdmissionsActions from '../actions/admissions.actions';
+import { ActionReducerMap } from '@ngrx/store';
 import * as fromStaffType from './staff-type.reducer';
 
 export const admissionsFeatureKey = 'admissions';

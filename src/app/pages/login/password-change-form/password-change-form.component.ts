@@ -1,12 +1,13 @@
-import {Component} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
-import {map, takeUntil, tap} from 'rxjs/operators';
-import {AuthenticationService} from 'src/app/services/authentication.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Store} from '@ngrx/store';
-import {loadErrorMessagesFailure} from 'src/app/store/actions/error-message.actions';
-import {subscribedContainerMixin} from '../../../shared/mixins/subscribed-container.mixin';
+import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { combineLatest, Observable } from 'rxjs';
+import { map, takeUntil, tap } from 'rxjs/operators';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { loadErrorMessagesFailure } from 'src/app/store/actions/error-message.actions';
+import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../../shared/mixins/form.mixin';
 
 const checkPasswords = (group: FormGroup) => {
   const matchedPasswords = group.get('newPassword')?.value === group.get('newPasswordConfirmation')?.value;
@@ -18,7 +19,7 @@ const checkPasswords = (group: FormGroup) => {
   templateUrl: './password-change-form.component.html',
   styleUrls: ['./password-change-form.component.css']
 })
-export class PasswordChangeFormComponent extends subscribedContainerMixin() {
+export class PasswordChangeFormComponent extends subscribedContainerMixin(formMixin()) {
   passwordChangeForm: FormGroup = this.fb.group({
     token: [''],
     oldPassword: [''],
@@ -26,15 +27,13 @@ export class PasswordChangeFormComponent extends subscribedContainerMixin() {
     newPasswordConfirmation: ['', [Validators.required]]
   }, {validators: [checkPasswords]});
 
-  isSubmittingSubject$: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  isSubmittingActions$: Observable<boolean> = this.isSubmittingSubject$.asObservable();
   showOldPasswordField$: Observable<any> = this.route.queryParams.pipe(
     map((params) => params.token),
     tap((token) => token ? this.passwordChangeForm.get('token')?.setValue(token) : ''),
     map((token) => !token),
     tap((showField) => {
       const c: FormControl = this.passwordChangeForm.get('oldPassword') as FormControl;
-      if (showField) {
+      if(showField) {
         c.setValidators([Validators.required]);
       } else {
         c.setValidators([]);
@@ -62,15 +61,15 @@ export class PasswordChangeFormComponent extends subscribedContainerMixin() {
 
   submitPasswordChangeForm() {
 
-    this.isSubmittingSubject$.next(true);
-    if (this.passwordChangeForm.valid) {
+    this.submitInProgressSubject$.next(true);
+    if(this.passwordChangeForm.valid) {
 
       combineLatest([
         this.route.queryParams.pipe(map(params => params.returnUrl)),
         this.authService.changePassword(this.passwordChangeForm.value)
       ]).pipe(takeUntil(this.destroyed$)).subscribe({
         next: this.passwordChangeSuccess,
-        error: () => this.isSubmittingSubject$.next(false)
+        error: () => this.submitInProgressSubject$.next(false)
       });
     } else {
       this.passwordChangeForm.get('email')?.markAsTouched();
@@ -79,7 +78,7 @@ export class PasswordChangeFormComponent extends subscribedContainerMixin() {
 
   passwordChangeSuccess = ([returnUrl]: any[]) => {
     returnUrl = returnUrl || '/dashboard';
-    this.isSubmittingSubject$.next(false);
+    this.submitInProgressSubject$.next(false);
     this.store.dispatch(loadErrorMessagesFailure());
     this.router.navigate([returnUrl]).then();
   };

@@ -18,7 +18,7 @@ describe('FinancialPlanComponent', () => {
       imports: [
         FormsModule,
         ReactiveFormsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         HttpClientTestingModule,
         ReactiveComponentModule

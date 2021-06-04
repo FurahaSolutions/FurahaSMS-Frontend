@@ -17,7 +17,7 @@ describe('ELearningCoursesComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         ELearningCourseModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         FormsModule,
         HttpClientTestingModule,

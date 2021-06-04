@@ -19,7 +19,7 @@ describe('UserPasswordChangeComponent', () => {
         HttpClientTestingModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,
           runtimeChecks: {

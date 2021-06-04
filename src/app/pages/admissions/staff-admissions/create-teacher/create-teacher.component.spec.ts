@@ -20,7 +20,7 @@ describe('CreateTeacherComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         FormsModule,
         ReactiveFormsModule,

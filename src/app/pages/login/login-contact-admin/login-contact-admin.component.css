@@ -20,7 +20,7 @@ h1 {
     background-color: red !important;
   }
 
-  .card, .card-heading, .card-body {
+  .card, .card-body {
     padding: 10px;
     margin: 1em;
     min-width: 200px;

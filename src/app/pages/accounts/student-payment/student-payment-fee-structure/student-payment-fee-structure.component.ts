@@ -1,51 +1,46 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component} from '@angular/core';
 import { StudentFeePaymentService } from '../../services/student-fee-payment.service';
 import { ActivatedRoute } from '@angular/router';
-import { map, takeWhile, mergeMap, tap } from 'rxjs/operators';
+import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
+import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
   selector: 'app-student-payment-fee-structure',
   templateUrl: './student-payment-fee-structure.component.html',
   styleUrls: ['./student-payment-fee-structure.component.css']
 })
-export class StudentPaymentFeeStructureComponent implements OnInit, OnDestroy {
-  componentIsActive: boolean;
-  statement$: Observable<any>;
-  academicYears: any[];
-  semesters: any[];
-  costItems: any[];
-  otherFees: any[];
-  otherFeesCosts: any[];
+export class StudentPaymentFeeStructureComponent extends subscribedContainerMixin() {
+  academicYears: any[] = [];
+  semesters: any[] = [];
+  costItems: any[] = [];
+  otherFees: any[] = [];
+  otherFeesCosts: any[] = [];
+  statement$ = this.route.paramMap.pipe(
+    map(params => Number(params.get('id'))),
+    takeUntil(this.destroyed$),
+    mergeMap(studentId => this.studentFeePaymentService.getFeesStatementForStudentWithId(studentId)),
+    tap(item => {
+      const {
+        costItems,
+        academicYears,
+        semesters,
+        otherFeesCosts,
+        otherFees
+      } = this.studentFeePaymentService.getFeeItemsDetails(item);
+
+      this.costItems = costItems;
+      this.academicYears = academicYears as any[];
+      this.semesters = semesters as any[];
+      this.otherFeesCosts = otherFeesCosts;
+      this.otherFees = otherFees as any[];
+    })
+  );
 
   constructor(
     private studentFeePaymentService: StudentFeePaymentService,
     private route: ActivatedRoute
-  ) { }
-
-  ngOnInit() {
-    this.componentIsActive = true;
-    this.statement$ = this.route.paramMap
-      .pipe(map(params => Number(params.get('id'))),
-        takeWhile(() => this.componentIsActive),
-        mergeMap(studentId => this.studentFeePaymentService.getFeesStatementForStudentWithId(studentId)),
-        tap(item => {
-          const {
-            costItems,
-            academicYears,
-            semesters,
-            otherFeesCosts,
-            otherFees
-          } = this.studentFeePaymentService.getFeeItemsDetails(item);
-
-          this.costItems = costItems;
-          this.academicYears = academicYears as any[];
-          this.semesters = semesters as any[];
-          this.otherFeesCosts = otherFeesCosts;
-          this.otherFees = otherFees as any[];
-        })
-      );
-
+  ) {
+    super();
   }
 
   getTotalClassLevelFees = (academicYearId: number, classLevelId: number): number =>
@@ -72,7 +67,4 @@ export class StudentPaymentFeeStructureComponent implements OnInit, OnDestroy {
   ): number => this.studentFeePaymentService
     .getOtherCostTotal(this.otherFeesCosts, academicYearId, classLevelId, financialCostItemId, semesterId);
 
-  ngOnDestroy() {
-    this.componentIsActive = true;
-  }
 }

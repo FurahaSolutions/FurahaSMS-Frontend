@@ -30,7 +30,7 @@ describe('ViewProcurementTendersBidsComponent', () => {
           }
         }),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AccordionModule.forRoot(),
         ModalModule.forRoot(),
         ReactiveComponentModule

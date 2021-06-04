@@ -15,7 +15,7 @@ describe('TeachersDashboardComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         AppLoadingBubbleModule,
         StoreModule.forRoot(REDUCER_TOKEN, {

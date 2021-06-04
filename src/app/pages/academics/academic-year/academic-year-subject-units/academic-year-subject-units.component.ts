@@ -1,12 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { map, takeWhile, mergeMap } from 'rxjs/operators';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
 import { UnitLevelService } from 'src/app/services/unit-level.service';
-import { ViewEncapsulation } from '@angular/core';
 import { ClassLevelService } from 'src/app/services/class-level.service';
 import { Observable } from 'rxjs';
-import { FormBuilder, FormArray, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { AcademicYearService } from '../../services/academic-year.service';
 import { ActivatedRoute } from '@angular/router';
+import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../../../shared/mixins/form.mixin';
 
 @Component({
   selector: 'app-academic-year-subject-units',
@@ -14,52 +15,45 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./academic-year-subject-units.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AcademicYearSubjectUnitsComponent implements OnInit, OnDestroy {
-  classLevels$: Observable<any[]>;
+export class AcademicYearSubjectUnitsComponent extends subscribedContainerMixin(formMixin()) implements OnInit {
   unitLevels: any[] = [];
   selectedUnitLevel = [[]];
-  allocationsForm: FormGroup;
-  isSubmitting: boolean;
-  triggerValidation: boolean;
-  academicYearId$: Observable<number>;
-  componentIsActive: boolean;
+  allocationsForm: FormGroup = this.fb.group({
+    classLevels: this.fb.array([])
+  });
+  academicYearId$: Observable<number> = (this.route.parent as ActivatedRoute).paramMap.pipe(
+    map(params => Number(params.get('id')))
+  );
+  classLevels$: Observable<any[]> = this.academicYearId$.pipe(
+    mergeMap(academicYearId => this.classLevelService.getAll({includeUnits: 1, includeLevels: 1, academicYearId})),
+    takeUntil(this.destroyed$)
+  );
+
   constructor(
     private unitLevelService: UnitLevelService,
     private classLevelService: ClassLevelService,
     private fb: FormBuilder,
     private academicYearService: AcademicYearService,
     private route: ActivatedRoute,
-  ) { }
+  ) {
+    super();
+  }
 
   ngOnInit() {
-    this.componentIsActive = true;
-    this.academicYearId$ = (this.route.parent as ActivatedRoute).paramMap
-      .pipe(map(params => Number(params.get('id'))))
-      .pipe(takeWhile(() => this.componentIsActive));
-    this.isSubmitting = false;
-    this.allocationsForm = this.fb.group({
-      classLevels: this.fb.array([])
-    });
-
-    this.classLevels$ =
-      this.academicYearId$.pipe(
-        mergeMap(academicYearId => this.classLevelService.getAll({ includeUnits: 1, includeLevels: 1, academicYearId }))
-      )
-      .pipe(takeWhile(() => this.componentIsActive));
     this.classLevels$.subscribe(res => {
       res.forEach(item => {
         this.classLevels.push(
           this.fb.group({
             id: item.id,
             // Problem is Here
-            unitLevels: [item.unit_levels.map(({id}: {id: number}) => id)],
+            unitLevels: [item.unit_levels.map(({id}: { id: number }) => id)],
             name: [item.name]
           })
         );
       });
     });
     this.unitLevelService.getAll()
-      .pipe(takeWhile(() => this.componentIsActive))
+      .pipe(takeUntil(this.destroyed$))
       .subscribe((res) => {
         this.unitLevels = res;
       });
@@ -68,18 +62,14 @@ export class AcademicYearSubjectUnitsComponent implements OnInit, OnDestroy {
   get classLevels(): FormArray {
     return this.allocationsForm.get('classLevels') as FormArray;
   }
+
   submitUnitAllocationForm() {
-    this.isSubmitting = true;
-    this.academicYearId$
-      .pipe(
-        mergeMap(id => this.academicYearService.saveUnitLevels(id, this.classLevels.value))
+    this.submitInProgressSubject$.next(true);
+    this.academicYearId$.pipe(
+      mergeMap(id => this.academicYearService.saveUnitLevels(id, this.classLevels.value)),
+      takeUntil(this.destroyed$),
+      tap(() => this.submitInProgressSubject$.next(false))
     )
-      .pipe(takeWhile(() => this.componentIsActive))
-      .subscribe(() => {
-        this.isSubmitting = false;
-      }, () => this.isSubmitting = false);
-  }
-  ngOnDestroy() {
-    this.componentIsActive = false;
+      .subscribe();
   }
 }

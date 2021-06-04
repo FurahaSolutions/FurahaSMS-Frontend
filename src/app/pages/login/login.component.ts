@@ -1,24 +1,24 @@
-import {Component, OnDestroy} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthenticationService} from 'src/app/services/authentication.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Store} from '@ngrx/store';
-import {loadToastShowsSuccess} from '../../store/actions/toast-show.actions';
-import {AppState} from '../../store/reducers';
-import {map, takeUntil, tap} from 'rxjs/operators';
-import {loadErrorMessagesFailure, loadErrorMessagesSuccess} from 'src/app/store/actions/error-message.actions';
-import {combineLatest, Observable, Subject} from 'rxjs';
-import {subscribedContainerMixin} from '../../shared/mixins/subscribed-container.mixin';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { loadToastShowsSuccess } from '../../store/actions/toast-show.actions';
+import { AppState } from '../../store/reducers';
+import { map, takeUntil, tap } from 'rxjs/operators';
+import { loadErrorMessagesFailure, loadErrorMessagesSuccess } from 'src/app/store/actions/error-message.actions';
+import { combineLatest, Observable, Subject } from 'rxjs';
+import { subscribedContainerMixin } from '../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../shared/mixins/form.mixin';
+import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent extends subscribedContainerMixin() implements OnDestroy {
-  triggerValidation: boolean;
-  isSubmitting: boolean;
-
+export class LoginComponent extends subscribedContainerMixin(formMixin()) {
+  faUser = faUser;
   loginForm: FormGroup = this.fb.group({
     username: ['', [Validators.required]],
     password: ['', [Validators.required]],
@@ -50,7 +50,7 @@ export class LoginComponent extends subscribedContainerMixin() implements OnDest
 
   submitLoginForm() {
     this.inputSubmittedSubject$.next(true);
-    if (this.loginForm.valid) {
+    if(this.loginForm.valid) {
       this.isSubmitting = true;
       combineLatest([
         this.route.queryParams.pipe(map(params => params.returnUrl)),

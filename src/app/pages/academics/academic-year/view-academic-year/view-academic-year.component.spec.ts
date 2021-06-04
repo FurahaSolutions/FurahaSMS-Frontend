@@ -28,7 +28,7 @@ describe('ViewAcademicYearComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         AppLinksModule,
         AppLoadingBubbleModule,

@@ -3,7 +3,7 @@ import {select, Store} from '@ngrx/store';
 import {AppState} from 'src/app/store/reducers';
 import {selectPlanForAcademicYearWithId} from '../store/selectors/academic-year-plan.selectors';
 import {combineLatest, Observable} from 'rxjs';
-import {map, mergeMap, tap} from 'rxjs/operators';
+import {map, mergeMap} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
 import {AcademicYearService} from '../../../academics/services/academic-year.service';
 

@@ -15,7 +15,7 @@ describe('StreamComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppViewItemsModule,
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,

@@ -18,7 +18,7 @@ describe('EditStudentAcademicsComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveFormsModule,
         AppCheckboxModule,
         FormsModule,

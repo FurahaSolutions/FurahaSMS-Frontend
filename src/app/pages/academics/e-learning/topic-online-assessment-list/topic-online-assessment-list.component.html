@@ -31,14 +31,14 @@
     </button>
   </div>
   <div class="modal-body bg-dark">
-    <p class="text-danger">You are about to delete Assessment" <span class="info">" {{ editedItem.exam_paper_name}}"</span></p>
+    <p class="text-danger">You are about to delete Assessment" <span class="info">" {{ editedItem?.exam_paper_name}}"</span></p>
 
-    <p>Please Enter #{{ editedItem.id }} to confirm action</p>
+    <p>Please Enter #{{ editedItem?.id }} to confirm action</p>
     <input placeholder="eg #1234" aria-label="Course Name" type="text" class="form-control" [(ngModel)]='contentId'>
   </div>
   <div class="modal-footer bg-dark">
     <button (click)='closeModal()' class="btn btn-secondary" type="button">Cancel</button>
-    <button (click)='deleteAssessmentItem()' [disabled]='(contentId !=  "#" + editedItem.id) || (submitInProgressAction$ | ngrxPush)'
+    <button (click)='deleteAssessmentItem()' [disabled]='(contentId !=  "#" + editedItem?.id) || (submitInProgressAction$ | ngrxPush)'
             class="btn btn-danger">
       <span *ngIf='(submitInProgressAction$ | ngrxPush) === false'>Delete this Assessment</span>
       <span *ngIf='submitInProgressAction$ | ngrxPush'>Deleting...</span>

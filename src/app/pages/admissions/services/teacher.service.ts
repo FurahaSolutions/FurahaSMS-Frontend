@@ -26,7 +26,7 @@ export class TeacherService {
       ['gender_id']: data.gender,
       ['religion_id']: data.religion,
     };
-    return this.http.post('api/admissions/teachers', submitDate);
+    return this.http.post(this.url, submitDate);
   }
 
   getTeacherById(id: number) {

@@ -14,7 +14,7 @@ describe('LibraryUserStatusComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         ReactiveComponentModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         AppLoadingBubbleModule
       ],

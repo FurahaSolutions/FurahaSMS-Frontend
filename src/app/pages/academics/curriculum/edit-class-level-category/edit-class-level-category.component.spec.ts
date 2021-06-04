@@ -31,7 +31,7 @@ describe('EditClassLevelCategoryComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppInputModule,
         EditorModule,
         AppLoadingBubbleModule,

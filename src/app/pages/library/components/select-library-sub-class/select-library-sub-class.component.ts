@@ -1,53 +1,40 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  Output,
-  SimpleChange
-} from '@angular/core';
-import {LibraryBookClassesService} from '../../services/library-book-classes.service';
-import {of} from 'rxjs';
-import {DbService} from 'src/app/services/db.service';
-import {takeWhile} from 'rxjs/operators';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, Output, SimpleChange } from '@angular/core';
+import { LibraryBookClassesService } from '../../services/library-book-classes.service';
+import { of } from 'rxjs';
+import { DbService } from 'src/app/services/db.service';
+import { takeUntil } from 'rxjs/operators';
+import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
   selector: 'app-select-library-sub-class',
   templateUrl: './select-library-sub-class.component.html',
   styleUrls: ['./select-library-sub-class.component.css']
 })
-export class SelectLibrarySubClassComponent implements OnInit, OnChanges, OnDestroy {
+export class SelectLibrarySubClassComponent extends subscribedContainerMixin() implements OnChanges {
   @Input() id: any;
   @Input() classification: any;
   @Output() categoryChanged = new EventEmitter();
-  selectedCategoryId: number;
+  selectedCategoryId: number | undefined;
   libraryBookClasses$: any;
-  componentIsActive: boolean;
 
   constructor(
     private cdf: ChangeDetectorRef,
     private libraryBookClassesService: LibraryBookClassesService, private db: DbService) {
-  }
-
-  ngOnInit() {
-    this.componentIsActive = true;
+    super();
   }
 
   ngOnChanges(changes: { id: SimpleChange; classification: SimpleChange }) {
     let currentValue: any;
-    if (changes) {
-      if (changes.id) {
+    if(changes) {
+      if(changes.id) {
         currentValue = changes.id.currentValue;
       }
-      if (changes.classification) {
+      if(changes.classification) {
         this.cdf.detectChanges();
       }
 
     }
-    if (+currentValue > 0) {
+    if(+currentValue > 0) {
       this.db.get('sub-items-' + currentValue)
         .then((doc: any) => {
           this.libraryBookClasses$ = of(doc.items);
@@ -55,13 +42,13 @@ export class SelectLibrarySubClassComponent implements OnInit, OnChanges, OnDest
         this.libraryBookClasses$ = this.libraryBookClassesService
           .getClass({classification: this.classification, libraryClass: currentValue});
         this.libraryBookClasses$
-          .pipe(takeWhile(() => this.componentIsActive))
+          .pipe(takeUntil(this.destroyed$))
           .subscribe((items: any) => {
             const doc = {
               _id: `sub-items-${currentValue}`,
               items
             };
-            if (items.length > 0) {
+            if(items.length > 0) {
 
               this.db.put(doc).then(() => {
               }).catch(() => {
@@ -80,8 +67,5 @@ export class SelectLibrarySubClassComponent implements OnInit, OnChanges, OnDest
     this.categoryChanged.emit($event);
   }
 
-  ngOnDestroy() {
-    this.componentIsActive = false;
-  }
 
 }

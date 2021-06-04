@@ -1,0 +1,18 @@
+<h1>Book Return</h1>
+<div class="card p-2">
+  <form (ngSubmit)="saveReturnedBook()" [formGroup]="itemForm">
+    <div class="d-flex flex-wrap align-items-lg-start">
+
+      <div class="col-xl-4 col-lg-5 col-md-6">
+        <app-select-library-book-ref [borrowed]="true" formControlName="bookItemId"></app-select-library-book-ref>
+      </div>
+      <div class="col-12">
+        <app-validate-submit-buttons
+          [formItem]="itemForm"
+          (validationButtonClicked)="triggerValidationSubject$.next(true)">
+          <span>Mark Book as Returned</span>
+        </app-validate-submit-buttons>
+      </div>
+    </div>
+  </form>
+</div>

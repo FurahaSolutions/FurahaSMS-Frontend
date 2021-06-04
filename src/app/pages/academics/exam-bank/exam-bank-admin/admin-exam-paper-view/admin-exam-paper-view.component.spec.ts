@@ -20,7 +20,7 @@ describe('AdminExamPaperViewComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         HttpClientTestingModule,
         StoreModule.forRoot(REDUCER_TOKEN, {

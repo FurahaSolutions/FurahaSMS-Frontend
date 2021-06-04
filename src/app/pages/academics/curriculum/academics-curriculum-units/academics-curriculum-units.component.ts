@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 import { UnitsService } from 'src/app/services/units.service';
 
 @Component({
@@ -7,17 +6,12 @@ import { UnitsService } from 'src/app/services/units.service';
   templateUrl: './academics-curriculum-units.component.html',
   styleUrls: ['./academics-curriculum-units.component.css']
 })
-export class AcademicsCurriculumUnitsComponent implements OnInit {
+export class AcademicsCurriculumUnitsComponent {
+  categories = this.unitsService;
 
-  units$: Observable<any[]>;
-  categories: any;
   constructor(
     private unitsService: UnitsService
-  ) { }
-
-  ngOnInit() {
-
-    this.categories = this.unitsService;
+  ) {
   }
 
 }

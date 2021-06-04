@@ -17,7 +17,7 @@ describe('UserProfileComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ModalModule.forRoot(),
         AppUserProfileModule,
         FormsModule,

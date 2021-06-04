@@ -26,7 +26,10 @@ export const initialState: State = {
       name: 'Library Users', icon: 'icon-user', link: 'library/admin/users/view', permissions: [],
     },
     {
-      name: 'Add Library User', icon: 'icon-user-plus', link: 'library/admin/users/add', permissions: ['create library user']
+      name: 'Add Library User',
+      icon: 'icon-user-plus',
+      link: 'library/admin/users/add',
+      permissions: ['create library user']
     },
   ],
 
@@ -61,9 +64,22 @@ export const initialState: State = {
       permissions: ['create library book tag', 'update library book tag']
     },
     {
-      name: 'Book Issue', icon: 'icon-tag', link: 'library/admin/issue-book',
+      name: 'Books Lending', icon: 'icon-tag', link: 'library/admin/books-lending',
       permissions: ['issue book', 'mark issued book as returned']
     }
+  ],
+
+  libraryLending: [
+    {
+      name: 'Lending History', icon: 'icon-book', link: '/library/admin/books-lending/history',
+      permissions: ['access library']
+    }, {
+      name: 'Book Issue', icon: 'icon-book', link: '/library/admin/books-lending/issue-book',
+      permissions: ['access library']
+    }, {
+      name: 'Book Returny', icon: 'icon-book', link: '/library/admin/books-lending/return-book',
+      permissions: ['access library']
+    },
   ],
 
   academicCurriculum: academicCurriculumLinks,
@@ -82,7 +98,7 @@ export const initialState: State = {
 
   admissions: [
     {
-      name: 'Student Admissions',icon: 'icon-user-plus', link: 'admissions/students',
+      name: 'Student Admissions', icon: 'icon-user-plus', link: 'admissions/students',
       permissions: ['create student', 'update student']
     },
     {
@@ -100,7 +116,10 @@ export const initialState: State = {
       name: 'New Student', icon: 'icon-user-plus', link: 'admissions/students/create', permissions: ['create student']
     },
     {
-      name: 'Edit Student Details', icon: 'icon-user-plus', link: 'admissions/students/edit', permissions: ['update student']
+      name: 'Edit Student Details',
+      icon: 'icon-user-plus',
+      link: 'admissions/students/edit',
+      permissions: ['update student']
     }
   ],
 
@@ -155,17 +174,17 @@ export const initialState: State = {
   ],
 
   timeTable: [
-    { name: 'My Schedules', icon: 'icon-user-circle-o', link: 'time-table/my-schedules' },
-    { name: 'Admin', icon: 'icon-user-secret', link: 'time-table/admin' },
+    {name: 'My Schedules', icon: 'icon-user-circle-o', link: 'time-table/my-schedules'},
+    {name: 'Admin', icon: 'icon-user-secret', link: 'time-table/admin'},
   ],
   rolesAndPermissions: [
     {
       name: 'User Roles/ Permissions', icon: 'icon-user-circle-o', link: 'roles-and-permissions/user',
-      permissions: [ 'assign role' ]
+      permissions: ['assign role']
     },
     {
       name: 'Roles & Permissions', icon: 'icon-sliders', link: 'roles-and-permissions/roles',
-      permissions: ['change role permissions' ]
+      permissions: ['change role permissions']
     },
   ]
 };
@@ -173,6 +192,5 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-
 );
 

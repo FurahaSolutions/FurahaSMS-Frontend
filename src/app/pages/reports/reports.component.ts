@@ -1,17 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import * as fromStore from '../../store/reducers';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.css']
 })
-export class ReportsComponent implements OnInit {
+export class ReportsComponent {
 
-  constructor(private store: Store<fromStore.AppState>) { }
-
-  ngOnInit() {
+  constructor() {
   }
 
 }

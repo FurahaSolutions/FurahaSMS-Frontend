@@ -1,17 +1,17 @@
-import {Component, forwardRef, Input, OnChanges, OnInit, SimpleChange, SimpleChanges} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR} from '@angular/forms';
+import { Component, forwardRef, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import {UnitCategoryService} from 'src/app/services/unit-category.service';
-import {ClassLevelCategoryService} from 'src/app/services/class-level-category.service';
-import {ClassLevelService} from 'src/app/services/class-level.service';
-import {UnitLevelService} from 'src/app/services/unit-level.service';
-import {AcademicYearService} from 'src/app/pages/academics/services/academic-year.service';
-import {Observable} from 'rxjs';
-import {AppFormService} from 'src/app/services/AppForm.service';
-import {GenderService} from 'src/app/services/gender.service';
-import {ReligionService} from 'src/app/services/religion.service';
-import {ProcurementService} from 'src/app/services/procurement.service';
-import {UnitsService} from 'src/app/services/units.service';
+import { UnitCategoryService } from 'src/app/services/unit-category.service';
+import { ClassLevelCategoryService } from 'src/app/services/class-level-category.service';
+import { ClassLevelService } from 'src/app/services/class-level.service';
+import { UnitLevelService } from 'src/app/services/unit-level.service';
+import { AcademicYearService } from 'src/app/pages/academics/services/academic-year.service';
+import { Observable } from 'rxjs';
+import { AppFormService } from 'src/app/services/AppForm.service';
+import { GenderService } from 'src/app/services/gender.service';
+import { ReligionService } from 'src/app/services/religion.service';
+import { ProcurementService } from 'src/app/services/procurement.service';
+import { UnitsService } from 'src/app/services/units.service';
 
 export type IType = 'unit-categories'
   | 'units'
@@ -48,28 +48,25 @@ export type IType = 'unit-categories'
 export class SelectComponent
   implements OnInit, ControlValueAccessor, OnChanges {
 
-  @Input() label: string;
-  @Input() placeholder: string;
-  @Input() id: string;
+  @Input() label = '';
+  @Input() placeholder = '';
+  @Input() id: string | number | undefined = Math.random();
   @Input() value: any;
   @Input() multiple: any;
-  @Input() parentId: number | null;
-  @Input() triggerValidation: boolean;
-  @Input() type: IType;
-  disabled: boolean;
+  @Input() parentId: number | undefined;
+  @Input() triggerValidation = false;
+  @Input() type: IType | undefined;
+  disabled = false;
   formControl: FormControl;
-  hint: string;
-  categories$: Observable<any>;
+  hint: string | undefined;
+  categories$: Observable<any> | undefined;
   fieldError: any;
 
   multipleSelector = false;
-
-  onChanges: ($value: any) => void;
-  onTouched: () => void;
   error: { required: string } = {required: 'Please Select a Category'};
   categorySelected: string | { id: number; name: string }[] = '';
   categories: Array<any> = [];
-  inputValue: string;
+  inputValue = '';
 
   constructor(
     private subjectCategoriesService: UnitCategoryService,
@@ -86,9 +83,12 @@ export class SelectComponent
 
     this.formControl = new FormControl();
   }
-
+  onChanges: (($value: any) => void) = () => {
+  };
+  onTouched: () => void = () => {
+  };
   writeValue(value: any): void {
-    if (value !== undefined) {
+    if(value !== undefined) {
       this.inputValue = value;
     }
   }
@@ -102,7 +102,7 @@ export class SelectComponent
   }
 
   get isRequired(): boolean {
-    if (this.formControl.validator) {
+    if(this.formControl.validator) {
       const validationResult = this.formControl.validator(this.formControl);
       return (validationResult !== null && validationResult.required === true);
     }
@@ -110,8 +110,8 @@ export class SelectComponent
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    if (!this.disabled) {
-      if (!isDisabled) {
+    if(!this.disabled) {
+      if(!isDisabled) {
         this.formControl.enable();
         this.formControl.updateValueAndValidity();
       } else {
@@ -122,11 +122,11 @@ export class SelectComponent
   }
 
   ngOnInit() {
-    if (typeof this.multiple === 'string') {
+    if(typeof this.multiple === 'string') {
       this.multipleSelector = true;
     }
 
-    switch (this.type) {
+    switch(this.type) {
       case 'vendor':
         this.categories$ = this.procurementService
           .getVendors();
@@ -145,7 +145,7 @@ export class SelectComponent
       case 'unit-levels':
         this.setParams({label: 'Unit Levels'});
         const data: any = {unit: null};
-        if (this.parentId) {
+        if(this.parentId) {
           data.unit = this.parentId;
         }
         this.categories$ = this.unitLevel.getAll(data);
@@ -168,11 +168,11 @@ export class SelectComponent
         break;
       case 'support-staffs':
         this.setParams({label: 'Units'});
-        this.categories$ = this.unitLevel.getFilter({academicYearId: this.parentId});
+        this.categories$ = this.unitLevel.getFilter({academicYearId: this.parentId as number});
         break;
       case 'units:academic-year':
         this.setParams({label: 'Units'});
-        this.categories$ = this.unitLevel.getFilter({academicYearId: this.parentId});
+        this.categories$ = this.unitLevel.getFilter({academicYearId: this.parentId as number});
         break;
       case 'gender':
         this.setParams({label: 'Gender'});
@@ -196,18 +196,18 @@ export class SelectComponent
 
   ngOnChanges(changes: SimpleChanges) {
     const triggerValidation: SimpleChange = changes.triggerValidation;
-    if (triggerValidation && !triggerValidation.firstChange) {
+    if(triggerValidation && !triggerValidation.firstChange) {
       this.formControl.markAsTouched();
       this.validateField();
     }
     const parentId: SimpleChange = changes.parentId;
-    if (parentId) {
-      if (this.type === 'units:academic-year') {
+    if(parentId) {
+      if(this.type === 'units:academic-year') {
         this.unitLevel
-          .getFilter({academicYearId: this.parentId});
+          .getFilter({academicYearId: this.parentId as number});
       }
-      if (this.type === 'unit-levels') {
-        this.categories$ = this.unitLevel.getAll({unit: this.parentId});
+      if(this.type === 'unit-levels') {
+        this.categories$ = this.unitLevel.getAll({unit: this.parentId as number});
       }
     }
   }
@@ -233,12 +233,12 @@ export class SelectComponent
 
   selectedCategory({source}: any) {
     const selected = (source).selected;
-    if (selected) {
+    if(selected) {
       const {viewValue, value} = selected as {
         viewValue: string;
         value: number;
       };
-      if (this.multipleSelector) {
+      if(this.multipleSelector) {
         this.onChanges(this.formControl.value);
         this.categorySelected = selected.map((item: any) => ({name: item.viewValue, id: item.value}));
       } else {

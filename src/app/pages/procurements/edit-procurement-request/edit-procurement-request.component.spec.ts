@@ -30,7 +30,7 @@ describe('EditProcurementRequestComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         FormsModule,
         ReactiveFormsModule,
         HttpClientTestingModule,

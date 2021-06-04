@@ -1,16 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TakeOnlineTestComponent } from './take-online-test.component';
+import { CountDownTimerModule } from '../../../count-down-timer/count-down-timer.module';
 
 describe('TakeOnlineTestComponent', () => {
   let component: TakeOnlineTestComponent;
   let fixture: ComponentFixture<TakeOnlineTestComponent>;
 
-  beforeEach(waitForAsync( () => {
-     TestBed.configureTestingModule({
-      declarations: [ TakeOnlineTestComponent ]
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        CountDownTimerModule
+      ],
+      declarations: [TakeOnlineTestComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

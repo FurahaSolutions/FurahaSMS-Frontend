@@ -1,12 +1,12 @@
-import {Component} from '@angular/core';
-import {Store, select} from '@ngrx/store';
+import { Component } from '@angular/core';
+import { Store, select } from '@ngrx/store';
 import * as fromStore from '../../../store/reducers';
-import {Observable} from 'rxjs';
-import {tap, map, mergeMap} from 'rxjs/operators';
-import {ActivatedRoute} from '@angular/router';
-import {StudentProfileStateInterface} from 'src/app/store/reducers/student-profile-update.reducer';
-import {loadStudentProfiles, loadStudentProfilesSuccess} from '../store/actions/student-profile.actions';
-import {selectStudent} from '../store/selectors/student-profile.selectors';
+import { Observable } from 'rxjs';
+import { tap, map, mergeMap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
+import { StudentProfileStateInterface } from 'src/app/store/reducers/student-profile-update.reducer';
+import { loadStudentProfiles, loadStudentProfilesSuccess } from '../store/actions/student-profile.actions';
+import { selectStudent } from '../store/selectors/student-profile.selectors';
 
 @Component({
   selector: 'app-view-student',
@@ -21,8 +21,8 @@ export class ViewStudentComponent {
     mergeMap(id => this.store.pipe(select(selectStudent(id)))),
     map(profile => profile as StudentProfileStateInterface)
   );
-  fullName: string;
-  studentId: number;
+  fullName = '';
+  studentId: number | undefined;
 
   constructor(
     private store: Store<fromStore.AppState>,
@@ -32,9 +32,9 @@ export class ViewStudentComponent {
 
   changeProfile(event: { fieldName: string; fieldNewValue: string } | Event) {
     const eventTemp = event as { fieldName: string; fieldNewValue: string };
-    if (eventTemp.fieldName) {
+    if(eventTemp.fieldName) {
       this.store.dispatch(loadStudentProfilesSuccess(
-        {data: {id: this.studentId, [eventTemp.fieldName]: eventTemp.fieldNewValue}}));
+        {data: {id: this.studentId as number, [eventTemp.fieldName]: eventTemp.fieldNewValue}}));
     }
 
   }

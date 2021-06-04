@@ -33,7 +33,7 @@ describe('ProcurementsRequestComponent', () => {
         FormErrorsModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         ReactiveComponentModule
       ],

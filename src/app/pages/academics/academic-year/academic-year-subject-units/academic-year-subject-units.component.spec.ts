@@ -34,7 +34,7 @@ describe('AcademicYearSubjectUnitsComponent', () => {
         HttpClientTestingModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         NgSelectModule,
         AppInputModule

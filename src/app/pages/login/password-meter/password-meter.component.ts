@@ -1,17 +1,14 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-password-meter',
   templateUrl: './password-meter.component.html',
   styleUrls: ['./password-meter.component.css']
 })
-export class PasswordMeterComponent implements OnInit {
-  @Input() passwordString: string;
+export class PasswordMeterComponent {
+  @Input() passwordString = '';
 
   constructor() {
-  }
-
-  ngOnInit(): void {
   }
 
   get passwordStrength() {

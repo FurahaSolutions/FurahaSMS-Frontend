@@ -12,7 +12,7 @@ import {finalize, takeWhile, tap} from 'rxjs/operators';
 })
 export class UserButtonComponent {
 
-  @ViewChild('dropdown') dropDownMenu: ElementRef;
+  @ViewChild('dropdown') dropDownMenu: ElementRef | undefined;
   isCollapsed = false;
   isCollapsedSubject$ = new BehaviorSubject<boolean>(false);
   isCollapsedAction$ = this.isCollapsedSubject$.asObservable();
@@ -35,7 +35,7 @@ export class UserButtonComponent {
     Observable<number> = () => timer(100, 10);
 
   toggleMenu() {
-    const dropDownElement = this.dropDownMenu.nativeElement as HTMLDivElement;
+    const dropDownElement = this.dropDownMenu?.nativeElement as HTMLDivElement;
     if (!this.isCollapsed) {
       dropDownElement.style.opacity = '0';
     }

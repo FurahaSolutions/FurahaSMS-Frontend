@@ -4,7 +4,9 @@ import { AuthenticationService } from './authentication.service';
 
 describe('AuthenticationServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [HttpClientTestingModule]
+    imports: [
+      HttpClientTestingModule
+    ]
   }));
 
   it('should be created', () => {

@@ -26,7 +26,7 @@ describe('UserButtonComponent', () => {
         }),
         StoreModule.forFeature(myProfileFeatureKey, reducer),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [UserButtonComponent, LogoutButtonComponent],

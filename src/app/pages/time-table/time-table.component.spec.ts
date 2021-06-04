@@ -28,7 +28,7 @@ describe('TimeTableComponent', () => {
         StoreModule.forFeature(appFeatureKey, reducers),
         AppLinksModule,
         StoreModule.forFeature(myProfileFeatureKey, reducer),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         ReactiveComponentModule
       ],

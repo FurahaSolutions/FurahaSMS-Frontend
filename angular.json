@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "inlineStyleLanguage": "css",
             "outputPath": "dist/furaha-sms",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -48,16 +49,6 @@
                 "glob": "**/*",
                 "input": "node_modules/tinymce/icons",
                 "output": "/tinymce/icons/"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/@dimakorotkov/tinymce-mathjax",
-                "output": "/tinymce/plugins/mathjax/"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/mathjax",
-                "output": "mathjax"
               }
             ],
             "styles": [
@@ -69,6 +60,29 @@
             ]
           },
           "configurations": {
+            "development": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ],
+              "serviceWorker": false
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -99,7 +113,8 @@
               "serviceWorker": true,
               "ngswConfigPath": "ngsw-config.json"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -109,8 +124,12 @@
           "configurations": {
             "production": {
               "browserTarget": "furaha-sms:build:production"
+            },
+            "development": {
+              "browserTarget": "furaha-sms:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -154,16 +173,6 @@
                 "glob": "**/*",
                 "input": "node_modules/tinymce/icons",
                 "output": "/tinymce/icons/"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/@dimakorotkov/tinymce-mathjax",
-                "output": "/tinymce/plugins/mathjax/"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/mathjax",
-                "output": "mathjax"
               }
             ],
             "styles": [

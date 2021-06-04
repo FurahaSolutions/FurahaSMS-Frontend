@@ -13,9 +13,9 @@ import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-
 })
 export class ViewStudyMaterialComponent extends subscribedContainerMixin() implements OnInit {
   pdf: any;
-  outline: any[];
-  totalPages: number;
-  isLoaded: boolean;
+  outline: any[] = [];
+  totalPages = 0;
+  isLoaded = false;
   page = 1;
   pdfSrc = '';
   studyMaterial$: Observable<any> = this.route.paramMap.pipe(

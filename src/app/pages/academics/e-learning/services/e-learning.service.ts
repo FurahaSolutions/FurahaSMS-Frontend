@@ -1,9 +1,8 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {ICourse} from '../interfaces/course.interface';
-import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
-import {UrlParamsStringifyService} from '../../../../shared/url-params-stringify/services/url-params-stringify.service';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ICourse } from '../interfaces/course.interface';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 interface IParams {
   topicId: number;
@@ -18,8 +17,9 @@ interface IParams {
   providedIn: 'root'
 })
 export class ELearningService {
-  constructor(private http: HttpClient, private urlParam: UrlParamsStringifyService) {
+  constructor(private http: HttpClient) {
   }
+
   updateCourseTopicsLearningOutcome({topicId, description, learningOutcomeId}: IParams): Observable<any> {
     const postData = {
       description,
@@ -36,7 +36,10 @@ export class ELearningService {
     return this.http.post(`api/e-learning/course-content/topics/${topicId}/learning-outcomes`, postData);
   }
 
-  saveCourseContent({studyMaterialId, data}: { studyMaterialId: number; data: { eLearningTopicId: number } }): Observable<any> {
+  saveCourseContent({
+                      studyMaterialId,
+                      data
+                    }: { studyMaterialId: number; data: { eLearningTopicId: number } }): Observable<any> {
     const postData = {
       ['study_material_id']: studyMaterialId,
       ['e_learning_topic_id']: data.eLearningTopicId
@@ -89,7 +92,7 @@ export class ELearningService {
         }))
 
     };
-    if (value.id >= 0) {
+    if(value.id >= 0) {
       return this.http.post(`${url}/${value.id}`, {...data, _method: 'PATCH'});
     } else {
       return this.http.post(url, data);
@@ -97,9 +100,8 @@ export class ELearningService {
   }
 
   getCourses({limit}: { limit: number }): Observable<ICourse[]> {
-    const queryStringParams = this.urlParam.stringify({limit});
-    return this.http.get(`api/e-learning/courses?${queryStringParams}`)
-      .pipe(map((res: any[]) => {
+    return this.http.get<any[]>(`api/e-learning/courses`, {params: {limit}}).pipe(
+      map((res) => {
         const data: ICourse[] = res.map((item: any) => ({
           name: item.name,
           classLevelName: item.class_level_name,

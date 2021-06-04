@@ -1,14 +1,13 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
-import {Observable} from 'rxjs';
-import {UrlParamsStringifyService} from '../shared/url-params-stringify/services/url-params-stringify.service';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UnitLevelService {
-  constructor(private http: HttpClient, private urlStringify: UrlParamsStringifyService) {
+  constructor(private http: HttpClient) {
   }
 
   delete(id: number): Observable<any> {
@@ -20,17 +19,17 @@ export class UnitLevelService {
 
   getFilter(data: { academicYearId: number | null; classLevelId?: number }): Observable<any> {
     const params = {
-      ['academic_year_id']: data?.academicYearId,
-      ['class_level_id']: data?.classLevelId
+      ['academic_year_id']: data?.academicYearId ?? '',
+      ['class_level_id']: data?.classLevelId ?? ''
     };
-    const url = `api/curriculum/unit-levels?${this.urlStringify.stringify(params)}`;
-    return this.http.get<any>(url);
+    const url = `api/curriculum/unit-levels`;
+    return this.http.get<any>(url, {params});
   }
 
   getAll(data: { unit: number | null } = {unit: null}) {
     const {unit} = data;
     let url = 'api/curriculum/unit-levels?';
-    if (unit) {
+    if(unit) {
       url += 'unit=' + unit;
     }
     return this.http.get<any>(url).pipe(

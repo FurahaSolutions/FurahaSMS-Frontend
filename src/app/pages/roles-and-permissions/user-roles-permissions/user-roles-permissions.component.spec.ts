@@ -13,7 +13,7 @@ describe('UserRolesPermissionsComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         ErrorModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         FormErrorsModule
       ],
       declarations: [UserRolesPermissionsComponent]

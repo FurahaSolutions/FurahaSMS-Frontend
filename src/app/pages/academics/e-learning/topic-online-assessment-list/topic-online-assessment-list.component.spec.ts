@@ -14,7 +14,7 @@ describe('TopicOnlineAssessmentListComponent', () => {
   beforeEach(waitForAsync( () => {
      TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ModalModule.forRoot(),
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,

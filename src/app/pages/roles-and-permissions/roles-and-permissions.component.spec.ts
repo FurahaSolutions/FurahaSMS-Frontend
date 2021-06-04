@@ -16,7 +16,7 @@ describe('RolesAndPermissionsComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         AppLinksModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,
           runtimeChecks: {

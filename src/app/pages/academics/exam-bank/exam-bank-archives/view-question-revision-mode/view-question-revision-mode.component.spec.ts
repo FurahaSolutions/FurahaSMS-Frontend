@@ -18,7 +18,7 @@ describe('ViewQuestionRevisionModeComponent', () => {
         Number2AlphabetModule,
         FormsModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppCheckboxModule,
       ],
       declarations: [ViewQuestionRevisionModeComponent]

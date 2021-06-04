@@ -7,10 +7,10 @@ import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, SimpleCh
 })
 export class ViewQuestionRevisionModeComponent implements OnInit, OnChanges {
 
-  @Input() activeQuestion: number;
+  @Input() activeQuestion = 0;
   @Input() question: any;
-  @Input() i: number;
-  @Input() questionsLength: number;
+  @Input() i = 0;
+  @Input() questionsLength = 0;
   @Output() activeQuestionChange = new EventEmitter();
   @Output() answerChange = new EventEmitter();
   answers: any;

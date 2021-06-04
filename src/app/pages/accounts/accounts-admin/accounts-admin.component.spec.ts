@@ -15,7 +15,7 @@ describe('AccountsAdminComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLinksModule,
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,

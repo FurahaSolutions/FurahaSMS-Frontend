@@ -20,7 +20,7 @@ describe('CreateAcademicYearTimeTableComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         ModalModule.forRoot(),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         FormsModule,
         ReactiveFormsModule,
         StoreModule.forRoot(REDUCER_TOKEN, {

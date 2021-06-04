@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject, Observable, timer } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { filter, takeUntil, takeWhile, tap } from 'rxjs/operators';
+import { filter, takeUntil, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { loadToastShowsSuccess } from 'src/app/store/actions/toast-show.actions';

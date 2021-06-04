@@ -9,7 +9,7 @@ describe('LinkComponent', () => {
   let fixture: ComponentFixture<LinkComponent>;
   let store: Store<AppState>;
 
-  beforeEach(waitForAsync( () => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(REDUCER_TOKEN, {
@@ -19,12 +19,13 @@ describe('LinkComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        RouterTestingModule],
+        RouterTestingModule
+      ],
       declarations: [LinkComponent],
       providers: [reducerProvider]
     });
 
-     TestBed.compileComponents();
+    TestBed.compileComponents();
   }));
 
   beforeEach(() => {
@@ -37,6 +38,7 @@ describe('LinkComponent', () => {
   });
 
   it('should create', () => {
+    component.link = {name: 'Link', link: '/link', permissions: [], icon: 'icon'};
     expect(component).toBeTruthy();
   });
 });

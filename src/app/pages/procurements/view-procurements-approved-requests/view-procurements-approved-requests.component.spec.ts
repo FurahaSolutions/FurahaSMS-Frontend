@@ -25,7 +25,7 @@ describe('ViewProcurementsApprovedRequestsComponent', () => {
         }
       }),
         HttpClientTestingModule, AccordionModule.forRoot(),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule,
         AppLoadingBubbleModule
       ],

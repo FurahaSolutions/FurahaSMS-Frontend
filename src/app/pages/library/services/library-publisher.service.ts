@@ -59,6 +59,6 @@ export class LibraryPublisherService {
   }
 
   filter(searchString: string | null) {
-    return this.http.get(`${this.url}?name=${searchString}`);
+    return this.http.get<any>(`${this.url}?name=${searchString}`);
   }
 }

@@ -22,7 +22,7 @@ describe('ELearningCourseStudyMaterialComponent', () => {
       imports: [
         HttpClientTestingModule,
         AppLoadingBubbleModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,
           runtimeChecks: {

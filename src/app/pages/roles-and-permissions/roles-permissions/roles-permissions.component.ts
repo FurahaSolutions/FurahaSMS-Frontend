@@ -1,30 +1,28 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit} from '@angular/core';
 import { RolesAndPermissionsService } from '../services/roles-and-permissions.service';
-import { takeWhile } from 'rxjs/operators';
+import { takeUntil} from 'rxjs/operators';
+import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
   selector: 'app-roles-permissions',
   templateUrl: './roles-permissions.component.html',
   styleUrls: ['./roles-permissions.component.css']
 })
-export class RolesPermissionsComponent implements OnInit, OnDestroy {
+export class RolesPermissionsComponent extends subscribedContainerMixin() implements OnInit {
 
-  role: number;
-  roles$: Observable<any>;
-  roles: any[];
-  componentIsActive: boolean;
+  role = 0;
+  roles$= this.rolesPermissionsService.roles$
+    .pipe(takeUntil(this.destroyed$));
+  roles: any[] = [];
   isLoading = true;
-  filter: string | RegExp;
+  filter: string | RegExp = '';
   constructor(
     private rolesPermissionsService: RolesAndPermissionsService
-  ) { }
+  ) {
+    super();
+  }
 
   ngOnInit() {
-    this.filter = '';
-    this.componentIsActive = true;
-    this.roles$ = this.rolesPermissionsService.roles$
-      .pipe(takeWhile(()=> this.componentIsActive));
     this.roles$.subscribe(res => {
       this.roles = res;
       this.isLoading = false;
@@ -36,9 +34,6 @@ export class RolesPermissionsComponent implements OnInit, OnDestroy {
 
   getFilteredPermissionsWithRoleId(idNumber: number) {
     return this.getRoleWithId(idNumber).permissions.filter(({name}: any) => (new RegExp(this.filter).test(name)));
-  }
-  ngOnDestroy() {
-    this.componentIsActive = false;
   }
 
 }

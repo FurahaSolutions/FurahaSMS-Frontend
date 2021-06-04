@@ -13,9 +13,9 @@ import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 })
 export class StudentSearchComponent implements OnInit {
 
-  search: string;
+  search = '';
   suggestions$: Observable<IUserProfile[]> = of([]);
-  errorMessage: string;
+  errorMessage: string | undefined;
   selectedItemSubject$ = new Subject<IUserProfile>();
   selectedItemAction$ = this.selectedItemSubject$.asObservable();
 

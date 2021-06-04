@@ -1,9 +1,9 @@
-import { AfterViewInit, ChangeDetectorRef, Component, forwardRef, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, forwardRef, OnDestroy, OnInit } from '@angular/core';
 import { InputComponent } from '../input/input.component';
 import { FormBuilder, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms';
 import { AppFormService } from 'src/app/services/AppForm.service';
 import { PhoneNumbersService } from 'src/app/services/phone-numbers.service';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -24,9 +24,9 @@ import { takeUntil } from 'rxjs/operators';
   ]
 })
 export class TelInputComponent extends InputComponent implements OnInit, Validator, AfterViewInit, OnDestroy {
-  countries$: Observable<any>;
-  selectedPhoneCode: number | string;
-  selectedPhone: { country: any; code: any };
+  countries$ = this.phoneNumbers.getAllCountryCodes();
+  selectedPhoneCode: number | string = '254';
+  selectedPhone: { country: any; code: any } = {country: 'KE', code: '254'};
   allowedPhoneCountries: any;
   phoneNumberGroup = this.fb.group({
     code: [''],
@@ -48,7 +48,6 @@ export class TelInputComponent extends InputComponent implements OnInit, Validat
       .subscribe(data => {
         this.allowedPhoneCountries = data;
       });
-    this.countries$ = this.phoneNumbers.getAllCountryCodes();
 
     this.countryCode.setValue(this.localeCountryCode);
 
@@ -102,7 +101,7 @@ export class TelInputComponent extends InputComponent implements OnInit, Validat
 
   validateField() {
     super.validateField();
-    const value = this.phoneNumberGroup.value;
+
     this.validatePhone(this.phoneNumberString);
   }
 

@@ -21,7 +21,7 @@ describe('ExamRevisionModeComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         FormsModule,
         StoreModule.forRoot(REDUCER_TOKEN, {

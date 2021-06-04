@@ -17,7 +17,7 @@ describe('TimeTableAcademicYearDashboardComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         ModalModule.forRoot(),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,

@@ -3,10 +3,10 @@
    font-size: 1.2rem !important;
 }
 .correct-answer {
-  border: rgb(104, 238, 104) 1.5px solid;
+  border: rgb(104, 238, 104) 2px solid;
   color:  rgb(104, 238, 104) !important;
 }
 .incorrect-answer {
-  border: rgb(250, 139, 139) 1.5px solid;
+  border: rgb(250, 139, 139) 2px solid;
   color: rgb(250, 139, 139) !important;
 }

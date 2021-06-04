@@ -24,7 +24,7 @@ describe('ViewProcurementRequestComponent', () => {
         }
       }),
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule,
         CommonModule
       ],

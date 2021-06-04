@@ -53,12 +53,12 @@ const routes: Routes = [
       .then(m => m.LibraryAdminTagsModule)
   },
   {
-    path: 'issue-book',
+    path: 'books-lending',
     data: {
-      breadcrumb: 'Book Issue'
+      breadcrumb: 'Book Lending'
     },
-    loadChildren: () => import('./book-issue/book-issue.module')
-      .then(m => m.BookIssueModule)
+    loadChildren: () => import('./books-lending/books-lending.module')
+      .then(m => m.BooksLendingModule)
   }
 ];
 

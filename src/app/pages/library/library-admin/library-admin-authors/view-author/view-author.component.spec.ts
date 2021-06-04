@@ -25,7 +25,7 @@ describe('ViewAuthorComponent', () => {
         }),
         AppLoadingBubbleModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [ViewAuthorComponent],

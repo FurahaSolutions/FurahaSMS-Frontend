@@ -13,7 +13,7 @@ export const dashboardLinks = [
   },
   {
     name: 'Teachers', icon: 'icon-police', link: 'teachers',
-    permissions: ['assign subject to teacher', 'access teacher admission', 'create teacher',
+    permissions: ['assign unit to teacher', 'access teacher admission', 'create teacher',
       'read teacher', 'update teacher', 'delete teacher', 'verify teacher']
   },
   {

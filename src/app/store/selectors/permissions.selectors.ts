@@ -34,6 +34,8 @@ export const selectAcademicCurriculumLinks = createLinkSelector('academicCurricu
 
 export const selectLibraryAdminLinks = createLinkSelector('libraryAdmin');
 
+export const selectLibraryLendingLinks = createLinkSelector('libraryLending');
+
 export const selectProcurementLinks = createLinkSelector('procurement');
 
 export const selectLibraryAdminUsersLinks = createLinkSelector('libraryAdminUsers');

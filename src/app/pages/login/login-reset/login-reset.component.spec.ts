@@ -19,7 +19,7 @@ describe('LoginResetComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ErrorModule,
         FormsModule,
         ReactiveFormsModule,
@@ -53,7 +53,7 @@ describe('LoginResetComponent', () => {
   });
 
   it('should have as function submitPasswordResetForm', () => {
-    const inputElement = fixture.debugElement.query(By.css('input'));
+    fixture.debugElement.query(By.css('input'));
     const formElement = fixture.debugElement.query(By.css('form'));
     formElement.triggerEventHandler('submit', null);
     fixture.detectChanges();

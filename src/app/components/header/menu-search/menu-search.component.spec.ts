@@ -30,7 +30,7 @@ describe('MenuSearchComponent', () => {
         StoreModule.forFeature(myProfileFeatureKey, reducers),
         ReactiveFormsModule,
         FormsModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         ReactiveComponentModule
       ],
       declarations: [MenuSearchComponent],

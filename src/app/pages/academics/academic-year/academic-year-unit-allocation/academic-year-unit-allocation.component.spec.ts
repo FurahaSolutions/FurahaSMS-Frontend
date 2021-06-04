@@ -21,7 +21,7 @@ describe('AcademicYearUnitAllocationComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
         AcademicsModule,
         HttpClientTestingModule,
         AppLoadingBubbleModule,

@@ -19,7 +19,7 @@ export class ViewTeacherComponent {
     tap(id => this.teacherId = id),
     tap(id => this.store.dispatch(loadTeacherProfiles({data: {id}}))),
     mergeMap(id => this.store.pipe(select(selectTeacher(id)))));
-  teacherId: number;
+  teacherId: number | undefined;
 
   constructor(
     private teacherService: TeacherService,
@@ -30,7 +30,7 @@ export class ViewTeacherComponent {
   changeProfile($event: { fieldName: string; fieldNewValue: string }) {
     this.store.dispatch(loadTeacherProfilesSuccess({
       data: {
-        id: this.teacherId,
+        id: this.teacherId as number,
         [$event.fieldName]: $event.fieldNewValue
       }
     }));
