@@ -6,6 +6,7 @@ import { ReactiveComponentModule } from '@ngrx/component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppLoadingBubbleModule } from '../../../../../../modules/app-loading-bubble';
 import { AppInputModule } from '../../../../../../components/input/app-input.module';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 describe('EditOnlineAssessmentDetailsComponent', () => {
   let component: EditOnlineAssessmentDetailsComponent;
@@ -18,7 +19,8 @@ describe('EditOnlineAssessmentDetailsComponent', () => {
         RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         AppInputModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientTestingModule
       ],
       declarations: [EditOnlineAssessmentDetailsComponent]
     })

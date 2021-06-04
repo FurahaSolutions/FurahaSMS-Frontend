@@ -23,10 +23,9 @@ export class StudentService {
     tap(profile => !profile ? this.store.dispatch(loadStudentProfiles({data: {id}})) : null)
   );
 
-  getStudents(data: { stream: number[]; academicYear: number; classLevel: number[] }) {
-
-    const url = `${this.url}`;
-    return this.http.get<any[]>(url, {params: {...data, last: 30}}).pipe(
+  getStudents({stream, academicYear, classLevel}: { stream: number[]; academicYear: number; classLevel: number[] }) {
+    const params = {'stream[]': stream, academicYear, 'classLevel[]': classLevel, last: 30};
+    return this.http.get<any[]>(this.url, {params}).pipe(
       map(res => res.map(item => ({
         ...item,
         genderAbbr: item.gender_abbreviation,
@@ -50,7 +49,7 @@ export class StudentService {
       ['middle_name']: data.middleName,
       ['other_names']: data.otherNames,
       ['date_of_birth']: data.dateOfBirth,
-      ['student_school_id_number']: data.autoGenerateId ? null: data.schoolIdNumber,
+      ['student_school_id_number']: data.autoGenerateId ? null : data.schoolIdNumber,
       ['birth_cert_number']: data.birthCertNumber,
       ['gender_id']: data.gender,
       ['religion_id']: data.religion
@@ -67,40 +66,34 @@ export class StudentService {
 
   getStudentById(id: string | number): Observable<any> {
     const url = `api/students/${id}`;
-    return this.http.get<any>(url)
-      .pipe(
-        map(user => ({
-          ...user,
-          firstName: user.first_name,
-          middleName: user.middle_name,
-          lastName: user.last_name,
-          otherNames: user.other_names,
-          dateOfBirth: user.date_of_birth,
-          studentId: user.student_id
-        })),
-        catchError(error => throwError(error))
-      );
+    return this.http.get<any>(url).pipe(
+      map(user => ({
+        ...user,
+        firstName: user.first_name,
+        middleName: user.middle_name,
+        lastName: user.last_name,
+        otherNames: user.other_names,
+        dateOfBirth: user.date_of_birth,
+        studentId: user.student_id
+      })),
+      catchError(error => throwError(error))
+    );
   }
 
   getStudentBySchoolId(idNumber: string | number): Observable<any> {
     const url = `api/student/id-number?q=${idNumber}`;
-    return this.http.get<any>(url)
-      .pipe(
-        map(user => user),
-        catchError(error => throwError(error))
-      );
+    return this.http.get<any>(url).pipe(
+      map(user => user),
+      catchError(error => throwError(error))
+    );
   }
 
   getRecentlyCreatedStudents(): Observable<any[]> {
-    const url = `api/students?last=30`;
-    return this.http.get(url).pipe(map(res => res as any[]));
+    return this.http.get<any[]>(this.url, {params: {last: 30}});
   }
 
-  getStudentByName(query: string): Observable<any[]> {
-    return this.http.get<any>(
-      'api/students', {
-        params: {q: query}
-      }).pipe(
+  getStudentByName(q: string): Observable<any[]> {
+    return this.http.get<any>(this.url, {params: {q}}).pipe(
       map((data: any) => data.map((item: any) => ({
         ...item,
         name: item.first_name + ' ' + item.last_name + ' ' + (item.middle_name ? item.middle_name : ''),
