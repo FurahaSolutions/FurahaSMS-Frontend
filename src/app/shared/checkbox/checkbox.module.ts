@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CheckboxComponent } from './checkbox.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 
 
@@ -11,7 +12,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ],
   exports: [CheckboxComponent]
 })

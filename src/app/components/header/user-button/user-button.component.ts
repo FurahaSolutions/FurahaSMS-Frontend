@@ -1,7 +1,7 @@
-import {ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild} from '@angular/core';
-import {MyProfileService} from 'src/app/pages/my-profile/services/my-profile.service';
-import {BehaviorSubject, combineLatest, Observable, timer} from 'rxjs';
-import {finalize, takeWhile, tap} from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { MyProfileService } from 'src/app/pages/my-profile/services/my-profile.service';
+import { BehaviorSubject, combineLatest, Observable, timer } from 'rxjs';
+import { finalize, takeWhile, tap } from 'rxjs/operators';
 
 
 @Component({
@@ -18,6 +18,7 @@ export class UserButtonComponent {
   isCollapsedAction$ = this.isCollapsedSubject$.asObservable();
 
   user$ = this.myProfileService.loadMyProfile$;
+
   constructor(
     private eRef: ElementRef,
     private myProfileService: MyProfileService

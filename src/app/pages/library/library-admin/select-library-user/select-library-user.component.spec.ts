@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { SelectLibraryUserComponent } from './select-library-user.component';
-import { FormsModule } from '@angular/forms';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
-import { ReactiveComponentModule } from '@ngrx/component';
+import {SelectLibraryUserComponent} from './select-library-user.component';
+import {FormsModule} from '@angular/forms';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {TypeaheadModule} from 'ngx-bootstrap/typeahead';
+import {ReactiveComponentModule} from '@ngrx/component';
 
 describe('SelectLibraryUserComponent', () => {
   let component: SelectLibraryUserComponent;

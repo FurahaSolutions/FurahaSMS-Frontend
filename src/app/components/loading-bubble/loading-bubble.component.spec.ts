@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {LoadingBubbleComponent} from './loading-bubble.component';
+import { LoadingBubbleComponent } from './loading-bubble.component';
 
 describe('LoadingBubbleComponent', () => {
   let component: LoadingBubbleComponent;

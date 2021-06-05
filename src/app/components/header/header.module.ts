@@ -36,4 +36,5 @@ import { ReactiveComponentModule } from '@ngrx/component';
     ReactiveComponentModule
   ]
 })
-export class HeaderModule { }
+export class HeaderModule {
+}

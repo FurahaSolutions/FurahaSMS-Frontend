@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LibraryAdminBooksComponent } from './library-admin-books.component';
-import { AddBookComponent } from './add-book/add-book.component';
-import { CanDeactivateGuard } from 'src/app/guards/can-deactivate.guard';
-import { EditBookComponent } from './edit-book/edit-book.component';
-import { ViewBookComponent } from './view-book/view-book.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {LibraryAdminBooksComponent} from './library-admin-books.component';
+import {AddBookComponent} from './add-book/add-book.component';
+import {CanDeactivateGuard} from 'src/app/guards/can-deactivate.guard';
+import {EditBookComponent} from './edit-book/edit-book.component';
+import {ViewBookComponent} from './view-book/view-book.component';
 
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
     component: LibraryAdminBooksComponent,
     data: {
       breadcrumb: null
-        },
+    },
   },
   {
     path: 'create',
@@ -22,21 +22,21 @@ const routes: Routes = [
     canDeactivate: [CanDeactivateGuard],
     data: {
       breadcrumb: null
-        },
+    },
   },
   {
     path: ':id/edit',
     component: EditBookComponent,
     data: {
       breadcrumb: null
-        },
+    },
   },
   {
     path: ':id/view',
     component: ViewBookComponent,
     data: {
       breadcrumb: null
-        },
+    },
   }
 ];
 
@@ -44,4 +44,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LibraryAdminBooksRoutingModule { }
+export class LibraryAdminBooksRoutingModule {
+}

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { formMixin } from '../../../../../shared/mixins/form.mixin';
-import { FormBuilder } from '@angular/forms';
-import { LibraryUserService } from '../services/library-user.service';
+import {Component} from '@angular/core';
+import {formMixin} from '../../../../../shared/mixins/form.mixin';
+import {FormBuilder} from '@angular/forms';
+import {LibraryUserService} from '../services/library-user.service';
 
 @Component({
   selector: 'app-add-library-user',

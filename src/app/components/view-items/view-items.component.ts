@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { loadingMixin } from 'src/app/shared/mixins/loading.mixin';
@@ -16,7 +16,10 @@ export class ViewItemsComponent extends loadingMixin() implements OnInit {
   items$: Observable<any[]> = of([]);
   deleting: boolean[] = [false];
   itemLoading = false;
-  constructor() { super(); }
+
+  constructor() {
+    super();
+  }
 
   ngOnInit() {
     this.items$ = this.itemService.all$.pipe(
@@ -28,7 +31,7 @@ export class ViewItemsComponent extends loadingMixin() implements OnInit {
       }));
   }
 
-  deleteItem({ id, name, index }: { id: number; name: string; index: number }): void {
+  deleteItem({id, name, index}: { id: number; name: string; index: number }): void {
     const deletionConfirmed = confirm(`Are you sure you wish to delete "${name}"`);
     if (deletionConfirmed) {
       this.deleting[index] = true;

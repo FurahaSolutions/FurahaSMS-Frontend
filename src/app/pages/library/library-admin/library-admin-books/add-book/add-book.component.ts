@@ -129,7 +129,7 @@ export class AddBookComponent extends subscribedContainerMixin(formWithEditorMix
   }
 
   selectTab(tabId: number) {
-    if(this.staticTabs?.tabs) {
+    if (this.staticTabs?.tabs) {
       this.staticTabs.tabs[tabId].active = true;
     }
   }

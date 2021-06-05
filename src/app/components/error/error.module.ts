@@ -28,4 +28,5 @@ import { ReactiveComponentModule } from '@ngrx/component';
     NetworkErrorComponent,
     PageUnderMaintenanceComponent]
 })
-export class ErrorModule { }
+export class ErrorModule {
+}

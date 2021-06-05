@@ -20,4 +20,5 @@ import { AppValidateSubmitButtonsModule } from '../../../../components/validate-
     AppValidateSubmitButtonsModule
   ]
 })
-export class BookReturnModule { }
+export class BookReturnModule {
+}

@@ -11,6 +11,8 @@ import { combineLatest, Observable, Subject } from 'rxjs';
 import { subscribedContainerMixin } from '../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../shared/mixins/form.mixin';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
+import { faKey } from '@fortawesome/free-solid-svg-icons/faKey';
+import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +21,8 @@ import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 })
 export class LoginComponent extends subscribedContainerMixin(formMixin()) {
   faUser = faUser;
+  faKey = faKey;
+  faHome = faHome;
   loginForm: FormGroup = this.fb.group({
     username: ['', [Validators.required]],
     password: ['', [Validators.required]],
@@ -50,7 +54,7 @@ export class LoginComponent extends subscribedContainerMixin(formMixin()) {
 
   submitLoginForm() {
     this.inputSubmittedSubject$.next(true);
-    if(this.loginForm.valid) {
+    if (this.loginForm.valid) {
       this.isSubmitting = true;
       combineLatest([
         this.route.queryParams.pipe(map(params => params.returnUrl)),
@@ -83,5 +87,6 @@ export class LoginComponent extends subscribedContainerMixin(formMixin()) {
       toastTime: 'Just Now'
     }));
   };
+
 
 }

@@ -12,6 +12,7 @@ import { ErrorModule } from 'src/app/components/error/error.module';
 import { AppStarLabelRequiredModule } from '../../components/label-star-required/app-star-label-required';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { AppCheckboxModule } from "../../shared/checkbox/checkbox.module";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -34,7 +35,8 @@ describe('LoginComponent', () => {
         ErrorModule,
         AppStarLabelRequiredModule,
         ReactiveComponentModule,
-        FontAwesomeTestingModule
+        FontAwesomeTestingModule,
+        AppCheckboxModule
       ],
       declarations: [LoginComponent, FullWithCenterComponent, InputComponent],
       providers: [reducerProvider]

@@ -83,12 +83,14 @@ export class SelectComponent
 
     this.formControl = new FormControl();
   }
+
   onChanges: (($value: any) => void) = () => {
   };
   onTouched: () => void = () => {
   };
+
   writeValue(value: any): void {
-    if(value !== undefined) {
+    if (value !== undefined) {
       this.inputValue = value;
     }
   }
@@ -102,7 +104,7 @@ export class SelectComponent
   }
 
   get isRequired(): boolean {
-    if(this.formControl.validator) {
+    if (this.formControl.validator) {
       const validationResult = this.formControl.validator(this.formControl);
       return (validationResult !== null && validationResult.required === true);
     }
@@ -110,8 +112,8 @@ export class SelectComponent
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    if(!this.disabled) {
-      if(!isDisabled) {
+    if (!this.disabled) {
+      if (!isDisabled) {
         this.formControl.enable();
         this.formControl.updateValueAndValidity();
       } else {
@@ -122,11 +124,11 @@ export class SelectComponent
   }
 
   ngOnInit() {
-    if(typeof this.multiple === 'string') {
+    if (typeof this.multiple === 'string') {
       this.multipleSelector = true;
     }
 
-    switch(this.type) {
+    switch (this.type) {
       case 'vendor':
         this.categories$ = this.procurementService
           .getVendors();
@@ -145,7 +147,7 @@ export class SelectComponent
       case 'unit-levels':
         this.setParams({label: 'Unit Levels'});
         const data: any = {unit: null};
-        if(this.parentId) {
+        if (this.parentId) {
           data.unit = this.parentId;
         }
         this.categories$ = this.unitLevel.getAll(data);
@@ -196,17 +198,17 @@ export class SelectComponent
 
   ngOnChanges(changes: SimpleChanges) {
     const triggerValidation: SimpleChange = changes.triggerValidation;
-    if(triggerValidation && !triggerValidation.firstChange) {
+    if (triggerValidation && !triggerValidation.firstChange) {
       this.formControl.markAsTouched();
       this.validateField();
     }
     const parentId: SimpleChange = changes.parentId;
-    if(parentId) {
-      if(this.type === 'units:academic-year') {
+    if (parentId) {
+      if (this.type === 'units:academic-year') {
         this.unitLevel
           .getFilter({academicYearId: this.parentId as number});
       }
-      if(this.type === 'unit-levels') {
+      if (this.type === 'unit-levels') {
         this.categories$ = this.unitLevel.getAll({unit: this.parentId as number});
       }
     }
@@ -233,12 +235,12 @@ export class SelectComponent
 
   selectedCategory({source}: any) {
     const selected = (source).selected;
-    if(selected) {
+    if (selected) {
       const {viewValue, value} = selected as {
         viewValue: string;
         value: number;
       };
-      if(this.multipleSelector) {
+      if (this.multipleSelector) {
         this.onChanges(this.formControl.value);
         this.categorySelected = selected.map((item: any) => ({name: item.viewValue, id: item.value}));
       } else {

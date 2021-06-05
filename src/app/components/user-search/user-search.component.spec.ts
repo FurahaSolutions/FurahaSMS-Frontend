@@ -1,20 +1,20 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { UserSearchComponent } from './user-search.component';
 import { Store, StoreModule } from '@ngrx/store';
-import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
+import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { AppInputModule } from '../input/app-input.module';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { ReactiveComponentModule } from '@ngrx/component';
 
 describe('StudentSearchComponent', () => {
   let component: UserSearchComponent;
   let fixture: ComponentFixture<UserSearchComponent>;
   let store: Store<AppState>;
 
-  beforeEach(waitForAsync( () => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
@@ -35,7 +35,7 @@ describe('StudentSearchComponent', () => {
       providers: [reducerProvider]
     });
 
-     TestBed.compileComponents();
+    TestBed.compileComponents();
   }));
 
   beforeEach(() => {

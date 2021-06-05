@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import * as fromStore from '../../store/reducers';
 import { selectErrorState } from 'src/app/store/selectors/error-message.selector';
 import { loadErrorMessagesFailure } from 'src/app/store/actions/error-message.actions';
+
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',

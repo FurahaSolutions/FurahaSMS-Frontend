@@ -45,7 +45,7 @@ export class CrudComponent extends formWithEditorMixin() implements OnInit {
       //     this.itemForm.get(item.name)?.setValue(res?.[item.name]);
       //   }
       // });
-      if(this.transforms) {
+      if (this.transforms) {
         this.transforms.forEach(item => {
           this.itemForm.get(item.from)?.setValue(res?.[item.to]);
         });
@@ -65,7 +65,7 @@ export class CrudComponent extends formWithEditorMixin() implements OnInit {
     this.fields.forEach(item => {
       this.itemForm.setControl(item.name, this.fb.control('', item.validators));
     });
-    if(this.parent) {
+    if (this.parent) {
       this.itemForm.setControl('parentCategory', this.fb.control(null, [Validators.required]));
     }
 
@@ -74,7 +74,7 @@ export class CrudComponent extends formWithEditorMixin() implements OnInit {
 
   get submitData() {
     const toSubmit = this.itemForm.value;
-    if(this.transforms) {
+    if (this.transforms) {
       this.transforms.forEach(item => {
         toSubmit[item.to] = toSubmit[item.from];
       });
@@ -84,7 +84,7 @@ export class CrudComponent extends formWithEditorMixin() implements OnInit {
 
   submitForm() {
 
-    if(this.itemForm.valid) {
+    if (this.itemForm.valid) {
       this.submitInProgressSubject$.next(true);
       this.itemService
         .submit(this.submitData)

@@ -18,7 +18,7 @@ export class BookReturnComponent extends formMixin() {
   }
 
   saveReturnedBook() {
-    if(this.itemForm.valid) {
+    if (this.itemForm.valid) {
       this.submitInProgressSubject$.next(true);
       this.libraryBookService.returnBook(this.itemForm.value).subscribe({
           next: () => this.submitInProgressSubject$.next(false),

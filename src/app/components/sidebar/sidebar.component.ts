@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, Subject, combineLatest } from 'rxjs';
+import { combineLatest, Observable, Subject } from 'rxjs';
 import { AppState } from '../../store/reducers';
 import { hideMenu, showMenu } from '../../store/actions/menu-toggle.actions';
 import { selectShowMenu } from '../../store/selectors/menu-toggle.selector';
 import { LinkService } from 'src/app/services/link.service';
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { map, filter, tap } from 'rxjs/operators';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { filter, map, tap } from 'rxjs/operators';
+import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,6 +15,7 @@ import { map, filter, tap } from 'rxjs/operators';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  faHome = faHome;
   isMenuClosed$ = this.store.select(selectShowMenu);
   listItems$ = this.linkService.dashboardLinks;
   isMenuClosed = true;
@@ -23,6 +25,7 @@ export class SidebarComponent implements OnInit {
     .pipe(
       map(state => state.matches)
     );
+
 
   constructor(
     private store: Store<AppState>,
@@ -47,7 +50,7 @@ export class SidebarComponent implements OnInit {
   }
 
   toggleMenu(): void {
-    if(this.isMenuClosed) {
+    if (this.isMenuClosed) {
       this.store.dispatch(hideMenu());
     } else {
       this.store.dispatch(showMenu());

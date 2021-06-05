@@ -47,7 +47,7 @@ export class UserSearchComponent implements OnInit, ControlValueAccessor {
     }).pipe(
       switchMap((query: string) => {
 
-        if(query) {
+        if (query) {
 
           return this.userService.filter({name: query})
             .pipe(
@@ -72,7 +72,7 @@ export class UserSearchComponent implements OnInit, ControlValueAccessor {
   }
 
   writeValue(value: any): void {
-    if(value !== undefined) {
+    if (value !== undefined) {
       this.selectedUserId = value;
     }
   }

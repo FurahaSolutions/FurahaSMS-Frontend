@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { formMixin } from '../../../../shared/mixins/form.mixin';
 import { FormBuilder } from '@angular/forms';
 import { BehaviorSubject, combineLatest } from 'rxjs';
-import { map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { LibraryBookService } from '../../services/library-book.service';
 
 @Component({

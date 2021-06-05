@@ -43,7 +43,9 @@ export class LibrarySearchCatalogueComponent extends formMixin() {
 
   books$ = this.bookSearchedSubject$.pipe(
     tap(searched => {
-      if(searched) {this.submitInProgressSubject$.next(true);}
+      if (searched) {
+        this.submitInProgressSubject$.next(true);
+      }
     }),
     switchMap(x => x ? this.booksService.filter(this.searchParamsForm.value) : []),
     tap((books) => {

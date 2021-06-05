@@ -1,10 +1,10 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {LoginComponent} from './login.component';
-import {LoginContactAdminComponent} from './login-contact-admin/login-contact-admin.component';
-import {LoginResetComponent} from './login-reset/login-reset.component';
-import {GuestGuard} from 'src/app/guards/guest.guard';
-import {AuthGuard} from 'src/app/guards/auth.guard';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login.component';
+import { LoginContactAdminComponent } from './login-contact-admin/login-contact-admin.component';
+import { LoginResetComponent } from './login-reset/login-reset.component';
+import { GuestGuard } from 'src/app/guards/guest.guard';
+import { AuthGuard } from 'src/app/guards/auth.guard';
 
 const routes: Routes = [
   {

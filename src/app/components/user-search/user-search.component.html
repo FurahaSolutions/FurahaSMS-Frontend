@@ -2,23 +2,24 @@
   <div class="col-lg-4 p-0">
     <label for="user">Please enter One Name and Select from List</label>
     <input id="user" [(ngModel)]="search" typeaheadOptionField="name" [typeahead]="suggestions$" [typeaheadAsync]="true"
-      class="form-control" placeholder="Enter Student Name" (typeaheadOnSelect)="onSelect($event)">
+           class="form-control" placeholder="Enter Student Name" (typeaheadOnSelect)="onSelect($event)">
   </div>
   <div class="col-lg-8 p-0">
     <div class="card p-2 ml-2">
-  <h2>Selected User Details</h2>
-  <div class="d-flex justify-content-between flex-wrap" *ngIf='selectedItemAction$ | ngrxPush as selectedItem; else noSelectedStudent'>
-    <div class="col-12 col-xl-6 mt-1">First Name: <strong>{{ selectedItem.firstName }}</strong></div>
-    <div class="col-12 col-xl-6 mt-1">Last Name: <strong>{{ selectedItem.lastName }}</strong></div>
-    <div class="col-12 col-xl-6 mt-1">Middle Name: <strong>{{ selectedItem.middleName }}</strong></div>
-    <div class="col-12 col-xl-6 mt-1">Other Names: <strong>{{ selectedItem.otherNames }}</strong></div>
-  </div>
- <ng-template #noSelectedStudent>
-    <div class="alert alert-info" role="alert" *ngIf="!errorMessage ">
-      <span class="icon-info"></span>No student Selected
+      <h2>Selected User Details</h2>
+      <div class="d-flex justify-content-between flex-wrap"
+           *ngIf='selectedItemAction$ | ngrxPush as selectedItem; else noSelectedStudent'>
+        <div class="col-12 col-xl-6 mt-1">First Name: <strong>{{ selectedItem.firstName }}</strong></div>
+        <div class="col-12 col-xl-6 mt-1">Last Name: <strong>{{ selectedItem.lastName }}</strong></div>
+        <div class="col-12 col-xl-6 mt-1">Middle Name: <strong>{{ selectedItem.middleName }}</strong></div>
+        <div class="col-12 col-xl-6 mt-1">Other Names: <strong>{{ selectedItem.otherNames }}</strong></div>
+      </div>
+      <ng-template #noSelectedStudent>
+        <div class="alert alert-info" role="alert" *ngIf="!errorMessage ">
+          <span class="icon-info"></span>No student Selected
+        </div>
+      </ng-template>
     </div>
- </ng-template>
-</div>
   </div>
 </div>
 

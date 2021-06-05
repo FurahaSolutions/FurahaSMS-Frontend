@@ -17,26 +17,29 @@
   height: 0;
   width: 0;
 }
-/* When the checkbox is checked, add a blue background */
-.check-container input ~ .icon-check {
+
+.check-container input ~ .checked {
   display: none;
 }
 
-.check-container input:checked ~ .icon-check {
+.check-container input:checked ~ .checked {
   display: inline-block;
+  color: lightblue;
 }
-.check-container input:checked ~ .icon-check-empty {
+.check-container input:checked ~ .not-checked {
   display: inline-block;
 }
 
-.check-container input:checked ~ .icon-check-empty {
+.check-container input:checked ~ .not-checked {
   display: none;
 }
 .check-container input:focus ~ .checkmark {
-  margin: 0 !important;
   outline: greenyellow 1px dotted;
 }
 label {
   margin-bottom: 0 !important;
+}
+.checkmark {
+  font-size: 1.2em;
 }
 

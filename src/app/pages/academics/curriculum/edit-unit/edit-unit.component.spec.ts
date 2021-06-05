@@ -16,6 +16,7 @@ import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {EffectsModule} from '@ngrx/effects';
 import {SidebarComponent} from '../../../../components/sidebar/sidebar.component';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {FontAwesomeTestingModule} from "@fortawesome/angular-fontawesome/testing";
 
 describe('EditUnitComponent', () => {
   let component: EditUnitComponent;
@@ -44,7 +45,8 @@ describe('EditUnitComponent', () => {
         NgSelectModule,
         ErrorModule,
         AppLoadingBubbleModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [EditUnitComponent, SidebarComponent],
       providers: [reducerProvider]

@@ -18,4 +18,5 @@ import { ReactiveComponentModule } from '@ngrx/component';
     ToastComponent],
 
 })
-export class ComponentsModule {}
+export class ComponentsModule {
+}

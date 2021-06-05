@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
   ActivatedRoute,
   NavigationCancel,
@@ -8,9 +8,9 @@ import {
   PRIMARY_OUTLET,
   Router
 } from '@angular/router';
-import {filter, tap} from 'rxjs/operators';
-import {Location} from '@angular/common';
-import {BehaviorSubject, combineLatest} from 'rxjs';
+import { filter, tap } from 'rxjs/operators';
+import { Location } from '@angular/common';
+import { BehaviorSubject, combineLatest } from 'rxjs';
 
 interface BreadcrumbInterface {
   label: string;
@@ -56,6 +56,7 @@ export class BreadcrumbComponent implements OnInit {
   ngOnInit() {
     this.breadcrumbs = this.getBreadcrumbs(this.router.routerState.root);
   }
+
   backClicked = () => this.location.back();
 
   goFullScreen = () =>

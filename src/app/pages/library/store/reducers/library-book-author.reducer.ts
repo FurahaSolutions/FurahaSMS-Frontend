@@ -1,4 +1,4 @@
-import {Action, createReducer, on} from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 import * as LibraryBookAuthorActions from '../actions/library-book-author.actions';
 
 export const libraryBookAuthorsFeatureKey = 'libraryBookAuthors';

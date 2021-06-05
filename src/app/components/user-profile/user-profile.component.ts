@@ -55,7 +55,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
   }
 
   editModeChangeHandler() {
-    if(this.editMode) {
+    if (this.editMode) {
       this.store.dispatch(loadEditModesSuccess());
     } else {
       this.store.dispatch(loadEditModesFailure());
@@ -80,7 +80,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
   }
 
   fullLink(link: string) {
-    if(this.includeProfileId) {
+    if (this.includeProfileId) {
       return [...this.linkBase, this.profile.id, link];
     }
     return [...this.linkBase, link];
@@ -118,7 +118,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
   onFileSelected(template: TemplateRef<any>) {
     const $input: HTMLInputElement = document.querySelector('#profilePhotoInput') as HTMLInputElement;
     this.photoFile = ($input.files as FileList)[0];
-    if(this.photoFile) {
+    if (this.photoFile) {
       this.openModal(template);
       const $canvas: any = document.querySelector('#profilePhotoCanvas');
       this.context = $canvas.getContext('2d');

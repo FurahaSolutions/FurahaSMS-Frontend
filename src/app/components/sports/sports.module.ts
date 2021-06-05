@@ -16,4 +16,5 @@ import { ReactiveComponentModule } from '@ngrx/component';
     ReactiveComponentModule
   ]
 })
-export class SportsModule { }
+export class SportsModule {
+}

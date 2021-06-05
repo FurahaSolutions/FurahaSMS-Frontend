@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {LabelStarRequiredComponent} from './label-star-required.component';
+import { LabelStarRequiredComponent } from './label-star-required.component';
 
 describe('LabelStarRequiredComponent', () => {
   let component: LabelStarRequiredComponent;

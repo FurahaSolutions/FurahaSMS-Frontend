@@ -3,9 +3,11 @@ section {
   font-style: italic;
   margin-top: -20px;;
 }
+
 span {
   color: yellowgreen;
 }
+
 .required {
   font-size: 0.5em;
   position: absolute;

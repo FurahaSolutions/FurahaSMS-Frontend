@@ -2,11 +2,12 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SidebarComponent } from './sidebar.component';
 import { Store, StoreModule } from '@ngrx/store';
-import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
+import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { RouterTestingModule } from '@angular/router/testing';
 import { myProfileFeatureKey, reducer } from '../../pages/my-profile/store/reducers/my-profile.reducer';
 import { appFeatureKey, reducers } from '../../store/reducers/app.reducer';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -26,7 +27,8 @@ describe('SidebarComponent', () => {
         StoreModule.forFeature(myProfileFeatureKey, reducer),
         StoreModule.forFeature(appFeatureKey, reducers),
         RouterTestingModule.withRoutes([]),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [SidebarComponent],
       providers: [reducerProvider]

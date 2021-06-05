@@ -6,9 +6,11 @@ ol {
   border: 1px solid rgba(173, 216, 230, 0.25);
   margin: 2px;
 }
+
 .active {
   color: beige;
 }
+
 .breadcrumb-item button {
   padding: 0 5px 0 5px;
   margin-top: -2px;
@@ -16,15 +18,18 @@ ol {
   min-width: 70px;
   display: inline-block;
 }
+
 .breadcrumb-item a {
- min-width: 25px;
- display: inline-block;
- line-height: 1em;
+  min-width: 25px;
+  display: inline-block;
+  line-height: 1em;
 }
+
 .breadcrumb-controls {
   right: 10px;
   position: absolute;
 }
+
 nav {
   position: relative;
 }

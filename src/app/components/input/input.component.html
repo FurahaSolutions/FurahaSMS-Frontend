@@ -6,7 +6,8 @@
     <section
       [class]='inputClass ? inputClass + " input-group" + " m-0 p-0": "col-md-12 col-lg-12 " + inputClass + " input-group" + " m-0 p-0"'>
       <section class='input-group-prepend' [class.is-invalid]='fieldError'>
-        <span class='input-group-text' [id]='"inputGroupPrepend" + id'><ng-content select="[data-prependIcon]"></ng-content></span>
+        <span class='input-group-text' [id]='"inputGroupPrepend" + id'><ng-content
+          select="[data-prependIcon]"></ng-content></span>
       </section>
       <ng-container [ngSwitch]="type">
         <ng-container *ngSwitchCase="'dob'">
@@ -69,8 +70,9 @@
         <button
           appShowPassword
           (toggleType)='fieldType = $event' type="button" class='show-password'>
-          <i [class.icon-eye]='fieldType === "password"'></i>
-          <i [class.icon-eye-off]='fieldType !== "password"'></i>
+
+          <fa-icon [icon]="faEye" *ngIf='fieldType === "password"'></fa-icon>
+          <fa-icon [icon]="faEyeSlash" *ngIf='fieldType !== "password"'></fa-icon>
         </button>
       </section>
       <section *ngIf='fieldError' class="invalid-feedback-message" style="position: absolute;">

@@ -23,4 +23,5 @@ import { ReactiveComponentModule } from '@ngrx/component';
   ]
 })
 
-export class StudentSearchModule { }
+export class StudentSearchModule {
+}

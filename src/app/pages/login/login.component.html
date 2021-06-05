@@ -14,17 +14,13 @@
         </app-input>
         <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' label='Password'
                    placeholder='Enter Password' id='password'
-                   formControlName='password' prependIcon='icon-lock-filled' autocomplete='current-password'
+                   formControlName='password' autocomplete='current-password'
                    type='password'>
+          <fa-icon data-prependIcon [icon]="faKey"></fa-icon>
         </app-input>
 
         <section class='d-flex justify-content-between align-items-end'>
-          <section class="form-check ml-2">
-            <input class="form-check-input" type="checkbox" formControlName="rememberMe" id="remember-me">
-            <label class="form-check-label" for="remember-me">
-              Remember me
-            </label>
-          </section>
+          <app-checkbox formControlName="rememberMe" label="Remember Me" class="mr-4"></app-checkbox>
           <button [disabled]='(submitButtonActive$ | ngrxPush) === false' class='btn btn-success' type='submit'>
             Login
             <i *ngIf='loginForm.valid && ((submitInProgressAction$ | ngrxPush) === false)' class='icon-login'></i>
@@ -53,7 +49,9 @@
 
         </section>
         <section class="col-1 d-none d-sm-inline-block">
-          <a title='go to home' routerLink='/'><i class='icon-home'></i></a>
+          <a title='go to home' routerLink='/'>
+            <fa-icon data-prependIcon [icon]="faHome"></fa-icon>
+          </a>
         </section>
       </section>
     </section>

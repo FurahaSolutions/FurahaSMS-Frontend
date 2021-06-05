@@ -28,7 +28,7 @@ export class StudentSearchComponent implements OnInit {
     }).pipe(
       switchMap((query: string) => {
 
-        if(query) {
+        if (query) {
 
           return this.studentService.getStudentByName(query)
             .pipe(

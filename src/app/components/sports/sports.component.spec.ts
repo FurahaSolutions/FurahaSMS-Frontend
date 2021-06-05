@@ -2,15 +2,15 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SportsComponent } from './sports.component';
 import { Store, StoreModule } from '@ngrx/store';
-import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
-import {reducers} from '../../store/reducers/app.reducer';
+import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { reducers } from '../../store/reducers/app.reducer';
 
 describe('SportsComponent', () => {
   let component: SportsComponent;
   let fixture: ComponentFixture<SportsComponent>;
   let store: Store<AppState>;
 
-  beforeEach(waitForAsync( () => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(REDUCER_TOKEN, {

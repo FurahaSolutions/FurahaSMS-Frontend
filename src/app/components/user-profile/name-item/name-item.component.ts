@@ -41,9 +41,9 @@ export class NameItemComponent extends formMixin() implements OnInit {
     this.itemForm = this.fb.group({
       name: [this.name, Validators.required]
     });
-    if(['firstName', 'lastName'].includes(this.key)) {
+    if (['firstName', 'lastName'].includes(this.key)) {
       this.itemForm.get('name')?.setValidators([Validators.required, Validators.minLength(2)]);
-    } else if(this.key === 'email') {
+    } else if (this.key === 'email') {
       this.itemForm.get('name')?.setValidators([Validators.email, Validators.required]);
     }
     this.itemForm.updateValueAndValidity();
@@ -51,11 +51,11 @@ export class NameItemComponent extends formMixin() implements OnInit {
   }
 
   submitFormItem() {
-    if(this.itemForm.valid) {
+    if (this.itemForm.valid) {
 
       this.submitInProgressSubject$.next(true);
       let fieldNewValue = this.itemForm.get('name')?.value;
-      if(this.key === 'dateOfBirth') {
+      if (this.key === 'dateOfBirth') {
         fieldNewValue = new Date(fieldNewValue).toISOString().substr(0, 10);
       }
       this.usersService.update({
@@ -66,7 +66,7 @@ export class NameItemComponent extends formMixin() implements OnInit {
         .subscribe({
           complete: () => this.submitInProgressSubject$.next(false),
           next: () => {
-            this.valueChanged.emit({ fieldName: this.key, fieldNewValue });
+            this.valueChanged.emit({fieldName: this.key, fieldNewValue});
             this.editable = false;
           },
           error: () => this.submitInProgressSubject$.next(false)

@@ -1,17 +1,17 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ViewTagComponent } from './view-tag.component';
-import { StoreModule } from '@ngrx/store';
-import { reducers } from 'src/app/pages/library/store/reducers';
-import { EffectsModule } from '@ngrx/effects';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ReactiveComponentModule } from '@ngrx/component';
-import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
-import { AppLoadingBubbleModule } from '../../../../../modules/app-loading-bubble';
+import {ViewTagComponent} from './view-tag.component';
+import {StoreModule} from '@ngrx/store';
+import {reducers} from 'src/app/pages/library/store/reducers';
+import {EffectsModule} from '@ngrx/effects';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveComponentModule} from '@ngrx/component';
+import {ActivatedRoute} from '@angular/router';
+import {of} from 'rxjs';
+import {AppLoadingBubbleModule} from '../../../../../modules/app-loading-bubble';
 
 describe('ViewTagComponent', () => {
   let component: ViewTagComponent;
@@ -40,7 +40,7 @@ describe('ViewTagComponent', () => {
         reducerProvider,
         {
           provide: ActivatedRoute, useValue: {
-            paramMap: of({ get: () => 1})
+            paramMap: of({get: () => 1})
           }
         }
       ]

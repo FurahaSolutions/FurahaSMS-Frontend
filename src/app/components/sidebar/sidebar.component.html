@@ -10,12 +10,14 @@
   <div class='list-group list-group-flush'>
   </div>
   <div role='menu' id='accordion' class='list-group list-group-flush'>
-    <a  (click)='handleLinkClick()' routerLink='/dashboard' class='list-group-item list-group-item-action bg-dark'
-      routerLinkActive='activated'><span class='icon-home'></span>Dashboard</a>
+    <a (click)='handleLinkClick()' routerLink='/dashboard' class='list-group-item list-group-item-action bg-dark'
+       routerLinkActive='activated'>
+      <fa-icon data-prependIcon [icon]="faHome"></fa-icon>
+      Dashboard</a>
     <ng-container *ngFor='let item of listItems$ | ngrxPush; let i = index'>
       <a (click)='handleLinkClick()' role='menuitem' [routerLink]='"/" + item.link' routerLinkActive='activated'
-        data-toggle='collapse' [attr.data-target]='"#collapse" + i'
-        class='list-group-item list-group-item-action bg-dark'>
+         data-toggle='collapse' [attr.data-target]='"#collapse" + i'
+         class='list-group-item list-group-item-action bg-dark'>
         <span [class]='item.icon'> {{ item.name }}</span>
 
       </a>

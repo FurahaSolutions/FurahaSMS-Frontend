@@ -1,9 +1,9 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {ValidateSubmitButtonsComponent} from './validate-submit-buttons.component';
-import {FormGroup} from '@angular/forms';
-import {FormErrorsModule} from '../../shared/form-errors/form-errors.module';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { ValidateSubmitButtonsComponent } from './validate-submit-buttons.component';
+import { FormGroup } from '@angular/forms';
+import { FormErrorsModule } from '../../shared/form-errors/form-errors.module';
+import { ReactiveComponentModule } from '@ngrx/component';
 
 describe('ValidateSubmitButtonsComponent', () => {
   let component: ValidateSubmitButtonsComponent;

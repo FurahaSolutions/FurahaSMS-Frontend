@@ -1,13 +1,13 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {BreadcrumbComponent} from './breadcrumb.component';
-import {Store, StoreModule} from '@ngrx/store';
-import {AppState, metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {RouterTestingModule} from '@angular/router/testing';
-import {PRIMARY_OUTLET, Router} from '@angular/router';
-import {of} from 'rxjs';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { BreadcrumbComponent } from './breadcrumb.component';
+import { Store, StoreModule } from '@ngrx/store';
+import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { PRIMARY_OUTLET, Router } from '@angular/router';
+import { of } from 'rxjs';
+import { ReactiveComponentModule } from '@ngrx/component';
 
 describe('BreadcrumbComponent', () => {
   let component: BreadcrumbComponent;

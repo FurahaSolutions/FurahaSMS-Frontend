@@ -3,6 +3,8 @@ import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } f
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { AppFormService } from '../../services/AppForm.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons/faEyeSlash';
 
 @Component({
   selector: 'app-input',
@@ -54,6 +56,8 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
     minDate: this.minDate,
     maxDate: this.maxDate
   };
+  faEye = faEye;
+  faEyeSlash = faEyeSlash;
 
   constructor(private appFormService: AppFormService) {
   }
@@ -64,13 +68,13 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   };
 
   ngOnInit() {
-    if(['tel', 'phone', 'password', 'number', 'date', 'datetime-local'].includes(this.type)) {
+    if (['tel', 'phone', 'password', 'number', 'date', 'datetime-local'].includes(this.type)) {
       this.fieldType = this.type;
     }
   }
 
   get isRequired(): boolean {
-    if(this.formControl.validator) {
+    if (this.formControl.validator) {
       const validationResult = this.formControl.validator(this.formControl);
       return validationResult?.required === true;
     }
@@ -79,8 +83,8 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    if(!this.disabled) {
-      if(!isDisabled) {
+    if (!this.disabled) {
+      if (!isDisabled) {
         this.formControl.enable();
         this.formControl.updateValueAndValidity();
       } else {
@@ -91,7 +95,7 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
 
   ngOnChanges(changes: SimpleChanges) {
     const triggerValidation: SimpleChange = changes.triggerValidation;
-    if(triggerValidation && !triggerValidation.firstChange) {
+    if (triggerValidation && !triggerValidation.firstChange) {
       this.formControl.markAsTouched();
       this.validateField();
     }
@@ -99,19 +103,19 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
 
   validate(control: FormControl): any {
     this.formControl = control;
-    if(this.showPasswordStrength) {
+    if (this.showPasswordStrength) {
       this.passwordStringChangeSubject$.next(this.formControl.value);
     }
 
-    if(this.formControl.value !== '') {
-      if(this.type === 'dob' && (new Date(this.formControl.value) < this.minDate || new Date(this.formControl.value) > this.maxDate)) {
+    if (this.formControl.value !== '') {
+      if (this.type === 'dob' && (new Date(this.formControl.value) < this.minDate || new Date(this.formControl.value) > this.maxDate)) {
         return {date: 'invalid'};
       }
     }
   }
 
   writeValue(value: any): void {
-    if(value !== undefined) {
+    if (value !== undefined) {
       this.inputValue = value;
     }
   }
@@ -130,7 +134,7 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   }
 
   updateFieldValidation() {
-    if(this.fieldError) {
+    if (this.fieldError) {
       this.validateField();
     }
   }

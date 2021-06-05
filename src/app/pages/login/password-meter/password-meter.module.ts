@@ -1,6 +1,6 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {PasswordMeterComponent} from './password-meter.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PasswordMeterComponent } from './password-meter.component';
 import { ReactiveComponentModule } from '@ngrx/component';
 
 

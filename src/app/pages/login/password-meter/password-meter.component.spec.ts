@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {PasswordMeterComponent} from './password-meter.component';
+import { PasswordMeterComponent } from './password-meter.component';
 
 describe('PasswordMeterComponent', () => {
   let component: PasswordMeterComponent;

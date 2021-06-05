@@ -24,7 +24,7 @@ export class LayoutComponent {
   };
 
   getState(outlet: RouterOutlet) {
-    if(outlet.isActivated) {
+    if (outlet.isActivated) {
       return outlet?.component;
     }
     return null;

@@ -12,6 +12,7 @@ import { SkipLinkComponent } from '../components/skip-link/skip-link.component';
 import { LoadMyProfileModule } from '../pages/my-profile/load-my-profile.module';
 import { HeaderModule } from '../components/header/header.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
     ReactiveFormsModule,
     LoadMyProfileModule,
     HeaderModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class AppLayoutModule { }

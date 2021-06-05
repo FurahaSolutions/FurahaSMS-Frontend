@@ -16,7 +16,7 @@ export class LibraryPublisherService {
     select(selectLibraryBookPublishers),
     filter((a: any) => Object.keys(a)?.length < 2),
     tap(() => {
-      if(this.booksLoaded) {
+      if (this.booksLoaded) {
         this.store.dispatch(loadLibraryBookPublishers());
         this.booksLoaded = true;
       }
@@ -43,7 +43,7 @@ export class LibraryPublisherService {
 
     Object.keys(data).forEach((item) => myFormData.append(item, data[item]));
 
-    if(data.id === 0) {
+    if (data.id === 0) {
       return this.http.post(this.url, myFormData, {headers});
     } else {
       return this.http.patch(`${this.url}/${data.id}`, myFormData, {headers});

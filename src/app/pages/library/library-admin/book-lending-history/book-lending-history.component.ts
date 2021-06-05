@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { LibraryBookService } from '../../services/library-book.service';
-import { map, switchMap } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
+import {Component} from '@angular/core';
+import {LibraryBookService} from '../../services/library-book.service';
+import {map, switchMap} from 'rxjs/operators';
+import {BehaviorSubject} from 'rxjs';
 
 @Component({
   selector: 'app-book-lending-history',

@@ -24,7 +24,8 @@
         <td *ngIf='true'>{{ item.name }}</td>
         <td class="p-1">
           <span *ngIf='item.description' [innerHTML]='(item.description | slice:0:100)'></span>
-          <a *ngIf='item.description?.length > 100' [routerLink]='[item.id, "view"]'>View More...<span class="icon-expand-right"></span></a>
+          <a *ngIf='item.description?.length > 100' [routerLink]='[item.id, "view"]'>View More...<span
+            class="icon-expand-right"></span></a>
           <span class="icon-info badge badge-info p-2" *ngIf='!item.description'>No description available!</span>
         </td>
         <td>

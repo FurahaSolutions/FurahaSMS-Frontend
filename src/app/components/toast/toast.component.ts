@@ -25,7 +25,7 @@ export class ToastComponent extends subscribedContainerMixin() implements OnInit
     this.showToast$
       .pipe(takeUntil(this.destroyed$))
       .subscribe(showToast => {
-        if(showToast) {
+        if (showToast) {
           setTimeout(() => {
             this.hideToast();
           }, 4000);

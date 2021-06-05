@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {PasswordManagementComponent} from './password-management.component';
-import {UserPasswordResetComponent} from '../user-password-reset/user-password-reset.component';
-import {UserPasswordChangeComponent} from '../user-password-change/user-password-change.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { PasswordManagementComponent } from './password-management.component';
+import { UserPasswordResetComponent } from '../user-password-reset/user-password-reset.component';
+import { UserPasswordChangeComponent } from '../user-password-change/user-password-change.component';
 
 
 const routes: Routes = [

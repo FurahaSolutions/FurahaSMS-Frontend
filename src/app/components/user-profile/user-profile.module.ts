@@ -11,7 +11,6 @@ import { PasswordChangeFormModule } from 'src/app/pages/login/password-change-fo
 import { ReactiveComponentModule } from '@ngrx/component';
 
 
-
 @NgModule({
   declarations: [
     UserProfileComponent, NameItemComponent, UserSelectItemComponent
@@ -34,4 +33,5 @@ import { ReactiveComponentModule } from '@ngrx/component';
     NameItemComponent
   ]
 })
-export class AppUserProfileModule { }
+export class AppUserProfileModule {
+}

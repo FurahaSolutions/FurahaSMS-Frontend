@@ -33,7 +33,7 @@ export class LoginTokenComponent extends subscribedContainerMixin(formMixin()) i
   submitTokenLoginForm() {
 
     this.submitInProgressSubject$.next(true);
-    if(this.tokenLoginForm.valid) {
+    if (this.tokenLoginForm.valid) {
       this.authService.tokenLogin(this.tokenLoginForm.value).pipe(
         takeUntil(this.destroyed$)
       ).subscribe({

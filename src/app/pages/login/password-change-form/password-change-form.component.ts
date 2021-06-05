@@ -33,7 +33,7 @@ export class PasswordChangeFormComponent extends subscribedContainerMixin(formMi
     map((token) => !token),
     tap((showField) => {
       const c: FormControl = this.passwordChangeForm.get('oldPassword') as FormControl;
-      if(showField) {
+      if (showField) {
         c.setValidators([Validators.required]);
       } else {
         c.setValidators([]);
@@ -62,7 +62,7 @@ export class PasswordChangeFormComponent extends subscribedContainerMixin(formMi
   submitPasswordChangeForm() {
 
     this.submitInProgressSubject$.next(true);
-    if(this.passwordChangeForm.valid) {
+    if (this.passwordChangeForm.valid) {
 
       combineLatest([
         this.route.queryParams.pipe(map(params => params.returnUrl)),

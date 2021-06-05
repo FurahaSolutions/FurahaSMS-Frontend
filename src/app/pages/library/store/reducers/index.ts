@@ -1,4 +1,4 @@
-import {ActionReducerMap,} from '@ngrx/store';
+import { ActionReducerMap, } from '@ngrx/store';
 
 import * as fromLibraryBookAuthor from './library-book-author.reducer';
 import * as fromLibraryBookPublisher from './library-book-publisher.reducer';

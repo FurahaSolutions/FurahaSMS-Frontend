@@ -4,7 +4,7 @@ import { AppState } from 'src/app/store/reducers';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
-import { showMenu, hideMenu } from 'src/app/store/actions/menu-toggle.actions';
+import { hideMenu, showMenu } from 'src/app/store/actions/menu-toggle.actions';
 import { selectShowMenu } from 'src/app/store/selectors/menu-toggle.selector';
 
 @Component({
@@ -24,7 +24,8 @@ export class HeaderComponent implements OnInit {
     );
 
   constructor(private store: Store<AppState>,
-    public breakpointObserver: BreakpointObserver) { }
+              public breakpointObserver: BreakpointObserver) {
+  }
 
   ngOnInit() {
     this.isMenuClosed$.subscribe(isMenuClosed => {

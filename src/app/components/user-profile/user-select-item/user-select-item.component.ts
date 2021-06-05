@@ -46,7 +46,7 @@ export class UserSelectItemComponent extends formMixin() implements OnInit {
 
   submitFormItem() {
 
-    if(this.itemForm.valid) {
+    if (this.itemForm.valid) {
       this.submitInProgressSubject$.next(true);
       const fieldNewValue = this.itemForm.get('fieldName')?.value;
       this.usersService.update({

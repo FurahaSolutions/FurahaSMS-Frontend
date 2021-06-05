@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
-import {ActivatedRoute} from '@angular/router';
-import {map, mergeMap, tap} from 'rxjs/operators';
-import {formMixin} from '../../../shared/mixins/form.mixin';
-import {UsersService} from '../../../services/users.service';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { map, mergeMap, tap } from 'rxjs/operators';
+import { formMixin } from '../../../shared/mixins/form.mixin';
+import { UsersService } from '../../../services/users.service';
 
 @Component({
   selector: 'app-user-password-reset',
