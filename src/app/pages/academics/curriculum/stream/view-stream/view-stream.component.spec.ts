@@ -8,7 +8,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {AppViewItemsModule} from 'src/app/modules/app-view-items.module';
 import {AppDescriptionModule} from 'src/app/modules/app-description.module';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
-import {AppChipsModule} from 'src/app/modules/app-chip.module';
+import {AppChipsModule} from 'src/app/components/chips/app-chip.module';
 
 describe('ViewStreamComponent', () => {
   let component: ViewStreamComponent;

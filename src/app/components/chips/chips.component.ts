@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { faTimes } from "@fortawesome/free-solid-svg-icons/faTimes";
 
 @Component({
   selector: 'app-chips',
@@ -11,45 +12,12 @@ export class ChipsComponent {
   @Input() failureLabel = '';
   @Output() remove: EventEmitter<any> = new EventEmitter();
   @Input() value: boolean | undefined;
+  faTimes = faTimes;
 
   get labelValue() {
     // TODO-me change label for success and failure
     return (this.value) ? 'Active' : 'Inactive';
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   removeItem() {
