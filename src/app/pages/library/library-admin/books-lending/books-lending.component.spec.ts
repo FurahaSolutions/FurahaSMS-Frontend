@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { BooksLendingComponent } from './books-lending.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
 import { AppLinksModule } from '../../../../shared/links/links.module';
+import { BooksLendingComponent } from './books-lending.component';
 
 describe('BooksLendingComponent', () => {
   let component: BooksLendingComponent;

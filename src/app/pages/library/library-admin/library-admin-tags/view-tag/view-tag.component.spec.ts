@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ViewTagComponent} from './view-tag.component';
 import {StoreModule} from '@ngrx/store';
 import {reducers} from 'src/app/pages/library/store/reducers';
 import {EffectsModule} from '@ngrx/effects';
@@ -12,6 +11,7 @@ import {ReactiveComponentModule} from '@ngrx/component';
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
 import {AppLoadingBubbleModule} from '../../../../../modules/app-loading-bubble';
+import {ViewTagComponent} from './view-tag.component';
 
 describe('ViewTagComponent', () => {
   let component: ViewTagComponent;

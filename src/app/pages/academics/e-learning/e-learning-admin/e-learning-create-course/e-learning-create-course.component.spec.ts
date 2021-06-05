@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ELearningCreateCourseComponent } from './e-learning-create-course.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
@@ -11,12 +10,13 @@ import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/redu
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AppStarLabelRequiredModule } from '../../../../../components/label-star-required/app-star-label-required';
 import { SortableModule } from 'ngx-bootstrap/sortable';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
-import { academicsFeatureKey, reducers } from '../../../store/reducers';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { academicsFeatureKey, reducers } from '../../../store/reducers';
+import { AppStarLabelRequiredModule } from '../../../../../components/label-star-required/app-star-label-required';
+import { ELearningCreateCourseComponent } from './e-learning-create-course.component';
 
 describe('ELearningCreateCourseComponent', () => {
   let component: ELearningCreateCourseComponent;

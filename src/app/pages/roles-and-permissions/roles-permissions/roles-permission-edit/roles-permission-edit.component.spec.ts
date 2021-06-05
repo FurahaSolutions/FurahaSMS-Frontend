@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {RolesPermissionEditComponent} from './roles-permission-edit.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -9,6 +8,7 @@ import {AppInputModule} from 'src/app/components/input/app-input.module';
 import {RouterTestingModule} from '@angular/router/testing';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import {RolesPermissionEditComponent} from './roles-permission-edit.component';
 
 describe('RolesPermissionEditComponent', () => {
   let component: RolesPermissionEditComponent;

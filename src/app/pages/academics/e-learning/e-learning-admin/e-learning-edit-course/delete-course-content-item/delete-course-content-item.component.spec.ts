@@ -1,13 +1,13 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {DeleteCourseContentItemComponent} from './delete-course-content-item.component';
 import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../../../store/reducers';
-import {academicsFeatureKey, reducers} from '../../../../store/reducers';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {FormsModule} from '@angular/forms';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {academicsFeatureKey, reducers} from '../../../../store/reducers';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../../../store/reducers';
+import {DeleteCourseContentItemComponent} from './delete-course-content-item.component';
 
 describe('DeleteCourseContentItemComponent', () => {
   let component: DeleteCourseContentItemComponent;

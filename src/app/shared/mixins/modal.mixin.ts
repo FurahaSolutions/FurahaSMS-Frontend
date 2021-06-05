@@ -1,6 +1,5 @@
 
 
-import { Constructor } from './constructor.mixin';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { Store, select } from '@ngrx/store';
 import { closeModals, loadModals } from 'src/app/store/actions/modal.actions';
@@ -8,6 +7,7 @@ import {filter, tap, takeUntil} from 'rxjs/operators';
 import { selectModalOpenState } from 'src/app/store/selectors/modal.selectors';
 import {Subject} from 'rxjs';
 import {OnDestroy} from '@angular/core';
+import { Constructor } from './constructor.mixin';
 
 export const modalMixin = <T extends Constructor>(baseClass: T = class { } as T) =>
   class extends baseClass implements OnDestroy{

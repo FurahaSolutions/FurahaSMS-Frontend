@@ -14,7 +14,7 @@
 </div>
 <div class="modal-footer bg-dark">
   <button (click)='closeModal()' class="btn btn-secondary" type="button">Cancel</button>
-  <button (click)='saveArchive()' [disabled]='(confirmation !=  "#" + id) || (submitInProgressAction$ | ngrxPush)'
+  <button (click)='saveArchive()' [disabled]='(confirmation !==  "#" + id) || (submitInProgressAction$ | ngrxPush)'
           class="btn btn-danger">
     <span *ngIf='(submitInProgressAction$ | ngrxPush) === false'>{{ title }}</span>
     <span *ngIf='submitInProgressAction$ | ngrxPush'>Saving...</span>

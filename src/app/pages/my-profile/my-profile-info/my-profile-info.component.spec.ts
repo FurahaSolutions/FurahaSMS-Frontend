@@ -1,14 +1,14 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { MyProfileInfoComponent } from './my-profile-info.component';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { StoreModule } from '@ngrx/store';
 import { REDUCER_TOKEN, reducerProvider, metaReducers } from 'src/app/store/reducers';
-import { myProfileFeatureKey, reducer } from '../store/reducers/my-profile.reducer';
 import { ReactiveComponentModule } from '@ngrx/component';
-import { NameItemComponent } from '../../../components/user-profile/name-item/name-item.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { NameItemComponent } from '../../../components/user-profile/name-item/name-item.component';
+import { myProfileFeatureKey, reducer } from '../store/reducers/my-profile.reducer';
+import { MyProfileInfoComponent } from './my-profile-info.component';
 
 describe('MyProfileInfoComponent', () => {
   let component: MyProfileInfoComponent;

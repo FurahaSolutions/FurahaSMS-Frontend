@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {map, tap} from 'rxjs/operators';
 import {Store} from '@ngrx/store';
-import {loadCourses} from '../../../store/actions/courses.actions';
 import {Observable} from 'rxjs';
+import {loadCourses} from '../../../store/actions/courses.actions';
 
 @Component({
   selector: 'app-e-learning-admin-course',

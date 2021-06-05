@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { StreamService } from '../services/stream.service';
 import { Validators } from '@angular/forms';
+import { StreamService } from '../services/stream.service';
 
 @Component({
   selector: 'app-create-stream',

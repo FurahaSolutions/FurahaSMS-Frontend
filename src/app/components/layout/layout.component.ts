@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { RouterOutlet } from '@angular/router';
 import { selectShowMenu } from '../../store/selectors/menu-toggle.selector';
 import { AppState } from '../../store/reducers';
-import { Observable } from 'rxjs';
 import { routerTransition } from '../../shared/animations/route.animation';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-layout',

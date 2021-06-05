@@ -1,8 +1,8 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { CheckboxComponent } from './checkbox.component';
 import { FormsModule } from '@angular/forms';
-import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { CheckboxComponent } from './checkbox.component';
 
 describe('CheckboxComponent', () => {
   let component: CheckboxComponent;

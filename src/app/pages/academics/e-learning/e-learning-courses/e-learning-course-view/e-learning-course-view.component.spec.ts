@@ -1,17 +1,17 @@
 import {  ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ELearningCourseViewComponent } from './e-learning-course-view.component';
-import { ELearningTopicMaterialsModule } from '../../e-learning-topic-materials/e-learning-topic-materials.module';
 import { StoreModule } from '@ngrx/store';
 import { REDUCER_TOKEN, reducerProvider, metaReducers } from 'src/app/store/reducers';
-import { ELearningTopicObjectivesModule } from '../../e-learning-topic-objectives/e-learning-topic-objectives.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
+import {ReactiveComponentModule} from '@ngrx/component';
 import {myProfileFeatureKey, reducer as profileReducer} from '../../../../my-profile/store/reducers/my-profile.reducer';
 import {academicsFeatureKey, reducers} from '../../../store/reducers';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { ELearningTopicObjectivesModule } from '../../e-learning-topic-objectives/e-learning-topic-objectives.module';
+import { ELearningTopicMaterialsModule } from '../../e-learning-topic-materials/e-learning-topic-materials.module';
+import { ELearningCourseViewComponent } from './e-learning-course-view.component';
 
 describe('ELearningCourseViewComponent', () => {
   let component: ELearningCourseViewComponent;

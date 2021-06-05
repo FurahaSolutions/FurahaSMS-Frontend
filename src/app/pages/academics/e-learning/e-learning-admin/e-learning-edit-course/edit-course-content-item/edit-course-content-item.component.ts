@@ -1,11 +1,11 @@
 import {Component, Input} from '@angular/core';
-import {formMixin} from '../../../../../../shared/mixins/form.mixin';
-import {modalMixin} from '../../../../../../shared/mixins/modal.mixin';
 import {Store} from '@ngrx/store';
 import {BsModalService} from 'ngx-bootstrap/modal';
-import {ELearningService} from '../../../services/e-learning.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AppState} from 'src/app/store/reducers';
+import {ELearningService} from '../../../services/e-learning.service';
+import {modalMixin} from '../../../../../../shared/mixins/modal.mixin';
+import {formMixin} from '../../../../../../shared/mixins/form.mixin';
 import {loadCourses} from '../../../../store/actions/courses.actions';
 
 interface IStudyMaterialContent {

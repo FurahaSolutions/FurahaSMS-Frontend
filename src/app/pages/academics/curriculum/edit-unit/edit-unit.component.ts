@@ -5,9 +5,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { filter, map, mergeMap, takeUntil, tap } from 'rxjs/operators';
 import { VIEW_UNIT_CURRICULUM } from 'src/app/helpers/links.helpers';
-import { SemesterService } from '../semester/services/semester.service';
 import { formWithEditorMixin } from 'src/app/shared/mixins/form-with-editor.mixin';
 import { subscribedContainerMixin } from 'src/app/shared/mixins/subscribed-container.mixin';
+import { SemesterService } from '../semester/services/semester.service';
 
 @Component({
   selector: 'app-edit-unit',

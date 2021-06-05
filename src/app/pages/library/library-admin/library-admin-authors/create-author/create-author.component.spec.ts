@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { CreateAuthorComponent } from './create-author.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,6 +10,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { CreateAuthorComponent } from './create-author.component';
 
 describe('CreateAuthorComponent', () => {
   let component: CreateAuthorComponent;

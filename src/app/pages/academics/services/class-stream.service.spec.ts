@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ClassStreamService } from './class-stream.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import { ClassStreamService } from './class-stream.service';
 
 describe('ClassStreamService', () => {
   let service: ClassStreamService;

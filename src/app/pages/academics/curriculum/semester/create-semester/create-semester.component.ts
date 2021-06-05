@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SemesterService } from '../services/semester.service';
 import { Validators } from '@angular/forms';
+import { SemesterService } from '../services/semester.service';
 
 @Component({
   selector: 'app-create-semester',

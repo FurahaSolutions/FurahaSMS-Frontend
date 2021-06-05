@@ -1,7 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {AcademicYearUnitAllocationComponent} from './academic-year-unit-allocation.component';
-import {AcademicsModule} from '../../academics.module';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -10,6 +8,8 @@ import {reducerProvider, REDUCER_TOKEN, metaReducers} from 'src/app/store/reduce
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {AcademicsModule} from '../../academics.module';
+import {AcademicYearUnitAllocationComponent} from './academic-year-unit-allocation.component';
 
 describe('AcademicYearUnitAllocationComponent', () => {
   let component: AcademicYearUnitAllocationComponent;

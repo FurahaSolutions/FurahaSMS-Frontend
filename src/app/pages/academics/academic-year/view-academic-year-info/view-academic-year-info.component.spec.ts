@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ViewAcademicYearInfoComponent } from './view-academic-year-info.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppLinksModule } from 'src/app/shared/links/links.module';
 import { myProfileFeatureKey, reducer } from 'src/app/pages/my-profile/store/reducers/my-profile.reducer';
+import { ViewAcademicYearInfoComponent } from './view-academic-year-info.component';
 
 describe('ViewAcademicYearInfoComponent', () => {
   let component: ViewAcademicYearInfoComponent;

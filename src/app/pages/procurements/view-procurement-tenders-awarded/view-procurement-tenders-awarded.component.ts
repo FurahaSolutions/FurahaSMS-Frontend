@@ -1,12 +1,12 @@
 import { Component} from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../../store/reducers';
 import { ProcurementService } from 'src/app/services/procurement.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { FulfillOrRejectTenderFormComponent } from '../fulfill-or-reject-tender-form/fulfill-or-reject-tender-form.component';
 import { selectDialogShowState } from 'src/app/store/selectors/dialog.selector';
 import { showDialog } from 'src/app/store/actions/dialog.actions';
 import { takeUntil} from 'rxjs/operators';
+import { FulfillOrRejectTenderFormComponent } from '../fulfill-or-reject-tender-form/fulfill-or-reject-tender-form.component';
+import * as fromStore from '../../../store/reducers';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 
 @Component({

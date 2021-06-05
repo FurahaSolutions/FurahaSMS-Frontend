@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { LibraryComponent } from './library.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -10,11 +9,12 @@ import { AppLinksModule } from 'src/app/shared/links/links.module';
 import { AppViewItemsModule } from 'src/app/modules/app-view-items.module';
 import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
-import { LibraryModule } from './library.module';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { myProfileFeatureKey, reducer } from 'src/app/pages/my-profile/store/reducers/my-profile.reducer';
 import { appFeatureKey, reducers } from '../../store/reducers/app.reducer';
+import { LibraryModule } from './library.module';
+import { LibraryComponent } from './library.component';
 
 describe('LibraryComponent', () => {
   let component: LibraryComponent;

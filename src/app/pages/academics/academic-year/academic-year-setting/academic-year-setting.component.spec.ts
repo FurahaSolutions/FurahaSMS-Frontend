@@ -1,15 +1,15 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { AcademicYearSettingComponent } from './academic-year-setting.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
-import { AppLoadingBubbleModule } from '../../../../modules/app-loading-bubble';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
-import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
+import { AppLoadingBubbleModule } from '../../../../modules/app-loading-bubble';
+import { AcademicYearSettingComponent } from './academic-year-setting.component';
 
 describe('AcademicYearSettingComponent', () => {
   let component: AcademicYearSettingComponent;

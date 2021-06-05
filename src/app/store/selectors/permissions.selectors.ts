@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
-import { selectAppState } from './app.selectors';
 import { permissionsFeatureKey } from '../reducers/permissions.reducer';
+import { selectAppState } from './app.selectors';
 
 export const selectAppPermissionsState = createSelector(
   selectAppState,

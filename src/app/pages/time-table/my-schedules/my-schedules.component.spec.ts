@@ -1,9 +1,9 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {MySchedulesComponent} from './my-schedules.component';
 import {StoreModule} from '@ngrx/store';
 import {appFeatureKey, reducers} from '../../../store/reducers/app.reducer';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../store/reducers';
+import {MySchedulesComponent} from './my-schedules.component';
 
 describe('MySchedulesComponent', () => {
   let component: MySchedulesComponent;

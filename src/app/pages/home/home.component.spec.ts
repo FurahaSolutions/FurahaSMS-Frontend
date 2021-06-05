@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
 import { FullWithCenterComponent } from '../../components/full-with-center/full-with-center.component';
 import { AppStarLabelRequiredModule } from '../../components/label-star-required/app-star-label-required';
 import { FormErrorsModule } from '../../shared/form-errors/form-errors.module';
+import { HomeComponent } from './home.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

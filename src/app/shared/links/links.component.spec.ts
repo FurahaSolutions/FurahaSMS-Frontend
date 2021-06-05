@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {LinksComponent} from './links.component';
 import {AppLinksModule} from 'src/app/shared/links/links.module';
+import {LinksComponent} from './links.component';
 
 describe('LinksComponent', () => {
   let component: LinksComponent;

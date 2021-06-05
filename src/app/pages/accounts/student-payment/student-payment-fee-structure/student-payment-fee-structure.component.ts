@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
-import { StudentFeePaymentService } from '../../services/student-fee-payment.service';
 import { ActivatedRoute } from '@angular/router';
 import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
+import { StudentFeePaymentService } from '../../services/student-fee-payment.service';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({

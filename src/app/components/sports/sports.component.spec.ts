@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { SportsComponent } from './sports.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { reducers } from '../../store/reducers/app.reducer';
+import { SportsComponent } from './sports.component';
 
 describe('SportsComponent', () => {
   let component: SportsComponent;

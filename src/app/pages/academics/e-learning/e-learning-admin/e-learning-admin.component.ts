@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { ELearningService } from '../services/e-learning.service';
 import { map } from 'rxjs/operators';
+import { ELearningService } from '../services/e-learning.service';
 import { ICourse } from '../interfaces/course.interface';
 
 @Component({

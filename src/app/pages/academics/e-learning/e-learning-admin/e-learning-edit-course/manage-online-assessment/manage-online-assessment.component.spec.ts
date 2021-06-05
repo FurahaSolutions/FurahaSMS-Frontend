@@ -1,15 +1,15 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ManageOnlineAssessmentComponent} from './manage-online-assessment.component';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../../../store/reducers';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {DurationModule} from '../../../../../../shared/duration/duration.module';
-import {AppInputModule} from '../../../../../../components/input/app-input.module';
 import {DurationPickerModule} from 'ngx-duration-picker';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {DurationModule} from '../../../../../../shared/duration/duration.module';
+import {AppInputModule} from '../../../../../../components/input/app-input.module';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../../../store/reducers';
+import {ManageOnlineAssessmentComponent} from './manage-online-assessment.component';
 
 describe('ManageOnlineAssessmentComponent', () => {
   let component: ManageOnlineAssessmentComponent;

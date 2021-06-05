@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
+import { ActivatedRoute } from '@angular/router';
+import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
 import { PaymentTypeService } from '../../services/payment-type.service';
 import { selectPaymentMethods } from '../../store/selectors/payment-type.selectors';
 import { StudentFeePaymentService } from '../../services/student-fee-payment.service';
-import { ActivatedRoute } from '@angular/router';
-import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
 import { loadNewPaymentReceiptSuccess } from '../../store/actions/student-fee-statement.actions';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../../shared/mixins/form.mixin';

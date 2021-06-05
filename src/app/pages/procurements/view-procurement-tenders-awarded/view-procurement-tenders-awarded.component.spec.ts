@@ -1,14 +1,14 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ViewProcurementTendersAwardedComponent} from './view-procurement-tenders-awarded.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
 import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/testing';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
+import {ViewProcurementTendersAwardedComponent} from './view-procurement-tenders-awarded.component';
 
 describe('ViewProcurementTendersAwardedComponent', () => {
   let component: ViewProcurementTendersAwardedComponent;

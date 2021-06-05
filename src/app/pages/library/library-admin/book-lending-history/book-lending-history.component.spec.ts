@@ -1,12 +1,12 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {BookLendingHistoryComponent} from './book-lending-history.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
 import {FormsModule} from '@angular/forms';
 import {PaginationModule} from 'ngx-bootstrap/pagination';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {AppLoadingBubbleModule} from '../../../../modules/app-loading-bubble';
+import {BookLendingHistoryComponent} from './book-lending-history.component';
 
 describe('BookLendingHistoryComponent', () => {
   let component: BookLendingHistoryComponent;

@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, forwardRef, OnDestroy, OnInit } from '@angular/core';
-import { InputComponent } from '../input/input.component';
 import { FormBuilder, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms';
 import { AppFormService } from 'src/app/services/AppForm.service';
 import { PhoneNumbersService } from 'src/app/services/phone-numbers.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { InputComponent } from '../input/input.component';
 
 @Component({
   selector: 'app-tel-input',

@@ -1,10 +1,10 @@
 import { Component, forwardRef, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { AppFormService } from '../../services/AppForm.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons/faEyeSlash';
+import { AppFormService } from '../../services/AppForm.service';
 
 @Component({
   selector: 'app-input',

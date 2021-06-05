@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ArchiveAcademicYearComponent} from './archive-academic-year.component';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {ReactiveComponentModule} from '@ngrx/component';
 import {FormsModule} from '@angular/forms';
+import {ArchiveAcademicYearComponent} from './archive-academic-year.component';
 
 
 @NgModule({

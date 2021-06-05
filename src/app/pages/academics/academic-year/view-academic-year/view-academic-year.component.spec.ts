@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {ViewAcademicYearComponent} from './view-academic-year.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 
@@ -12,6 +11,7 @@ import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {of} from 'rxjs';
 import {myProfileFeatureKey, reducer} from 'src/app/pages/my-profile/store/reducers/my-profile.reducer';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {ViewAcademicYearComponent} from './view-academic-year.component';
 
 describe('ViewAcademicYearComponent', () => {
   let component: ViewAcademicYearComponent;

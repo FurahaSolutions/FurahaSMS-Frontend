@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {TeacherService} from '../../services/teacher.service';
 import {select, Store} from '@ngrx/store';
 import {AppState} from 'src/app/store/reducers';
 import {debounceTime, filter, mergeMap, takeUntil} from 'rxjs/operators';
@@ -10,9 +9,10 @@ import {GenderService} from 'src/app/services/gender.service';
 import {ReligionService} from 'src/app/services/religion.service';
 import {selectGenders, selectReligions} from 'src/app/store/selectors/app.selectors';
 import {Observable} from 'rxjs';
-import {selectStaffType} from '../../store/selectors/staff-type.selectors';
 import {SupportStaffService} from 'src/app/pages/support-staffs/services/support-staff.service';
 import {EmailValidatorDirective} from 'src/app/shared/validators/email-validator/email.validator';
+import {selectStaffType} from '../../store/selectors/staff-type.selectors';
+import {TeacherService} from '../../services/teacher.service';
 import {subscribedContainerMixin} from '../../../../shared/mixins/subscribed-container.mixin';
 import {formMixin} from '../../../../shared/mixins/form.mixin';
 

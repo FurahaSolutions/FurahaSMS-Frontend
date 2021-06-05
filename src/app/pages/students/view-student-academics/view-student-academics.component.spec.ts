@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ViewStudentAcademicsComponent} from './view-student-academics.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -10,6 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
 import {ReactiveComponentModule} from '@ngrx/component';
 import {reducers} from '../../../store/reducers/app.reducer';
+import {ViewStudentAcademicsComponent} from './view-student-academics.component';
 
 describe('ViewStudentAcademicsComponent', () => {
   let component: ViewStudentAcademicsComponent;

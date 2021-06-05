@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import * as fromStore from '../../../../store/reducers';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { selectStaffTypes } from '../../store/selectors/staff-type.selectors';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SupportStaffService } from 'src/app/pages/support-staffs/services/support-staff.service';
+import { selectStaffTypes } from '../../store/selectors/staff-type.selectors';
+import * as fromStore from '../../../../store/reducers';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({

@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { NavbarTopComponent } from './navbar-top.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { NavbarTopComponent } from './navbar-top.component';
 
 describe('NavbarTopComponent', () => {
   let component: NavbarTopComponent;

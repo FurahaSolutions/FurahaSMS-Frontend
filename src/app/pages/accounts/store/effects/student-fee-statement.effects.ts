@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-import * as fromStudentFeeStatementActions from './../actions/student-fee-statement.actions';
 import {concatMap, map, catchError} from 'rxjs/operators';
-import {StudentFeePaymentService} from '../../services/student-fee-payment.service';
 import {of} from 'rxjs';
+import {StudentFeePaymentService} from '../../services/student-fee-payment.service';
+import * as fromStudentFeeStatementActions from './../actions/student-fee-statement.actions';
 
 
 @Injectable()

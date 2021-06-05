@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { combineLatest, Observable, Subject } from 'rxjs';
-import { AppState } from '../../store/reducers';
-import { hideMenu, showMenu } from '../../store/actions/menu-toggle.actions';
-import { selectShowMenu } from '../../store/selectors/menu-toggle.selector';
 import { LinkService } from 'src/app/services/link.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { filter, map, tap } from 'rxjs/operators';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
+import { selectShowMenu } from '../../store/selectors/menu-toggle.selector';
+import { hideMenu, showMenu } from '../../store/actions/menu-toggle.actions';
+import { AppState } from '../../store/reducers';
 
 @Component({
   selector: 'app-sidebar',

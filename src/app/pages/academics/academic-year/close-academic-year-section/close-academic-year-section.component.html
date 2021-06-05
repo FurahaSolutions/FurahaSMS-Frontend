@@ -13,7 +13,7 @@
 </div>
 <div class="modal-footer bg-dark">
   <button (click)='closeModal()' class="btn btn-secondary" type="button">Cancel</button>
-  <button (click)='saveStatus()' [disabled]='(confirmation !=  "#" + slug) || (submitInProgressAction$ | ngrxPush)'
+  <button (click)='saveStatus()' [disabled]='(confirmation !==  "#" + slug) || (submitInProgressAction$ | ngrxPush)'
           class="btn btn-danger">
     <span *ngIf='(submitInProgressAction$ | ngrxPush) === false'>{{isOpen ? 'Close' : 'Reopen'}} {{ name }}</span>
     <span *ngIf='submitInProgressAction$ | ngrxPush'>Saving...</span>

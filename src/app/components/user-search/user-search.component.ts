@@ -4,8 +4,8 @@ import { noop, Observable, Observer, of, Subject } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { IUserProfile } from 'src/app/interfaces/user-profile.interface';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
-import { UsersService } from '../../services/users.service';
 import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-user-search',

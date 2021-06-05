@@ -1,11 +1,11 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ELearningAdminCourseComponent} from './e-learning-admin-course.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {EffectsModule} from '@ngrx/effects';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {ELearningAdminCourseComponent} from './e-learning-admin-course.component';
 
 describe('ELearningAdminCourseComponent', () => {
   let component: ELearningAdminCourseComponent;

@@ -1,12 +1,12 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {TeachersDashboardComponent} from './teachers-dashboard.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {AppLoadingBubbleModule} from '../../../modules/app-loading-bubble';
 import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../store/reducers';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {AppLoadingBubbleModule} from '../../../modules/app-loading-bubble';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../store/reducers';
+import {TeachersDashboardComponent} from './teachers-dashboard.component';
 
 describe('TeachersDashboardComponent', () => {
   let component: TeachersDashboardComponent;

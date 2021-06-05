@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HttpCacheService } from './http-cache.service';
 import {AppPrintModule} from '../shared/print/print.module';
+import { HttpCacheService } from './http-cache.service';
 
 describe('HttpCacheService', () => {
   beforeEach(() => TestBed.configureTestingModule({

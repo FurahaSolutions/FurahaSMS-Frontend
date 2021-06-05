@@ -1,10 +1,10 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {StudentAcademicsService} from '../services/student-academics.service';
 import {combineLatest, Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 import {map, mergeMap} from 'rxjs/operators';
-import {selectEditModeOnState} from '../../../store/selectors/app.selectors';
 import {select, Store} from '@ngrx/store';
+import {selectEditModeOnState} from '../../../store/selectors/app.selectors';
+import {StudentAcademicsService} from '../services/student-academics.service';
 
 @Component({
   selector: 'app-view-student-academics',

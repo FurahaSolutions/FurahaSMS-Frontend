@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
-import { selectLibraryBookPublisher, selectLibraryBookPublishers } from '../store/selectors/library.selectors';
 import { filter, map, tap } from 'rxjs/operators';
+import { selectLibraryBookPublisher, selectLibraryBookPublishers } from '../store/selectors/library.selectors';
 import { loadLibraryBookPublisher, loadLibraryBookPublishers } from '../store/actions/library-book-publisher.actions';
 
 @Injectable({

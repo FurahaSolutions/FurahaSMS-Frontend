@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {Store} from '@ngrx/store';
-import * as fromStore from '../../../store/reducers';
 import {ProcurementService} from 'src/app/services/procurement.service';
 import {takeUntil} from 'rxjs/operators';
-import {subscribedContainerMixin} from '../../../shared/mixins/subscribed-container.mixin';
 import {BehaviorSubject} from 'rxjs';
+import {subscribedContainerMixin} from '../../../shared/mixins/subscribed-container.mixin';
+import * as fromStore from '../../../store/reducers';
 
 @Component({
   selector: 'app-approve-procurement-request',

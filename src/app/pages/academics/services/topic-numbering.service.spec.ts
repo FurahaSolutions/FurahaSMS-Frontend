@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TopicNumberingService } from './topic-numbering.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TopicNumberingService } from './topic-numbering.service';
 
 describe('TopicNumberingService', () => {
   let service: TopicNumberingService;

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CanDeactivateGuard } from 'src/app/guards/can-deactivate.guard';
 import { ExamBankAdminComponent } from './exam-bank-admin.component';
 import { CreateExamComponent } from './create-exam/create-exam.component';
 import { AdminExamPaperComponent } from './admin-exam-paper/admin-exam-paper.component';
 import { AdminExamPaperViewComponent } from './admin-exam-paper-view/admin-exam-paper-view.component';
 import { AdminExamPaperEditComponent } from './admin-exam-paper-edit/admin-exam-paper-edit.component';
-import { CanDeactivateGuard } from 'src/app/guards/can-deactivate.guard';
 
 
 const routes: Routes = [

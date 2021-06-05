@@ -4,8 +4,8 @@ import {formMixin} from 'src/app/shared/mixins/form.mixin';
 import {Store} from '@ngrx/store';
 import {BsModalService} from 'ngx-bootstrap/modal';
 import {FormBuilder, Validators, FormGroup, FormArray} from '@angular/forms';
-import {TimingTemplateService} from '../../services/timing-template.service';
 import {tap} from 'rxjs/operators';
+import {TimingTemplateService} from '../../services/timing-template.service';
 
 
 @Component({

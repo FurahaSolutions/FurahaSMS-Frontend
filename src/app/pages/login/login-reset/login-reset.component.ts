@@ -4,9 +4,9 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { EmailValidatorDirective } from 'src/app/shared/validators/email-validator/email.validator';
 import { Router } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../shared/mixins/form.mixin';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 
 @Component({
   selector: 'app-login-reset',

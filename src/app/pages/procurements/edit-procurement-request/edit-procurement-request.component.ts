@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../../store/reducers';
 import { ActivatedRoute } from '@angular/router';
 import { map, takeUntil } from 'rxjs/operators';
+import * as fromStore from '../../../store/reducers';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 
 @Component({

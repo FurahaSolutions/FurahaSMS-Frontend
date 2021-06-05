@@ -1,15 +1,15 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import * as fromStore from '../../../../../store/reducers';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LibraryPublisherService } from 'src/app/pages/library/services/library-publisher.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map, mergeMap, takeUntil, tap } from 'rxjs/operators';
-import { selectLibraryBookPublisher } from '../../../store/selectors/library.selectors';
 import { CanvasService } from 'src/app/services/canvas.service';
+import { combineLatest } from 'rxjs';
+import { selectLibraryBookPublisher } from '../../../store/selectors/library.selectors';
 import { formWithEditorMixin } from '../../../../../shared/mixins/form-with-editor.mixin';
 import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
-import { combineLatest } from 'rxjs';
+import * as fromStore from '../../../../../store/reducers';
 
 @Component({
   selector: 'app-create-publisher',

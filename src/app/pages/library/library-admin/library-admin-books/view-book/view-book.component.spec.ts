@@ -1,8 +1,8 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ViewBookComponent} from './view-book.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import {ViewBookComponent} from './view-book.component';
 
 describe('ViewBookComponent', () => {
   let component: ViewBookComponent;

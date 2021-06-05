@@ -1,11 +1,11 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {LibraryAdminPublisherItemComponent} from './library-admin-publisher-item.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {RouterTestingModule} from '@angular/router/testing';
 import {libraryFeatureKey, reducers} from '../../../store/reducers';
+import {LibraryAdminPublisherItemComponent} from './library-admin-publisher-item.component';
 
 describe('LibraryAdminPublisherItemComponent', () => {
   let component: LibraryAdminPublisherItemComponent;

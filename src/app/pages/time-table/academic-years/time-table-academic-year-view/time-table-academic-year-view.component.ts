@@ -1,5 +1,4 @@
 import {Component, ChangeDetectionStrategy} from '@angular/core';
-import {TimeTableService} from '../../services/time-table.service';
 import {ActivatedRoute} from '@angular/router';
 import {map, mergeMap} from 'rxjs/operators';
 import {AcademicYearService} from 'src/app/pages/academics/services/academic-year.service';
@@ -11,6 +10,7 @@ import {UnitsService} from 'src/app/services/units.service';
 import {SchoolRoomService} from 'src/app/pages/infrastructures/services/school-room.service';
 import {ClassLevelService} from 'src/app/services/class-level.service';
 import {ClassStreamService} from 'src/app/pages/academics/services/class-stream.service';
+import {TimeTableService} from '../../services/time-table.service';
 
 @Component({
   selector: 'app-time-table-academic-year-view',

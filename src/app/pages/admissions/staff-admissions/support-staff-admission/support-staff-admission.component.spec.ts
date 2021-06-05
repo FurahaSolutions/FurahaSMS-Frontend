@@ -1,14 +1,14 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {SupportStaffAdmissionComponent} from './support-staff-admission.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {SelectComponent} from '../../../../components/select/select.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
-import {admissionsFeatureKey, reducers} from '../../store/reducers';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {admissionsFeatureKey, reducers} from '../../store/reducers';
+import {SelectComponent} from '../../../../components/select/select.component';
+import {SupportStaffAdmissionComponent} from './support-staff-admission.component';
 
 describe('SupportStaffAdmissionComponent', () => {
   let component: SupportStaffAdmissionComponent;

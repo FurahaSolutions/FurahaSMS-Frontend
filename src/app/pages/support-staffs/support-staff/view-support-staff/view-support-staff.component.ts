@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { map, mergeMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
-import { SupportStaffService } from '../../services/support-staff.service';
 import { Observable } from 'rxjs';
+import { SupportStaffService } from '../../services/support-staff.service';
 
 @Component({
   selector: 'app-view-support-staff',

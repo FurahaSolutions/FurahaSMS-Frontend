@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ELearningCourseComponent} from './e-learning-course.component';
 import {RouterTestingModule} from '@angular/router/testing';
+import {ELearningCourseComponent} from './e-learning-course.component';
 
 describe('ELearningCourseComponent', () => {
   let component: ELearningCourseComponent;

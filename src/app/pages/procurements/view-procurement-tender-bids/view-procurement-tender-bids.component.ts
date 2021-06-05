@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../../store/reducers';
 import { ProcurementService } from 'src/app/services/procurement.service';
 import { loadToastShowsSuccess } from 'src/app/store/actions/toast-show.actions';
 import { takeUntil } from 'rxjs/operators';
+import * as fromStore from '../../../store/reducers';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 
 @Component({

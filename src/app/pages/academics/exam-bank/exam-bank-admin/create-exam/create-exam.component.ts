@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ExamPaperService } from '../../services/exam-paper.service';
 import { Router } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
+import { ExamPaperService } from '../../services/exam-paper.service';
 import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../../../shared/mixins/form.mixin';
 

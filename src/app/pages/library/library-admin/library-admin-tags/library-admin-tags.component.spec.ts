@@ -1,13 +1,13 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {LibraryAdminTagsComponent} from './library-admin-tags.component';
 import {StoreModule} from '@ngrx/store';
-import {reducers} from '../../store/reducers';
 import {EffectsModule} from '@ngrx/effects';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
-import {LibraryAdminModule} from '../library-admin.module';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import {LibraryAdminModule} from '../library-admin.module';
+import {reducers} from '../../store/reducers';
+import {LibraryAdminTagsComponent} from './library-admin-tags.component';
 
 describe('LibraryAdminTagsComponent', () => {
   let component: LibraryAdminTagsComponent;

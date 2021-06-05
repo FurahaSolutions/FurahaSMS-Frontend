@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {TimeTableAcademicYearViewComponent} from './time-table-academic-year-view.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -9,9 +8,10 @@ import {REDUCER_TOKEN, reducerProvider, metaReducers} from 'src/app/store/reduce
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
-import {FormErrorsModule} from '../../../../shared/form-errors/form-errors.module';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {FormErrorsModule} from '../../../../shared/form-errors/form-errors.module';
 import {AppLoadingBubbleModule} from '../../../../modules/app-loading-bubble';
+import {TimeTableAcademicYearViewComponent} from './time-table-academic-year-view.component';
 
 describe('TimeTableAcademicYearViewComponent', () => {
   let component: TimeTableAcademicYearViewComponent;

@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { LoginContactAdminComponent } from './login-contact-admin.component';
-import { InputComponent } from '../../../components/input/input.component';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FullWithCenterComponent } from '../../../components/full-with-center/full-with-center.component';
 import { By } from '@angular/platform-browser';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { InputComponent } from '../../../components/input/input.component';
+import { FullWithCenterComponent } from '../../../components/full-with-center/full-with-center.component';
 import { AppStarLabelRequiredModule } from '../../../components/label-star-required/app-star-label-required';
-import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
+import { LoginContactAdminComponent } from './login-contact-admin.component';
 
 describe('LoginContactAdminComponent', () => {
   let component: LoginContactAdminComponent;

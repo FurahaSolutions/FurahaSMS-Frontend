@@ -1,12 +1,12 @@
 import {Component, Input, TemplateRef} from '@angular/core';
-import {modalMixin} from '../../../../shared/mixins/modal.mixin';
-import {formMixin} from '../../../../shared/mixins/form.mixin';
 import {Store} from '@ngrx/store';
 import {BsModalService} from 'ngx-bootstrap/modal';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {takeUntil} from 'rxjs/operators';
+import {modalMixin} from '../../../../shared/mixins/modal.mixin';
+import {formMixin} from '../../../../shared/mixins/form.mixin';
 import {ELearningService} from '../services/e-learning.service';
 import {subscribedContainerMixin} from '../../../../shared/mixins/subscribed-container.mixin';
-import {takeUntil} from 'rxjs/operators';
 import {loadCourses} from '../../store/actions/courses.actions';
 import {
   ELearningDeleteLearningOutcomeComponent

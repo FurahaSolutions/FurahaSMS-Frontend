@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {formMixin} from '../../../../../shared/mixins/form.mixin';
 import {FormBuilder} from '@angular/forms';
+import {formMixin} from '../../../../../shared/mixins/form.mixin';
 import {LibraryUserService} from '../services/library-user.service';
 
 @Component({

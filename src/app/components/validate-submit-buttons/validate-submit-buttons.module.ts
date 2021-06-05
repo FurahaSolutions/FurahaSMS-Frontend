@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { ValidateSubmitButtonsComponent } from './validate-submit-buttons.component';
 import { CommonModule } from '@angular/common';
-import { FormErrorsModule } from '../../shared/form-errors/form-errors.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FormErrorsModule } from '../../shared/form-errors/form-errors.module';
+import { ValidateSubmitButtonsComponent } from './validate-submit-buttons.component';
 
 
 @NgModule({

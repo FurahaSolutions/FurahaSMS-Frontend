@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TimingTemplateService } from './timing-template.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TimingTemplateService } from './timing-template.service';
 
 describe('TimingTemplateService', () => {
   let service: TimingTemplateService;

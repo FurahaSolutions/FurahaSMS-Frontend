@@ -1,13 +1,13 @@
 import {Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {Store} from '@ngrx/store';
+import {takeUntil} from 'rxjs/operators';
+import {BsModalService} from 'ngx-bootstrap/modal';
 import {AppState} from '../../../../store/reducers';
 import {OnlineAssessmentService} from '../services/online-assessment.service';
 import {loadCourses} from '../../store/actions/courses.actions';
 import {subscribedContainerMixin} from '../../../../shared/mixins/subscribed-container.mixin';
-import {takeUntil} from 'rxjs/operators';
 import {modalMixin} from '../../../../shared/mixins/modal.mixin';
-import {BsModalService} from 'ngx-bootstrap/modal';
 import {formMixin} from '../../../../shared/mixins/form.mixin';
 
 @Component({

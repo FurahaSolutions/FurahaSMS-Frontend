@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { EditStreamComponent } from './edit-stream.component';
 import { ErrorModule } from 'src/app/components/error/error.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { reducerProvider } from 'src/app/store/reducers';
-import { CreateStreamComponent } from '../create-stream/create-stream.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { AppCrudModule } from '../../../../../components/crud/app-crud.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CreateStreamComponent } from '../create-stream/create-stream.component';
+import { AppCrudModule } from '../../../../../components/crud/app-crud.module';
+import { EditStreamComponent } from './edit-stream.component';
 
 
 describe('EditStreamComponent', () => {

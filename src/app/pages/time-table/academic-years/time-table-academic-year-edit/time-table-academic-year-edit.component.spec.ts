@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {TimeTableAcademicYearEditComponent} from './time-table-academic-year-edit.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -9,11 +8,12 @@ import {ModalModule} from 'ngx-bootstrap/modal';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
-import {AppStarLabelRequiredModule} from '../../../../components/label-star-required/app-star-label-required';
 import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {AppStarLabelRequiredModule} from '../../../../components/label-star-required/app-star-label-required';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
 import {AppLoadingBubbleModule} from '../../../../modules/app-loading-bubble';
+import {TimeTableAcademicYearEditComponent} from './time-table-academic-year-edit.component';
 
 describe('TimeTableAcademicYearEditComponent', () => {
   let component: TimeTableAcademicYearEditComponent;

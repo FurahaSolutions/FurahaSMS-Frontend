@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { formMixin } from '../../../shared/mixins/form.mixin';
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import { formMixin } from '../../../shared/mixins/form.mixin';
 import { ClassStreamService } from '../../academics/services/class-stream.service';
 import { ClassLevelService } from '../../../services/class-level.service';
 import { AcademicYearService } from '../../academics/services/academic-year.service';
 import { StudentService } from '../../../services/student.service';
-import { catchError, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-student-dashboard',

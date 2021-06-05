@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../../store/reducers';
 import { ProcurementService } from 'src/app/services/procurement.service';
+import * as fromStore from '../../../store/reducers';
 
 @Component({
   selector: 'app-view-procurements-approved-requests',

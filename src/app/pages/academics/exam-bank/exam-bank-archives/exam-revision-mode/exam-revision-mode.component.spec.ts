@@ -1,8 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ExamRevisionModeComponent} from './exam-revision-mode.component';
 import {RouterTestingModule} from '@angular/router/testing';
-import {ViewQuestionRevisionModeComponent} from '../view-question-revision-mode/view-question-revision-mode.component';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {FormsModule} from '@angular/forms';
 import {StoreModule, Store} from '@ngrx/store';
@@ -11,8 +9,10 @@ import {Number2AlphabetModule} from 'src/app/shared/number-2-alphabet/number-2-a
 import {AppCheckboxModule} from 'src/app/shared/checkbox/checkbox.module';
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
-import {examPaperFeatureKey, reducer, initialState} from '../../store/reducers/exam-paper.reducer';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {examPaperFeatureKey, reducer, initialState} from '../../store/reducers/exam-paper.reducer';
+import {ViewQuestionRevisionModeComponent} from '../view-question-revision-mode/view-question-revision-mode.component';
+import {ExamRevisionModeComponent} from './exam-revision-mode.component';
 
 describe('ExamRevisionModeComponent', () => {
   let component: ExamRevisionModeComponent;

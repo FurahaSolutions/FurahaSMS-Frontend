@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { OnlineAssessmentService } from '../../../services/online-assessment.service';
-import { subscribedContainerMixin } from '../../../../../../shared/mixins/subscribed-container.mixin';
-import { formMixin } from '../../../../../../shared/mixins/form.mixin';
 import { FormBuilder, Validators } from '@angular/forms';
 import { map, mergeMap, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import { OnlineAssessmentService } from '../../../services/online-assessment.service';
+import { subscribedContainerMixin } from '../../../../../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../../../../../shared/mixins/form.mixin';
 
 @Component({
   selector: 'app-edit-online-assessment-details',

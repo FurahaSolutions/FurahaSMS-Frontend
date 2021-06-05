@@ -1,12 +1,12 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {AcademicYearService} from '../../academics/services/academic-year.service';
 import {combineLatest, Observable, of} from 'rxjs';
 import {ClassLevelService} from 'src/app/services/class-level.service';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {map, mergeMap, takeUntil, tap} from 'rxjs/operators';
+import {ActivatedRoute, Router} from '@angular/router';
 import {StudentAcademicsService} from '../services/student-academics.service';
 import {AcademicYearUnitService} from '../../academics/services/academic-year-unit.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {AcademicYearService} from '../../academics/services/academic-year.service';
 import {ClassStreamService} from '../../academics/services/class-stream.service';
 import {subscribedContainerMixin} from '../../../shared/mixins/subscribed-container.mixin';
 import {loadingMixin} from '../../../shared/mixins/loading.mixin';

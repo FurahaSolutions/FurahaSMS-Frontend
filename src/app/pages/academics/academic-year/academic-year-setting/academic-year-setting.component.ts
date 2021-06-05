@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { AcademicYearService } from '../../services/academic-year.service';
 import { Store } from '@ngrx/store';
 import { map, mergeMap, switchMap, tap } from 'rxjs/operators';
-import { selectICan } from '../../../my-profile/store/selectors/my-profile.selectors';
 import { combineLatest } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { selectICan } from '../../../my-profile/store/selectors/my-profile.selectors';
 import { modalMixin } from '../../../../shared/mixins/modal.mixin';
 import { CloseAcademicYearSectionComponent } from '../close-academic-year-section/close-academic-year-section.component';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { AcademicYearService } from '../../services/academic-year.service';
 import { DeleteAcademicYearComponent } from '../delete-academic-year/delete-academic-year.component';
 import { ArchiveAcademicYearComponent } from '../archive-academic-year/archive-academic-year.component';
 

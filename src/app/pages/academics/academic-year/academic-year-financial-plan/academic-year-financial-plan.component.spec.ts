@@ -1,12 +1,12 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {AcademicYearFinancialPlanComponent} from './academic-year-financial-plan.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ActivatedRoute, Router} from '@angular/router';
 import {of} from 'rxjs';
+import {AcademicYearFinancialPlanComponent} from './academic-year-financial-plan.component';
 
 describe('AcademicYearFinancialPlanComponent', () => {
   let component: AcademicYearFinancialPlanComponent;

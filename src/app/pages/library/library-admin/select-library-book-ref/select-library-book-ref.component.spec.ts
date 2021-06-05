@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { SelectLibraryBookRefComponent } from './select-library-book-ref.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { SelectLibraryBookRefComponent } from './select-library-book-ref.component';
 
 describe('SelectLibraryBookRefComponent', () => {
   let component: SelectLibraryBookRefComponent;

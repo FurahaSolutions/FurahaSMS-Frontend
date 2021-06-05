@@ -1,12 +1,12 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {map, mergeMap, tap} from 'rxjs/operators';
 import {ActivatedRoute, Router} from '@angular/router';
+import {combineLatest, Observable} from 'rxjs';
+import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 import {TeacherSubjectService} from '../services/teacher-subject.service';
 import {TeacherService} from '../../admissions/services/teacher.service';
 import {UnitsService} from '../../../services/units.service';
 import {UnitLevelService} from '../../../services/unit-level.service';
-import {combineLatest, Observable} from 'rxjs';
-import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 import {formMixin} from '../../../shared/mixins/form.mixin';
 
 @Component({

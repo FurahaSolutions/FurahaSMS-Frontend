@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {StudyMaterialsService} from '../../../study-materials/services/study-materials.service';
 import {map, mergeMap, tap} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
 import {combineLatest, Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
+import {StudyMaterialsService} from '../../../study-materials/services/study-materials.service';
 import {selectAcademicsCourse} from '../../../store/selectors/courses.selectors';
 import {ICourse} from '../../interfaces/course.interface';
 

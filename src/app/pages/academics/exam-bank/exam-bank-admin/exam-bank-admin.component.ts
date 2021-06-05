@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
-import { ExamPaperService } from '../services/exam-paper.service';
 import { takeUntil } from 'rxjs/operators';
+import { ExamPaperService } from '../services/exam-paper.service';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({

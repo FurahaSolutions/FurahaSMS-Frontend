@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { NetworkLoadingService } from '../../services/network-loading.service';
 import { tap } from 'rxjs/operators';
+import { NetworkLoadingService } from '../../services/network-loading.service';
 
 @Component({
   selector: 'app-network-loading',

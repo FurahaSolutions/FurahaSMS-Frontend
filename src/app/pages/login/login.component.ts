@@ -3,16 +3,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { loadToastShowsSuccess } from '../../store/actions/toast-show.actions';
-import { AppState } from '../../store/reducers';
 import { map, takeUntil, tap } from 'rxjs/operators';
 import { loadErrorMessagesFailure, loadErrorMessagesSuccess } from 'src/app/store/actions/error-message.actions';
 import { combineLatest, Observable, Subject } from 'rxjs';
-import { subscribedContainerMixin } from '../../shared/mixins/subscribed-container.mixin';
-import { formMixin } from '../../shared/mixins/form.mixin';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faKey } from '@fortawesome/free-solid-svg-icons/faKey';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
+import { formMixin } from '../../shared/mixins/form.mixin';
+import { subscribedContainerMixin } from '../../shared/mixins/subscribed-container.mixin';
+import { AppState } from '../../store/reducers';
+import { loadToastShowsSuccess } from '../../store/actions/toast-show.actions';
 
 @Component({
   selector: 'app-login',

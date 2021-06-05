@@ -1,12 +1,12 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {TimeTableTimingsComponent} from './time-table-timings.component';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {TimeTableTimingsComponent} from './time-table-timings.component';
 
 describe('TimeTableTimingsComponent', () => {
   let component: TimeTableTimingsComponent;

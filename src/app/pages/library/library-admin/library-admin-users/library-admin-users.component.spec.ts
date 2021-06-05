@@ -1,12 +1,12 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {LibraryAdminUsersComponent} from './library-admin-users.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {AppLinksModule} from 'src/app/shared/links/links.module';
 import {RouterTestingModule} from '@angular/router/testing';
 import {myProfileFeatureKey, reducer} from 'src/app/pages/my-profile/store/reducers/my-profile.reducer';
 import {appFeatureKey, reducers} from '../../../../store/reducers/app.reducer';
+import {LibraryAdminUsersComponent} from './library-admin-users.component';
 
 
 describe('LibraryAdminUsersComponent', () => {

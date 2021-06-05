@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ViewStudentInfoComponent } from './view-student-info.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
-import { LoadingBubbleComponent } from '../../../components/loading-bubble/loading-bubble.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppUserProfileModule } from 'src/app/components/user-profile/user-profile.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { appFeatureKey, reducers } from '../../../store/reducers/app.reducer';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { appFeatureKey, reducers } from '../../../store/reducers/app.reducer';
+import { LoadingBubbleComponent } from '../../../components/loading-bubble/loading-bubble.component';
+import { ViewStudentInfoComponent } from './view-student-info.component';
 
 describe('ViewStudentInfoComponent', () => {
   let component: ViewStudentInfoComponent;

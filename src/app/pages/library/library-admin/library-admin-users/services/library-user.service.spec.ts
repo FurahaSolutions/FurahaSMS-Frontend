@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 
-import {LibraryUserService} from './library-user.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {LibraryUserService} from './library-user.service';
 
 describe('LibraryUserService', () => {
   let service: LibraryUserService;

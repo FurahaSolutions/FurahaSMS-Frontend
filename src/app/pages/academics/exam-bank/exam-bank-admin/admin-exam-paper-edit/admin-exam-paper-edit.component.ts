@@ -1,20 +1,20 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/reducers';
-import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selectors';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
 import { CanDeactivateGuard } from 'src/app/guards/can-deactivate.guard';
-import { ExamPaperQuestionsService } from '../../services/exam-paper-questions.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { subscribedContainerMixin } from 'src/app/shared/mixins/subscribed-container.mixin';
+import { modalMixin } from 'src/app/shared/mixins/modal.mixin';
+import { formWithMathEditorMixin } from 'src/app/shared/mixins/form-with-math-editor.mixin';
+import { ExamPaperQuestionsService } from '../../services/exam-paper-questions.service';
 import { loadExamPapers } from '../../store/actions/exam-paper.actions';
 import { answersMatchValidator } from '../../validators/answers-match.validator';
 import { IExamPaperQuestion } from '../../interfaces/exam-paper-question.interface';
-import { subscribedContainerMixin } from 'src/app/shared/mixins/subscribed-container.mixin';
 
-import { modalMixin } from 'src/app/shared/mixins/modal.mixin';
-import { formWithMathEditorMixin } from 'src/app/shared/mixins/form-with-math-editor.mixin';
+import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selectors';
 
 @Component({
   selector: 'app-admin-exam-paper-edit',

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {UnitLevelService} from '../../../../services/unit-level.service';
 import {BehaviorSubject, combineLatest} from 'rxjs';
 import {map, mergeMap} from 'rxjs/operators';
+import {UnitLevelService} from '../../../../services/unit-level.service';
 import {ClassLevelUnitLevelAllocationService} from '../../services/class-level-unit-level-allocation.service';
 
 @Component({

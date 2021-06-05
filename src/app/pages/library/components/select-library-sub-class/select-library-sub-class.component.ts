@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, Output, SimpleChange } from '@angular/core';
-import { LibraryBookClassesService } from '../../services/library-book-classes.service';
 import { of } from 'rxjs';
 import { DbService } from 'src/app/services/db.service';
 import { takeUntil } from 'rxjs/operators';
+import { LibraryBookClassesService } from '../../services/library-book-classes.service';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({

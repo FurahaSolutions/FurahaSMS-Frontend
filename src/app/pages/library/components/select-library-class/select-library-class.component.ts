@@ -1,10 +1,10 @@
 import { Component, forwardRef, Input, OnChanges, SimpleChange } from '@angular/core';
-import { LibraryBookClassesService } from '../../services/library-book-classes.service';
 import { Observable, of } from 'rxjs';
 
 import { DbService } from 'src/app/services/db.service';
 import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
+import { LibraryBookClassesService } from '../../services/library-book-classes.service';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 
 

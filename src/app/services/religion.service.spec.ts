@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ReligionService } from './religion.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { reducerProvider, REDUCER_TOKEN, metaReducers } from '../store/reducers';
 import { StoreModule } from '@ngrx/store';
+import { reducerProvider, REDUCER_TOKEN, metaReducers } from '../store/reducers';
+import { ReligionService } from './religion.service';
 
 describe('ReligionService', () => {
   beforeEach(() =>

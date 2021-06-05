@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {OnlineAssessmentService} from '../../../services/online-assessment.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map, mergeMap} from 'rxjs/operators';
+import {OnlineAssessmentService} from '../../../services/online-assessment.service';
 
 @Component({
   selector: 'app-take-online-exam-dashboard',

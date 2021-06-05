@@ -1,13 +1,13 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ELearningCoursesComponent} from './e-learning-courses.component';
-import {ELearningCourseModule} from '../e-learning-course/e-learning-course.module';
 import {RouterTestingModule} from '@angular/router/testing';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {FormsModule} from '@angular/forms';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
 import { CommonModule } from '@angular/common';
+import {ELearningCourseModule} from '../e-learning-course/e-learning-course.module';
+import {ELearningCoursesComponent} from './e-learning-courses.component';
 
 describe('ELearningCoursesComponent', () => {
   let component: ELearningCoursesComponent;

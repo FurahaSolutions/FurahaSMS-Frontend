@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LinkService } from './link.service';
 import { StoreModule } from '@ngrx/store';
 import { REDUCER_TOKEN, reducerProvider, metaReducers } from '../store/reducers';
+import { LinkService } from './link.service';
 
 describe('LinkService', () => {
   beforeEach(() => TestBed.configureTestingModule({

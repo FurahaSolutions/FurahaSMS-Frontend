@@ -1,12 +1,12 @@
 import { Component, Input} from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../../store/reducers';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ProcurementService } from 'src/app/services/procurement.service';
 import { selectErrorState } from 'src/app/store/selectors/error-message.selector';
 import { closeDialog } from 'src/app/store/actions/dialog.actions';
 import { loadErrorMessagesFailure } from 'src/app/store/actions/error-message.actions';
 import { takeUntil, tap } from 'rxjs/operators';
+import * as fromStore from '../../../store/reducers';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../shared/mixins/form.mixin';
 

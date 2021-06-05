@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {select, Store} from '@ngrx/store';
-import {selectAcademicsCourse} from '../../../store/selectors/courses.selectors';
 import {map, mergeMap} from 'rxjs/operators';
 import {combineLatest} from 'rxjs';
+import {selectAcademicsCourse} from '../../../store/selectors/courses.selectors';
 import {selectICan} from '../../../../my-profile/store/selectors/my-profile.selectors';
 
 @Component({

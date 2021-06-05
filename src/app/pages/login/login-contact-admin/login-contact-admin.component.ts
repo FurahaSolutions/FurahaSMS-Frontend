@@ -16,7 +16,7 @@ export class LoginContactAdminComponent {
   errors: { email: string | null } = {
     email: null
   };
-  faEnvelope = faEnvelope
+  faEnvelope = faEnvelope;
 
   constructor(
     private fb: FormBuilder,

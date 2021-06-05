@@ -1,6 +1,5 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {select, Store} from '@ngrx/store';
-import * as fromLibraryAuthors from '../../../store/reducers';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {
   selectLibraryBookAuthors,
@@ -17,8 +16,9 @@ import {LibraryBookTagService} from 'src/app/pages/library/services/library-book
 import {LibraryBookService} from 'src/app/pages/library/services/library-book.service';
 import {CanComponentDeactivate} from 'src/app/guards/can-deactivate.guard';
 import {Router} from '@angular/router';
-import {validateISBN} from '../../../validatots/isbn.validator';
 import {takeUntil} from 'rxjs/operators';
+import {validateISBN} from '../../../validatots/isbn.validator';
+import * as fromLibraryAuthors from '../../../store/reducers';
 import {formWithEditorMixin} from '../../../../../shared/mixins/form-with-editor.mixin';
 import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-container.mixin';
 

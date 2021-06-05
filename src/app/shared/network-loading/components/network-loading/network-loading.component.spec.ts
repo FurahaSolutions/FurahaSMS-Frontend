@@ -1,8 +1,8 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {NetworkLoadingComponent} from './network-loading.component';
 import {ReactiveComponentModule} from '@ngrx/component';
 import {FormsModule} from '@angular/forms';
+import {NetworkLoadingComponent} from './network-loading.component';
 
 describe('NetworkLoadingComponent', () => {
   let component: NetworkLoadingComponent;

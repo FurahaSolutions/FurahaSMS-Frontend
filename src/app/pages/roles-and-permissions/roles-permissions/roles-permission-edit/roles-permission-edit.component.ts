@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { RolesAndPermissionsService } from '../../services/roles-and-permissions.service';
 import { ActivatedRoute } from '@angular/router';
 import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { RolesAndPermissionsService } from '../../services/roles-and-permissions.service';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../../shared/mixins/form.mixin';
 

@@ -1,9 +1,9 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ViewLibraryUserComponent} from './view-library-user.component';
-import {UserSearchModule} from '../../../../../components/user-search/user-search.module';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {FormsModule} from '@angular/forms';
+import {UserSearchModule} from '../../../../../components/user-search/user-search.module';
+import {ViewLibraryUserComponent} from './view-library-user.component';
 
 describe('ViewLibraryUserComponent', () => {
   let component: ViewLibraryUserComponent;

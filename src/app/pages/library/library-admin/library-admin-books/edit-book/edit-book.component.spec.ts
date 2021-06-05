@@ -1,8 +1,8 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {EditBookComponent} from './edit-book.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import {EditBookComponent} from './edit-book.component';
 
 describe('EditBookComponent', () => {
   let component: EditBookComponent;

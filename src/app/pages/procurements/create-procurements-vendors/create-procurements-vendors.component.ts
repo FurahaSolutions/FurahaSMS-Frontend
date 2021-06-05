@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../../store/reducers';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProcurementService } from 'src/app/services/procurement.service';
 import { Observable, Subscriber } from 'rxjs';
@@ -8,6 +7,7 @@ import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { CanComponentDeactivate } from 'src/app/guards/can-deactivate.guard';
 import { Router } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
+import * as fromStore from '../../../store/reducers';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../shared/mixins/form.mixin';
 

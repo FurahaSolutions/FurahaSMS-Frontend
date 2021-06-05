@@ -1,12 +1,12 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ProcurementTendersBidsComponent} from './procurement-tenders-bids.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
+import {ProcurementTendersBidsComponent} from './procurement-tenders-bids.component';
 
 describe('ProcurementTendersBidsComponent', () => {
   let component: ProcurementTendersBidsComponent;

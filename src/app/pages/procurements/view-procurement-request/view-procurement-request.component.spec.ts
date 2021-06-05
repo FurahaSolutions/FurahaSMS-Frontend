@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ViewProcurementRequestComponent } from './view-procurement-request.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
-import { LoadingBubbleComponent } from '../../../components/loading-bubble/loading-bubble.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { CommonModule } from '@angular/common';
+import { LoadingBubbleComponent } from '../../../components/loading-bubble/loading-bubble.component';
+import { ViewProcurementRequestComponent } from './view-procurement-request.component';
 
 describe('ViewProcurementRequestComponent', () => {
   let component: ViewProcurementRequestComponent;

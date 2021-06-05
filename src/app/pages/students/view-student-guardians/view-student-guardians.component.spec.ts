@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ViewStudentGuardiansComponent } from './view-student-guardians.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { RouterTestingModule } from '@angular/router/testing';
-import { LoadingBubbleComponent } from '../../../components/loading-bubble/loading-bubble.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { LoadingBubbleComponent } from '../../../components/loading-bubble/loading-bubble.component';
 import { guardianProfileFeatureKey, reducer } from '../../guardians/store/reducers/guardian-profile.reducer';
 import { UserSelectItemComponent } from '../../../components/user-profile/user-select-item/user-select-item.component';
 import { NameItemComponent } from '../../../components/user-profile/name-item/name-item.component';
+import { ViewStudentGuardiansComponent } from './view-student-guardians.component';
 
 describe('ViewStudentGuardiansComponent', () => {
   let component: ViewStudentGuardiansComponent;

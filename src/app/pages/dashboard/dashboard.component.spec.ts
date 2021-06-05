@@ -1,12 +1,12 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { DashboardComponent } from './dashboard.component';
 import { StoreModule } from '@ngrx/store';
 import { AppLinksModule } from 'src/app/shared/links/links.module';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { myProfileFeatureKey, reducer } from 'src/app/pages/my-profile/store/reducers/my-profile.reducer';
 import { appFeatureKey, reducers } from '../../store/reducers/app.reducer';
+import { DashboardComponent } from './dashboard.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;

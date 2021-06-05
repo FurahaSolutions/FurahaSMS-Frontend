@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {TopicOnlineAssessmentListComponent} from './topic-online-assessment-list.component';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {RouterTestingModule} from '@angular/router/testing';
 import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
+import {TopicOnlineAssessmentListComponent} from './topic-online-assessment-list.component';
 
 describe('TopicOnlineAssessmentListComponent', () => {
   let component: TopicOnlineAssessmentListComponent;

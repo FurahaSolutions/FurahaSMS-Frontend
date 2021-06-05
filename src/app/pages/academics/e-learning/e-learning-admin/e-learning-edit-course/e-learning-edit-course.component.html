@@ -110,7 +110,7 @@
       </div>
       <div class="modal-footer bg-dark">
         <button type="button" (click)='closeModal()' class="btn btn-secondary">Cancel</button>
-        <button (click)='deleteCourse()' [disabled]='courseNameConfirmation != v.course?.name || deletingCourse'
+        <button (click)='deleteCourse()' [disabled]='courseNameConfirmation !== v.course?.name || deletingCourse'
                 class="btn btn-danger">
           <span *ngIf='!deletingCourse'>Delete this course</span>
           <span *ngIf='deletingCourse'>Deleting...</span>

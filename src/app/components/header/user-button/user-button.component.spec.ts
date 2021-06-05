@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { UserButtonComponent } from './user-button.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ReactiveComponentModule } from '@ngrx/component';
 import { myProfileFeatureKey, reducer } from '../../../pages/my-profile/store/reducers/my-profile.reducer';
 import { LogoutButtonComponent } from '../logout-button/logout-button.component';
-import { ReactiveComponentModule } from '@ngrx/component';
+import { UserButtonComponent } from './user-button.component';
 
 describe('UserButtonComponent', () => {
   let component: UserButtonComponent;

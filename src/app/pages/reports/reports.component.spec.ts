@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ReportsComponent } from './reports.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
+import { ReportsComponent } from './reports.component';
 
 describe('ReportsComponent', () => {
   let component: ReportsComponent;

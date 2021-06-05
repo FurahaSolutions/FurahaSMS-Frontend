@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {modalMixin} from '../../../../shared/mixins/modal.mixin';
 import {Store} from '@ngrx/store';
 import {BsModalService} from 'ngx-bootstrap/modal';
+import {modalMixin} from '../../../../shared/mixins/modal.mixin';
 import {
   DeleteCourseContentItemComponent
 } from '../e-learning-admin/e-learning-edit-course/delete-course-content-item/delete-course-content-item.component';

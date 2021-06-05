@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormArray, FormGroup, ValidationErrors} from '@angular/forms';
-import { subscribedContainerMixin } from '../../../mixins/subscribed-container.mixin';
 import { takeUntil, tap } from 'rxjs/operators';
+import { subscribedContainerMixin } from '../../../mixins/subscribed-container.mixin';
 
 interface AllValidationErrors {
   controlName: string;

@@ -1,11 +1,11 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ELearningTopicMaterialsComponent} from './e-learning-topic-materials.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {StoreModule} from '@ngrx/store';
+import {ModalModule} from 'ngx-bootstrap/modal';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
 import {academicsFeatureKey, reducers} from '../../store/reducers';
-import {ModalModule} from 'ngx-bootstrap/modal';
+import {ELearningTopicMaterialsComponent} from './e-learning-topic-materials.component';
 
 describe('ELearningTopicMaterialsComponent', () => {
   let component: ELearningTopicMaterialsComponent;

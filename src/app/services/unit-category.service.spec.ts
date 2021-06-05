@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UnitCategoryService } from './unit-category.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { UnitCategoryService } from './unit-category.service';
 
 describe('SubjectCategoryService', () => {
   beforeEach(() =>

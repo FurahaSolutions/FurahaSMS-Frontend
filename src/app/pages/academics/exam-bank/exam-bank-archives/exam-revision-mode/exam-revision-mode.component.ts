@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { map, mergeMap, tap } from 'rxjs/operators';
-import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selectors';
 import { AppState } from 'src/app/store/reducers';
+import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selectors';
 
 @Component({
   selector: 'app-exam-revision-mode',

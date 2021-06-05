@@ -1,14 +1,14 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { CreateStudentAcademicsComponent } from './create-student-academics.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { StudentsModule } from '../students.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { EffectsModule } from '@ngrx/effects';
+import { StudentsModule } from '../students.module';
+import { CreateStudentAcademicsComponent } from './create-student-academics.component';
 
 describe('CreateStudentAcademicsComponent', () => {
   let component: CreateStudentAcademicsComponent;

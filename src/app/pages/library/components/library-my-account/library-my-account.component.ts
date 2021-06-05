@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { formMixin } from '../../../../shared/mixins/form.mixin';
 import { FormBuilder } from '@angular/forms';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { formMixin } from '../../../../shared/mixins/form.mixin';
 import { LibraryBookService } from '../../services/library-book.service';
 
 @Component({

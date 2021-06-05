@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ErrorComponent } from './error.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { ErrorComponent } from './error.component';
 
 describe('ErrorComponent', () => {
   let component: ErrorComponent;

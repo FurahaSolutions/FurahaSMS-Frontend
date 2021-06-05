@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {ProcurementsRequestComponent} from './procurements-request.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {SelectComponent} from '../../../components/select/select.component';
-import {InputComponent} from '../../../components/input/input.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {ReactiveComponentModule} from '@ngrx/component';
+import {SelectComponent} from '../../../components/select/select.component';
+import {InputComponent} from '../../../components/input/input.component';
 import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
 import {ValidateSubmitButtonsComponent} from '../../../components/validate-submit-buttons/validate-submit-buttons.component';
 import {FormErrorsModule} from '../../../shared/form-errors/form-errors.module';
 import {AppStarLabelRequiredModule} from '../../../components/label-star-required/app-star-label-required';
-import {ReactiveComponentModule} from '@ngrx/component';
+import {ProcurementsRequestComponent} from './procurements-request.component';
 
 describe('ProcurementsRequestComponent', () => {
   let component: ProcurementsRequestComponent;

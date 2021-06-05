@@ -1,7 +1,7 @@
 import { createSelector } from '@ngrx/store';
 
-import { selectAdmissionsState } from './admissions.selectors';
 import { staffTypeFeatureKey } from '../reducers/staff-type.reducer';
+import { selectAdmissionsState } from './admissions.selectors';
 
 export const selectStaffTypesState = createSelector(
   selectAdmissionsState,

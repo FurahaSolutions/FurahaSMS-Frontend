@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { LayoutComponent } from './layout.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
@@ -10,6 +9,7 @@ import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/redu
 import { EffectsModule } from '@ngrx/effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { appFeatureKey, reducers } from '../../store/reducers/app.reducer';
+import { LayoutComponent } from './layout.component';
 
 describe('LayoutComponent', () => {
   let component: LayoutComponent;

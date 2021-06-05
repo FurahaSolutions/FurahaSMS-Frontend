@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {Store} from '@ngrx/store';
-import * as fromStore from '../../../store/reducers';
 import {ProcurementService} from 'src/app/services/procurement.service';
 import {ActivatedRoute} from '@angular/router';
 import {map, mergeMap} from 'rxjs/operators';
+import * as fromStore from '../../../store/reducers';
 
 @Component({
   selector: 'app-view-procurement-request',

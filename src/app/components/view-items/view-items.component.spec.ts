@@ -1,14 +1,14 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ViewItemsComponent } from './view-items.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { RouterTestingModule } from '@angular/router/testing';
+import { of } from 'rxjs';
+import { ReactiveComponentModule } from '@ngrx/component';
 import { ChipsComponent } from '../chips/chips.component';
 import { LoadingBubbleComponent } from '../loading-bubble/loading-bubble.component';
-import { of } from 'rxjs';
 import { ErrorComponent } from '../error/error.component';
-import { ReactiveComponentModule } from '@ngrx/component';
+import { ViewItemsComponent } from './view-items.component';
 
 describe('ViewItemsComponent', () => {
   let component: ViewItemsComponent;

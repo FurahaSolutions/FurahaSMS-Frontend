@@ -1,15 +1,15 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { MenuSearchComponent } from './menu-search.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { of } from 'rxjs';
+import { ReactiveComponentModule } from '@ngrx/component';
 import { appFeatureKey, reducers } from '../../../store/reducers/app.reducer';
 import { myProfileFeatureKey } from '../../../pages/my-profile/store/reducers/my-profile.reducer';
 import { LinkService } from '../../../services/link.service';
-import { of } from 'rxjs';
-import { ReactiveComponentModule } from '@ngrx/component';
+import { MenuSearchComponent } from './menu-search.component';
 
 describe('MenuSearchComponent', () => {
   let component: MenuSearchComponent;

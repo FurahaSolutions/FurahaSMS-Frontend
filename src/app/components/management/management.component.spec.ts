@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { SchoolManagementComponent } from './management.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { SchoolManagementComponent } from './management.component';
 
 describe('SchoolManagementComponent', () => {
   let component: SchoolManagementComponent;

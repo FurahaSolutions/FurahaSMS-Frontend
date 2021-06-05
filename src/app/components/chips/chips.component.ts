@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { faTimes } from "@fortawesome/free-solid-svg-icons/faTimes";
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
 @Component({
   selector: 'app-chips',

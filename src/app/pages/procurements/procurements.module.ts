@@ -1,6 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { AppViewItemsModule } from 'src/app/modules/app-view-items.module';
+import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppInputModule } from 'src/app/components/input/app-input.module';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { AppTelInputModule } from 'src/app/modules/app-tel-input.module';
+import { AppLayoutModule } from 'src/app/modules/app-layout.module';
+import { AppLinksModule } from 'src/app/shared/links/links.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { ErrorModule } from '../../components/error/error.module';
+import {FormErrorsModule} from '../../shared/form-errors/form-errors.module';
 import { ProcurementsRoutingModule } from './procurements-routing.module';
 import { MyProcurementsRequestComponent } from './my-procurements-request/my-procurements-request.component';
 import { ViewProcurementRequestComponent } from './view-procurement-request/view-procurement-request.component';
@@ -23,21 +37,7 @@ import { ViewProcurementTenderBidsComponent } from './view-procurement-tender-bi
 import { ViewProcurementTendersAwardedComponent } from './view-procurement-tenders-awarded/view-procurement-tenders-awarded.component';
 import { FulfillOrRejectTenderFormComponent } from './fulfill-or-reject-tender-form/fulfill-or-reject-tender-form.component';
 import { ProcurementsRequestComponent } from './procurements-request/procurements-request.component';
-import { AppViewItemsModule } from 'src/app/modules/app-view-items.module';
-import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
-import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppInputModule } from 'src/app/components/input/app-input.module';
-import { TabsModule } from 'ngx-bootstrap/tabs';
-import { AppTelInputModule } from 'src/app/modules/app-tel-input.module';
-import { ErrorModule } from '../../components/error/error.module';
-import { AppLayoutModule } from 'src/app/modules/app-layout.module';
 import { ProcurementsComponent } from './procurements.component';
-import { AppLinksModule } from 'src/app/shared/links/links.module';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
-import {FormErrorsModule} from '../../shared/form-errors/form-errors.module';
-import { ReactiveComponentModule } from '@ngrx/component';
 
 
 @NgModule({

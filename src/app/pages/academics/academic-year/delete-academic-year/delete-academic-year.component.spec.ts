@@ -1,11 +1,11 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {DeleteAcademicYearComponent} from './delete-academic-year.component';
 import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
 import {FormsModule} from '@angular/forms';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
+import {DeleteAcademicYearComponent} from './delete-academic-year.component';
 
 describe('DeleteAcademicYearComponent', () => {
   let component: DeleteAcademicYearComponent;

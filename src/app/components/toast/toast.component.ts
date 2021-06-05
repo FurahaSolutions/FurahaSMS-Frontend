@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import * as fromToastSelector from './../../store/selectors/toast.selector';
 import { select, Store } from '@ngrx/store';
+import { takeUntil } from 'rxjs/operators';
 import { loadToastShowsFailure } from '../../store/actions/toast-show.actions';
 import { AppState } from '../../store/reducers';
-import { takeUntil } from 'rxjs/operators';
 import { subscribedContainerMixin } from '../../shared/mixins/subscribed-container.mixin';
+import * as fromToastSelector from './../../store/selectors/toast.selector';
 
 @Component({
   selector: 'app-toast',

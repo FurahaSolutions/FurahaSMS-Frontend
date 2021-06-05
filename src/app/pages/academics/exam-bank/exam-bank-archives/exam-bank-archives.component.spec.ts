@@ -1,10 +1,10 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ExamBankArchivesComponent} from './exam-bank-archives.component';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {ExamBankArchivesComponent} from './exam-bank-archives.component';
 
 describe('ExamBankArchivesComponent', () => {
   let component: ExamBankArchivesComponent;

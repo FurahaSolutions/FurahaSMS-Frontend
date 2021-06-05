@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AcademicYearUnitService } from './academic-year-unit.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AcademicYearUnitService } from './academic-year-unit.service';
 
 describe('AcademicYearUnitService', () => {
   beforeEach(() => TestBed.configureTestingModule({

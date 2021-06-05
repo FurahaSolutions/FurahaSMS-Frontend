@@ -1,9 +1,9 @@
-import { selectAppPermissionsState } from './permissions.selectors';
-import { permissionsFeatureKey } from '../reducers/permissions.reducer';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
+import { permissionsFeatureKey } from '../reducers/permissions.reducer';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../reducers';
 import { reducers } from '../reducers/app.reducer';
+import { selectAppPermissionsState } from './permissions.selectors';
 
 
 describe('Permissions Selectors', () => {

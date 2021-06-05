@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {map, mergeMap} from 'rxjs/operators';
+import {combineLatest, Observable} from 'rxjs';
 import {TeacherSubjectService} from '../services/teacher-subject.service';
 import {UnitsService} from '../../../services/units.service';
-import {combineLatest, Observable} from 'rxjs';
 
 @Component({
   selector: 'app-view-teacher-subjects',

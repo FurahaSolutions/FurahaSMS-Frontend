@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ClassLevelService } from './class-level.service';
 import {
   HttpClientTestingModule,
 } from '@angular/common/http/testing';
+import { ClassLevelService } from './class-level.service';
 
 describe('ClassLevelService', () => {
   beforeEach(() =>

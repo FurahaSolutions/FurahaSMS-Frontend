@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {AcademicsCurriculumComponent} from './academics-curriculum.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {RouterTestingModule} from '@angular/router/testing';
 import {AppLinksModule} from 'src/app/shared/links/links.module';
 import {myProfileFeatureKey, reducer} from 'src/app/pages/my-profile/store/reducers/my-profile.reducer';
 import {appFeatureKey, reducers} from '../../../../store/reducers/app.reducer';
+import {AcademicsCurriculumComponent} from './academics-curriculum.component';
 
 describe('AcademicsCurriculumComponent', () => {
   let component: AcademicsCurriculumComponent;

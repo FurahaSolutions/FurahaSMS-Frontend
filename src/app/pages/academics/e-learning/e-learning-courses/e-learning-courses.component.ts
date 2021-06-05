@@ -1,8 +1,8 @@
 import {Component, OnDestroy} from '@angular/core';
 import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
+import {map, takeUntil} from 'rxjs/operators';
 import {ICourse} from '../interfaces/course.interface';
 import {ELearningService} from '../services/e-learning.service';
-import {map, takeUntil} from 'rxjs/operators';
 import {subscribedContainerMixin} from '../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({

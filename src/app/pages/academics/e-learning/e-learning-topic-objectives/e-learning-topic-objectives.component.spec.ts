@@ -1,11 +1,11 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ELearningTopicObjectivesComponent} from './e-learning-topic-objectives.component';
 import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
+import {ELearningTopicObjectivesComponent} from './e-learning-topic-objectives.component';
 
 describe('ELearningTopicObjectivesComponent', () => {
   let component: ELearningTopicObjectivesComponent;

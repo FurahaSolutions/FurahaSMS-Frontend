@@ -3,8 +3,8 @@ import { UnitsService } from 'src/app/services/units.service';
 import { ClassLevelService } from 'src/app/services/class-level.service';
 import { PDFDocumentProxy } from 'ng2-pdf-viewer';
 import { map, mergeMap, takeUntil} from 'rxjs/operators';
-import { StudyMaterialsService } from '../../services/study-materials.service';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { StudyMaterialsService } from '../../services/study-materials.service';
 import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../../../shared/mixins/form.mixin';
 

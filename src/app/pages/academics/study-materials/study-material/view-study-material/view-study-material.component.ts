@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {PDFDocumentProxy} from 'ng2-pdf-viewer';
-import {StudyMaterialsService} from '../../services/study-materials.service';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 import {map, mergeMap, takeUntil, tap} from 'rxjs/operators';
+import {StudyMaterialsService} from '../../services/study-materials.service';
 import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({

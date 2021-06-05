@@ -3,10 +3,10 @@ import {ActivatedRoute} from '@angular/router';
 import {Observable} from 'rxjs';
 import {AcademicYearService} from 'src/app/pages/academics/services/academic-year.service';
 import {map, mergeMap, tap} from 'rxjs/operators';
-import {TimeTableService} from '../../services/time-table.service';
 import {modalMixin} from 'src/app/shared/mixins/modal.mixin';
 import {Store} from '@ngrx/store';
 import {BsModalService} from 'ngx-bootstrap/modal';
+import {TimeTableService} from '../../services/time-table.service';
 import {CreateAcademicYearTimeTableComponent} from '../create-academic-year-time-table/create-academic-year-time-table.component';
 
 @Component({

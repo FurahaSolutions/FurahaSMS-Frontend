@@ -1,11 +1,11 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {SemesterComponent} from './semester.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {AppViewItemsModule} from 'src/app/modules/app-view-items.module';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import {SemesterComponent} from './semester.component';
 
 describe('SemesterComponent', () => {
   let component: SemesterComponent;

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CanDeactivateGuard } from 'src/app/guards/can-deactivate.guard';
 import { StudentAdmissionComponent } from './student-admission/student-admission.component';
 import { CreateStudentComponent } from './create-student/create-student.component';
-import { CanDeactivateGuard } from 'src/app/guards/can-deactivate.guard';
 import { StudentAdmissionsEditComponent } from './student-admissions-edit/student-admissions-edit.component';
 
 

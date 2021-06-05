@@ -1,12 +1,12 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../../../store/reducers';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { LibraryAuthorService } from '../../services/library-author.service';
 import { BehaviorSubject, Observable, Observer, of } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
+import * as fromStore from '../../../../store/reducers';
+import { LibraryAuthorService } from '../../services/library-author.service';
 import { LibraryBookService } from '../../services/library-book.service';
 import { LibraryPublisherService } from '../../services/library-publisher.service';
-import { switchMap, tap } from 'rxjs/operators';
 import { loadLibraryBooksSuccess } from '../../store/actions/library-book.actions';
 import { formMixin } from '../../../../shared/mixins/form.mixin';
 

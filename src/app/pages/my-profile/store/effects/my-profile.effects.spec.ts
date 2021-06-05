@@ -2,12 +2,12 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of } from 'rxjs';
 
-import { MyProfileEffects } from './my-profile.effects';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StoreModule } from '@ngrx/store';
 import { REDUCER_TOKEN, reducerProvider, metaReducers } from 'src/app/store/reducers';
 import { RouterTestingModule } from '@angular/router/testing';
 import {AppLoadingBubbleModule} from '../../../../modules/app-loading-bubble';
+import { MyProfileEffects } from './my-profile.effects';
 
 describe('MyProfileEffects', () => {
   let actions$: Observable<any>;

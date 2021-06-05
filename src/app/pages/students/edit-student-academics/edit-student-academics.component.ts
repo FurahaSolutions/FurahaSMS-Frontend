@@ -1,10 +1,10 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {StudentAcademicsService} from '../services/student-academics.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map, mergeMap, tap} from 'rxjs/operators';
-import {UnitLevelService} from '../../../services/unit-level.service';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 import {combineLatest, Observable} from 'rxjs';
+import {UnitLevelService} from '../../../services/unit-level.service';
+import {StudentAcademicsService} from '../services/student-academics.service';
 import {AcademicYearService} from '../../academics/services/academic-year.service';
 import {ClassLevelService} from '../../../services/class-level.service';
 import {StudentService} from '../../../services/student.service';

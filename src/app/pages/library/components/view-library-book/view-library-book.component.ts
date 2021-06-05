@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { LibraryBookService } from '../../services/library-book.service';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
+import { LibraryBookService } from '../../services/library-book.service';
 
 @Component({
   selector: 'app-view-library-book',

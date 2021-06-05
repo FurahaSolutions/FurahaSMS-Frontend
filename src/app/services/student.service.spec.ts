@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
-import { StudentService } from './student.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StoreModule } from '@ngrx/store';
 import { REDUCER_TOKEN, reducerProvider, metaReducers } from '../store/reducers';
+import { StudentService } from './student.service';
 
 describe('StudentService', () => {
   beforeEach(() => TestBed.configureTestingModule({

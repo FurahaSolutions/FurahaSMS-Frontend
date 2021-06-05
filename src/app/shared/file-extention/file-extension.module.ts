@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FileExtentionPipe } from './file-extention.pipe';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FileExtentionPipe } from './file-extention.pipe';
 
 
 @NgModule({

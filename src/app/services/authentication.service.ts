@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, EMPTY, Observable, of, throwError } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { OauthInterface } from '../interfaces/oauth.interface';
 import { UserInterface } from '../interfaces/user.interface';
-import { catchError, map, tap } from 'rxjs/operators';
 import { IUserProfile } from '../interfaces/user-profile.interface';
-import { environment } from 'src/environments/environment';
 
 const PASSPORT_CLIENT = environment.passportClient;
 

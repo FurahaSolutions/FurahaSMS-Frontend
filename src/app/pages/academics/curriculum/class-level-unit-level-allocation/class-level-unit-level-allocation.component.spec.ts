@@ -1,10 +1,10 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ClassLevelUnitLevelAllocationComponent} from './class-level-unit-level-allocation.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
-import {AppLoadingBubbleModule} from '../../../../modules/app-loading-bubble';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {AppLoadingBubbleModule} from '../../../../modules/app-loading-bubble';
+import {ClassLevelUnitLevelAllocationComponent} from './class-level-unit-level-allocation.component';
 
 describe('ClassLevelUnitLevelAllocationComponent', () => {
   let component: ClassLevelUnitLevelAllocationComponent;

@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {AccountsComponent} from './accounts.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {AppLinksModule} from 'src/app/shared/links/links.module';
 import {RouterTestingModule} from '@angular/router/testing';
 import {myProfileFeatureKey, reducer} from '../my-profile/store/reducers/my-profile.reducer';
 import {appFeatureKey, reducers} from '../../store/reducers/app.reducer';
+import {AccountsComponent} from './accounts.component';
 
 describe('AccountsComponent', () => {
   let component: AccountsComponent;

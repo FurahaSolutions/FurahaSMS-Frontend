@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { OnlineAssessmentService } from './online-assessment.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import { OnlineAssessmentService } from './online-assessment.service';
 
 describe('OnlineAssessmentService', () => {
   let service: OnlineAssessmentService;

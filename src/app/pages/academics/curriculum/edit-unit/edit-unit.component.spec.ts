@@ -1,9 +1,7 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {EditUnitComponent} from './edit-unit.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {AcademicsModule} from '../../academics.module';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -14,9 +12,11 @@ import {NgSelectModule} from '@ng-select/ng-select';
 import {ErrorModule} from 'src/app/components/error/error.module';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {EffectsModule} from '@ngrx/effects';
-import {SidebarComponent} from '../../../../components/sidebar/sidebar.component';
 import {ReactiveComponentModule} from '@ngrx/component';
-import {FontAwesomeTestingModule} from "@fortawesome/angular-fontawesome/testing";
+import {FontAwesomeTestingModule} from '@fortawesome/angular-fontawesome/testing';
+import {SidebarComponent} from '../../../../components/sidebar/sidebar.component';
+import {AcademicsModule} from '../../academics.module';
+import {EditUnitComponent} from './edit-unit.component';
 
 describe('EditUnitComponent', () => {
   let component: EditUnitComponent;

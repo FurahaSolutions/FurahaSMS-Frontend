@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, mergeMap, tap } from 'rxjs/operators';
 import { select, Store } from '@ngrx/store';
-import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selectors';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/reducers';
+import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selectors';
 
 @Component({
   selector: 'app-admin-exam-paper-view',

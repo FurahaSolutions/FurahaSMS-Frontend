@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { RolesAndPermissionsService } from '../services/roles-and-permissions.service';
 import { takeUntil} from 'rxjs/operators';
+import { RolesAndPermissionsService } from '../services/roles-and-permissions.service';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 
 @Component({

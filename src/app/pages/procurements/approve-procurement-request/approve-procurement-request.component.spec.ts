@@ -1,12 +1,12 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ApproveProcurementRequestComponent} from './approve-procurement-request.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {AccordionModule} from 'ngx-bootstrap/accordion';
-import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
+import {ApproveProcurementRequestComponent} from './approve-procurement-request.component';
 
 describe('ApproveProcurementRequestComponent', () => {
   let component: ApproveProcurementRequestComponent;

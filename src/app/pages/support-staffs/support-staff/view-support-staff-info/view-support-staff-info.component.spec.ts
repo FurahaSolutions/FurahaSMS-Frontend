@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ViewSupportStaffInfoComponent} from './view-support-staff-info.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {Store, StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
@@ -8,6 +7,7 @@ import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {reducers} from '../../store/reducers';
+import {ViewSupportStaffInfoComponent} from './view-support-staff-info.component';
 
 describe('ViewSupportStaffInfoComponent', () => {
   let component: ViewSupportStaffInfoComponent;

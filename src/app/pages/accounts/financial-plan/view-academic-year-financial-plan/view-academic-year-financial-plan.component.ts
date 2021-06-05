@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {select, Store} from '@ngrx/store';
 import {AppState} from 'src/app/store/reducers';
-import {selectPlanForAcademicYearWithId} from '../store/selectors/academic-year-plan.selectors';
 import {combineLatest, Observable} from 'rxjs';
 import {map, mergeMap} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
+import {selectPlanForAcademicYearWithId} from '../store/selectors/academic-year-plan.selectors';
 import {AcademicYearService} from '../../../academics/services/academic-year.service';
 
 @Component({

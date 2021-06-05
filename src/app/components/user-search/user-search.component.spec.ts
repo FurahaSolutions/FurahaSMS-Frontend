@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { UserSearchComponent } from './user-search.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
-import { AppInputModule } from '../input/app-input.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { AppInputModule } from '../input/app-input.module';
+import { UserSearchComponent } from './user-search.component';
 
 describe('StudentSearchComponent', () => {
   let component: UserSearchComponent;

@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { combineLatest, Observable, Subject } from 'rxjs';
 
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { LinkService } from '../../../services/link.service';
 import { LinkInterface } from 'src/app/interfaces/link.interface';
 import { filter, map, takeWhile, tap } from 'rxjs/operators';
+import { LinkService } from '../../../services/link.service';
 
 @Component({
   selector: 'app-menu-search',

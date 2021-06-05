@@ -3,9 +3,9 @@ import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {catchError, map, concatMap} from 'rxjs/operators';
 import {EMPTY, of} from 'rxjs';
 
+import {SupportStaffService} from 'src/app/pages/support-staffs/services/support-staff.service';
 import * as AdmissionsActions from '../actions/admissions.actions';
 import * as StaffTypeActions from '../actions/staff-type.actions';
-import {SupportStaffService} from 'src/app/pages/support-staffs/services/support-staff.service';
 
 @Injectable()
 export class AdmissionsEffects {

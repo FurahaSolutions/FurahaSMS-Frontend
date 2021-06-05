@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {FormErrorsComponent} from './form-errors.component';
 import {FormGroup} from '@angular/forms';
+import {FormErrorsComponent} from './form-errors.component';
 
 describe('FormErrorsComponent', () => {
   let component: FormErrorsComponent;

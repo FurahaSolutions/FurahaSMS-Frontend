@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { StudentAcademicsService } from './student-academics.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { StudentAcademicsService } from './student-academics.service';
 
 describe('StudentAcademicsService', () => {
   beforeEach(() => TestBed.configureTestingModule({

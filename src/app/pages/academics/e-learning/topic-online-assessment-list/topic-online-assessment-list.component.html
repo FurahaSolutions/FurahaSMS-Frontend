@@ -38,7 +38,7 @@
   </div>
   <div class="modal-footer bg-dark">
     <button (click)='closeModal()' class="btn btn-secondary" type="button">Cancel</button>
-    <button (click)='deleteAssessmentItem()' [disabled]='(contentId !=  "#" + editedItem?.id) || (submitInProgressAction$ | ngrxPush)'
+    <button (click)='deleteAssessmentItem()' [disabled]='(contentId !==  "#" + editedItem?.id) || (submitInProgressAction$ | ngrxPush)'
             class="btn btn-danger">
       <span *ngIf='(submitInProgressAction$ | ngrxPush) === false'>Delete this Assessment</span>
       <span *ngIf='submitInProgressAction$ | ngrxPush'>Deleting...</span>

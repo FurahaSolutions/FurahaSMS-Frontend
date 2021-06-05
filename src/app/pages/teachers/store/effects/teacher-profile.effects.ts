@@ -3,8 +3,8 @@ import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {catchError, concatMap, map} from 'rxjs/operators';
 import {of} from 'rxjs';
 
-import * as TeacherProfileActions from '../actions/teacher-profile.actions';
 import {TeacherService} from 'src/app/pages/admissions/services/teacher.service';
+import * as TeacherProfileActions from '../actions/teacher-profile.actions';
 
 
 @Injectable()

@@ -2,11 +2,11 @@ import {Component} from '@angular/core';
 import {BehaviorSubject, combineLatest} from 'rxjs';
 import {map, mergeMap, takeUntil, tap} from 'rxjs/operators';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
 import {UnitLevelService} from '../../../../services/unit-level.service';
 import {ClassLevelUnitLevelAllocationService} from '../../services/class-level-unit-level-allocation.service';
 import {subscribedContainerMixin} from '../../../../shared/mixins/subscribed-container.mixin';
 import {formMixin} from '../../../../shared/mixins/form.mixin';
-import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-manage-class-level-unit-level-allocation',

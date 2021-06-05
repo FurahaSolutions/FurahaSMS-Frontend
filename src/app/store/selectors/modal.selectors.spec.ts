@@ -1,5 +1,5 @@
-import { selectModalState } from './modal.selectors';
 import { modalFeatureKey } from '../reducers/modal.reducer';
+import { selectModalState } from './modal.selectors';
 
 
 describe('Modal Selectors', () => {

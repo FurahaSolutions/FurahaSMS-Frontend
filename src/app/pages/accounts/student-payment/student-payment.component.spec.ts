@@ -1,12 +1,12 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {StudentPaymentComponent} from './student-payment.component';
-import {AppRecentlyCreatedStudent} from '../../admissions/student-admissions/students-recently-created/students-recently-created.module';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {StoreModule} from '@ngrx/store';
 import {TabsModule} from 'ngx-bootstrap/tabs';
+import {AppRecentlyCreatedStudent} from '../../admissions/student-admissions/students-recently-created/students-recently-created.module';
+import {StudentPaymentComponent} from './student-payment.component';
 
 describe('StudentPaymentComponent', () => {
   let component: StudentPaymentComponent;
