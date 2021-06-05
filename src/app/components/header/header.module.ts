@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './header.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { MenuSearchComponent } from './menu-search/menu-search.component';
@@ -33,7 +34,8 @@ import { HeaderCollapseComponent } from './header-collapse/header-collapse.compo
     ReactiveFormsModule,
     RouterModule,
     CollapseModule.forRoot(),
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class HeaderModule {

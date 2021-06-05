@@ -8,6 +8,7 @@ import { PRIMARY_OUTLET, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { BreadcrumbComponent } from './breadcrumb.component';
+import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('BreadcrumbComponent', () => {
   let component: BreadcrumbComponent;
@@ -49,7 +50,8 @@ describe('BreadcrumbComponent', () => {
         }),
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([]),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [BreadcrumbComponent, BreadcrumbComponent],
       providers: [

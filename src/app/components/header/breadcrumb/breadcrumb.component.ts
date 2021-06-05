@@ -11,6 +11,7 @@ import {
 import { filter, tap } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { BehaviorSubject, combineLatest } from 'rxjs';
+import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 
 interface BreadcrumbInterface {
   label: string;
@@ -26,6 +27,7 @@ interface BreadcrumbInterface {
 })
 export class BreadcrumbComponent implements OnInit {
   public breadcrumbs: BreadcrumbInterface[] = [];
+  faHome = faHome;
   showSpinnerSubject$ = new BehaviorSubject<boolean>(false);
   showSpinnerAction$ = this.showSpinnerSubject$.asObservable();
   navigationEvent$ = this.router.events;

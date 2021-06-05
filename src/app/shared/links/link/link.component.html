@@ -1,6 +1,9 @@
 <div class="dashboard-link-item">
   <button type="button" role="menuitem" tabindex="0" [routerLink]='["/" + link?.link]'>
-    <span [class]='link?.icon'></span>
+<!--    <span [class]='link?.icon'></span>-->
+    <ng-container *ngIf="link?.icon">
+      <span><fa-icon [icon]="link.icon"></fa-icon></span>
+    </ng-container>
     <span class='link pl-2 pr-2'>{{ link?.name }}</span>
   </button>
 

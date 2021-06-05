@@ -18,7 +18,8 @@
       <a (click)='handleLinkClick()' role='menuitem' [routerLink]='"/" + item.link' routerLinkActive='activated'
          data-toggle='collapse' [attr.data-target]='"#collapse" + i'
          class='list-group-item list-group-item-action bg-dark'>
-        <span [class]='item.icon'> {{ item.name }}</span>
+        <span><fa-icon [icon]="item.icon"></fa-icon> {{ item.name }}</span>
+
 
       </a>
       <!-- <ul [id]='"collapse" + i' class='collapse'  aria-labelledby='heading1' data-parent='#accordion'>

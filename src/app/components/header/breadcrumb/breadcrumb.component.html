@@ -7,12 +7,12 @@
       </button>
     </li>
     <li class="breadcrumb-item">
-      <a aria-label='Home' routerLinkActive='active' [routerLink]='["/dashboard"]'><span class='icon-home'></span></a>
+      <a aria-label='Home' routerLinkActive='active' [routerLink]='["/dashboard"]'><fa-icon data-prependIcon [icon]="faHome"></fa-icon></a>
     </li>
     <ng-template #breadcrumbLi>
       <li *ngFor="let breadcrumb of breadcrumbs.slice(0,breadcrumbs.length-1); let i = index" class="breadcrumb-item">
         <a routerLinkActive='active' [routerLink]='["/dashboard"]'
-           *ngIf='breadcrumb.label === "Home"; else nonHomeLink'><span class='icon-home'></span></a>
+           *ngIf='breadcrumb.label === "Home"; else nonHomeLink'><fa-icon data-prependIcon [icon]="faHome"></fa-icon></a>
         <ng-template #nonHomeLink>
           <a [routerLink]="[breadcrumb.url]" [queryParams]="breadcrumb.params"> {{ breadcrumb.label }} </a>
         </ng-template>
@@ -31,7 +31,7 @@
         <button (click)='backClicked()' class='btn btn-sm btn-info'><span class='icon-left-big'></span>Back</button>
       </li>
       <li class="breadcrumb-item active">
-        <span class='icon-home'></span>
+        <fa-icon data-prependIcon [icon]="faHome"></fa-icon>
       </li>
       <li *ngIf='(showSpinnerAction$ | ngrxPush)'><span class="breadcrumb-item icon-spin3 animate-spin"></span></li>
     </ol>

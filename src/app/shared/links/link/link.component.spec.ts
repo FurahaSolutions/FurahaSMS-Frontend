@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
 import { LinkComponent } from './link.component';
+import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('LinkComponent', () => {
   let component: LinkComponent;
@@ -19,7 +20,8 @@ describe('LinkComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        RouterTestingModule
+        RouterTestingModule,
+        FontAwesomeTestingModule
       ],
       declarations: [LinkComponent],
       providers: [reducerProvider]

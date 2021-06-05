@@ -1,6 +1,6 @@
 export interface LinkInterface {
   name: string;
-  icon?: string;
+  icon?: any;
   link?: string;
   permissions?: string[];
 }
