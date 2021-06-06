@@ -13,6 +13,7 @@ import { AppLinksModule } from 'src/app/shared/links/links.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ErrorModule } from '../../components/error/error.module';
 import {FormErrorsModule} from '../../shared/form-errors/form-errors.module';
 import { ProcurementsRoutingModule } from './procurements-routing.module';
@@ -38,6 +39,7 @@ import { ViewProcurementTendersAwardedComponent } from './view-procurement-tende
 import { FulfillOrRejectTenderFormComponent } from './fulfill-or-reject-tender-form/fulfill-or-reject-tender-form.component';
 import { ProcurementsRequestComponent } from './procurements-request/procurements-request.component';
 import { ProcurementsComponent } from './procurements.component';
+import { AppCheckboxModule } from "../../shared/checkbox/checkbox.module";
 
 
 @NgModule({
@@ -78,10 +80,9 @@ import { ProcurementsComponent } from './procurements.component';
     ModalModule.forRoot(),
     AppValidateSubmitButtonsModule,
     FormErrorsModule,
-    ReactiveComponentModule
-  ],
-  entryComponents: [
-    CreateProcurementTenderBidComponent,
-    FulfillOrRejectTenderFormComponent]
+    ReactiveComponentModule,
+    FontAwesomeModule,
+    AppCheckboxModule
+  ]
 })
 export class ProcurementsModule { }

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveComponentModule } from '@ngrx/component';
-import { FileExtentionPipe } from './file-extention.pipe';
+import { FileExtensionPipe } from './file-extension.pipe';
 
 
 @NgModule({
-  declarations: [FileExtentionPipe],
-  exports: [FileExtentionPipe],
+  declarations: [FileExtensionPipe],
+  exports: [FileExtensionPipe],
   imports: [
     CommonModule,
     ReactiveComponentModule

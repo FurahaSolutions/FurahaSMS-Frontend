@@ -7,6 +7,11 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import { selectAcademicsCourse } from '../../../store/selectors/courses.selectors';
 import { ICourse } from '../../interfaces/course.interface';
 import { ELearningService } from '../../services/e-learning.service';
@@ -16,6 +21,7 @@ import { modalMixin } from '../../../../../shared/mixins/modal.mixin';
 import { formMixin } from '../../../../../shared/mixins/form.mixin';
 import { loadCourses } from '../../../store/actions/courses.actions';
 
+
 @Component({
   selector: 'app-e-learning-edit-course',
   templateUrl: './e-learning-edit-course.component.html',
@@ -24,6 +30,11 @@ import { loadCourses } from '../../../store/actions/courses.actions';
 export class ELearningEditCourseComponent extends subscribedContainerMixin(modalMixin(formMixin())) {
   faChevronRight = faChevronRight;
   faPlusCircled = faPlusCircle;
+  faSpinner = faSpinner;
+  faTrash = faTrash;
+  faCheck = faCheck;
+  faEdit = faEdit;
+  faInfoCircle = faInfoCircle;
   newContentUploadForm: FormGroup = this.fb.group({
     description: ['', [Validators.required]],
     content: [null, [Validators.required]],
@@ -93,19 +104,18 @@ export class ELearningEditCourseComponent extends subscribedContainerMixin(modal
       };
       combineLatest([
         this.courseId$,
-        this.studyMaterialsService.uploadDocument(pdfFile)
-          .pipe(
-            map(({data: uploadRes}: any) => uploadRes.id),
-            mergeMap((docId: number) => this.studyMaterialsService.saveStudyMaterialInfo({docId, data})),
-            map(({data: studyMatRes}: any) => studyMatRes.id),
-            mergeMap((studyMaterialId: any) => this.eLearningService.saveCourseContent({
-                studyMaterialId,
-                data: {
-                  eLearningTopicId: this.newContentUploadForm.get('topicId')?.value
-                }
-              })
-            ),
-          )]).pipe(takeUntil(this.destroyed$))
+        this.studyMaterialsService.uploadDocument(pdfFile).pipe(
+          map(({data: uploadRes}: any) => uploadRes.id),
+          mergeMap((docId: number) => this.studyMaterialsService.saveStudyMaterialInfo({docId, data})),
+          map(({data: studyMatRes}: any) => studyMatRes.id),
+          mergeMap((studyMaterialId: any) => this.eLearningService.saveCourseContent({
+              studyMaterialId,
+              data: {
+                eLearningTopicId: this.newContentUploadForm.get('topicId')?.value
+              }
+            })
+          ),
+        )]).pipe(takeUntil(this.destroyed$))
         .subscribe(([courseId]) => {
           // this.getCourses();
           this.submitInProgressSubject$.next(false);
@@ -123,18 +133,17 @@ export class ELearningEditCourseComponent extends subscribedContainerMixin(modal
       this.submitInProgressSubject$.next(true);
       combineLatest([
         this.courseId$,
-        this.eLearningService.saveCourseTopicsLearningOutcome(this.newLearningOutcomeForm.value)])
-        .pipe(
-          map(([courseId, {data: learningOutcome}]) =>
-            ({courseId, topicId: Number(this.newLearningOutcomeForm.value.topicId), learningOutcome})
-          )
+        this.eLearningService.saveCourseTopicsLearningOutcome(this.newLearningOutcomeForm.value)]
+      ).pipe(
+        map(([courseId, {data: learningOutcome}]) =>
+          ({courseId, topicId: Number(this.newLearningOutcomeForm.value.topicId), learningOutcome})
         )
-        .subscribe(({courseId}) => {
-          // this.store.dispatch(createLearningOutcomeAction({data: {courseId, topicId, learningOutcome}}));
-          this.store.dispatch(loadCourses({data: {id: courseId}}));
-          this.submitInProgressSubject$.next(false);
-          this.modalRef?.hide();
-        }, () => this.submitInProgressSubject$.next(false));
+      ).subscribe(({courseId}) => {
+        // this.store.dispatch(createLearningOutcomeAction({data: {courseId, topicId, learningOutcome}}));
+        this.store.dispatch(loadCourses({data: {id: courseId}}));
+        this.submitInProgressSubject$.next(false);
+        this.modalRef?.hide();
+      }, () => this.submitInProgressSubject$.next(false));
 
     } else {
       alert('Form is Incomplete');
