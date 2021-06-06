@@ -1,5 +1,5 @@
 <ng-container *ngIf=' student$ | ngrxPush as student; else loading'>
-  <h1>Student Guardian Creation <span class="icon-right-dir"></span>{{ student.firstName }} {{ student.lastName }}</h1>
+  <h1>Student Guardian Creation <fa-icon [icon]="faChevronRight"></fa-icon>{{ student.firstName }} {{ student.lastName }}</h1>
   <section class="card p-2">
     <form [formGroup]="userIdentificationForm" (submit)='submitGuardianForm()'>
       <button type="button" class='icon-plus-circled btn btn-primary btn-sm' (click)="addGuardians()">Add Guardian <span

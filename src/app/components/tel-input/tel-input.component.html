@@ -1,7 +1,7 @@
 <section [formGroup]='phoneNumberGroup' class='form-group p-0 m-0' style="position: relative;" [id]='id + "-container"'>
   <section class='d-flex flex-wrap'>
     <label [class]='"control-label " + labelClass' [for]='id'>
-      <span class='icon-star required' [class.required-inVisible]='!isRequired'></span>{{ label }}
+      <fa-icon [icon]="faStar" class="required" [class.required-inVisible]='!isRequired'></fa-icon>{{ label }}
     </label>
     <section [class]='inputClass ? inputClass + " input-group" : " " + inputClass + " input-group p-0"'>
       <section *ngIf='prependIcon' class='input-group-prepend' [class.is-invalid]='fieldError'>

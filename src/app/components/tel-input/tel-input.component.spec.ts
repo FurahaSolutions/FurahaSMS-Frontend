@@ -5,6 +5,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { forwardRef } from '@angular/core';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { TelInputComponent } from './tel-input.component';
 
 describe('TelInputComponent', () => {
@@ -18,7 +19,8 @@ describe('TelInputComponent', () => {
         ReactiveFormsModule,
         NgSelectModule,
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [TelInputComponent],
       providers: [

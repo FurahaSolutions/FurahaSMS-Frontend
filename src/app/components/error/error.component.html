@@ -2,7 +2,7 @@
 
   <section *ngIf='errorBody.show' class="alert alert-danger alert-dismissible fade show">
     <button (click)='closeMessage()' type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span class='icon-cancel-circled'></span>
+      <fa-icon [icon]="faTimes"></fa-icon>
     </button>
     <p class='icon-attention'><strong>{{ errorBody.status + ': ' }}{{ errorBody.title }}</strong></p>
     <p>{{ errorBody.body }}</p>

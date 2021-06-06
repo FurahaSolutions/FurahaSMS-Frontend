@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NetworkErrorComponent } from '../network-error/network-error.component';
 import { PageUnderMaintenanceComponent } from '../page-under-maintenance/page-under-maintenance.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
@@ -20,7 +21,7 @@ import { ErrorComponent } from './error.component';
     CommonModule,
     ErrorRoutingModule,
     ReactiveComponentModule,
-
+    FontAwesomeModule
 
   ],
   exports: [

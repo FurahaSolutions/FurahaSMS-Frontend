@@ -1,5 +1,5 @@
 <ng-container *ngIf="assessment$ | ngrxPush as assessment; else loading">
-  <h1>Online Assessment <span class="icon-right-dir"></span>
+  <h1>Online Assessment <fa-icon [icon]="faChevronRight"></fa-icon>
     {{ assessment['exam_paper_name'] }} | {{ assessment['exam_paper']['unit_level_name'] }}
   </h1>
   <div class="card p-2">

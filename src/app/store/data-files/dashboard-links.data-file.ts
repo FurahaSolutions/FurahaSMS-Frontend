@@ -9,7 +9,7 @@ import { faUserClock } from '@fortawesome/free-solid-svg-icons/faUserClock';
 import { faSchool } from '@fortawesome/free-solid-svg-icons/faSchool';
 import { faUserShield } from '@fortawesome/free-solid-svg-icons/faUserShield';
 import { faFileAlt } from '@fortawesome/free-solid-svg-icons/faFileAlt';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons/faShoppingCart';
+import { faBoxes } from '@fortawesome/free-solid-svg-icons/faBoxes';
 
 export const dashboardLinks = [
   {
@@ -39,7 +39,7 @@ export const dashboardLinks = [
     name: 'Accounts', icon: faFileInvoiceDollar, link: 'accounts', permissions: ['access accounting'],
   },
   {
-    name: 'Procurements', icon: faShoppingCart, link: 'procurements',
+    name: 'Procurements', icon: faBoxes, link: 'procurements',
     permissions: ['make procurement request', 'approve procurement request', 'create procurement vendor',
       'create procurement tender', 'create procurement bid'
     ]

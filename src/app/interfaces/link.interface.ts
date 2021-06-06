@@ -1,6 +1,8 @@
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
 export interface LinkInterface {
   name: string;
-  icon?: any;
+  icon: IconDefinition;
   link?: string;
   permissions?: string[];
 }

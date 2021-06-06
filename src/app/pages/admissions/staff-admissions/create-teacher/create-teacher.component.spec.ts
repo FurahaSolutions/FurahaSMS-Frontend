@@ -1,17 +1,18 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {RouterTestingModule} from '@angular/router/testing';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AppInputModule} from 'src/app/components/input/app-input.module';
-import {StoreModule} from '@ngrx/store';
-import {REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {AppTelInputModule} from 'src/app/modules/app-tel-input.module';
-import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
-import {ReactiveComponentModule} from '@ngrx/component';
-import {appFeatureKey, reducers as appReducers} from '../../../../store/reducers/app.reducer';
-import {admissionsFeatureKey, reducers} from '../../store/reducers';
-import {CreateTeacherComponent} from './create-teacher.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppInputModule } from 'src/app/components/input/app-input.module';
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { AppTelInputModule } from 'src/app/components/tel-input/app-tel-input.module';
+import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { appFeatureKey, reducers as appReducers } from '../../../../store/reducers/app.reducer';
+import { admissionsFeatureKey, reducers } from '../../store/reducers';
+import { CreateTeacherComponent } from './create-teacher.component';
+import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('CreateTeacherComponent', () => {
   let component: CreateTeacherComponent;
@@ -36,7 +37,8 @@ describe('CreateTeacherComponent', () => {
         }),
         StoreModule.forFeature(appFeatureKey, appReducers),
         StoreModule.forFeature(admissionsFeatureKey, reducers),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [CreateTeacherComponent],
       providers: [reducerProvider]

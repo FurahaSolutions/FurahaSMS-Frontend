@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons/faEyeSlash';
+import { faStar } from '@fortawesome/free-solid-svg-icons/faStar';
 import { AppFormService } from '../../services/AppForm.service';
 
 @Component({
@@ -58,7 +59,7 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   };
   faEye = faEye;
   faEyeSlash = faEyeSlash;
-
+  faStar = faStar;
   constructor(private appFormService: AppFormService) {
   }
 
@@ -66,6 +67,7 @@ export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
   };
   onTouched: () => void = () => {
   };
+
 
   ngOnInit() {
     if (['tel', 'phone', 'password', 'number', 'date', 'datetime-local'].includes(this.type)) {

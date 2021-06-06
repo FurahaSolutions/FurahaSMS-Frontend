@@ -1,7 +1,7 @@
 <ng-container *ngIf='v$ | ngrxPush; else loading'>
   <h1>
     E-Learning Course Study Material View
-    <span class='icon-right-dir'></span>
+    <fa-icon [icon]="faChevronRight"></fa-icon>
     {{ studyMaterial.title }}
   </h1>
   <section class="d-flex flex-wrap justify-content-between">

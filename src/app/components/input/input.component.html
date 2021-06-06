@@ -1,7 +1,7 @@
 <section class='form-group mb-4' style="position: relative;">
   <section class='d-flex flex-wrap m-0 mt-2 p-0 align-items-center'>
     <label [class]='"col-md-12 col-lg-12 col-sm-12 control-label " + labelClass + " m-0 p-0"' [attr.for]='id'>
-      <span class='icon-star required' [class.required-inVisible]='!isRequired'></span>{{ label }}
+      <fa-icon [icon]="faStar" class="required" [class.required-inVisible]='!isRequired'></fa-icon>{{ label }}
     </label>
     <section
       [class]='inputClass ? inputClass + " input-group" + " m-0 p-0": "col-md-12 col-lg-12 " + inputClass + " input-group" + " m-0 p-0"'>

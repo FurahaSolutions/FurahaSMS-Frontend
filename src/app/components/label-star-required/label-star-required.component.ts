@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faStar } from '@fortawesome/free-solid-svg-icons/faStar';
 
 @Component({
   selector: 'app-label-star-required',
@@ -6,17 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./label-star-required.component.css']
 })
 export class LabelStarRequiredComponent {
+  faStar = faStar;
   constructor() {
   }
 }
 
 @Component({
   selector: 'app-star-required',
-  template: `<span class='icon-star required'></span>`,
+  template: `<fa-icon [icon]="faStar" class="required"></fa-icon>`,
   styleUrls: ['./label-star-required.component.css']
 })
 
 export class StarRequiredComponent {
+  faStar = faStar;
   constructor() {
   }
 }

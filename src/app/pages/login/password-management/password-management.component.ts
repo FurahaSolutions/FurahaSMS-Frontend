@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { combineLatest, EMPTY, Observable } from 'rxjs';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { MyProfileService } from '../../my-profile/services/my-profile.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { MyProfileService } from '../../my-profile/services/my-profile.service';
 })
 export class PasswordManagementComponent {
 
+  faChevronRight = faChevronRight;
   userProfileId$: Observable<number> = this.route.parent?.parent?.paramMap.pipe(
     map(params => Number(params.get('id')))
   ) || EMPTY;
@@ -23,6 +25,7 @@ export class PasswordManagementComponent {
     .pipe(
       map(([userProfileId, myProfileId]) => (userProfileId === myProfileId) || !(userProfileId))
     );
+
 
   constructor(
     private route: ActivatedRoute,

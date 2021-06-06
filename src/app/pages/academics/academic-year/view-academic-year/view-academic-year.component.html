@@ -1,9 +1,12 @@
 <section *ngIf='(academicYear$ | ngrxPush) as academicYear; else content_loading'>
-  <h1>Academic Year <span class='icon-right-dir'></span> <small>{{academicYear.name}}</small></h1>
+  <h1>Academic Year
+    <fa-icon [icon]="faChevronRight"></fa-icon>
+    <small>{{academicYear.name}}</small></h1>
   <div class="card p-2">
     <section>
       <div class="p-2">
-        Period: <strong>{{ academicYear.start_date | date: 'MMM dd, yyyy' }}</strong> <span class='icon-right'></span>
+        Period: <strong>{{ academicYear.start_date | date: 'MMM dd, yyyy' }}</strong>
+        <fa-icon [icon]="faChevronRight"></fa-icon>
         <strong>{{ academicYear.end_date | date: 'MMM dd, yyyy'}}</strong>
       </div>
     </section>

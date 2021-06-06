@@ -14,6 +14,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CurriculumRoutingModule } from './curriculum-routing.module';
 import { CreateUnitCategoriesComponent } from './create-unit-categories/create-unit-categories.component';
 import { EditUnitCategoryComponent } from './edit-unit-category/edit-unit-category.component';
@@ -74,7 +75,8 @@ import { AcademicsCurriculumClassLevelsComponent } from './academics-curriculum-
     NgSelectModule,
     AppValidateSubmitButtonsModule,
     EditorModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ],
   providers: [
     {provide: TINYMCE_SCRIPT_SRC, useValue: '/tinymce/tinymce.min.js'}

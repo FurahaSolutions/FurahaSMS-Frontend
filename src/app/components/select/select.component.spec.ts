@@ -5,6 +5,7 @@ import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { SelectComponent } from './select.component';
 
 describe('SelectComponent', () => {
@@ -23,7 +24,8 @@ describe('SelectComponent', () => {
       }), FormsModule,
         ReactiveFormsModule,
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [SelectComponent],
       providers: [reducerProvider]

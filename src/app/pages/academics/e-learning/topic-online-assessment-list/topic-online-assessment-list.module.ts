@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import { ReactiveComponentModule } from '@ngrx/component';
 import {DurationModule} from '../../../../shared/duration/duration.module';
 import { TopicOnlineAssessmentListComponent } from './topic-online-assessment-list.component';
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 
 
@@ -18,7 +19,8 @@ import { TopicOnlineAssessmentListComponent } from './topic-online-assessment-li
     RouterModule,
     DurationModule,
     FormsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class TopicOnlineAssessmentListModule { }

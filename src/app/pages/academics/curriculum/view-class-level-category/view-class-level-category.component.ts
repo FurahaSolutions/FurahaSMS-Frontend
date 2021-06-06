@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ClassLevelCategoryService } from 'src/app/services/class-level-category.service';
 import { ActivatedRoute } from '@angular/router';
-import { mergeMap, map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { selectICan } from 'src/app/pages/my-profile/store/selectors/my-profile.selectors';
-import { Store, select } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 
 @Component({
   templateUrl: './view-class-level-category.component.html',
@@ -11,6 +12,7 @@ import { Store, select } from '@ngrx/store';
 })
 export class ViewClassLevelCategoryComponent {
 
+  faChevronRight = faChevronRight;
   iCanEditClassLevel$ = this.store.pipe(select(selectICan('update class level')));
 
   classLevelCategory$ = this.route.paramMap.pipe(
@@ -18,10 +20,12 @@ export class ViewClassLevelCategoryComponent {
     mergeMap(id => this.classLevelCategoryService.getCategoryWithId(id))
   );
 
+
   constructor(
     private classLevelCategoryService: ClassLevelCategoryService,
     private route: ActivatedRoute,
     private store: Store
-  ) { }
+  ) {
+  }
 
 }

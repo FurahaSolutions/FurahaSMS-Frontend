@@ -6,6 +6,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 import { hideMenu, showMenu } from 'src/app/store/actions/menu-toggle.actions';
 import { selectShowMenu } from 'src/app/store/selectors/menu-toggle.selector';
+import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ import { selectShowMenu } from 'src/app/store/selectors/menu-toggle.selector';
 })
 
 export class HeaderComponent implements OnInit {
+  faBars = faBars;
   isMenuClosed$ = this.store.select(selectShowMenu);
   isMenuClosed = true;
   isCollapsed = true;

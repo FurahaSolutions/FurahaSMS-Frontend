@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { select, Store } from '@ngrx/store';
 import { map, mergeMap, tap } from 'rxjs/operators';
 import { AppState } from 'src/app/store/reducers';
@@ -11,6 +12,7 @@ import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selec
   styleUrls: ['./exam-revision-mode.component.css']
 })
 export class ExamRevisionModeComponent {
+  faChevronRight = faChevronRight;
   questions: any[] = [];
   examPaper$ = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => params.get('id')),

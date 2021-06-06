@@ -9,6 +9,7 @@ import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { ErrorModule } from 'src/app/components/error/error.module';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormErrorsModule } from '../../../shared/form-errors/form-errors.module';
 import { AppCheckboxModule } from '../../../shared/checkbox/checkbox.module';
 import { AcademicYearRoutingModule } from './academic-year-routing.module';
@@ -57,7 +58,8 @@ import { ArchiveAcademicYearModule } from './archive-academic-year/archive-acade
     DeleteAcademicYearModule,
     UndeleteAcademicYearModule,
     ArchiveAcademicYearModule,
-    AppCheckboxModule
+    AppCheckboxModule,
+    FontAwesomeModule
   ]
 })
 export class AcademicYearModule {

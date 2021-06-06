@@ -1,10 +1,11 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {select, Store} from '@ngrx/store';
-import {map, mergeMap} from 'rxjs/operators';
-import {combineLatest} from 'rxjs';
-import {selectAcademicsCourse} from '../../../store/selectors/courses.selectors';
-import {selectICan} from '../../../../my-profile/store/selectors/my-profile.selectors';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { select, Store } from '@ngrx/store';
+import { map, mergeMap } from 'rxjs/operators';
+import { combineLatest } from 'rxjs';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { selectAcademicsCourse } from '../../../store/selectors/courses.selectors';
+import { selectICan } from '../../../../my-profile/store/selectors/my-profile.selectors';
 
 @Component({
   selector: 'app-e-learning-course-view',
@@ -12,6 +13,7 @@ import {selectICan} from '../../../../my-profile/store/selectors/my-profile.sele
   styleUrls: ['./e-learning-course-view.component.css']
 })
 export class ELearningCourseViewComponent {
+  faChevronRight = faChevronRight;
   courseId$ = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id')))
   );
@@ -25,6 +27,7 @@ export class ELearningCourseViewComponent {
     map(([courseId, course, editPermission]) =>
       ({courseId, course, editPermission}))
   );
+
 
   constructor(
     private store: Store,

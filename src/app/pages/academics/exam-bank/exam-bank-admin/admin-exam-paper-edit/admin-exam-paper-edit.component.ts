@@ -9,6 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { subscribedContainerMixin } from 'src/app/shared/mixins/subscribed-container.mixin';
 import { modalMixin } from 'src/app/shared/mixins/modal.mixin';
 import { formWithMathEditorMixin } from 'src/app/shared/mixins/form-with-math-editor.mixin';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { ExamPaperQuestionsService } from '../../services/exam-paper-questions.service';
 import { loadExamPapers } from '../../store/actions/exam-paper.actions';
 import { answersMatchValidator } from '../../validators/answers-match.validator';
@@ -23,6 +26,9 @@ import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selec
 })
 export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalMixin(formWithMathEditorMixin()))
   implements OnInit, CanDeactivateGuard {
+  faChevronRight = faChevronRight;
+  faPlusCircle = faPlusCircle;
+  faTrash = faTrash;
   activeQuestion = 0;
   queries: IExamPaperQuestion[] = [];
   editDialogForm: FormGroup = this.fb.group({
@@ -64,6 +70,9 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
   validated = false;
   dialog: { title: string; value: any; index: number; type: any } = {title: '', value: '', index: 0, type: null};
   private store: Store<AppState>;
+
+
+
 
   constructor(
     private fb: FormBuilder,

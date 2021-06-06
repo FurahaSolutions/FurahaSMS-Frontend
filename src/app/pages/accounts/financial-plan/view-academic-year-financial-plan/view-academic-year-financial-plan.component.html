@@ -1,6 +1,6 @@
 <section *ngIf='v$ | ngrxPush as v; else loading'>
   <h1>
-    Financial Plan <span class='icon-right-dir'></span> Academic Year <span class="icon-right-dir"></span>
+    Financial Plan <fa-icon [icon]="faChevronRight"></fa-icon> Academic Year <fa-icon [icon]="faChevronRight"></fa-icon>
     <span>{{ v.academicYear?.name }}</span>
   </h1>
 
@@ -91,6 +91,6 @@
   </div>
 </section>
 <ng-template #loading>
-  <h1>Financial Plan <span class='icon-right-dir'></span> Academic Year</h1>
+  <h1>Financial Plan <fa-icon [icon]="faChevronRight"></fa-icon> Academic Year</h1>
   <app-loading-bubble></app-loading-bubble>
 </ng-template>

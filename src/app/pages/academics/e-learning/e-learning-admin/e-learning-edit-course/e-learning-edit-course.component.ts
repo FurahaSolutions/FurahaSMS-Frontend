@@ -1,18 +1,20 @@
-import {Component, TemplateRef} from '@angular/core';
-import {select, Store} from '@ngrx/store';
-import {ActivatedRoute, Router} from '@angular/router';
-import {map, mergeMap, takeUntil} from 'rxjs/operators';
-import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
-import {BsModalService} from 'ngx-bootstrap/modal';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {selectAcademicsCourse} from '../../../store/selectors/courses.selectors';
-import {ICourse} from '../../interfaces/course.interface';
-import {ELearningService} from '../../services/e-learning.service';
-import {StudyMaterialsService} from '../../../study-materials/services/study-materials.service';
-import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-container.mixin';
-import {modalMixin} from '../../../../../shared/mixins/modal.mixin';
-import {formMixin} from '../../../../../shared/mixins/form.mixin';
-import {loadCourses} from '../../../store/actions/courses.actions';
+import { Component, TemplateRef } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map, mergeMap, takeUntil } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { selectAcademicsCourse } from '../../../store/selectors/courses.selectors';
+import { ICourse } from '../../interfaces/course.interface';
+import { ELearningService } from '../../services/e-learning.service';
+import { StudyMaterialsService } from '../../../study-materials/services/study-materials.service';
+import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
+import { modalMixin } from '../../../../../shared/mixins/modal.mixin';
+import { formMixin } from '../../../../../shared/mixins/form.mixin';
+import { loadCourses } from '../../../store/actions/courses.actions';
 
 @Component({
   selector: 'app-e-learning-edit-course',
@@ -20,6 +22,8 @@ import {loadCourses} from '../../../store/actions/courses.actions';
   styleUrls: ['./e-learning-edit-course.component.css']
 })
 export class ELearningEditCourseComponent extends subscribedContainerMixin(modalMixin(formMixin())) {
+  faChevronRight = faChevronRight;
+  faPlusCircled = faPlusCircle;
   newContentUploadForm: FormGroup = this.fb.group({
     description: ['', [Validators.required]],
     content: [null, [Validators.required]],
@@ -41,9 +45,12 @@ export class ELearningEditCourseComponent extends subscribedContainerMixin(modal
     description: ['', [Validators.required]],
     topicId: [null, []]
   });
+
+
   get modalTopicId() {
     return (this.config.initialState as any).id;
   }
+
   constructor(
     private store: Store,
     modalService: BsModalService,
@@ -147,7 +154,6 @@ export class ELearningEditCourseComponent extends subscribedContainerMixin(modal
         return 'newContentUploadForm';
     }
   }
-
 
 
   activeForm(activeFormVal: FormGroup | null = null): FormGroup {

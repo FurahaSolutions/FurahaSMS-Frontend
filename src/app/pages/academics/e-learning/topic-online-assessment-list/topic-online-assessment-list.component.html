@@ -2,7 +2,7 @@
   <div *ngFor='let assessment of assessments; let i = index' style='border-bottom: rgba(227, 241, 105, 0.226) 2px solid'
        class="mb-3">
     <button (click)="deleteItem(assessment.id)" *ngIf="edit" type="button" aria-label="delete content" class="float-right btn btn-danger btn-sm">
-      <span class="icon-trash"></span>
+      <fa-icon [icon]="faTrash"></fa-icon>
     </button>
     <button (click)="editItem(assessment.exam_paper_id)" *ngIf="edit" type="button" aria-label="delete content" class="float-right btn btn-primary btn-sm mr-2">
       <span class="icon-edit"></span>

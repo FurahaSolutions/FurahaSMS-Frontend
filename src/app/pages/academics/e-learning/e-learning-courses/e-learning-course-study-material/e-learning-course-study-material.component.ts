@@ -1,11 +1,12 @@
-import {Component} from '@angular/core';
-import {map, mergeMap, tap} from 'rxjs/operators';
-import {ActivatedRoute} from '@angular/router';
-import {combineLatest, Observable} from 'rxjs';
-import {select, Store} from '@ngrx/store';
-import {StudyMaterialsService} from '../../../study-materials/services/study-materials.service';
-import {selectAcademicsCourse} from '../../../store/selectors/courses.selectors';
-import {ICourse} from '../../interfaces/course.interface';
+import { Component } from '@angular/core';
+import { map, mergeMap, tap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
+import { combineLatest, Observable } from 'rxjs';
+import { select, Store } from '@ngrx/store';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { StudyMaterialsService } from '../../../study-materials/services/study-materials.service';
+import { selectAcademicsCourse } from '../../../store/selectors/courses.selectors';
+import { ICourse } from '../../interfaces/course.interface';
 
 @Component({
   selector: 'app-e-learning-course-study-material',
@@ -13,6 +14,7 @@ import {ICourse} from '../../interfaces/course.interface';
   styleUrls: ['./e-learning-course-study-material.component.css']
 })
 export class ELearningCourseStudyMaterialComponent {
+  faChevronRight = faChevronRight;
   docSrc: string | undefined;
   studyMaterial: any;
   course: ICourse | null | undefined;

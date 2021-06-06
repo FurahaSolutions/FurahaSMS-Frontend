@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { RolesAndPermissionsService } from '../../services/roles-and-permissions.service';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../../shared/mixins/form.mixin';
@@ -13,6 +14,7 @@ import { formMixin } from '../../../../shared/mixins/form.mixin';
   styleUrls: ['./roles-permission-edit.component.css']
 })
 export class RolesPermissionEditComponent extends subscribedContainerMixin(formMixin()) implements OnInit {
+  faChevronRight = faChevronRight;
   role: any;
   role$: Observable<any> = this.route.paramMap.pipe(
     map(params => Number(params.get('id'))),
@@ -23,6 +25,7 @@ export class RolesPermissionEditComponent extends subscribedContainerMixin(formM
     permissions: this.fb.array([])
   });
   roleId: number | undefined;
+
 
   constructor(
     private rolesPermissionService: RolesAndPermissionsService,

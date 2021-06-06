@@ -6,6 +6,7 @@ import { GuardiansService } from 'src/app/services/guardians.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { StudentService } from 'src/app/services/student.service';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../shared/mixins/form.mixin';
 
@@ -15,6 +16,7 @@ import { formMixin } from '../../../shared/mixins/form.mixin';
   styleUrls: ['./create-student-guardian.component.css']
 })
 export class CreateStudentGuardianComponent extends subscribedContainerMixin(formMixin()) implements OnInit {
+  faChevronRight = faChevronRight;
   emailPattern = '^[a-zA-Z]+([\.-]?[a-zA-Z0-9]+)*@[a-zA-Z]+([\.-]?[a-zA-Z]+)*(\.[a-zA-Z]{2,3})+$';
   userIdentificationForm: FormGroup = this.fb.group({
     guardians: this.fb.array([this.buildGuardianProfile()])
@@ -29,6 +31,7 @@ export class CreateStudentGuardianComponent extends subscribedContainerMixin(for
     );
 
   studentId: number | undefined;
+
 
   constructor(
     private studentGuardian: GuardiansService,

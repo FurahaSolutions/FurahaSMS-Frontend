@@ -1,5 +1,5 @@
 <section  *ngIf='v$ | ngrxPush as v; else loading'>
-  <h1>Edit Subject/ Units <span class="icon-right-dir"></span> {{ v.unit?.name }}</h1>
+  <h1>Edit Subject/ Units <fa-icon [icon]="faChevronRight"></fa-icon> {{ v.unit?.name }}</h1>
 
   <form class="card p-2" [formGroup]="unitForm" (submit)="submitUnitForm()">
     <tabset role="tablist" #staticTabs>

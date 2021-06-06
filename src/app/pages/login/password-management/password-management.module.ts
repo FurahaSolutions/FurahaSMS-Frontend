@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserPasswordResetModule } from '../user-password-reset/user-password-reset.module';
 import { UserPasswordChangeModule } from '../user-password-change/user-password-change.module';
 import { LoadMyProfileModule } from '../../my-profile/load-my-profile.module';
@@ -23,7 +24,8 @@ import { PasswordManagementRoutingModule } from './password-management-routing.m
     RouterModule,
     LoadMyProfileModule,
     AppLoadingBubbleModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class PasswordManagementModule {

@@ -8,6 +8,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { myProfileFeatureKey, reducer } from '../../my-profile/store/reducers/my-profile.reducer';
 import { appFeatureKey, reducers } from '../../../store/reducers/app.reducer';
 import { AppLoadingBubbleModule } from '../../../modules/app-loading-bubble';
@@ -39,7 +40,8 @@ describe('AcademicYearComponent', () => {
         AppCheckboxModule,
         FormsModule,
         ReactiveFormsModule,
-        ModalModule.forRoot()
+        ModalModule.forRoot(),
+        FontAwesomeTestingModule
       ],
       declarations: [AcademicYearComponent],
       providers: [reducerProvider]

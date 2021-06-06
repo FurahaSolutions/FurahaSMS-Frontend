@@ -10,6 +10,7 @@ import { UnitsService } from 'src/app/services/units.service';
 import { SchoolRoomService } from 'src/app/pages/infrastructures/services/school-room.service';
 import { ClassLevelService } from 'src/app/services/class-level.service';
 import { ClassStreamService } from 'src/app/pages/academics/services/class-stream.service';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { TimeTableService } from '../../services/time-table.service';
 import { loadingMixin } from '../../../../shared/mixins/loading.mixin';
 
@@ -21,6 +22,7 @@ import { loadingMixin } from '../../../../shared/mixins/loading.mixin';
 })
 export class TimeTableAcademicYearEditComponent extends loadingMixin() {
 
+  faChevronRight = faChevronRight;
   academicYearId$: Observable<number> = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id')))
   );
@@ -48,8 +50,6 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
     tap(lessons => this.editedTimetableSubject$.next(lessons)),
   );
 
-
-  activatedRouteParam$ = this.route.paramMap.pipe(map(params => Number(params.get('id'))));
   academicYearName$ = this.academicYearId$?.pipe(
     tap(() => this.loadingSubject$.next(true)),
     mergeMap(id => this.academicYearService.getAcademicYearWithId({id})),
@@ -134,7 +134,7 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
         item.dayOfWeekName === editItem.dayOfWeekName &&
         item.streamName === editItem.streamName &&
         item.timeValue === editItem.timeValue);
-      if(filteredItems.length > 0) {
+      if (filteredItems.length > 0) {
         return filteredItems[0];
       }
       return {
@@ -152,6 +152,7 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
     roomId: [null],
     subjectId: [null, Validators.required],
   });
+
 
   constructor(
     private academicYearService: AcademicYearService,
@@ -171,7 +172,7 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
 
   editLesson({template, classLevelName, stream: streamName, timing: timeValue, dayOfWeekName, lesson}: any) {
     const lessonValues = lesson?.[streamName]?.[timeValue];
-    if(lessonValues) {
+    if (lessonValues) {
       this.editLessonForm.patchValue({
         teacherId: lessonValues.teacherId,
         roomId: lessonValues.roomId,
@@ -197,7 +198,7 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
       item.dayOfWeekName === editItem.dayOfWeekName &&
       item.streamName === editItem.streamName &&
       item.timeValue === editItem.timeValue);
-    if(filteredItems.length > 0) {
+    if (filteredItems.length > 0) {
       timeTableItems[timeTableItems.indexOf(filteredItems[0])] = {
         ...timeTableItems[timeTableItems.indexOf(filteredItems[0])],
         ...this.editLessonForm.value

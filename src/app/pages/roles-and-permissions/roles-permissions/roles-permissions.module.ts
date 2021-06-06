@@ -9,6 +9,7 @@ import { AppCheckboxModule } from 'src/app/shared/checkbox/checkbox.module';
 import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RolesPermissionEditComponent } from './roles-permission-edit/roles-permission-edit.component';
 import { RolesPermissionsComponent } from './roles-permissions.component';
 import { RolesPermissionsRoutingModule } from './roles-permissions-routing.module';
@@ -27,7 +28,8 @@ import { RolesPermissionsRoutingModule } from './roles-permissions-routing.modul
     AppCheckboxModule,
     AppInputModule,
     AppValidateSubmitButtonsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class RolesPermissionsModule { }

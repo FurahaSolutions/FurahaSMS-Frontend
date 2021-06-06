@@ -7,7 +7,7 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import { AppTelInputModule } from 'src/app/modules/app-tel-input.module';
+import { AppTelInputModule } from 'src/app/components/tel-input/app-tel-input.module';
 import { AppLayoutModule } from 'src/app/modules/app-layout.module';
 import { AppLinksModule } from 'src/app/shared/links/links.module';
 import { ModalModule } from 'ngx-bootstrap/modal';

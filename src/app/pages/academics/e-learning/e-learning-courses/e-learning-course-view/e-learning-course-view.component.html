@@ -1,5 +1,5 @@
 <ng-container *ngIf='(v$ | ngrxPush) as v; else loading'>
-  <h1>View Course <span class="icon-right-dir"></span> {{ v.course?.name }}</h1>
+  <h1>View Course <fa-icon [icon]="faChevronRight"></fa-icon> {{ v.course?.name }}</h1>
   <section class="d-flex justify-content-between">
     <a [routerLink]="['/academics','e-learning','admin','courses', v.courseId,'edit']" type="button"
        class="btn btn-primary" *ngIf="v.editPermission">

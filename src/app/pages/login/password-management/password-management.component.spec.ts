@@ -9,6 +9,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { MyProfileService } from '../../my-profile/services/my-profile.service';
 import { LoadMyProfileModule } from '../../my-profile/load-my-profile.module';
 import { UserPasswordResetModule } from '../user-password-reset/user-password-reset.module';
@@ -36,7 +37,8 @@ describe('PasswordManagementComponent', () => {
           }
         }),
         EffectsModule.forRoot([]),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       providers: [
         reducerProvider,

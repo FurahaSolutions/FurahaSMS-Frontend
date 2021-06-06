@@ -1,17 +1,18 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
-import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
-import {RouterTestingModule} from '@angular/router/testing';
-import {AppFilesizeModule} from 'src/app/shared/filesize/filesize.module';
-import {FileExtensionModule} from 'src/app/shared/file-extention/file-extension.module';
-import {ActivatedRoute} from '@angular/router';
-import {of} from 'rxjs';
-import {ReactiveComponentModule} from '@ngrx/component';
-import {academicsFeatureKey, reducers} from '../../../store/reducers';
-import {ELearningCourseStudyMaterialComponent} from './e-learning-course-study-material.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AppFilesizeModule } from 'src/app/shared/filesize/filesize.module';
+import { FileExtensionModule } from 'src/app/shared/file-extention/file-extension.module';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { academicsFeatureKey, reducers } from '../../../store/reducers';
+import { ELearningCourseStudyMaterialComponent } from './e-learning-course-study-material.component';
+import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('ELearningCourseStudyMaterialComponent', () => {
   let component: ELearningCourseStudyMaterialComponent;
@@ -33,7 +34,8 @@ describe('ELearningCourseStudyMaterialComponent', () => {
         StoreModule.forFeature(academicsFeatureKey, reducers),
         AppFilesizeModule,
         FileExtensionModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ELearningCourseStudyMaterialComponent],
       providers: [

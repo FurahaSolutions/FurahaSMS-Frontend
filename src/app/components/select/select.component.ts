@@ -12,6 +12,7 @@ import { GenderService } from 'src/app/services/gender.service';
 import { ReligionService } from 'src/app/services/religion.service';
 import { ProcurementService } from 'src/app/services/procurement.service';
 import { UnitsService } from 'src/app/services/units.service';
+import { faStar } from '@fortawesome/free-solid-svg-icons/faStar';
 
 export type IType = 'unit-categories'
   | 'units'
@@ -56,6 +57,7 @@ export class SelectComponent
   @Input() parentId: number | undefined;
   @Input() triggerValidation = false;
   @Input() type: IType | undefined;
+  faStar = faStar;
   disabled = false;
   formControl: FormControl;
   hint: string | undefined;
@@ -88,6 +90,7 @@ export class SelectComponent
   };
   onTouched: () => void = () => {
   };
+
 
   writeValue(value: any): void {
     if (value !== undefined) {

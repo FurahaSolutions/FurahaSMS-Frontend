@@ -1,6 +1,7 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {PrintComponent} from './print.component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { PrintComponent } from './print.component';
 
 describe('PrintComponent', () => {
   let component: PrintComponent;
@@ -8,6 +9,9 @@ describe('PrintComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      imports: [
+        FontAwesomeTestingModule
+      ],
       declarations: [PrintComponent]
     })
       .compileComponents();

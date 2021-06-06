@@ -11,6 +11,7 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { Number2AlphabetModule } from 'src/app/shared/number-2-alphabet/number-2-alphabet.module';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { QuestionViewComponent } from './question-view/question-view.component';
 import { AdminExamPaperEditComponent } from './admin-exam-paper-edit/admin-exam-paper-edit.component';
 import { AdminExamPaperComponent } from './admin-exam-paper/admin-exam-paper.component';
@@ -42,7 +43,8 @@ import { ExamBankAdminRoutingModule } from './exam-bank-admin-routing.module';
     EditorModule,
     Number2AlphabetModule,
     AppValidateSubmitButtonsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ],
   providers: [
     { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },

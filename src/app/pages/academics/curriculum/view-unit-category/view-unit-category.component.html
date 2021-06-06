@@ -1,6 +1,6 @@
 
 <section *ngIf='unitCategory$ | ngrxPush as unitCategory; else loading'>
-  <h1>View Unit Category <span class="icon-right-dir"></span> {{ unitCategory.name }}</h1>
+  <h1>View Unit Category <fa-icon [icon]="faChevronRight"></fa-icon> {{ unitCategory.name }}</h1>
   <div class="card p-2">
     <h2>Status</h2>
     <span class="badge p-2" [class.badge-success]='unitCategory.active'  [class.badge-secondary]='!unitCategory.active'>

@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AcademicYearFinancialPlanComponent } from './academic-year-financial-plan/academic-year-financial-plan.component';
 import { AcademicYearPlanEffects } from './store/effects/academic-year-plan.effects';
 import * as fromAcademicYearPlan from './store/reducers/academic-year-plan.reducer';
@@ -41,7 +42,8 @@ import { FinancialPlanRoutingModule } from './financial-plan-routing.module';
     ReactiveFormsModule,
     AppInputModule,
     AppValidateSubmitButtonsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class FinancialPlanModule { }

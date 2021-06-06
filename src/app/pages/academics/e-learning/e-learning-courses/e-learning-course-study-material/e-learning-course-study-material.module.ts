@@ -6,6 +6,7 @@ import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { AppFilesizeModule } from 'src/app/shared/filesize/filesize.module';
 import { FileExtensionModule } from 'src/app/shared/file-extention/file-extension.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ELearningCourseStudyMaterialComponent } from './e-learning-course-study-material.component';
 import { ELearningCourseStudyMaterialRoutingModule } from './e-learning-course-study-material-routing.module';
 
@@ -19,7 +20,8 @@ import { ELearningCourseStudyMaterialRoutingModule } from './e-learning-course-s
     AppLoadingBubbleModule,
     AppFilesizeModule,
     FileExtensionModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class ELearningCourseStudyMaterialModule { }

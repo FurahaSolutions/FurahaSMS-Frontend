@@ -6,6 +6,7 @@ import { Number2AlphabetModule } from 'src/app/shared/number-2-alphabet/number-2
 import { AppCheckboxModule } from 'src/app/shared/checkbox/checkbox.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ExamBankArchivesRoutingModule } from './exam-bank-archives-routing.module';
 import { ExamBankArchivesComponent } from './exam-bank-archives.component';
 import { ExamRevisionModeComponent } from './exam-revision-mode/exam-revision-mode.component';
@@ -29,7 +30,8 @@ import { ViewQuestionRevisionModeComponent } from './view-question-revision-mode
     Number2AlphabetModule,
     AppCheckboxModule,
     FormsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class ExamBankArchivesModule { }

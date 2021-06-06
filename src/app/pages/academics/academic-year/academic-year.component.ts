@@ -6,6 +6,7 @@ import { map, mergeMap, tap } from 'rxjs/operators';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { AcademicYearService } from '../services/academic-year.service';
 import { selectICan } from '../../my-profile/store/selectors/my-profile.selectors';
 import { AppState } from '../../../store/reducers';
@@ -18,6 +19,7 @@ import { UndeleteAcademicYearComponent } from './undelete-academic-year/undelete
   styleUrls: ['./academic-year.component.css']
 })
 export class AcademicYearComponent extends modalMixin() {
+  faChevronRight = faChevronRight;
   showForm = this.fb.group({
     archived: [undefined],
     deleted: [undefined],
@@ -54,6 +56,7 @@ export class AcademicYearComponent extends modalMixin() {
     public store: Store<AppState>, modalService: BsModalService) {
     super(modalService, store);
   }
+
   openUndeleteModal(id: number) {
     this.openModal({
       id,

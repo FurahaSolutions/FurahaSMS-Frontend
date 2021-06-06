@@ -5,6 +5,7 @@ import { LinkService } from 'src/app/services/link.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { filter, map, tap } from 'rxjs/operators';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { selectShowMenu } from '../../store/selectors/menu-toggle.selector';
 import { hideMenu, showMenu } from '../../store/actions/menu-toggle.actions';
 import { AppState } from '../../store/reducers';
@@ -16,6 +17,7 @@ import { AppState } from '../../store/reducers';
 })
 export class SidebarComponent implements OnInit {
   faHome = faHome;
+  faTimes = faTimes;
   isMenuClosed$ = this.store.select(selectShowMenu);
   listItems$ = this.linkService.dashboardLinks;
   isMenuClosed = true;
@@ -25,6 +27,7 @@ export class SidebarComponent implements OnInit {
     .pipe(
       map(state => state.matches)
     );
+
 
 
   constructor(
