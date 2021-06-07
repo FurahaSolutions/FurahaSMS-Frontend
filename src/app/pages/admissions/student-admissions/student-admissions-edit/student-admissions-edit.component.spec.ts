@@ -9,6 +9,7 @@ import {AppInputModule} from 'src/app/components/input/app-input.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TypeaheadModule} from 'ngx-bootstrap/typeahead';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {StudentsRecentlyCreatedComponent} from '../students-recently-created/students-recently-created.component';
 import {StudentSearchComponent} from '../../../../components/student-search/student-search.component';
 import {StudentAdmissionsEditComponent} from './student-admissions-edit.component';
@@ -34,7 +35,8 @@ describe('StudentAdmissionsEditComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         TypeaheadModule.forRoot(),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [StudentAdmissionsEditComponent, StudentSearchComponent, StudentsRecentlyCreatedComponent],
       providers: [reducerProvider]

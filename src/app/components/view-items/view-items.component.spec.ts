@@ -5,6 +5,7 @@ import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { ChipsComponent } from '../chips/chips.component';
 import { LoadingBubbleComponent } from '../loading-bubble/loading-bubble.component';
 import { ErrorComponent } from '../error/error.component';
@@ -25,7 +26,8 @@ describe('ViewItemsComponent', () => {
         }
       }),
         RouterTestingModule.withRoutes([]),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ViewItemsComponent, ChipsComponent, LoadingBubbleComponent, ErrorComponent],
       providers: [reducerProvider]

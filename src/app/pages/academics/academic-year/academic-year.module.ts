@@ -12,6 +12,7 @@ import { ReactiveComponentModule } from '@ngrx/component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormErrorsModule } from '../../../shared/form-errors/form-errors.module';
 import { AppCheckboxModule } from '../../../shared/checkbox/checkbox.module';
+import { TabErrorStateModule } from '../../../components/tab-error-state/app-tab-error.module';
 import { AcademicYearRoutingModule } from './academic-year-routing.module';
 import { AcademicYearUnitAllocationComponent } from './academic-year-unit-allocation/academic-year-unit-allocation.component';
 import { ViewAcademicYearInfoComponent } from './view-academic-year-info/view-academic-year-info.component';
@@ -59,7 +60,8 @@ import { ArchiveAcademicYearModule } from './archive-academic-year/archive-acade
     UndeleteAcademicYearModule,
     ArchiveAcademicYearModule,
     AppCheckboxModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TabErrorStateModule
   ]
 })
 export class AcademicYearModule {

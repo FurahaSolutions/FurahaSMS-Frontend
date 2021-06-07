@@ -11,6 +11,7 @@ import {reducer} from 'src/app/pages/support-staffs/store/reducers/support-staff
 import {AppTelInputModule} from 'src/app/components/tel-input/app-tel-input.module';
 import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {CreateTeacherComponent} from '../../create-teacher/create-teacher.component';
 import {CreateStaffComponent} from './create-staff.component';
 
@@ -36,7 +37,8 @@ describe('CreateStaffComponent', () => {
         AppInputModule,
         AppTelInputModule,
         AppValidateSubmitButtonsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       providers: [
         reducerProvider,

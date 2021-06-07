@@ -23,8 +23,8 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
         <button class='btn btn-success' [disabled]='!tenderForm.valid || (submitInProgressAction$ | ngrxPush)'>
           Save Details
-          <i *ngIf='(submitInProgressAction$ | ngrxPush)' class='icon-spin3 animate-spin'></i>
-          <i *ngIf='!(submitInProgressAction$ | ngrxPush) && tenderForm.valid' class='icon-ok-1'></i>
+          <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush)' [icon]="faSpinner" [spin]="true"></fa-icon>
+          <fa-icon *ngIf='!(submitInProgressAction$ | ngrxPush) && tenderForm.valid' [icon]='faSave'></fa-icon>
         </button>
       </section>
     </section>

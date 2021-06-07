@@ -7,6 +7,7 @@ import { ErrorModule } from 'src/app/components/error/error.module';
 import { StoreModule } from '@ngrx/store';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { AppStarLabelRequiredModule } from '../../../components/label-star-required/app-star-label-required';
 import { FullWithCenterComponent } from '../../../components/full-with-center/full-with-center.component';
 import { InputComponent } from '../../../components/input/input.component';
@@ -32,7 +33,8 @@ describe('LoginResetComponent', () => {
           }
         }),
         AppStarLabelRequiredModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [LoginResetComponent, FullWithCenterComponent, InputComponent],
       providers: [

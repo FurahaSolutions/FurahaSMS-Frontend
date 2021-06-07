@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { TabErrorStateModule } from 'src/app/modules/app-tab-error.module';
+import { TabErrorStateModule } from 'src/app/components/tab-error-state/app-tab-error.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { RouterTestingModule } from '@angular/router/testing';

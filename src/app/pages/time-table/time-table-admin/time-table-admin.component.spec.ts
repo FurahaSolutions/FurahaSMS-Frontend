@@ -7,6 +7,7 @@ import {ModalModule} from 'ngx-bootstrap/modal';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {TimeTableTimingsComponent} from './time-table-timings/time-table-timings.component';
 import {TimeTableAdminComponent} from './time-table-admin.component';
 
@@ -21,7 +22,8 @@ describe('TimeTableAdminComponent', () => {
         ModalModule.forRoot(),
         HttpClientTestingModule,
         AccordionModule.forRoot(),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [TimeTableAdminComponent, TimeTableTimingsComponent],
       providers: [

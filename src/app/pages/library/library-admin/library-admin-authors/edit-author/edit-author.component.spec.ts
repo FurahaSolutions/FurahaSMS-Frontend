@@ -10,6 +10,7 @@ import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { CreateAuthorComponent } from '../create-author/create-author.component';
 import { EditAuthorComponent } from './edit-author.component';
 
@@ -36,7 +37,8 @@ describe('EditAuthorComponent', () => {
         AppInputModule,
         AppLoadingBubbleModule,
         AppValidateSubmitButtonsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [EditAuthorComponent, CreateAuthorComponent],
       providers: [

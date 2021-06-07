@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {DurationModule} from '../../../../../shared/duration/duration.module';
 import {AppLoadingBubbleModule} from '../../../../../modules/app-loading-bubble';
 import { CountDownTimerModule } from '../../count-down-timer/count-down-timer.module';
@@ -20,7 +21,8 @@ import { TakeOnlineTestComponent } from './take-online-test/take-online-test.com
     RouterModule,
     AppLoadingBubbleModule,
     ReactiveComponentModule,
-    CountDownTimerModule
+    CountDownTimerModule,
+    FontAwesomeModule
   ]
 })
 export class OnlineAssessmentModule { }

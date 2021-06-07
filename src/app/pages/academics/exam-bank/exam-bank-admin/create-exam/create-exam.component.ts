@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { ExamPaperService } from '../../services/exam-paper.service';
 import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../../../shared/mixins/form.mixin';
@@ -12,6 +14,8 @@ import { formMixin } from '../../../../../shared/mixins/form.mixin';
   styleUrls: ['./create-exam.component.css']
 })
 export class CreateExamComponent extends subscribedContainerMixin(formMixin()) {
+  faPlusCircle = faPlusCircle;
+  faTrash = faTrash;
   newExamForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
     unit: ['', Validators.required],

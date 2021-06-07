@@ -7,6 +7,7 @@ import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/redu
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { appFeatureKey, reducers } from 'src/app/store/reducers/app.reducer';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { AppValidateSubmitButtonsModule } from '../../validate-submit-buttons/validate-submit-buttons.module';
 import { AppStarLabelRequiredModule } from '../../label-star-required/app-star-label-required';
 import { NameItemComponent } from './name-item.component';
@@ -32,7 +33,8 @@ describe('NameItemComponent', () => {
         }),
         StoreModule.forFeature(appFeatureKey, reducers),
         AppStarLabelRequiredModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [NameItemComponent],
       providers: [reducerProvider]

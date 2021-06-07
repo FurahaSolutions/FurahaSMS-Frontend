@@ -6,6 +6,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {ProcurementItemComponent} from '../procurement-item/procurement-item.component';
 import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
 import {InputComponent} from '../../../components/input/input.component';
@@ -32,7 +33,8 @@ describe('CreateProcurementTenderComponent', () => {
         AppStarLabelRequiredModule,
         FormsModule,
         ReactiveFormsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [
         CreateProcurementTenderComponent,

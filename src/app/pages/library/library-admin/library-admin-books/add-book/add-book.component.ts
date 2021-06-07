@@ -17,6 +17,8 @@ import {LibraryBookService} from 'src/app/pages/library/services/library-book.se
 import {CanComponentDeactivate} from 'src/app/guards/can-deactivate.guard';
 import {Router} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import {validateISBN} from '../../../validatots/isbn.validator';
 import * as fromLibraryAuthors from '../../../store/reducers';
 import {formWithEditorMixin} from '../../../../../shared/mixins/form-with-editor.mixin';
@@ -29,6 +31,8 @@ import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-
 })
 export class AddBookComponent extends subscribedContainerMixin(formWithEditorMixin()) implements OnInit, CanComponentDeactivate, OnDestroy {
   @ViewChild('staticTabs', {static: false}) staticTabs: TabsetComponent | undefined;
+  faTrash = faTrash;
+  faPlusCircle = faPlusCircle;
   newBookForm: FormGroup = this.fb.group({
     bookTitle: ['', Validators.required],
     authors: [[], [Validators.required]],

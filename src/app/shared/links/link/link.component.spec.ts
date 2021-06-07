@@ -2,8 +2,9 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { LinkComponent } from './link.component';
-import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('LinkComponent', () => {
   let component: LinkComponent;
@@ -40,7 +41,7 @@ describe('LinkComponent', () => {
   });
 
   it('should create', () => {
-    component.link = {name: 'Link', link: '/link', permissions: [], icon: 'icon'};
+    component.link = {name: 'Link', link: '/link', permissions: [], icon: faUser};
     expect(component).toBeTruthy();
   });
 });

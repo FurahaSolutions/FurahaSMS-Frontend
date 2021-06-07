@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FormGroup } from '@angular/forms';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { FormErrorsModule } from '../../shared/form-errors/form-errors.module';
 import { ValidateSubmitButtonsComponent } from './validate-submit-buttons.component';
 
@@ -13,7 +14,8 @@ describe('ValidateSubmitButtonsComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         FormErrorsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ValidateSubmitButtonsComponent]
     })

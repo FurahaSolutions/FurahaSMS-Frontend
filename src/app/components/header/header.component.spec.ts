@@ -8,6 +8,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { appFeatureKey, reducers } from '../../store/reducers/app.reducer';
 import { myProfileFeatureKey, reducer } from '../../pages/my-profile/store/reducers/my-profile.reducer';
 import { LogoutButtonComponent } from './logout-button/logout-button.component';
@@ -40,7 +41,8 @@ describe('HeaderComponent', () => {
         StoreModule.forFeature(myProfileFeatureKey, reducer),
         CollapseModule.forRoot(),
         BrowserAnimationsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [
         HeaderComponent,

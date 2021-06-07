@@ -13,6 +13,8 @@ import {formMixin} from '../../../shared/mixins/form.mixin';
   styleUrls: ['./create-procurement-tender.component.css']
 })
 export class CreateProcurementTenderComponent extends subscribedContainerMixin(formMixin()) {
+  faSpinner: any;
+  faSave: any;
   procurementItem$: Observable<any> = this.route.paramMap
     .pipe(map(params => Number(params.get('id'))))
     .pipe(mergeMap(id => this.procurementService.getProcurementRequestWithId(id)));
@@ -20,6 +22,7 @@ export class CreateProcurementTenderComponent extends subscribedContainerMixin(f
     expiryDatetime: ['', [Validators.required]],
     description: ['', Validators.required]
   });
+
 
   constructor(
     private procurementService: ProcurementService,

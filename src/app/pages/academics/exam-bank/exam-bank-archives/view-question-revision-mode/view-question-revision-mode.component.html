@@ -35,7 +35,7 @@
               [class.icon-check-empty]='!answer.isCorrect && !answer.selected' [class.icon-check]="answer.isCorrect || answer.selected"
               style="font-size: 1.2rem;"></span> <span> {{ k | number2Alphabet }}.</span> {{ answer.description }}
               <span aria-live="polite" style="width: 100%; display: block; font-size: 0.7em" *ngIf='(!!answer.isCorrect === answer.selected) && (!!answer.isCorrect)'>
-                <span class="icon-ok"></span>This is Correct
+                <fa-icon [icon]="faCheck"></fa-icon> This is Correct
               </span>
               <span aria-live="polite" style="width: 100%; display: block; font-size: 0.7em" *ngIf='(!answer.isCorrect === answer.selected) && (!answer.isCorrect)'>
                 <span class="icon-cancel"></span>  This is Incorrect

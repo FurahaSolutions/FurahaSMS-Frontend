@@ -7,6 +7,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { LoadingBubbleComponent } from '../../../components/loading-bubble/loading-bubble.component';
 import { guardianProfileFeatureKey, reducer } from '../../guardians/store/reducers/guardian-profile.reducer';
 import { UserSelectItemComponent } from '../../../components/user-profile/user-select-item/user-select-item.component';
@@ -31,7 +32,8 @@ describe('ViewStudentGuardiansComponent', () => {
         StoreModule.forFeature(guardianProfileFeatureKey, reducer),
         RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ViewStudentGuardiansComponent, LoadingBubbleComponent, UserSelectItemComponent, NameItemComponent],
       providers: [

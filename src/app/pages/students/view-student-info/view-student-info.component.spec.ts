@@ -8,6 +8,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { appFeatureKey, reducers } from '../../../store/reducers/app.reducer';
 import { LoadingBubbleComponent } from '../../../components/loading-bubble/loading-bubble.component';
 import { ViewStudentInfoComponent } from './view-student-info.component';
@@ -31,7 +32,8 @@ describe('ViewStudentInfoComponent', () => {
         StoreModule.forFeature(appFeatureKey, reducers),
         AppUserProfileModule,
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ViewStudentInfoComponent, LoadingBubbleComponent],
       providers: [

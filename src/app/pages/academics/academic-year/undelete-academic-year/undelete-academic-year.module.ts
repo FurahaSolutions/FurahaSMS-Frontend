@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UndeleteAcademicYearComponent } from './undelete-academic-year.component';
 
 
@@ -14,7 +15,8 @@ import { UndeleteAcademicYearComponent } from './undelete-academic-year.componen
     CommonModule,
     ModalModule.forChild(),
     ReactiveComponentModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ]
 })
 export class UndeleteAcademicYearModule {

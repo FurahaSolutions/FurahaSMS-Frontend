@@ -15,7 +15,7 @@
     <span *ngIf="ref.children.length === 0">
       Save Details
     </span>
-    <i *ngIf='isSubmitting' class='icon-spin3 animate-spin'></i>
-    <i *ngIf='!isSubmitting && formItem.valid && formItem.dirty' class='icon-ok-1'></i>
+    <fa-icon *ngIf='isSubmitting' [spin]="true" [icon]="faSpinner"></fa-icon>
+    <fa-icon *ngIf='!isSubmitting && formItem.valid && formItem.dirty' [icon]='faSave'></fa-icon>
   </button>
 </section>

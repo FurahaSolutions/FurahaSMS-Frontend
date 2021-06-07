@@ -7,6 +7,7 @@ import {SortableModule} from 'ngx-bootstrap/sortable';
 import {StoreModule} from '@ngrx/store';
 import {RouterTestingModule} from '@angular/router/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {FormErrorsModule} from '../../../shared/form-errors/form-errors.module';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../store/reducers';
 import {AppPrintModule} from '../../../shared/print/print.module';
@@ -34,7 +35,8 @@ describe('StudentDashboardComponent', () => {
           }
         }),
         RouterTestingModule.withRoutes([]),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [StudentDashboardComponent],
       providers: [reducerProvider]

@@ -7,10 +7,8 @@
         <tab role="tab">
           <ng-template tabHeading>
             <span>General Info </span>
-            <fa-icon class="text-success" [icon]="faCheck"
-                     *ngIf="!generalInfoHasError && (triggerValidationAction$ | ngrxPush)"></fa-icon>
-            <fa-icon class="text-danger" [icon]="faExclamationTriangle"
-                     *ngIf="generalInfoHasError && (triggerValidationAction$ | ngrxPush)"></fa-icon>
+            <app-tab-error-state [hasError]="generalInfoHasError"
+                                 [marked]="triggerValidationAction$ | ngrxPush"></app-tab-error-state>
           </ng-template>
           <section class='col-lg-6 mt-3'>
             <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' label='Name' id='name'
@@ -57,11 +55,8 @@
         <tab role="tab">
           <ng-template tabHeading>
             <span>Contact Info </span>
-            <fa-icon [class.text-success]='!contactInfoHasError && (triggerValidationAction$ | ngrxPush)'
-                     [icon]="faCheck" *ngIf="!contactInfoHasError && (triggerValidationAction$ | ngrxPush)"></fa-icon>
-            <fa-icon [class.text-danger]='contactInfoHasError && (triggerValidationAction$ | ngrxPush)'
-                     [icon]="faExclamationTriangle"
-                     *ngIf="contactInfoHasError && (triggerValidationAction$ | ngrxPush)"></fa-icon>
+            <app-tab-error-state [hasError]="contactInfoHasError"
+                                 [marked]="triggerValidationAction$ | ngrxPush"></app-tab-error-state>
           </ng-template>
           <section class='mt-3 d-flex justify-content-between flex-wrap' formGroupName='contactInfo'>
             <fieldset class='col-lg-12 col-md-12'>

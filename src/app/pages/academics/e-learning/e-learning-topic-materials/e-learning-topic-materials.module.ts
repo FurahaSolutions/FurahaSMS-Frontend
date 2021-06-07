@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AppFilesizeModule } from 'src/app/shared/filesize/filesize.module';
 import { FileExtensionModule } from 'src/app/shared/file-extention/file-extension.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ELearningTopicMaterialsComponent } from './e-learning-topic-materials.component';
 
 
@@ -16,7 +17,8 @@ import { ELearningTopicMaterialsComponent } from './e-learning-topic-materials.c
     RouterModule,
     AppFilesizeModule,
     FileExtensionModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class ELearningTopicMaterialsModule { }

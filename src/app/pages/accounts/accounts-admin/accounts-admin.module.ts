@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FinancialCostsMaintenanceComponent } from './financial-costs-maintenance/financial-costs-maintenance.component';
 import { AccountsAdminComponent } from './accounts-admin.component';
 import { AccountsAdminRoutingModule } from './accounts-admin-routing.module';
@@ -23,7 +24,8 @@ import { AccountsAdminRoutingModule } from './accounts-admin-routing.module';
     ReactiveFormsModule,
     AppInputModule,
     AppLoadingBubbleModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class AccountsAdminModule { }

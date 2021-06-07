@@ -1,7 +1,7 @@
 <h1>Class Level - Unit Allocation</h1>
 <!--{{ classLevelsWithUnits$ | ngrxPush | json }}-->
 <ng-container *ngIf="v$ | ngrxPush as v; else loading">
-  <a [routerLink]="['../view']" class="btn btn-primary" ><span class="icon-eye"></span>View Unit Allocations</a>
+  <a [routerLink]="['../view']" class="btn btn-primary" ><fa-icon [icon]="faEye"></fa-icon> View Unit Allocations</a>
   <form [formGroup]="itemForm" (submit)="submitForm()">
 
     <div>

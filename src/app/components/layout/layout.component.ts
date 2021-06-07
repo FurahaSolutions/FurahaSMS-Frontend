@@ -14,7 +14,6 @@ import { routerTransition } from '../../shared/animations/route.animation';
 })
 export class LayoutComponent {
   isMenuOpen$: Observable<boolean> = this.store.select(selectShowMenu);
-  routerActivated = false;
 
   constructor(private store: Store<AppState>) {
   }

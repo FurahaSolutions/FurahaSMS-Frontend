@@ -11,6 +11,7 @@ import {ReligionService} from 'src/app/services/religion.service';
 import {AppInputModule} from 'src/app/components/input/app-input.module';
 import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {LabelStarRequiredComponent} from '../../../../components/label-star-required/label-star-required.component';
 import {InputComponent} from '../../../../components/input/input.component';
 import {CreateStudentComponent} from './create-student.component';
@@ -36,7 +37,8 @@ describe('CreateStudentComponent', () => {
         RouterTestingModule.withRoutes([]),
         AppInputModule,
         AppValidateSubmitButtonsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [CreateStudentComponent, InputComponent, LabelStarRequiredComponent],
       providers: [

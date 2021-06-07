@@ -9,6 +9,7 @@ import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {FormErrorsModule} from '../../../../../shared/form-errors/form-errors.module';
 import {CreateExamComponent} from './create-exam.component';
 
@@ -34,7 +35,8 @@ describe('CreateExamComponent', () => {
         }),
         FormErrorsModule,
         AppValidateSubmitButtonsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [CreateExamComponent],
       providers: [reducerProvider]

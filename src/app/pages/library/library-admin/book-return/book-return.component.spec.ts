@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { SelectLibraryBookRefModule } from '../select-library-book-ref/select-library-book-ref.module';
 import { AppValidateSubmitButtonsModule } from '../../../../components/validate-submit-buttons/validate-submit-buttons.module';
 import { BookReturnComponent } from './book-return.component';
@@ -16,7 +17,8 @@ describe('BookReturnComponent', () => {
         HttpClientTestingModule,
         ReactiveFormsModule,
         SelectLibraryBookRefModule,
-        AppValidateSubmitButtonsModule
+        AppValidateSubmitButtonsModule,
+        FontAwesomeTestingModule
       ],
       declarations: [BookReturnComponent]
     })

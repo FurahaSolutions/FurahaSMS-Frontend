@@ -8,6 +8,7 @@ import {AppViewItemsModule} from 'src/app/modules/app-view-items.module';
 import {AppDescriptionModule} from 'src/app/modules/app-description.module';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {AppChipsModule} from 'src/app/components/chips/app-chip.module';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {ViewSemesterComponent} from './view-semester.component';
 
 describe('ViewSemesterComponent', () => {
@@ -23,7 +24,8 @@ describe('ViewSemesterComponent', () => {
         AppViewItemsModule,
         AppChipsModule,
         AppLoadingBubbleModule,
-        AppDescriptionModule
+        AppDescriptionModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ViewSemesterComponent],
       providers: [reducerProvider]

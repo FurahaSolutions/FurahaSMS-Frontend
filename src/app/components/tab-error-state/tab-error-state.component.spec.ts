@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { TabErrorStateComponent } from './tab-error-state.component';
 
 describe('TabErrorStateComponent', () => {
@@ -8,6 +9,9 @@ describe('TabErrorStateComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      imports: [
+        FontAwesomeTestingModule
+      ],
       declarations: [TabErrorStateComponent]
     })
       .compileComponents();

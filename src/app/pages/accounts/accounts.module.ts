@@ -6,6 +6,7 @@ import { AppLinksModule } from 'src/app/shared/links/links.module';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AccountsRoutingModule } from './accounts-routing.module';
 import { AccountsComponent } from './accounts.component';
 import { AccountEffects } from './store/effects/account.effects';
@@ -23,7 +24,8 @@ import { StudentFeeStatementEffects } from './store/effects/student-fee-statemen
     AppLinksModule,
     StoreModule.forFeature(fromAccounts.accountFeatureKey, fromAccounts.reducers),
     EffectsModule.forFeature([AccountEffects, PaymentTypeEffects, StudentFeeStatementEffects]),
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
 
   ]
 })

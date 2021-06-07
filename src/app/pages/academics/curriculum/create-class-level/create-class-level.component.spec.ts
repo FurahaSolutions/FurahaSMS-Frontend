@@ -9,6 +9,7 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {AppStarLabelRequiredModule} from '../../../../components/label-star-required/app-star-label-required';
 import {SelectComponent} from '../../../../components/select/select.component';
 import {InputComponent} from '../../../../components/input/input.component';
@@ -39,7 +40,8 @@ describe('CreateClassLevelComponent', () => {
         AppValidateSubmitButtonsModule,
         AppLoadingBubbleModule,
         AppStarLabelRequiredModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [
         CreateClassLevelComponent,

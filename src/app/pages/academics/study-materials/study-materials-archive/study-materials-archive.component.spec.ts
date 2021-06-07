@@ -6,6 +6,7 @@ import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {FormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {appFeatureKey, reducers} from '../../../../store/reducers/app.reducer';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
 import {myProfileFeatureKey, reducer} from '../../../my-profile/store/reducers/my-profile.reducer';
@@ -33,7 +34,8 @@ describe('StudyMaterialsArchiveComponent', () => {
         StoreModule.forFeature(appFeatureKey, reducers),
         StoreModule.forFeature(myProfileFeatureKey, reducer),
         AppStarLabelRequiredModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ StudyMaterialsArchiveComponent ],
       providers: [reducerProvider]

@@ -1,6 +1,6 @@
 <h1>Exam Bank Admin</h1>
 <a class="btn btn-primary btn-sm" [routerLink]='["/academics","exam-bank","admin", "exams", "create"]'>
-  <span class="icon-plus-circled"></span>
+  <fa-icon [icon]="faPlusCircle"></fa-icon>
   Create An Exam Paper</a>
 
 <table class="table table-dark">
@@ -18,9 +18,9 @@
         <tr>
           <td class="p-2 pb-1" colspan="4">
             <section class="alert alert-info ">
-              <span class="icon-info"></span>No Exam Papers Found
+              <fa-icon [icon]="faInfoCircle"></fa-icon> No Exam Papers Found
             </section>
-            
+
           </td>
         </tr>
       </ng-container>
@@ -30,13 +30,13 @@
         <td> {{ examPaper.unitLevelName }}</td>
         <td class="d-flex justify-content-around">
           <a [routerLink]='["/academics", "exam-bank", "admin", "exams", examPaper.id , "edit"]' class="btn btn-primary btn-sm">
-            <span class="icon-edit"></span> <span class="sr-only">Edit</span>
+            <fa-icon [icon]="faEdit"></fa-icon> <span class="sr-only">Edit</span>
           </a>
           <a (click)='deleteItem({index: i, id: examPaper.id, name: examPaper.name })' class="btn btn-danger btn-sm">
-            <span [class.animate-spin]='deleting[i]' class="icon-trash"></span> <span class="sr-only">Delete</span>
+            <span [class.animate-spin]='deleting[i]'></span> <span class="sr-only"><fa-icon [icon]="faTrash"></fa-icon> Delete</span>
           </a>
           <a [routerLink]='["/academics", "exam-bank", "admin", "exams", examPaper.id, "view"]' class="btn btn-info btn-sm">
-            <span class="icon-eye"></span> <span class="sr-only">View</span>
+            <fa-icon [icon]="faEye"></fa-icon> <span class="sr-only">View</span>
           </a>
         </td>
       </tr>
@@ -49,7 +49,7 @@
         </td>
       </tr>
     </ng-template>
-    
+
   </tbody>
   <caption>Exam Papers</caption>
 </table>

@@ -8,6 +8,7 @@ import {StoreModule} from '@ngrx/store';
 import {REDUCER_TOKEN, reducerProvider, metaReducers} from 'src/app/store/reducers';
 import {AppInputModule} from 'src/app/components/input/app-input.module';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {AddStudyMaterialsTitleModule} from '../add-study-materials-title/add-study-materials-title.module';
 import {CreateStudyMaterialComponent} from './create-study-material.component';
 
@@ -32,7 +33,8 @@ describe('CreateStudyMaterialComponent', () => {
           }
         }),
         AddStudyMaterialsTitleModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [CreateStudyMaterialComponent],
       providers: [reducerProvider]

@@ -6,10 +6,7 @@
       <tab role="tab">
         <ng-template tabHeading>
           <span>General Info </span>
-          <span [class.icon-ok-1]='!generalInfoHasError && markTabsWithError'
-                [class.icon-attention]='generalInfoHasError && markTabsWithError'
-                [class.text-danger]='generalInfoHasError && markTabsWithError'
-                [class.text-success]='!generalInfoHasError && markTabsWithError'></span>
+          <app-tab-error-state [hasError]="generalInfoHasError" [marked]="markTabsWithError"></app-tab-error-state>
         </ng-template>
 
         <section class='d-flex flex-wrap pt-3'>
@@ -60,10 +57,7 @@
       <tab>
         <ng-template tabHeading>
           <span>Classification &amp; Tags</span>
-          <span [class.icon-ok-1]='!classificationInfoHasError && markTabsWithError'
-                [class.icon-attention]='classificationInfoHasError && markTabsWithError'
-                [class.text-danger]='classificationInfoHasError && markTabsWithError'
-                [class.text-success]='!classificationInfoHasError && markTabsWithError'></span>
+          <app-tab-error-state [hasError]="classificationInfoHasError" [marked]="markTabsWithError"></app-tab-error-state>
         </ng-template>
         <section class="d-flex flex-wrap pt-3 align-items-start">
           <section class='col-lg-6 col-md-12'>
@@ -101,14 +95,12 @@
       <tab role="tab">
         <ng-template tabHeading>
           <span>Book Items </span>
-          <span [class.icon-ok-1]='!bookItemsHasError && markTabsWithError'
-                [class.icon-attention]='bookItemsHasError && markTabsWithError'
-                [class.text-danger]='bookItemsHasError && markTabsWithError'
-                [class.text-success]='!bookItemsHasError && markTabsWithError'></span>
+          <app-tab-error-state [hasError]="bookItemsHasError" [marked]="markTabsWithError"></app-tab-error-state>
         </ng-template>
         <section class="mt-3" formArrayName='bookItems'>
-          <button (click)='addBookItem()' type="button" class="btn btn-primary btn-sm"> <span
-            class="icon-plus-circled"></span>Add Book Item
+          <button (click)='addBookItem()' type="button" class="btn btn-primary btn-sm">
+            <fa-icon [icon]="faPlusCircle"></fa-icon>
+            Add Book Item
           </button>
           <section class='d-flex align-items-center flex-wrap' *ngFor='let item of formBookItems.controls; let i=index'
                    [formGroupName]='i'>
@@ -128,7 +120,7 @@
             </section>
             <section class="col-lg-2">
               <button type="button" class="btn btn-sm btn-danger" (click)='removeBookItem(i)'>
-                <span class="icon-trash"></span>
+                <fa-icon [icon]="faTrash"></fa-icon>
                 <span class="sr-only">Remove Item</span>
               </button>
             </section>

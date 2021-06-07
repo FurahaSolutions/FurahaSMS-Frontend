@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { NavbarTopComponent } from './navbar-top.component';
 
 describe('NavbarTopComponent', () => {
@@ -17,7 +18,9 @@ describe('NavbarTopComponent', () => {
           strictStateImmutability: true,
           strictActionImmutability: true,
         }
-      })],
+      }),
+        FontAwesomeTestingModule
+      ],
       declarations: [NavbarTopComponent],
       providers: [reducerProvider]
     });

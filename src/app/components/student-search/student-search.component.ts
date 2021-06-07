@@ -5,6 +5,7 @@ import { switchMap, tap } from 'rxjs/operators';
 import { IUserProfile } from 'src/app/interfaces/user-profile.interface';
 import { StudentService } from 'src/app/services/student.service';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 
 @Component({
   selector: 'app-student-search',
@@ -12,7 +13,7 @@ import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
   styleUrls: ['./student-search.component.css']
 })
 export class StudentSearchComponent implements OnInit {
-
+  faInfoCircle = faInfoCircle;
   search = '';
   suggestions$: Observable<IUserProfile[]> = of([]);
   errorMessage: string | undefined;

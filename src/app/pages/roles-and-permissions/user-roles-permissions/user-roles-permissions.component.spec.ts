@@ -2,6 +2,7 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {ErrorModule} from 'src/app/components/error/error.module';
 import {RouterTestingModule} from '@angular/router/testing';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {FormErrorsModule} from '../../../shared/form-errors/form-errors.module';
 import {UserRolesPermissionsComponent} from './user-roles-permissions.component';
 
@@ -14,7 +15,8 @@ describe('UserRolesPermissionsComponent', () => {
       imports: [
         ErrorModule,
         RouterTestingModule.withRoutes([]),
-        FormErrorsModule
+        FormErrorsModule,
+        FontAwesomeTestingModule
       ],
       declarations: [UserRolesPermissionsComponent]
     })

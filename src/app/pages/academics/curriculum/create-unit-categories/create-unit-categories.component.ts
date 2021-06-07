@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { UnitCategoryService } from 'src/app/services/unit-category.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UnitCategoryInterface } from 'src/app/interfaces/unit-category.interface';
 import { VIEW_UNIT_CATEGORY_CURRICULUM } from 'src/app/helpers/links.helpers';
-import { map, filter, mergeMap, tap } from 'rxjs/operators';
+import { filter, map, mergeMap, tap } from 'rxjs/operators';
 import { formWithEditorMixin } from 'src/app/shared/mixins/form-with-editor.mixin';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
 
 
 @Component({
@@ -14,6 +16,8 @@ import { formWithEditorMixin } from 'src/app/shared/mixins/form-with-editor.mixi
   styleUrls: ['./create-unit-categories.component.css']
 })
 export class CreateUnitCategoriesComponent extends formWithEditorMixin() implements OnInit {
+  faPlusCircle = faPlusCircle;
+  faTrash = faTrash;
   newUnitCategoryForm: FormGroup = this.fb.group({
     id: [null],
     name: ['', [Validators.required]],
@@ -23,12 +27,15 @@ export class CreateUnitCategoriesComponent extends formWithEditorMixin() impleme
   });
   paramId$ = this.route.paramMap.pipe(
     map(params => Number(params.get('id'))));
+
   constructor(
     private fb: FormBuilder,
     private unitCategoryService: UnitCategoryService,
     private router: Router,
     private route: ActivatedRoute
-  ) { super(); }
+  ) {
+    super();
+  }
 
   ngOnInit() {
     this.paramId$.pipe(
@@ -38,22 +45,23 @@ export class CreateUnitCategoriesComponent extends formWithEditorMixin() impleme
 
     this.paramId$.pipe(
       filter(id => id > 0),
-      mergeMap(id => this.unitCategoryService.get({ id })),
+      mergeMap(id => this.unitCategoryService.get({id})),
       tap(() => this.editFormSubject$.next(true)),
       tap((res) => this.generateForm(res)),
-      tap(({ units }) => units?.forEach((item, index) => {
+      tap(({units}) => units?.forEach((item, index) => {
         this.addSubject();
-        const { id, name, abbreviation: abbr, description, unit_category_id: unitCategory, active} = item;
-        this.units.controls[index].setValue({ id, name, abbr, description, unitCategory, active });
+        const {id, name, abbreviation: abbr, description, unit_category_id: unitCategory, active} = item;
+        this.units.controls[index].setValue({id, name, abbr, description, unitCategory, active});
       }))
     ).subscribe();
 
   }
-  generateForm({ id = null, active = true, name = '', description = '' }: UnitCategoryInterface = {
+
+  generateForm({id = null, active = true, name = '', description = ''}: UnitCategoryInterface = {
     id: null, active: true, name: '', description: ''
   } as UnitCategoryInterface) {
 
-    this.newUnitCategoryForm.setValue({ id, name, active, description, units: [] });
+    this.newUnitCategoryForm.setValue({id, name, active, description, units: []});
     // this.newUnitCategoryForm = this.fb.group({
     //   id: [id],
     //   name: [name, [Validators.required]],
@@ -62,12 +70,15 @@ export class CreateUnitCategoriesComponent extends formWithEditorMixin() impleme
     //   units: this.fb.array([])
     // });
   }
+
   get units() {
     return this.newUnitCategoryForm.get('units') as FormArray;
   }
+
   updateForm($event: FormGroup, i: number) {
     this.units.controls[i].setValue($event.value);
   }
+
   addSubject() {
     const newGroup = this.fb.group({
       id: [null, []],
@@ -79,12 +90,15 @@ export class CreateUnitCategoriesComponent extends formWithEditorMixin() impleme
     });
     this.units.push(newGroup);
   }
+
   allSectionsValid(): boolean {
     return (this.units).controls.every(item => item.valid);
   }
+
   get nameControl(): FormGroup {
     return this.newUnitCategoryForm.get('name') as FormGroup;
   }
+
   submit() {
     if (this.newUnitCategoryForm.valid) {
       this.submitInProgressSubject$.next(true);

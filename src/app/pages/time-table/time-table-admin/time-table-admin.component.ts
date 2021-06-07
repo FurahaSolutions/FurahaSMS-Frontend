@@ -5,11 +5,8 @@ import { Component, OnInit} from '@angular/core';
   templateUrl: './time-table-admin.component.html',
   styleUrls: ['./time-table-admin.component.css']
 })
-export class TimeTableAdminComponent implements OnInit {
+export class TimeTableAdminComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

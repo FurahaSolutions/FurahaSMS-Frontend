@@ -34,7 +34,7 @@
         <button *ngIf="!v.academicYear.archived" (click)="openArchiveModal()" class="btn btn-warning"><span class="icon-archive"></span> Archive Academic Year</button>
       </div>
       <div class="col-lg-4">
-        <button (click)="openDeleteModal()" class="btn btn-danger"><span class="icon-trash"></span> Delete Academic Year</button>
+        <button (click)="openDeleteModal()" class="btn btn-danger"><fa-icon [icon]="faTrash"></fa-icon> Delete Academic Year</button>
       </div>
     </div>
   </div>

@@ -7,6 +7,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {RolesPermissionsComponent} from './roles-permissions.component';
 
 describe('RolesPermissionsComponent', () => {
@@ -29,6 +30,7 @@ describe('RolesPermissionsComponent', () => {
             strictActionImmutability: true,
           }
         }),
+        FontAwesomeTestingModule
       ],
       declarations: [RolesPermissionsComponent],
       providers: [reducerProvider]

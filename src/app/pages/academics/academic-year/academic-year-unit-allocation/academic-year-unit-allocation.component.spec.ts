@@ -8,6 +8,7 @@ import {reducerProvider, REDUCER_TOKEN, metaReducers} from 'src/app/store/reduce
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {AcademicsModule} from '../../academics.module';
 import {AcademicYearUnitAllocationComponent} from './academic-year-unit-allocation.component';
 
@@ -33,7 +34,8 @@ describe('AcademicYearUnitAllocationComponent', () => {
           }
         }),
         EffectsModule.forRoot([]),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [AcademicYearUnitAllocationComponent],
       providers: [reducerProvider]

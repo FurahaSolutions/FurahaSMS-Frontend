@@ -6,6 +6,7 @@ import { REDUCER_TOKEN, reducerProvider, metaReducers } from 'src/app/store/redu
 import { ReactiveComponentModule } from '@ngrx/component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { NameItemComponent } from '../../../components/user-profile/name-item/name-item.component';
 import { myProfileFeatureKey, reducer } from '../store/reducers/my-profile.reducer';
 import { MyProfileInfoComponent } from './my-profile-info.component';
@@ -28,7 +29,8 @@ describe('MyProfileInfoComponent', () => {
         StoreModule.forFeature(myProfileFeatureKey, reducer),
         ReactiveComponentModule,
         ReactiveFormsModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        FontAwesomeTestingModule
       ],
       declarations: [MyProfileInfoComponent, NameItemComponent],
       providers: [reducerProvider]

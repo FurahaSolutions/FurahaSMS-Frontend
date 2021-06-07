@@ -11,6 +11,7 @@ import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-subm
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { ErrorModule } from '../../../../components/error/error.module';
 import { CreateUnitComponent } from '../create-unit/create-unit.component';
 import { CreateUnitCategoriesComponent } from './create-unit-categories.component';
@@ -40,7 +41,8 @@ describe('CreateUnitCategoriesComponent', () => {
         AppLoadingBubbleModule,
         ErrorModule,
         AppValidateSubmitButtonsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [
         CreateUnitCategoriesComponent,

@@ -6,6 +6,8 @@ import { filter, takeUntil, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { loadToastShowsSuccess } from 'src/app/store/actions/toast-show.actions';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../shared/mixins/form.mixin';
 
@@ -15,7 +17,8 @@ import { formMixin } from '../../../shared/mixins/form.mixin';
   styleUrls: ['./login-token.component.css']
 })
 export class LoginTokenComponent extends subscribedContainerMixin(formMixin()) implements OnInit {
-
+  faSpinner = faSpinner;
+  faSave = faSave;
   tokenLoginForm: FormGroup = this.fb.group({
     token: ['', [Validators.required]]
   });

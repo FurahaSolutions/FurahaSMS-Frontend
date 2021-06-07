@@ -7,14 +7,14 @@
       <label for="search">Search Courses</label>
       <input [(ngModel)]="search" (ngModelChange)="filterStringSubject$.next(search)" type="search" id='search' class='form-control'>
     </section>
-    <button class="btn btn-primary" [routerLink]='["create-course"]'><span class="icon-plus-circled"></span>New
+    <button class="btn btn-primary" [routerLink]='["create-course"]'><fa-icon [icon]="faPlusCircle"></fa-icon> New
       Course
     </button>
   </section>
   <section class="mt-2">
 
     <div *ngIf="filteredCourses.length === 0" class="m-2 alert alert-info">
-      <span class="icon-info"></span>No courses found!
+      <fa-icon [icon]="faInfoCircle"></fa-icon> No courses found!
     </div>
   </section>
   <ng-container *ngFor='let academicYearCourse of groupedCourses(filteredCourses, "academicYearName"); let i = index'>

@@ -9,10 +9,10 @@ import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/redu
 import { AppTelInputModule } from 'src/app/components/tel-input/app-tel-input.module';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { appFeatureKey, reducers as appReducers } from '../../../../store/reducers/app.reducer';
 import { admissionsFeatureKey, reducers } from '../../store/reducers';
 import { CreateTeacherComponent } from './create-teacher.component';
-import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('CreateTeacherComponent', () => {
   let component: CreateTeacherComponent;

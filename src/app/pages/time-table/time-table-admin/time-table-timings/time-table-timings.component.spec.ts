@@ -6,6 +6,7 @@ import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reduce
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {TimeTableTimingsComponent} from './time-table-timings.component';
 
 describe('TimeTableTimingsComponent', () => {
@@ -25,7 +26,8 @@ describe('TimeTableTimingsComponent', () => {
         }),
         HttpClientTestingModule,
         AccordionModule.forRoot(),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [TimeTableTimingsComponent],
       providers: [reducerProvider]

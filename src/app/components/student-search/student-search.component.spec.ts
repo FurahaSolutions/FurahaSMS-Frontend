@@ -6,6 +6,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { AppInputModule } from '../input/app-input.module';
 import { StudentSearchComponent } from './student-search.component';
 
@@ -29,7 +30,8 @@ describe('StudentSearchComponent', () => {
         }),
         TypeaheadModule.forRoot(),
         AppInputModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [StudentSearchComponent],
       providers: [reducerProvider]

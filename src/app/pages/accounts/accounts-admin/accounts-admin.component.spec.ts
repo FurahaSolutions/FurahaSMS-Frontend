@@ -4,6 +4,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {AppLinksModule} from 'src/app/shared/links/links.module';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {myProfileFeatureKey, reducer} from '../../my-profile/store/reducers/my-profile.reducer';
 import {appFeatureKey, reducers} from '../../../store/reducers/app.reducer';
 import {AccountsAdminComponent} from './accounts-admin.component';
@@ -25,7 +26,8 @@ describe('AccountsAdminComponent', () => {
           }
         }),
         StoreModule.forFeature(myProfileFeatureKey, reducer),
-        StoreModule.forFeature(appFeatureKey, reducers)
+        StoreModule.forFeature(appFeatureKey, reducers),
+        FontAwesomeTestingModule
       ],
       declarations: [AccountsAdminComponent],
       providers: [reducerProvider]

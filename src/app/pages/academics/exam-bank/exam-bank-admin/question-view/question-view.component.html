@@ -44,18 +44,18 @@
   <section *ngIf='editMode' class="card-footer mt-0 pt-0 d-flex justify-content-between flex-wrap">
     <section>
       <button type="button" class="btn btn-sm btn-secondary ml-2" (click)='editRequest("add-before", i)'>
-        <span class="icon-plus-circled"></span>
+        <fa-icon [icon]="faPlusCircle"></fa-icon>
         <span class="icon-up-fat"></span>
         Add
         Before</button>
       <button (click)='editRequest("add-after", i)' type="button" class="btn btn-sm btn-secondary ml-2">
-        <span class="icon-plus-circled"></span>
+        <fa-icon [icon]="faPlusCircle"></fa-icon>
         <span class="icon-down-fat"></span>
         Add After</button>
-      <button type="button" class="btn btn-sm btn-primary ml-2" (click)='editRequest("edit", i)'> <span
-          class="icon-edit"></span> Edit</button>
+      <button type="button" class="btn btn-sm btn-primary ml-2" (click)='editRequest("edit", i)'>
+        <fa-icon [icon]="faEdit"></fa-icon> Edit</button>
       <button [disabled]='questionsLength === 1' (click)='deleteQuestionRequest(i)' type="button"
-        class="btn btn-sm btn-danger ml-2"><span class="icon-trash-1"></span> Delete</button>
+        class="btn btn-sm btn-danger ml-2"><fa-icon [icon]="faTrash"></fa-icon> Delete</button>
     </section>
     <section>
 

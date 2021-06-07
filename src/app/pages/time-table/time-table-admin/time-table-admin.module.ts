@@ -8,6 +8,7 @@ import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CreateTimingTemplateComponent } from './create-timing-template/create-timing-template.component';
 import { TimeTableTimingsComponent } from './time-table-timings/time-table-timings.component';
 import { TimeTableAdminComponent } from './time-table-admin.component';
@@ -26,7 +27,8 @@ import { TimeTableAdminRoutingModule } from './time-table-admin-routing.module';
     ReactiveFormsModule,
     AppInputModule,
     AppValidateSubmitButtonsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class TimeTableAdminModule { }

@@ -8,6 +8,7 @@ import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {reducers} from '../../../store/reducers/app.reducer';
 import {ViewStudentAcademicsComponent} from './view-student-academics.component';
 
@@ -30,7 +31,8 @@ describe('ViewStudentAcademicsComponent', () => {
         RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
         AppLoadingBubbleModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ViewStudentAcademicsComponent],
       providers: [

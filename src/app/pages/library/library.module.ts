@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppCheckboxModule } from '../../shared/checkbox/checkbox.module';
 import * as fromLibrary from './store/reducers';
 import * as fromLibraryEffects from './store/effects';
@@ -46,6 +47,7 @@ import { LibraryRoutingModule } from './library-routing.module';
     TypeaheadModule.forRoot(),
     ReactiveComponentModule,
     AppCheckboxModule,
+    FontAwesomeModule
   ]
 })
 export class LibraryModule { }

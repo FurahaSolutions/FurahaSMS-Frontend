@@ -8,6 +8,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {TabsModule} from 'ngx-bootstrap/tabs';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {AppStarLabelRequiredModule} from '../../../components/label-star-required/app-star-label-required';
 import {TelInputComponent} from '../../../components/tel-input/tel-input.component';
 import {InputComponent} from '../../../components/input/input.component';
@@ -36,7 +37,8 @@ describe('CreateProcurementsVendorsComponent', () => {
         TabsModule.forRoot(),
         NgSelectModule,
         AppStarLabelRequiredModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [
         CreateProcurementsVendorsComponent,

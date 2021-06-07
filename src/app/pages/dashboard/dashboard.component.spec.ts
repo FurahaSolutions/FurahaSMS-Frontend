@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { AppLinksModule } from 'src/app/shared/links/links.module';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { myProfileFeatureKey, reducer } from 'src/app/pages/my-profile/store/reducers/my-profile.reducer';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { appFeatureKey, reducers } from '../../store/reducers/app.reducer';
 import { DashboardComponent } from './dashboard.component';
 
@@ -26,6 +27,7 @@ describe('DashboardComponent', () => {
         AppLinksModule,
         StoreModule.forFeature(myProfileFeatureKey, reducer),
         StoreModule.forFeature(appFeatureKey, reducers),
+        FontAwesomeTestingModule
       ],
       declarations: [DashboardComponent],
       providers: [reducerProvider]

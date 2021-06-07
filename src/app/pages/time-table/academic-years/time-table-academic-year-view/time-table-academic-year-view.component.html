@@ -4,7 +4,7 @@
 
   <div class="col-lg-3">
     <a class="btn btn-primary btn-sm" [routerLink]='["edit"]'>
-      <span class="icon-edit"></span>Edit time table
+      <fa-icon [icon]="faEdit"></fa-icon> Edit time table
     </a>
   </div>
 
@@ -70,7 +70,7 @@
     </accordion-group>
   </accordion>
 
-  <div *ngIf="timeTableLessons.length < 1" class="alert alert-info mt-2"><span class="icon-info"></span>No time table
+  <div *ngIf="timeTableLessons.length < 1" class="alert alert-info mt-2"><fa-icon [icon]="faInfoCircle"></fa-icon> No time table
     set up yet
   </div>
 </div>

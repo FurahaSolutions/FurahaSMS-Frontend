@@ -9,6 +9,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ReactiveComponentModule} from '@ngrx/component';
 import {reducer, supportStaffFeatureKey} from '../../store/reducers/support-staff.reducer';
 import {CreateUnitComponent} from '../../../academics/curriculum/create-unit/create-unit.component';
+import { TabErrorStateModule } from '../../../../components/tab-error-state/app-tab-error.module';
 import {ViewSupportStaffComponent} from './view-support-staff.component';
 
 describe('ViewSupportStaffComponent', () => {
@@ -31,7 +32,8 @@ describe('ViewSupportStaffComponent', () => {
         AppLoadingBubbleModule,
         FormsModule,
         ReactiveFormsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        TabErrorStateModule
       ],
       declarations: [ViewSupportStaffComponent, CreateUnitComponent],
       providers: [reducerProvider],

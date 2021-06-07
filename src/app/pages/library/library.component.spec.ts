@@ -12,6 +12,7 @@ import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { myProfileFeatureKey, reducer } from 'src/app/pages/my-profile/store/reducers/my-profile.reducer';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { appFeatureKey, reducers } from '../../store/reducers/app.reducer';
 import { LibraryModule } from './library.module';
 import { LibraryComponent } from './library.component';
@@ -44,6 +45,7 @@ describe('LibraryComponent', () => {
         AppLoadingBubbleModule,
         StoreModule.forFeature(myProfileFeatureKey, reducer),
         StoreModule.forFeature(appFeatureKey, reducers),
+        FontAwesomeTestingModule
       ],
       declarations: [],
       providers: [reducerProvider]

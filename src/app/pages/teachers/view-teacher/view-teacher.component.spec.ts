@@ -7,6 +7,7 @@ import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {AppUserProfileModule} from 'src/app/components/user-profile/user-profile.module';
 import {REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {teacherProfileFeatureKey, reducer} from '../store/reducers/teacher-profile.reducer';
 import {appFeatureKey, reducers} from '../../../store/reducers/app.reducer';
 import {ViewTeacherComponent} from './view-teacher.component';
@@ -31,7 +32,8 @@ describe('ViewTeacherComponent', () => {
         }),
         StoreModule.forFeature(teacherProfileFeatureKey, reducer),
         StoreModule.forFeature(appFeatureKey, reducers),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ViewTeacherComponent],
       providers: [reducerProvider]

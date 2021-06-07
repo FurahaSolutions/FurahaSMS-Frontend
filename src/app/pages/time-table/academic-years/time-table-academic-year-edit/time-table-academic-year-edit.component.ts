@@ -11,8 +11,11 @@ import { SchoolRoomService } from 'src/app/pages/infrastructures/services/school
 import { ClassLevelService } from 'src/app/services/class-level.service';
 import { ClassStreamService } from 'src/app/pages/academics/services/class-stream.service';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
-import { TimeTableService } from '../../services/time-table.service';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
+import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { loadingMixin } from '../../../../shared/mixins/loading.mixin';
+import { TimeTableService } from '../../services/time-table.service';
 
 @Component({
   selector: 'app-time-table-academic-year-edit',
@@ -21,7 +24,9 @@ import { loadingMixin } from '../../../../shared/mixins/loading.mixin';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TimeTableAcademicYearEditComponent extends loadingMixin() {
-
+  faEye = faEye;
+  faSave = faSave;
+  faEdit = faEdit;
   faChevronRight = faChevronRight;
   academicYearId$: Observable<number> = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id')))
@@ -152,6 +157,7 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
     roomId: [null],
     subjectId: [null, Validators.required],
   });
+
 
 
   constructor(

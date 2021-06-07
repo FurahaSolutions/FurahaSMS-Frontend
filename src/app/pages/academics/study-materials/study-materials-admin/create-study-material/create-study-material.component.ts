@@ -4,6 +4,8 @@ import { ClassLevelService } from 'src/app/services/class-level.service';
 import { PDFDocumentProxy } from 'ng2-pdf-viewer';
 import { map, mergeMap, takeUntil} from 'rxjs/operators';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 import { StudyMaterialsService } from '../../services/study-materials.service';
 import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../../../shared/mixins/form.mixin';
@@ -14,6 +16,8 @@ import { formMixin } from '../../../../../shared/mixins/form.mixin';
   styleUrls: ['./create-study-material.component.css']
 })
 export class CreateStudyMaterialComponent extends subscribedContainerMixin(formMixin()) implements OnInit, OnDestroy {
+  faSpinner = faSpinner;
+  faSave = faSave;
   page = 1;
   totalPages = 0;
   isLoaded = false;
@@ -33,6 +37,7 @@ export class CreateStudyMaterialComponent extends subscribedContainerMixin(formM
     classLevels: this.fb.array([], Validators.required)
   });
   formUnits = [false];
+
 
   constructor(
     private unitService: UnitsService,

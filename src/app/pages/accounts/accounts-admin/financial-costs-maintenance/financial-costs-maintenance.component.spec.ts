@@ -8,6 +8,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {REDUCER_TOKEN, reducerProvider, metaReducers} from 'src/app/store/reducers';
 import {StoreModule} from '@ngrx/store';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {FinancialCostsMaintenanceComponent} from './financial-costs-maintenance.component';
 
 describe('FinancialCostsMaintenanceComponent', () => {
@@ -30,7 +31,8 @@ describe('FinancialCostsMaintenanceComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [FinancialCostsMaintenanceComponent],
       providers: [reducerProvider]

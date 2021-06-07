@@ -2,6 +2,7 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { TabErrorStateModule } from '../../components/tab-error-state/app-tab-error.module';
 import { CheckboxComponent } from './checkbox.component';
 
 describe('CheckboxComponent', () => {
@@ -12,7 +13,8 @@ describe('CheckboxComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
-        FontAwesomeTestingModule
+        FontAwesomeTestingModule,
+        TabErrorStateModule
       ],
       declarations: [CheckboxComponent]
     })

@@ -75,18 +75,19 @@
           <legend>Topics</legend>
           <section>
             <button (click)='openModal({ component: template, id: -1 })' type="button"
-                    class="btn btn-sm btn-primary mt-2 mb-2"><span
-              class="icon-plus-circled"></span>Add Topic
+                    class="btn btn-sm btn-primary mt-2 mb-2">
+              <fa-icon [icon]="faPlusCircle"></fa-icon> Add Topic
             </button>
             <section>
               <ng-template #itemTemplate let-item="item.initData" let-index="index">
                 <span class="chapter-title">{{ newCourseForm.get('numbering')?.value}} {{ index + 1 }}
                   : {{ item.description }}</span>
-                <button type="button" (click)='deleteTopic(index)' class="btn btn-danger btn-sm float-right mr-2"><span
-                  class="icon-trash"></span></button>
+                <button type="button" (click)='deleteTopic(index)' class="btn btn-danger btn-sm float-right mr-2">
+                  <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
                 <button type="button" (click)='openModal({component:template, id:index})'
-                        class="btn btn-primary btn-sm float-right mr-2" aria-label="Edit Topic"><span
-                  class="icon-edit-1"></span></button>
+                        class="btn btn-primary btn-sm float-right mr-2" aria-label="Edit Topic">
+                  <fa-icon [icon]="faEdit"></fa-icon></button>
 
                 <fieldset class="card p-2 pl-0" style="background: initial">
                   <legend>Subtopics</legend>
@@ -153,7 +154,7 @@
                       <section class="d-flex flex-wrap mt-2">
                         <div class="col-12 mb-2">
                           <button [disabled]='newTopicSubTopics.invalid' type="button" (click)='addSubTopic()'
-                                  class="btn btn-sm btn-primary"><span class="icon-plus-circled"></span>Add Subtopic
+                                  class="btn btn-sm btn-primary"><fa-icon [icon]="faPlusCircle"></fa-icon> Add Subtopic
                           </button>
                         </div>
 

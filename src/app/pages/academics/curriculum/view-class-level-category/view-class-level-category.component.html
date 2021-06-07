@@ -2,7 +2,7 @@
   <div class="d-flex flex-wrap justify-content-between">
     <h1>Class Level Category <fa-icon [icon]="faChevronRight"></fa-icon> {{ classLevelCategory.name }}</h1>
 
-    <a [routerLink]='["../edit"]' *ngIf='iCanEditClassLevel$ | ngrxPush' class="btn btn-primary btn-sm mt-2"><span class="icon-edit"></span>Edit</a>
+    <a [routerLink]='["../edit"]' *ngIf='iCanEditClassLevel$ | ngrxPush' class="btn btn-primary btn-sm mt-2"><fa-icon [icon]="faEdit"></fa-icon> Edit</a>
   </div>
 
 

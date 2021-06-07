@@ -16,14 +16,14 @@
         <div class="col-12 col-xl-6 mt-1">Other Names: <strong>{{ selectedItem.otherNames }}</strong></div>
 
         <div class="col-12 mt-3 text-right">
-          <a [routerLink]='["/students", selectedItem.id, "info"]' class="btn btn-primary"><span class="icon-ok"></span>
+          <a [routerLink]='["/students", selectedItem.id, "info"]' class="btn btn-primary"><fa-icon [icon]="faCheck"></fa-icon>
             Continue
           </a>
         </div>
       </div>
       <ng-template #noSelectedStudent>
         <div class="alert alert-info" role="alert" *ngIf="!errorMessage ">
-          <span class="icon-info"></span>No student Selected
+          <fa-icon [icon]="faInfoCircle"></fa-icon> No student Selected
         </div>
       </ng-template>
     </div>

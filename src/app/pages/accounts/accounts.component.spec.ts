@@ -4,6 +4,7 @@ import {Store, StoreModule} from '@ngrx/store';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {AppLinksModule} from 'src/app/shared/links/links.module';
 import {RouterTestingModule} from '@angular/router/testing';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {myProfileFeatureKey, reducer} from '../my-profile/store/reducers/my-profile.reducer';
 import {appFeatureKey, reducers} from '../../store/reducers/app.reducer';
 import {AccountsComponent} from './accounts.component';
@@ -26,7 +27,8 @@ describe('AccountsComponent', () => {
         }),
         StoreModule.forFeature(myProfileFeatureKey, reducer),
         StoreModule.forFeature(appFeatureKey, reducers),
-        RouterTestingModule
+        RouterTestingModule,
+        FontAwesomeTestingModule
       ],
       declarations: [AccountsComponent],
       providers: [reducerProvider]

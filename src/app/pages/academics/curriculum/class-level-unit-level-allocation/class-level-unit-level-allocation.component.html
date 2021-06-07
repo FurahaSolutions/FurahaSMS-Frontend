@@ -1,7 +1,7 @@
 <h1>Class Level - Unit Allocation</h1>
 <!--{{ classLevelsWithUnits$ | ngrxPush | json }}-->
 <ng-container *ngIf="v$ | ngrxPush as v; else loading">
-  <a [routerLink]="['../edit']" class="btn btn-primary" ><span class="icon-edit"></span>Edit Unit Allocations</a>
+  <a [routerLink]="['../edit']" class="btn btn-primary" ><fa-icon [icon]="faEdit"></fa-icon> Edit Unit Allocations</a>
   <table class="table table-dark">
     <thead>
     <tr class="d-flex flex-wrap">

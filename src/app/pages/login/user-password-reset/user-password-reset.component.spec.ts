@@ -6,6 +6,7 @@ import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { UserPasswordResetComponent } from './user-password-reset.component';
 
 describe('UserPasswordResetComponent', () => {
@@ -21,7 +22,8 @@ describe('UserPasswordResetComponent', () => {
         ReactiveFormsModule,
         HttpClientTestingModule,
         AppInputModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [UserPasswordResetComponent]
     })

@@ -5,6 +5,7 @@ import {StoreModule} from '@ngrx/store';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {AppInputModule} from '../../../../../../components/input/app-input.module';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../../../store/reducers';
 import {academicsFeatureKey, reducers} from '../../../../store/reducers';
@@ -36,7 +37,8 @@ describe('EditCourseContentItemComponent', () => {
         }),
         StoreModule.forFeature(academicsFeatureKey, reducers),
         ModalModule.forRoot(),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [EditCourseContentItemComponent],
       providers: [reducerProvider]

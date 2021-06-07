@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
+import { TabErrorStateModule } from '../../../../components/tab-error-state/app-tab-error.module';
 import { TopicOnlineAssessmentListComponent } from './topic-online-assessment-list.component';
 
 describe('TopicOnlineAssessmentListComponent', () => {
@@ -25,7 +26,8 @@ describe('TopicOnlineAssessmentListComponent', () => {
           }
         }),
         HttpClientTestingModule,
-        FontAwesomeTestingModule
+        FontAwesomeTestingModule,
+        TabErrorStateModule
       ],
       declarations: [TopicOnlineAssessmentListComponent],
       providers: [reducerProvider]

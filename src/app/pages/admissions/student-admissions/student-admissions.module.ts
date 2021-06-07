@@ -9,6 +9,7 @@ import { AppStarLabelRequiredModule } from 'src/app/components/label-star-requir
 import { AppLinksModule } from 'src/app/shared/links/links.module';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRecentlyCreatedStudent } from './students-recently-created/students-recently-created.module';
 import { StudentAdmissionComponent } from './student-admission/student-admission.component';
 import { EditStudentComponent } from './edit-student/edit-student.component';
@@ -37,7 +38,8 @@ import { StudentAdmissionsRoutingModule } from './student-admissions-routing.mod
     AppRecentlyCreatedStudent,
     StudentSearchModule,
     AppValidateSubmitButtonsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class StudentAdmissionsModule { }

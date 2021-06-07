@@ -6,6 +6,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ActivatedRoute, Router} from '@angular/router';
 import {of} from 'rxjs';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {AcademicYearFinancialPlanComponent} from './academic-year-financial-plan.component';
 
 describe('AcademicYearFinancialPlanComponent', () => {
@@ -24,7 +25,8 @@ describe('AcademicYearFinancialPlanComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        FontAwesomeTestingModule
       ],
       declarations: [AcademicYearFinancialPlanComponent],
       providers: [

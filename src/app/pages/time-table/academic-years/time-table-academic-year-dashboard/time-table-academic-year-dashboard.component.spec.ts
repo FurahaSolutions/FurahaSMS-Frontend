@@ -6,6 +6,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {reducers} from '../../../../store/reducers/app.reducer';
 import {TimeTableAcademicYearDashboardComponent} from './time-table-academic-year-dashboard.component';
 
@@ -27,7 +28,8 @@ describe('TimeTableAcademicYearDashboardComponent', () => {
           }
         }),
         StoreModule.forFeature('app', reducers),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [TimeTableAcademicYearDashboardComponent],
       providers: [reducerProvider]

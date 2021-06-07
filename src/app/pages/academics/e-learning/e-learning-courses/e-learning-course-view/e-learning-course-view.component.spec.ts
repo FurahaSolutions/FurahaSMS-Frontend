@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {myProfileFeatureKey, reducer as profileReducer} from '../../../../my-profile/store/reducers/my-profile.reducer';
 import {academicsFeatureKey, reducers} from '../../../store/reducers';
 import { ELearningTopicObjectivesModule } from '../../e-learning-topic-objectives/e-learning-topic-objectives.module';
@@ -33,7 +34,8 @@ describe('ELearningCourseViewComponent', () => {
         StoreModule.forFeature(myProfileFeatureKey, profileReducer),
         RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ELearningCourseViewComponent],
       providers: [

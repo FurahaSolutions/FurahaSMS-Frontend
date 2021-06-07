@@ -48,7 +48,7 @@
 
   <button class='btn btn-success' [disabled]='(submitInProgressAction$ | ngrxPush) || studyMaterialForm.invalid'>
     Save Study Material
-    <i *ngIf='(submitInProgressAction$ | ngrxPush)' class='icon-spin3 animate-spin'></i>
-    <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-ok-1'></i>
+    <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush)' [icon]="faSpinner" [spin]="true"></fa-icon>
+    <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush) === false' [icon]="faSave"></fa-icon>
   </button>
 </form>

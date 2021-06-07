@@ -7,6 +7,7 @@ import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {reducerProvider} from 'src/app/store/reducers';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {FinancialPlanComponent} from './financial-plan.component';
 
 describe('FinancialPlanComponent', () => {
@@ -21,7 +22,8 @@ describe('FinancialPlanComponent', () => {
         RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [FinancialPlanComponent, SelectAcademicYearComponent],
       providers: [reducerProvider]

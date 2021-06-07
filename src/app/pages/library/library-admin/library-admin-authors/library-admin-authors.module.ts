@@ -9,6 +9,7 @@ import { AppViewItemsModule } from 'src/app/modules/app-view-items.module';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppSelectLibraryClassModule } from '../../modules/select-library-class.module';
 import { LibraryAdminAuthorsRoutingModule } from './library-admin-authors-routing.module';
 import { CreateAuthorComponent } from './create-author/create-author.component';
@@ -36,7 +37,8 @@ import { LibraryAdminAuthorsComponent } from './library-admin-authors.component'
     AppViewItemsModule,
     AppLoadingBubbleModule,
     AppValidateSubmitButtonsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ],
   providers: [
     { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },

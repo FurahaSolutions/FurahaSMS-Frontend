@@ -16,6 +16,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ErrorModule } from '../../components/error/error.module';
 import {FormErrorsModule} from '../../shared/form-errors/form-errors.module';
+import { AppCheckboxModule } from '../../shared/checkbox/checkbox.module';
+import { TabErrorStateModule } from '../../components/tab-error-state/app-tab-error.module';
 import { ProcurementsRoutingModule } from './procurements-routing.module';
 import { MyProcurementsRequestComponent } from './my-procurements-request/my-procurements-request.component';
 import { ViewProcurementRequestComponent } from './view-procurement-request/view-procurement-request.component';
@@ -39,7 +41,6 @@ import { ViewProcurementTendersAwardedComponent } from './view-procurement-tende
 import { FulfillOrRejectTenderFormComponent } from './fulfill-or-reject-tender-form/fulfill-or-reject-tender-form.component';
 import { ProcurementsRequestComponent } from './procurements-request/procurements-request.component';
 import { ProcurementsComponent } from './procurements.component';
-import { AppCheckboxModule } from "../../shared/checkbox/checkbox.module";
 
 
 @NgModule({
@@ -82,7 +83,8 @@ import { AppCheckboxModule } from "../../shared/checkbox/checkbox.module";
     FormErrorsModule,
     ReactiveComponentModule,
     FontAwesomeModule,
-    AppCheckboxModule
+    AppCheckboxModule,
+    TabErrorStateModule
   ]
 })
 export class ProcurementsModule { }

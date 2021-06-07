@@ -7,8 +7,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { PRIMARY_OUTLET, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { BreadcrumbComponent } from './breadcrumb.component';
-import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('BreadcrumbComponent', () => {
   let component: BreadcrumbComponent;

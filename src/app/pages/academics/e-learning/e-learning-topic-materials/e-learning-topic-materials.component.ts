@@ -1,7 +1,9 @@
-import {Component, Input} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {BsModalService} from 'ngx-bootstrap/modal';
-import {modalMixin} from '../../../../shared/mixins/modal.mixin';
+import { Component, Input } from '@angular/core';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { Store } from '@ngrx/store';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { modalMixin } from '../../../../shared/mixins/modal.mixin';
 import {
   DeleteCourseContentItemComponent
 } from '../e-learning-admin/e-learning-edit-course/delete-course-content-item/delete-course-content-item.component';
@@ -15,10 +17,13 @@ import {
   styleUrls: ['./e-learning-topic-materials.component.css']
 })
 export class ELearningTopicMaterialsComponent extends modalMixin() {
+  faTrash = faTrash;
+  faEdit = faEdit;
   @Input() learningContents: any[] = [];
   @Input() edit = false;
   @Input() courseId: number | undefined;
   @Input() topicId: number | undefined;
+
 
   constructor(store: Store, modalService: BsModalService) {
     super(modalService, store);

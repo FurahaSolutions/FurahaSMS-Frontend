@@ -6,6 +6,7 @@ import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/redu
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { appFeatureKey, reducers } from 'src/app/store/reducers/app.reducer';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { UserSelectItemComponent } from './user-select-item.component';
 
 describe('UserSelectItemComponent', () => {
@@ -26,7 +27,8 @@ describe('UserSelectItemComponent', () => {
           }
         }),
         StoreModule.forFeature(appFeatureKey, reducers),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [UserSelectItemComponent],
       providers: [reducerProvider]

@@ -8,6 +8,7 @@ import { AppLayoutModule } from 'src/app/modules/app-layout.module';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { appFeatureKey, reducers } from '../../store/reducers/app.reducer';
 import { LayoutComponent } from './layout.component';
 
@@ -32,7 +33,8 @@ describe('LayoutComponent', () => {
         StoreModule.forFeature(appFeatureKey, reducers),
         EffectsModule.forRoot([]),
         HttpClientTestingModule,
-        AppLayoutModule
+        AppLayoutModule,
+        FontAwesomeTestingModule
       ],
       declarations: [],
       providers: [reducerProvider]

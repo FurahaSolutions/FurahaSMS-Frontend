@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { AppLinksModule } from 'src/app/shared/links/links.module';
 import { ErrorModule } from 'src/app/components/error/error.module';
-import { TabErrorStateModule } from 'src/app/modules/app-tab-error.module';
+import { TabErrorStateModule } from 'src/app/components/tab-error-state/app-tab-error.module';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AppViewItemsModule } from 'src/app/modules/app-view-items.module';
 import { AppCrudModule } from 'src/app/components/crud/app-crud.module';

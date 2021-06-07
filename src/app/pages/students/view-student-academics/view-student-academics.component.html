@@ -1,10 +1,10 @@
 <section *ngIf='v$ | ngrxPush as v; else loading'>
   <button *ngIf="editMode$ | ngrxPush" [routerLink]='["/students", v.studentId,"academics", "create"]' type="button"
           class="btn btn-sm btn-primary mt-2 mb-1">
-    <span class="icon-plus-circled">Add To Academic Year</span>
+    <fa-icon [icon]="faPlusCircle"></fa-icon> <span>Add To Academic Year</span>
   </button>
   <section class="alert alert-info mt-3" *ngIf="v.academicYearSubjects.length < 1">
-    <span class="icon-info-circled">No Academic Allocations Found!</span>
+    <fa-icon [icon]="faInfoCircle"></fa-icon> No Academic Allocations Found!
   </section>
   <section *ngFor='let academicYearSubject of v.academicYearSubjects' class="card mt-1 p-2">
     <h3>{{ academicYearSubject.academicYearName }}</h3>
@@ -20,7 +20,7 @@
                   class="btn btn-sm btn-primary mt-2 mb-1"
                   aria-label="Edit Academic Year Allocation"
           >
-            <span class="icon-edit"></span>
+            <fa-icon [icon]="faEdit"></fa-icon>
           </button>
         </div>
         <div class="d-flex flex-wrap align-items-center ml-4">

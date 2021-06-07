@@ -5,6 +5,7 @@ import { AppViewItemsModule } from 'src/app/modules/app-view-items.module';
 import { ErrorModule } from 'src/app/components/error/error.module';
 import { AppCrudModule } from 'src/app/components/crud/app-crud.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SemesterRoutingModule } from './semester-routing.module';
 import { SemesterComponent } from './semester.component';
 import { CreateSemesterComponent } from './create-semester/create-semester.component';
@@ -20,7 +21,8 @@ import { EditSemesterComponent } from './edit-semester/edit-semester.component';
     AppViewItemsModule,
     ErrorModule,
     AppCrudModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class SemesterModule { }

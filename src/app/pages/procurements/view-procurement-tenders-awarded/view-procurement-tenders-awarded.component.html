@@ -33,10 +33,12 @@
           [disabled]='!(procurementTender["fulfilled"] === undefined || procurementTender["fulfilled"] === null)'
           (click)='openModalWithComponent(procurementTender.id, true)'
           aria-label='Mark as Fulfilled'
-          class='icon-ok-1 btn btn-sm btn-success'>
+          class='btn btn-sm btn-success'> <fa-icon [icon]="faCheck"></fa-icon>
         </button>
         <button [routerLink]='["/procurements", "tenders", procurementTender.id, "bids"]' aria-label='Mark as Fulfilled'
-                class='icon-eye btn btn-sm btn-primary'></button>
+                class='btn btn-sm btn-primary'>
+          <fa-icon [icon]="faEye"></fa-icon>
+        </button>
       </td>
     </tr>
     </tbody>

@@ -48,8 +48,8 @@
           <button [disabled]='!unitLevelForm.valid || (submitInProgressAction$ | ngrxPush)' class='btn btn-success'
                   type='submit'>
             Save Changes
-            <i *ngIf='unitLevelForm.valid && (submitInProgressAction$ | ngrxPush) === false' class='icon-ok'></i>
-            <i *ngIf='(submitInProgressAction$ | ngrxPush)' class='icon-spin3 animate-spin'></i>
+            <fa-icon *ngIf='unitLevelForm.valid && (submitInProgressAction$ | ngrxPush) === false' [icon]='faSave'></fa-icon>
+            <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush)' [icon]='faSpinner' [spin]="faSpinner"></fa-icon>
           </button>
         </section>
       </div>

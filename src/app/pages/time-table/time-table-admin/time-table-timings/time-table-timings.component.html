@@ -1,6 +1,6 @@
 <section class="mt-1">
-  <button class="btn btn-primary" (click)="newTimeTablePlan()"><span
-      class="icon-plus-circled"></span>Create New Template</button>
+  <button class="btn btn-primary" (click)="newTimeTablePlan()"><
+    <fa-icon [icon]="faPlusCircle"></fa-icon> Create New Template</button>
 
   <accordion [closeOthers]='true' [isAnimated]='true'>
     <accordion-group class="mt-2" *ngFor='let timing of timings$ | ngrxPush; let i = index'

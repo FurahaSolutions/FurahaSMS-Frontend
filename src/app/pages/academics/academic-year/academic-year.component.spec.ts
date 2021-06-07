@@ -13,6 +13,7 @@ import { myProfileFeatureKey, reducer } from '../../my-profile/store/reducers/my
 import { appFeatureKey, reducers } from '../../../store/reducers/app.reducer';
 import { AppLoadingBubbleModule } from '../../../modules/app-loading-bubble';
 import { AppCheckboxModule } from '../../../shared/checkbox/checkbox.module';
+import { TabErrorStateModule } from '../../../components/tab-error-state/app-tab-error.module';
 import { AcademicYearComponent } from './academic-year.component';
 
 describe('AcademicYearComponent', () => {
@@ -41,7 +42,8 @@ describe('AcademicYearComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         ModalModule.forRoot(),
-        FontAwesomeTestingModule
+        FontAwesomeTestingModule,
+        TabErrorStateModule
       ],
       declarations: [AcademicYearComponent],
       providers: [reducerProvider]

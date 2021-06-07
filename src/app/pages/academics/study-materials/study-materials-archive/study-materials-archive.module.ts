@@ -6,6 +6,7 @@ import { AppFilesizeModule } from 'src/app/shared/filesize/filesize.module';
 import { FileExtensionModule } from 'src/app/shared/file-extention/file-extension.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ELearningTopicMaterialsModule } from '../../e-learning/e-learning-topic-materials/e-learning-topic-materials.module';
 import { StudyMaterialsArchiveComponent } from './study-materials-archive.component';
 import { StudyMaterialsArchiveRoutingModule } from './study-materials-archive-routing.module';
@@ -21,7 +22,8 @@ import { StudyMaterialsArchiveRoutingModule } from './study-materials-archive-ro
     ELearningTopicMaterialsModule,
     FileExtensionModule,
     FormsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class StudyMaterialsArchiveModule { }

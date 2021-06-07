@@ -5,7 +5,7 @@ import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/st
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {TabErrorStateModule} from 'src/app/modules/app-tab-error.module';
+import {TabErrorStateModule} from 'src/app/components/tab-error-state/app-tab-error.module';
 import {AppInputModule} from 'src/app/components/input/app-input.module';
 import {TabsModule} from 'ngx-bootstrap/tabs';
 import {NgSelectModule} from '@ng-select/ng-select';

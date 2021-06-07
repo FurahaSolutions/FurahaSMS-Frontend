@@ -4,6 +4,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
 import { UndeleteAcademicYearComponent } from './undelete-academic-year.component';
 
@@ -24,7 +25,8 @@ describe('UndeleteAcademicYearComponent', () => {
         ModalModule.forRoot(),
         HttpClientTestingModule,
         ReactiveComponentModule,
-        FormsModule
+        FormsModule,
+        FontAwesomeTestingModule
       ],
       declarations: [UndeleteAcademicYearComponent],
       providers: [reducerProvider]

@@ -5,6 +5,7 @@ import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/st
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {ViewItemsComponent} from '../../../../components/view-items/view-items.component';
 import {ChipsComponent} from '../../../../components/chips/chips.component';
 import {LoadingBubbleComponent} from '../../../../components/loading-bubble/loading-bubble.component';
@@ -30,7 +31,8 @@ describe('AcademicsCurriculumUnitsComponent', () => {
         StoreModule.forFeature(appFeatureKey, reducers),
         RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [
         AcademicsCurriculumUnitsComponent,

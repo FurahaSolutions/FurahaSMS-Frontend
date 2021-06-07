@@ -5,6 +5,8 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/reducers';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selectors';
 
 @Component({
@@ -14,6 +16,8 @@ import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selec
 })
 export class AdminExamPaperViewComponent {
   faChevronRight = faChevronRight;
+  faEdit = faEdit;
+  faInfoCircle = faInfoCircle;
   examPaper$: Observable<any> = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => params.get('id')),
     mergeMap(id => this.store.pipe(select(selectExamPaperItemState(id)))),

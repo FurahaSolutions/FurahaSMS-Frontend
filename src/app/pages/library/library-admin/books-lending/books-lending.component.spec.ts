@@ -2,8 +2,10 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
 import { AppLinksModule } from '../../../../shared/links/links.module';
+import { LoadMyProfileModule } from '../../../my-profile/load-my-profile.module';
 import { BooksLendingComponent } from './books-lending.component';
 
 describe('BooksLendingComponent', () => {
@@ -21,7 +23,9 @@ describe('BooksLendingComponent', () => {
             strictActionImmutability: true,
           }
         }),
+        LoadMyProfileModule,
         AppLinksModule,
+        FontAwesomeTestingModule
       ],
       declarations: [BooksLendingComponent],
       providers: [

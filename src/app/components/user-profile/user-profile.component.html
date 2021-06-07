@@ -6,8 +6,8 @@
            id="editMode">
     <label class="custom-control-label" for="editMode">
       Enable Editing
-      <span [class.icon-edit]='editMode'></span>
-      <span [class.icon-eye]='!editMode'></span>
+      <fa-icon *ngIf="editMode" [icon]="faEdit"></fa-icon>
+      <fa-icon *ngIf="!editMode" [icon]="faEye"></fa-icon>
     </label>
   </div>
 </div>
@@ -84,8 +84,8 @@
     <button (click)='saveProfilePic()' class="btn btn-success">
 
       Save Profile Picture
-      <i *ngIf='!savingProfPic' class='icon-floppy'></i>
-      <i *ngIf='savingProfPic' class='icon-spin3 animate-spin'></i>
+      <fa-icon *ngIf='!savingProfPic' [icon]='faSave'></fa-icon>
+      <fa-icon *ngIf='savingProfPic' [icon]='faSpinner' [spin]="true"></fa-icon>
     </button>
   </div>
 </ng-template>

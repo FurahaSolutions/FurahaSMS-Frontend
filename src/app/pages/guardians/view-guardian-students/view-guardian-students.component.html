@@ -14,7 +14,7 @@
       <th scope="col">{{ student.first_name }} {{ student.last_name }}</th>
       <td>
         <a [routerLink]='["/students", student.id]' [attr.aria-label]='"View Guardian" + student.first_name'
-          class="btn btn-primary btn-sm"><span class="icon-eye"></span></a>
+          class="btn btn-primary btn-sm"> <fa-icon [icon]="faEye"></fa-icon></a>
       </td>
     </tr>
 

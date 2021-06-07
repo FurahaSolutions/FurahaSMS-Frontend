@@ -10,9 +10,9 @@ import { FileExtensionModule } from 'src/app/shared/file-extention/file-extensio
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { academicsFeatureKey, reducers } from '../../../store/reducers';
 import { ELearningCourseStudyMaterialComponent } from './e-learning-course-study-material.component';
-import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('ELearningCourseStudyMaterialComponent', () => {
   let component: ELearningCourseStudyMaterialComponent;

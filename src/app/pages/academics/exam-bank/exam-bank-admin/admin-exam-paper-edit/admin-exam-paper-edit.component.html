@@ -131,7 +131,7 @@
 
           <button [disabled]='editDialogForm.invalid' (click)='saveQuestion()' type="button"
                   class="btn btn-success btn-sm mb-2 mt-2">
-            Save <span *ngIf='editDialogForm.valid' class="icon-ok"></span></button>
+            Save <fa-icon *ngIf='editDialogForm.valid' [icon]="faSave"></fa-icon></button>
 
           <button *ngIf='editDialogForm.invalid' (click)='validated = true' type="button"
                   class="btn btn-secondary btn-sm mb-2 mt-2">Validate</button>
@@ -158,10 +158,10 @@
     <legend>Questions</legend>
     <section *ngIf='questions.length === 0'>
       <section class="alert alert-info">
-        <span class="icon-info"></span>No Questions Added Yet
+        <<fa-icon [icon]="faInfoCircle"></fa-icon> No Questions Added Yet
       </section>
-      <button (click)='openTemplateModal(template, "add-before", 0)' type='button' class="btn btn-primary btn-sm btn-xs"><span
-          class="icon-plus-circled"></span>Add Question</button>
+      <button (click)='openTemplateModal(template, "add-before", 0)' type='button' class="btn btn-primary btn-sm btn-xs">
+        <fa-icon [icon]="faPlusCircle"></fa-icon> Add Question</button>
     </section>
     <section class='d-flex flex-wrap'>
       <button style="min-width: 2.1rem;" [class.active]='activeQuestion === i' type="button"
@@ -185,8 +185,8 @@
   </fieldset>
   <button [disabled]='questions.length === 0 || submitted' (click)='saveExamQuestions()' type="button"
     class="btn btn-sm btn-success mt-3"> Save Changes
-    <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
-    <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-ok-1'></i>
+    <fa-icon *ngIf='submitInProgressAction$ | ngrxPush' [icon]="faSpinner" [spin]="true"></fa-icon>
+    <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush) === false' [icon]="faSave"></fa-icon>
 
 
   </button>

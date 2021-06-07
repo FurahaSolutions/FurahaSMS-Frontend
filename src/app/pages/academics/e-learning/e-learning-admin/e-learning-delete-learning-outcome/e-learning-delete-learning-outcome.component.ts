@@ -1,6 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {BsModalService} from 'ngx-bootstrap/modal';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import {modalMixin} from '../../../../../shared/mixins/modal.mixin';
 import {formMixin} from '../../../../../shared/mixins/form.mixin';
 import {ELearningService} from '../../services/e-learning.service';
@@ -16,6 +18,8 @@ export class ELearningDeleteLearningOutcomeComponent extends formMixin(modalMixi
   @Input() topicId: number| undefined;
   @Input() courseId: number| undefined;
   @Input() description = '';
+  faTrash = faTrash;
+  faSpinner = faSpinner;
   store: Store;
   learningOutcomeIdConfirmation = '';
 

@@ -4,6 +4,7 @@ import {AppLinksModule} from 'src/app/shared/links/links.module';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {RouterTestingModule} from '@angular/router/testing';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {myProfileFeatureKey, reducer} from '../../my-profile/store/reducers/my-profile.reducer';
 import {ELearningComponent} from './e-learning.component';
 
@@ -23,7 +24,8 @@ describe('ELearningComponent', () => {
           }
         }),
         RouterTestingModule.withRoutes([]),
-        StoreModule.forFeature(myProfileFeatureKey, reducer)
+        StoreModule.forFeature(myProfileFeatureKey, reducer),
+        FontAwesomeTestingModule
       ],
       declarations: [ELearningComponent],
       providers: [reducerProvider]

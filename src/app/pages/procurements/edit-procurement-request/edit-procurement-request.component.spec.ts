@@ -6,6 +6,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { ProcurementsRequestComponent } from '../procurements-request/procurements-request.component';
 import { LoadingBubbleComponent } from '../../../components/loading-bubble/loading-bubble.component';
 import { InputComponent } from '../../../components/input/input.component';
@@ -36,7 +38,8 @@ describe('EditProcurementRequestComponent', () => {
         HttpClientTestingModule,
         FormErrorsModule,
         AppStarLabelRequiredModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [
         EditProcurementRequestComponent,

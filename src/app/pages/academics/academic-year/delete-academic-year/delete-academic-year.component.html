@@ -17,7 +17,7 @@
           class="btn btn-danger">
     <span *ngIf='(submitInProgressAction$ | ngrxPush) === false'>Delete Academic Year</span>
     <span *ngIf='submitInProgressAction$ | ngrxPush'>Saving...</span>
-    <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-trash'></i>
-    <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
+    <fa-icon [icon]="faTrash" *ngIf='(submitInProgressAction$ | ngrxPush) === false' ></fa-icon>
+    <fa-icon [icon]="faSpinner" [spin]="true" *ngIf='submitInProgressAction$ | ngrxPush' ></fa-icon>
   </button>
 </div>

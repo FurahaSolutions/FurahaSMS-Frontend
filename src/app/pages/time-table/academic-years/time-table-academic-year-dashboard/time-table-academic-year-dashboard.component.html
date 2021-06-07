@@ -1,6 +1,6 @@
 <ng-container *ngIf='academicYear$ | ngrxPush as academicYear'>
   <h1>Time Tables For Academic Year {{ academicYear.name }}</h1>
-  <button (click)='newTimeTablePlan()' class="btn btn-primary mb-2"> <span class="icon-plus-circled"></span>  New Timetable</button>
+  <button (click)='newTimeTablePlan()' class="btn btn-primary mb-2"> <fa-icon [icon]="faPlusCircle"></fa-icon>  New Timetable</button>
   <div *ngIf='timeTables$ | ngrxPush as timeTables'>
     <div class="alert alert-info" *ngIf='timeTables.length === 0'>
         No Time Tables Found

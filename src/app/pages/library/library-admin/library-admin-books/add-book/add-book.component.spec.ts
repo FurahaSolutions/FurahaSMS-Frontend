@@ -16,6 +16,7 @@ import {myProfileFeatureKey, reducer} from 'src/app/pages/my-profile/store/reduc
 import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {AppStarLabelRequiredModule} from '../../../../../components/label-star-required/app-star-label-required';
 import {SelectLibraryClassComponent} from '../../../components/select-library-class/select-library-class.component';
 import {AppCheckboxModule} from '../../../../../shared/checkbox/checkbox.module';
@@ -51,7 +52,8 @@ describe('AddBookComponent', () => {
         AppValidateSubmitButtonsModule,
         AppStarLabelRequiredModule,
         ReactiveComponentModule,
-        AppCheckboxModule
+        AppCheckboxModule,
+        FontAwesomeTestingModule
       ],
       declarations: [AddBookComponent, SelectLibraryClassComponent],
       providers: [

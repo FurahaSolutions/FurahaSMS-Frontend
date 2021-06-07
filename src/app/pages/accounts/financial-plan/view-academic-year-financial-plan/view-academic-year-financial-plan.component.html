@@ -8,7 +8,7 @@
     <section class="d-flex justify-content-end">
       <a [routerLink]='["/accounts", "financial-plan", "academic-year", v.academicYear?.id, "edit"]'
          class='btn btn-primary btn-sm'>
-        Edit <span class="icon-edit"></span>
+        Edit <fa-icon [icon]="faEdit"></fa-icon>
       </a>
     </section>
     <div class="mb-4" *ngFor="let classLevel of v.financialPlan">

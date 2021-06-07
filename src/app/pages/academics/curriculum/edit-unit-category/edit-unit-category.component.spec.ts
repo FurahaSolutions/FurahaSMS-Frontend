@@ -8,11 +8,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { ErrorModule } from '../../../../components/error/error.module';
 import { AppValidateSubmitButtonsModule } from '../../../../components/validate-submit-buttons/validate-submit-buttons.module';
 import { AppLoadingBubbleModule } from '../../../../modules/app-loading-bubble';
 import { CreateUnitComponent } from '../create-unit/create-unit.component';
 import { CreateUnitCategoriesComponent } from '../create-unit-categories/create-unit-categories.component';
+import { TabErrorStateModule } from '../../../../components/tab-error-state/app-tab-error.module';
 import { EditUnitCategoryComponent } from './edit-unit-category.component';
 
 describe('EditUnitCategoryComponent', () => {
@@ -39,7 +41,9 @@ describe('EditUnitCategoryComponent', () => {
         EditorModule,
         ErrorModule,
         AppLoadingBubbleModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule,
+        TabErrorStateModule
       ],
       declarations: [
         CreateUnitComponent,

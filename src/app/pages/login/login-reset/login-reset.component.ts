@@ -19,6 +19,8 @@ export class LoginResetComponent extends subscribedContainerMixin(formMixin()) {
     email: ['', [Validators.required, new EmailValidatorDirective()]]
   });
   faEnvelope = faEnvelope;
+  faSpinner: any;
+  faSave: any;
 
   constructor(
     private fb: FormBuilder,

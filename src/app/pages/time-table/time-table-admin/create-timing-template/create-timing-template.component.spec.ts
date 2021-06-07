@@ -8,6 +8,7 @@ import {AppInputModule} from 'src/app/components/input/app-input.module';
 import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {CreateTimingTemplateComponent} from './create-timing-template.component';
 
 describe('CreateTimingTemplateComponent', () => {
@@ -30,7 +31,8 @@ describe('CreateTimingTemplateComponent', () => {
         }),
         AppValidateSubmitButtonsModule,
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [CreateTimingTemplateComponent],
       providers: [reducerProvider]

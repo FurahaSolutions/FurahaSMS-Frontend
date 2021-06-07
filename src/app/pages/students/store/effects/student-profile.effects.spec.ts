@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StoreModule } from '@ngrx/store';
 import { REDUCER_TOKEN, reducerProvider, metaReducers } from 'src/app/store/reducers';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { StudentProfileEffects } from './student-profile.effects';
 
 describe('StudentProfileEffects', () => {
@@ -22,7 +23,9 @@ describe('StudentProfileEffects', () => {
             strictActionImmutability: true,
           }
         }),
-        HttpClientTestingModule],
+        HttpClientTestingModule,
+        FontAwesomeTestingModule
+      ],
       providers: [
         StudentProfileEffects,
         reducerProvider,

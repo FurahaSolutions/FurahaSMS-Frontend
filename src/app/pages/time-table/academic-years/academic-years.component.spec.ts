@@ -1,6 +1,8 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {AccordionModule} from 'ngx-bootstrap/accordion';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { TabErrorStateModule } from '../../../components/tab-error-state/app-tab-error.module';
 import {AcademicYearsComponent} from './academic-years.component';
 
 describe('AcademicYearsComponent', () => {
@@ -10,7 +12,9 @@ describe('AcademicYearsComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        AccordionModule.forRoot()
+        AccordionModule.forRoot(),
+        FontAwesomeTestingModule,
+        TabErrorStateModule
       ],
       declarations: [AcademicYearsComponent]
     })

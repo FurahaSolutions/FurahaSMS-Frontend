@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { modalMixin } from 'src/app/shared/mixins/modal.mixin';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { Store } from '@ngrx/store';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
 import { CreateTimingTemplateComponent } from '../create-timing-template/create-timing-template.component';
 import { TimingTemplateService } from '../../services/timing-template.service';
 
@@ -11,7 +12,7 @@ import { TimingTemplateService } from '../../services/timing-template.service';
   styleUrls: ['./time-table-timings.component.css']
 })
 export class TimeTableTimingsComponent extends modalMixin() {
-
+  faPlusCircle = faPlusCircle;
   isOpen: boolean[] = [false];
 
   timings$ = this.timetableTimingService.all$;

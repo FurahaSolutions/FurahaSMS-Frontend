@@ -2,6 +2,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import { formMixin } from '../../../shared/mixins/form.mixin';
 import { ClassStreamService } from '../../academics/services/class-stream.service';
 import { ClassLevelService } from '../../../services/class-level.service';
@@ -15,6 +20,11 @@ import { StudentService } from '../../../services/student.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StudentDashboardComponent extends formMixin() {
+  faPlusCircle = faPlusCircle;
+  faSpinner = faSpinner;
+  faCheck = faCheck;
+  faEye = faEye;
+  faInfoCircle = faInfoCircle;
   studentFilterForm: FormGroup = this.fb.group({
     classLevels: [[]],
     streams: [[]],

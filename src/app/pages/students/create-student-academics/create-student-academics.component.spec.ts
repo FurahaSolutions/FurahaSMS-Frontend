@@ -7,6 +7,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { EffectsModule } from '@ngrx/effects';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { StudentsModule } from '../students.module';
 import { CreateStudentAcademicsComponent } from './create-student-academics.component';
 
@@ -31,7 +32,8 @@ describe('CreateStudentAcademicsComponent', () => {
         StudentsModule,
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([]),
-        AppLoadingBubbleModule
+        AppLoadingBubbleModule,
+        FontAwesomeTestingModule
       ],
       declarations: [],
       providers: [reducerProvider]

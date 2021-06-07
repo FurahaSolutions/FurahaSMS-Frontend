@@ -24,7 +24,6 @@ export class CreateProcurementsVendorsComponent extends subscribedContainerMixin
   implements CanComponentDeactivate {
   @ViewChild('staticTabs', {static: false}) staticTabs: TabsetComponent | undefined;
   faCheck = faCheck;
-  faExclamationTriangle = faExclamationTriangle;
   faTrashAlt = faTrashAlt;
   faPlusCircle = faPlusCircle;
   procurementVendorForm = this.fb.group({

@@ -6,6 +6,7 @@ import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TeachersRoutingModule } from './teachers-routing.module';
 import { TeachersDashboardComponent } from './teachers-dashboard/teachers-dashboard.component';
 import { ViewTeacherComponent } from './view-teacher/view-teacher.component';
@@ -25,6 +26,7 @@ import { TeacherProfileEffects } from './store/effects/teacher-profile.effects';
     StoreModule.forFeature(fromTeacherProfile.teacherProfileFeatureKey, fromTeacherProfile.reducer),
     EffectsModule.forFeature([TeacherProfileEffects]),
     ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class TeachersModule { }

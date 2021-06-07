@@ -2,6 +2,8 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {ReactiveComponentModule} from '@ngrx/component';
 import {FormsModule} from '@angular/forms';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { TabErrorStateModule } from '../../../../components/tab-error-state/app-tab-error.module';
 import {NetworkLoadingComponent} from './network-loading.component';
 
 describe('NetworkLoadingComponent', () => {
@@ -12,7 +14,9 @@ describe('NetworkLoadingComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         ReactiveComponentModule,
-        FormsModule
+        FormsModule,
+        FontAwesomeTestingModule,
+        TabErrorStateModule
       ],
       declarations: [NetworkLoadingComponent]
     })

@@ -6,6 +6,7 @@ import {StoreModule} from '@ngrx/store';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {ExamBankAdminComponent} from './exam-bank-admin.component';
 
 describe('ExamBankAdminComponent', () => {
@@ -24,7 +25,8 @@ describe('ExamBankAdminComponent', () => {
           }
         }),
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ExamBankAdminComponent],
       providers: [reducerProvider]

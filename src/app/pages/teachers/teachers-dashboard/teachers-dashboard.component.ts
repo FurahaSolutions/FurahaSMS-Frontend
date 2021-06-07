@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
 import {TeacherService} from '../../admissions/services/teacher.service';
 
 @Component({
@@ -7,7 +8,7 @@ import {TeacherService} from '../../admissions/services/teacher.service';
   styleUrls: ['./teachers-dashboard.component.css']
 })
 export class TeachersDashboardComponent {
-
+  faPlusCircle = faPlusCircle;
   teachers$ = this.teachersService.getActiveTeachers();
 
   constructor(private teachersService: TeacherService) {

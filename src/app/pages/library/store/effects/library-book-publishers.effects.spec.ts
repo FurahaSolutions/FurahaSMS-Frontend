@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StoreModule } from '@ngrx/store';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { LibraryBookPublisherEffects } from './library-book-publishers.effects';
 
 describe('LibraryEffects', () => {
@@ -22,6 +23,7 @@ describe('LibraryEffects', () => {
             strictActionImmutability: true,
           }
         }),
+        FontAwesomeTestingModule
       ],
       providers: [
         reducerProvider,

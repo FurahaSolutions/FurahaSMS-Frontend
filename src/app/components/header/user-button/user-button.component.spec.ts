@@ -5,6 +5,7 @@ import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { myProfileFeatureKey, reducer } from '../../../pages/my-profile/store/reducers/my-profile.reducer';
 import { LogoutButtonComponent } from '../logout-button/logout-button.component';
 import { UserButtonComponent } from './user-button.component';
@@ -27,7 +28,8 @@ describe('UserButtonComponent', () => {
         StoreModule.forFeature(myProfileFeatureKey, reducer),
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([]),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [UserButtonComponent, LogoutButtonComponent],
       providers: [reducerProvider]

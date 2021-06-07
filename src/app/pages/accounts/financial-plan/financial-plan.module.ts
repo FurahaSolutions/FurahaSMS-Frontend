@@ -6,7 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import { TabErrorStateModule } from 'src/app/modules/app-tab-error.module';
+import { TabErrorStateModule } from 'src/app/components/tab-error-state/app-tab-error.module';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppInputModule } from 'src/app/components/input/app-input.module';

@@ -7,6 +7,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { LibrarySearchCatalogueComponent } from './library-search-catalogue.component';
 
 describe('LibrarySearchCatalogueComponent', () => {
@@ -29,7 +30,8 @@ describe('LibrarySearchCatalogueComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         TypeaheadModule.forRoot(),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [
         LibrarySearchCatalogueComponent

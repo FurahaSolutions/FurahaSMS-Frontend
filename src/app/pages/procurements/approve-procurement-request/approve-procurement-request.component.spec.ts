@@ -6,6 +6,7 @@ import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
 import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
+import { AppValidateSubmitButtonsModule } from '../../../components/validate-submit-buttons/validate-submit-buttons.module';
 import {ApproveProcurementRequestComponent} from './approve-procurement-request.component';
 
 describe('ApproveProcurementRequestComponent', () => {
@@ -24,7 +25,8 @@ describe('ApproveProcurementRequestComponent', () => {
       }),
         AccordionModule.forRoot(),
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        AppValidateSubmitButtonsModule
       ],
       declarations: [ApproveProcurementRequestComponent, LoadingBubbleComponent],
       providers: [reducerProvider]

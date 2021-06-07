@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { TabErrorStateModule } from '../tab-error-state/app-tab-error.module';
 import { LabelStarRequiredComponent } from './label-star-required.component';
 
 describe('LabelStarRequiredComponent', () => {
@@ -10,7 +11,8 @@ describe('LabelStarRequiredComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports:[
-        FontAwesomeTestingModule
+        FontAwesomeTestingModule,
+        TabErrorStateModule
       ],
       declarations: [LabelStarRequiredComponent]
     })

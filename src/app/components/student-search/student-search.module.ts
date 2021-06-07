@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { RouterModule } from '@angular/router';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StudentSearchComponent } from './student-search.component';
 
 @NgModule({
@@ -19,7 +20,8 @@ import { StudentSearchComponent } from './student-search.component';
     ReactiveFormsModule,
     TypeaheadModule.forRoot(),
     RouterModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 

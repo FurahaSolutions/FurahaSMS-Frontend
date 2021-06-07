@@ -13,9 +13,9 @@
         <button type="button" (click)='editable = false' class="btn btn-secondary mt-2">Cancel
         </button>
         <button [disabled]='itemForm.invalid || !itemForm.dirty' class="btn btn-success mt-2">
-          <i *ngIf='itemForm.valid && (submitInProgressAction$ | ngrxPush) === false' class='icon-ok'></i>
-          <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
-          <span class="icon-save"></span>Save
+          <fa-icon *ngIf='itemForm.valid && (submitInProgressAction$ | ngrxPush) === false' [icon]='faCheck'></fa-icon>
+          <fa-icon *ngIf='submitInProgressAction$ | ngrxPush' [icon]='faSpinner' [spin]="true"></fa-icon>
+          <fa-icon [icon]="faSave"></fa-icon> Save
         </button>
       </div>
     </div>
