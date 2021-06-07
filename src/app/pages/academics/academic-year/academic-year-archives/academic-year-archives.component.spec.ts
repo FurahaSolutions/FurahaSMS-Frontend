@@ -7,6 +7,7 @@ import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
 import { AcademicYearArchivesComponent } from './academic-year-archives.component';
+import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('AcademicYearArchivesComponent', () => {
   let component: AcademicYearArchivesComponent;
@@ -26,7 +27,8 @@ describe('AcademicYearArchivesComponent', () => {
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [AcademicYearArchivesComponent],
       providers: [reducerProvider]

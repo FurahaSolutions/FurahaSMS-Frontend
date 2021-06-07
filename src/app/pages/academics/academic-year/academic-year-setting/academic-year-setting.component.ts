@@ -10,6 +10,7 @@ import { CloseAcademicYearSectionComponent } from '../close-academic-year-sectio
 import { AcademicYearService } from '../../services/academic-year.service';
 import { DeleteAcademicYearComponent } from '../delete-academic-year/delete-academic-year.component';
 import { ArchiveAcademicYearComponent } from '../archive-academic-year/archive-academic-year.component';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
 @Component({
   selector: 'app-academic-year-setting',
@@ -17,6 +18,7 @@ import { ArchiveAcademicYearComponent } from '../archive-academic-year/archive-a
   styleUrls: ['./academic-year-setting.component.css']
 })
 export class AcademicYearSettingComponent extends modalMixin() {
+  faTrash = faTrash;
   academicYearId = 0;
   academicYearId$ = ((this.route.parent as ActivatedRoute).parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id'))),
@@ -37,6 +39,7 @@ export class AcademicYearSettingComponent extends modalMixin() {
   v$ = combineLatest([this.academicYear$, this.archivableItems$]).pipe(
     map(([academicYear, archivableItems]) =>({academicYear, archivableItems}))
   );
+
 
   constructor(
     private modalService: BsModalService,

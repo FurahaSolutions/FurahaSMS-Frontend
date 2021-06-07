@@ -1,20 +1,19 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {StoreModule} from '@ngrx/store';
-import {ModalModule} from 'ngx-bootstrap/modal';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {ReactiveComponentModule} from '@ngrx/component';
-import {FormsModule} from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { StoreModule } from '@ngrx/store';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { FormsModule } from '@angular/forms';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
 import { CloseAcademicYearSectionComponent } from './close-academic-year-section.component';
 
 describe('CloseAcademicYearSectionComponent', () => {
   let component: CloseAcademicYearSectionComponent;
   let fixture: ComponentFixture<CloseAcademicYearSectionComponent>;
 
-  beforeEach(waitForAsync( () => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(REDUCER_TOKEN, {
@@ -30,10 +29,10 @@ describe('CloseAcademicYearSectionComponent', () => {
         FormsModule,
         FontAwesomeTestingModule
       ],
-      declarations: [ CloseAcademicYearSectionComponent ],
+      declarations: [CloseAcademicYearSectionComponent],
       providers: [reducerProvider]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

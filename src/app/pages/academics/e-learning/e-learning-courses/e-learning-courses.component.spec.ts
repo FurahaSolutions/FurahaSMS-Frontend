@@ -11,6 +11,7 @@ import { ELearningCourseModule } from '../e-learning-course/e-learning-course.mo
 import { metaReducers, REDUCER_TOKEN } from '../../../../store/reducers';
 import { reducer, studentProfileFeatureKey } from '../../../students/store/reducers/student-profile.reducer';
 import { ELearningCoursesComponent } from './e-learning-courses.component';
+import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('ELearningCoursesComponent', () => {
   let component: ELearningCoursesComponent;
@@ -34,6 +35,7 @@ describe('ELearningCoursesComponent', () => {
           }
         }),
         StoreModule.forFeature(studentProfileFeatureKey, reducer),
+        FontAwesomeTestingModule
       ],
       declarations: [ELearningCoursesComponent]
     })

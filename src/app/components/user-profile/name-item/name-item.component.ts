@@ -5,6 +5,8 @@ import { select, Store } from '@ngrx/store';
 import { selectEditModeOnState } from 'src/app/store/selectors/app.selectors';
 import { Observable } from 'rxjs';
 import { formMixin } from 'src/app/shared/mixins/form.mixin';
+import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 import { fadeInOutAnimationMetadata } from '../../../shared/animations/fade-in-out.animation';
 
 type IKey = 'dateOfBirth' | 'middleName' | 'firstName' | 'lastName' | 'otherNames' | 'email' | 'phone';
@@ -18,13 +20,14 @@ type IKey = 'dateOfBirth' | 'middleName' | 'firstName' | 'lastName' | 'otherName
   ],
 })
 export class NameItemComponent extends formMixin() implements OnInit {
-
   @Input() key: IKey = 'email';
   @Input() type = 'text';
   @Input() name = '';
   @Input() label = '';
   @Input() userId: number | undefined;
   @Output() valueChanged = new EventEmitter<{ fieldName: string; fieldNewValue: string }>();
+  faSave = faSave;
+  faSpinner = faSpinner;
   editHovered = false;
   editable = false;
   editMode$: Observable<boolean> = this.store.pipe(select(selectEditModeOnState));

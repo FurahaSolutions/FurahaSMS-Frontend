@@ -9,6 +9,8 @@ import { formWithEditorMixin } from 'src/app/shared/mixins/form-with-editor.mixi
 import { subscribedContainerMixin } from 'src/app/shared/mixins/subscribed-container.mixin';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { SemesterService } from '../semester/services/semester.service';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
 @Component({
   selector: 'app-edit-unit',
@@ -17,6 +19,8 @@ import { SemesterService } from '../semester/services/semester.service';
 })
 
 export class EditUnitComponent extends subscribedContainerMixin(formWithEditorMixin()) implements OnInit {
+  faPlusCircle = faPlusCircle;
+  faTrash = faTrash;
   @Input() idIndex: number | undefined;
   @Output() valueChange: EventEmitter<any> = new EventEmitter();
   faChevronRight = faChevronRight;
@@ -70,6 +74,7 @@ export class EditUnitComponent extends subscribedContainerMixin(formWithEditorMi
   v$ = combineLatest([this.semesters$, this.unit$]).pipe(
     map(([semesters, unit]) => ({semesters, unit}))
   );
+
 
 
   constructor(

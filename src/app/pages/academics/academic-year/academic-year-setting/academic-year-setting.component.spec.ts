@@ -10,6 +10,7 @@ import { of } from 'rxjs';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
 import { AppLoadingBubbleModule } from '../../../../modules/app-loading-bubble';
 import { AcademicYearSettingComponent } from './academic-year-setting.component';
+import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('AcademicYearSettingComponent', () => {
   let component: AcademicYearSettingComponent;
@@ -30,6 +31,7 @@ describe('AcademicYearSettingComponent', () => {
             strictActionImmutability: true,
           }
         }),
+        FontAwesomeTestingModule
       ],
       declarations: [
         AcademicYearSettingComponent

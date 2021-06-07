@@ -3,6 +3,8 @@ import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ELearningService } from '../services/e-learning.service';
 import { ICourse } from '../interfaces/course.interface';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 
 @Component({
   selector: 'app-e-learning-admin',
@@ -10,6 +12,8 @@ import { ICourse } from '../interfaces/course.interface';
   styleUrls: ['./e-learning-admin.component.css']
 })
 export class ELearningAdminComponent {
+  faPlusCircle = faPlusCircle;
+  faInfoCircle = faInfoCircle;
   search = '';
   isCollapsed: boolean[] = [];
   limit = 100;

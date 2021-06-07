@@ -6,6 +6,7 @@ import { IUserProfile } from 'src/app/interfaces/user-profile.interface';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 
 @Component({
   selector: 'app-user-search',
@@ -26,6 +27,7 @@ import { UsersService } from '../../services/users.service';
 })
 export class UserSearchComponent implements OnInit, ControlValueAccessor {
   @Input() type = '';
+  faInfoCircle = faInfoCircle;
   search = '';
   selectedUserId = 0;
   suggestions$: Observable<IUserProfile[]> = of([]);
@@ -40,6 +42,7 @@ export class UserSearchComponent implements OnInit, ControlValueAccessor {
   };
   onTouched: () => void = () => {
   };
+
 
   ngOnInit(): void {
     this.suggestions$ = new Observable((observer: Observer<string>) => {

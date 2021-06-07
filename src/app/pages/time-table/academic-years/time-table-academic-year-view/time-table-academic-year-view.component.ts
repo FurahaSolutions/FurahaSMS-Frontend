@@ -11,6 +11,8 @@ import { SchoolRoomService } from 'src/app/pages/infrastructures/services/school
 import { ClassLevelService } from 'src/app/services/class-level.service';
 import { ClassStreamService } from 'src/app/pages/academics/services/class-stream.service';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import { TimeTableService } from '../../services/time-table.service';
 
 @Component({
@@ -21,6 +23,8 @@ import { TimeTableService } from '../../services/time-table.service';
 })
 export class TimeTableAcademicYearViewComponent {
   faChevronRight = faChevronRight;
+  faEdit = faEdit;
+  faInfoCircle = faInfoCircle;
   isOpen: boolean[] = [false];
 
   academicYearId$ = (this.route.parent as ActivatedRoute).paramMap.pipe(
@@ -100,6 +104,7 @@ export class TimeTableAcademicYearViewComponent {
 
     }, {})))
   );
+
 
 
   constructor(

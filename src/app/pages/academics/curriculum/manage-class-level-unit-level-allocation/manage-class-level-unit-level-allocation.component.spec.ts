@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { AppLoadingBubbleModule } from '../../../../modules/app-loading-bubble';
 import { ManageClassLevelUnitLevelAllocationComponent } from './manage-class-level-unit-level-allocation.component';
 
@@ -18,7 +19,8 @@ describe('ManageClassLevelUnitLevelAllocationComponent', () => {
         HttpClientTestingModule,
         ReactiveFormsModule, FormsModule,
         AppLoadingBubbleModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ManageClassLevelUnitLevelAllocationComponent]
     })

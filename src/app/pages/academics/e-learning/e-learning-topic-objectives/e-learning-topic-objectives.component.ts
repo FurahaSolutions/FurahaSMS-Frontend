@@ -3,6 +3,8 @@ import { Store } from '@ngrx/store';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { modalMixin } from '../../../../shared/mixins/modal.mixin';
 import { formMixin } from '../../../../shared/mixins/form.mixin';
 import { ELearningService } from '../services/e-learning.service';
@@ -24,6 +26,9 @@ export class ELearningTopicObjectivesComponent extends subscribedContainerMixin(
   @Input() topicId: number | undefined;
   @Input() topicNumberStyleName = 'Topic';
   @Input() learningOutcomes: any[] = [];
+  faTrash = faTrash;
+  faEdit = faEdit;
+
   itemForm: FormGroup = this.fb.group({
     id: [null, [Validators.required]],
     description: ['', [Validators.required]]

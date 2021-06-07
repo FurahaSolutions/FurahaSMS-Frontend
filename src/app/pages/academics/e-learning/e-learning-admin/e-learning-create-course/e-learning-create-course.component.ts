@@ -125,6 +125,9 @@ export class ELearningCreateCourseComponent
   v$ = combineLatest([this.course$, this.academicYears$, this.units$, this.classLevels$]).pipe(
     map(([course, academicYears, units, classLevels]) => ({course, academicYears, units, classLevels}))
   );
+  faPlusCircle: any;
+  faTrash: any;
+  faEdit: any;
 
   constructor(
     modalService: BsModalService,

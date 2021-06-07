@@ -4,8 +4,11 @@ import { selectEditModeOnState } from 'src/app/store/selectors/app.selectors';
 import { select, Store } from '@ngrx/store';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
-import { formMixin } from '../../../shared/mixins/form.mixin';
+import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 import { fadeInOutAnimationMetadata } from '../../../shared/animations/fade-in-out.animation';
+import { formMixin } from '../../../shared/mixins/form.mixin';
 
 @Component({
   selector: 'app-user-select-item',
@@ -25,12 +28,16 @@ export class UserSelectItemComponent extends formMixin() implements OnInit {
   @Output() valueChanged: EventEmitter<{ key: string; id: number; name: string }> = new EventEmitter();
   @Input() items: Observable<any[]> | undefined;
   @ViewChild('selectInput') selectInput: ElementRef | undefined;
+  faSave = faSave;
+  faCheck = faCheck;
+  faSpinner = faSpinner;
   editMode$: Observable<boolean> | undefined = this.store.pipe(select(selectEditModeOnState));
   editable = false;
   editHovered = false;
   itemForm: FormGroup = this.fb.group({
     fieldName: ['', Validators.required]
   });
+
 
   constructor(
     private store: Store,

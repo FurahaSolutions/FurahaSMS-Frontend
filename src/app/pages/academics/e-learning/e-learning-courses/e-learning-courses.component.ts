@@ -1,9 +1,10 @@
-import {Component, OnDestroy} from '@angular/core';
-import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
-import {map, takeUntil} from 'rxjs/operators';
-import {ICourse} from '../interfaces/course.interface';
-import {ELearningService} from '../services/e-learning.service';
-import {subscribedContainerMixin} from '../../../../shared/mixins/subscribed-container.mixin';
+import { Component, OnDestroy } from '@angular/core';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { map, takeUntil } from 'rxjs/operators';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { ICourse } from '../interfaces/course.interface';
+import { ELearningService } from '../services/e-learning.service';
+import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
   selector: 'app-e-learning-courses',
@@ -11,20 +12,20 @@ import {subscribedContainerMixin} from '../../../../shared/mixins/subscribed-con
   styleUrls: ['./e-learning-courses.component.css']
 })
 export class ELearningCoursesComponent extends subscribedContainerMixin() implements OnDestroy {
-
+  faInfoCircle = faInfoCircle;
   limit = 100;
   courses$: Observable<ICourse[]> = this.eLearningService.getCourses({limit: this.limit})
     .pipe(takeUntil(this.destroyed$));
   filterString = '';
-  isCollapsed: boolean[]= [false];
+  isCollapsed: boolean[] = [false];
   filterSubject$ = new BehaviorSubject('');
   filterAction$ = this.filterSubject$.asObservable();
   filteredCourses$: Observable<ICourse[]> = combineLatest([
-    this.courses$, this.filterAction$ ]).pipe(
-      map(([courses, filterString]) => courses.filter(course => (course.name && course.name.includes(filterString)) ||
-          (course.classLevelName && course.classLevelName.includes(filterString)) ||
-          (course.academicYearName && course.academicYearName.includes(filterString)) ||
-          (course.unitName && course.unitName.includes(filterString))))
+    this.courses$, this.filterAction$]).pipe(
+    map(([courses, filterString]) => courses.filter(course => (course.name && course.name.includes(filterString)) ||
+      (course.classLevelName && course.classLevelName.includes(filterString)) ||
+      (course.academicYearName && course.academicYearName.includes(filterString)) ||
+      (course.unitName && course.unitName.includes(filterString))))
   );
 
   constructor(private eLearningService: ELearningService) {
@@ -41,6 +42,7 @@ export class ELearningCoursesComponent extends subscribedContainerMixin() implem
   //   });
   //
   // }
+
 
   toggleCollapse(i: number) {
     const temp = this.isCollapsed[i];
