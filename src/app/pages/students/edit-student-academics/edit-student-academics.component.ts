@@ -1,15 +1,17 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {map, mergeMap, tap} from 'rxjs/operators';
-import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
-import {combineLatest, Observable} from 'rxjs';
-import {UnitLevelService} from '../../../services/unit-level.service';
-import {StudentAcademicsService} from '../services/student-academics.service';
-import {AcademicYearService} from '../../academics/services/academic-year.service';
-import {ClassLevelService} from '../../../services/class-level.service';
-import {StudentService} from '../../../services/student.service';
-import {ClassStreamService} from '../../academics/services/class-stream.service';
-import {formMixin} from '../../../shared/mixins/form.mixin';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map, mergeMap, tap } from 'rxjs/operators';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { combineLatest, Observable } from 'rxjs';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { UnitLevelService } from '../../../services/unit-level.service';
+import { StudentAcademicsService } from '../services/student-academics.service';
+import { AcademicYearService } from '../../academics/services/academic-year.service';
+import { ClassLevelService } from '../../../services/class-level.service';
+import { StudentService } from '../../../services/student.service';
+import { ClassStreamService } from '../../academics/services/class-stream.service';
+import { formMixin } from '../../../shared/mixins/form.mixin';
 
 @Component({
   selector: 'app-edit-student-academics',
@@ -18,7 +20,8 @@ import {formMixin} from '../../../shared/mixins/form.mixin';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditStudentAcademicsComponent extends formMixin() {
-
+  faSpinner = faSpinner;
+  faSave = faSave;
   streams$: Observable<any[]> = this.streamsService.all$;
 
   params$ = this.route.paramMap.pipe(
@@ -92,6 +95,7 @@ export class EditStudentAcademicsComponent extends formMixin() {
     unitLevels: this.fb.array([]),
     stream: []
   });
+
 
   get unitLevels() {
     return this.unitLevelForm.get('unitLevels') as FormArray;

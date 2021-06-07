@@ -10,6 +10,7 @@ import {AppInputModule} from 'src/app/components/input/app-input.module';
 import {ReactiveComponentModule} from '@ngrx/component';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {AddStudyMaterialsTitleModule} from '../add-study-materials-title/add-study-materials-title.module';
+import { AppValidateSubmitButtonsModule } from '../../../../../components/validate-submit-buttons/validate-submit-buttons.module';
 import {CreateStudyMaterialComponent} from './create-study-material.component';
 
 describe('CreateStudyMaterialComponent', () => {
@@ -34,7 +35,8 @@ describe('CreateStudyMaterialComponent', () => {
         }),
         AddStudyMaterialsTitleModule,
         ReactiveComponentModule,
-        FontAwesomeTestingModule
+        FontAwesomeTestingModule,
+        AppValidateSubmitButtonsModule
       ],
       declarations: [CreateStudyMaterialComponent],
       providers: [reducerProvider]

@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {map, mergeMap} from 'rxjs/operators';
 import {combineLatest, Observable} from 'rxjs';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import {TeacherSubjectService} from '../services/teacher-subject.service';
 import {UnitsService} from '../../../services/units.service';
 
@@ -11,7 +12,7 @@ import {UnitsService} from '../../../services/units.service';
   styleUrls: ['./view-teacher-subjects.component.css']
 })
 export class ViewTeacherSubjectsComponent {
-
+  faEdit = faEdit;
   teacherId$ = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id')))
   );

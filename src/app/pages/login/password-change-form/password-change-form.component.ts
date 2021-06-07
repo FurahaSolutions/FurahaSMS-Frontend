@@ -6,8 +6,11 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { loadErrorMessagesFailure } from 'src/app/store/actions/error-message.actions';
-import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { faKey } from '@fortawesome/free-solid-svg-icons/faKey';
 import { formMixin } from '../../../shared/mixins/form.mixin';
+import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 
 const checkPasswords = (group: FormGroup) => {
   const matchedPasswords = group.get('newPassword')?.value === group.get('newPasswordConfirmation')?.value;
@@ -20,6 +23,9 @@ const checkPasswords = (group: FormGroup) => {
   styleUrls: ['./password-change-form.component.css']
 })
 export class PasswordChangeFormComponent extends subscribedContainerMixin(formMixin()) {
+  faSpinner = faSpinner;
+  faSave = faSave;
+  faKey = faKey;
   passwordChangeForm: FormGroup = this.fb.group({
     token: [''],
     oldPassword: [''],
@@ -82,4 +88,5 @@ export class PasswordChangeFormComponent extends subscribedContainerMixin(formMi
     this.store.dispatch(loadErrorMessagesFailure());
     this.router.navigate([returnUrl]).then();
   };
+
 }

@@ -6,6 +6,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StoreModule } from '@ngrx/store';
 import { REDUCER_TOKEN, reducerProvider, metaReducers } from 'src/app/store/reducers';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { AppValidateSubmitButtonsModule } from '../../../../components/validate-submit-buttons/validate-submit-buttons.module';
 import { AdmissionsEffects } from './admissions.effects';
 
 describe('AdmissionsEffects', () => {
@@ -24,7 +25,8 @@ describe('AdmissionsEffects', () => {
             strictActionImmutability: true,
           }
         }),
-        FontAwesomeTestingModule
+        FontAwesomeTestingModule,
+        AppValidateSubmitButtonsModule
       ],
       providers: [
         reducerProvider,

@@ -8,6 +8,7 @@ import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
 import {REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {ViewGuardianStudentsComponent} from './view-guardian-students.component';
 
 describe('ViewGuardianStudentsComponent', () => {
@@ -27,7 +28,8 @@ describe('ViewGuardianStudentsComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ViewGuardianStudentsComponent],
       providers: [

@@ -5,6 +5,7 @@ import { combineLatest, Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { selectPlanForAcademicYearWithId } from '../store/selectors/academic-year-plan.selectors';
 import { AcademicYearService } from '../../../academics/services/academic-year.service';
 
@@ -15,6 +16,7 @@ import { AcademicYearService } from '../../../academics/services/academic-year.s
 })
 export class ViewAcademicYearFinancialPlanComponent {
   faChevronRight = faChevronRight;
+  faEdit = faEdit;
   academicYearPlanId$ = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id'))),
   );

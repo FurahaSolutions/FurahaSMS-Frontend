@@ -10,6 +10,7 @@ import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testi
 import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
 import {reducer} from '../store/reducers/student-profile.reducer';
 import {reducers} from '../../../store/reducers/app.reducer';
+import { TabErrorStateModule } from '../../../components/tab-error-state/app-tab-error.module';
 import {ViewStudentComponent} from './view-student.component';
 
 describe('ViewStudentComponent', () => {
@@ -33,7 +34,8 @@ describe('ViewStudentComponent', () => {
         StoreModule.forFeature('studentProfiles', reducer),
         StoreModule.forFeature('app', reducers),
         ReactiveComponentModule,
-        FontAwesomeTestingModule
+        FontAwesomeTestingModule,
+        TabErrorStateModule
       ],
       declarations: [ViewStudentComponent, LoadingBubbleComponent],
       providers: [reducerProvider]

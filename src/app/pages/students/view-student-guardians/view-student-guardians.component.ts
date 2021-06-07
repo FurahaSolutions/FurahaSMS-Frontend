@@ -4,8 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { GuardiansService } from 'src/app/services/guardians.service';
 import { map, mergeMap} from 'rxjs/operators';
 import { select, Store } from '@ngrx/store';
-import { selectEditModeOnState } from '../../../store/selectors/app.selectors';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import { AppState } from '../../../store/reducers';
+import { selectEditModeOnState } from '../../../store/selectors/app.selectors';
 
 @Component({
   selector: 'app-view-student-guardians',
@@ -13,6 +16,9 @@ import { AppState } from '../../../store/reducers';
   styleUrls: ['./view-student-guardians.component.css']
 })
 export class ViewStudentGuardiansComponent {
+  faPlusCircle = faPlusCircle;
+  faEye = faEye;
+  faInfoCircle = faInfoCircle;
   studentId$ = ((this.route.parent as ActivatedRoute).parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id')))
   );
@@ -20,6 +26,7 @@ export class ViewStudentGuardiansComponent {
     mergeMap(studentId => this.guardianService.getForStudent(Number(studentId)))
   );
   editMode$: Observable<boolean> = this.store.pipe(select(selectEditModeOnState));
+
 
   constructor(
     private route: ActivatedRoute,

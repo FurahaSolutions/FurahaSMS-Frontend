@@ -6,6 +6,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppUserProfileModule } from 'src/app/components/user-profile/user-profile.module';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { GuardiansRoutingModule } from './guardians-routing.module';
 import { ViewGuardianComponent } from './view-guardian/view-guardian.component';
 import { ViewGuardianInfoComponent } from './view-guardian-info/view-guardian-info.component';
@@ -23,7 +24,8 @@ import { ViewGuardianStudentsComponent } from './view-guardian-students/view-gua
     EffectsModule.forFeature([GuardianProfileEffects]),
     AppUserProfileModule,
     AppLoadingBubbleModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class GuardiansModule { }

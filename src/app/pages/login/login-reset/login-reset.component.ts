@@ -5,6 +5,8 @@ import { EmailValidatorDirective } from 'src/app/shared/validators/email-validat
 import { Router } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
+import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../shared/mixins/form.mixin';
 
@@ -15,12 +17,12 @@ import { formMixin } from '../../../shared/mixins/form.mixin';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginResetComponent extends subscribedContainerMixin(formMixin()) {
+  faEnvelope = faEnvelope;
+  faSpinner = faSpinner;
+  faSave = faSave;
   passwordResetForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, new EmailValidatorDirective()]]
   });
-  faEnvelope = faEnvelope;
-  faSpinner: any;
-  faSave: any;
 
   constructor(
     private fb: FormBuilder,

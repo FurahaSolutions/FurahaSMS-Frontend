@@ -3,6 +3,7 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {AppValidateSubmitButtonsModule} from '../../../../../components/validate-submit-buttons/validate-submit-buttons.module';
 import {UserSearchModule} from '../../../../../components/user-search/user-search.module';
 import {AddLibraryUserComponent} from './add-library-user.component';
@@ -20,7 +21,8 @@ describe('AddLibraryUserComponent', () => {
         UserSearchModule,
         ReactiveFormsModule,
         FormsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [AddLibraryUserComponent]
     })

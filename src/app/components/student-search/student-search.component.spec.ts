@@ -8,6 +8,7 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { AppInputModule } from '../input/app-input.module';
+import { AppValidateSubmitButtonsModule } from '../validate-submit-buttons/validate-submit-buttons.module';
 import { StudentSearchComponent } from './student-search.component';
 
 describe('StudentSearchComponent', () => {
@@ -31,7 +32,8 @@ describe('StudentSearchComponent', () => {
         TypeaheadModule.forRoot(),
         AppInputModule,
         ReactiveComponentModule,
-        FontAwesomeTestingModule
+        FontAwesomeTestingModule,
+        AppValidateSubmitButtonsModule
       ],
       declarations: [StudentSearchComponent],
       providers: [reducerProvider]

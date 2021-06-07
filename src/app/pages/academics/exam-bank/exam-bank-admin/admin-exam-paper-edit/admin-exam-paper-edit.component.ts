@@ -12,6 +12,9 @@ import { formWithMathEditorMixin } from 'src/app/shared/mixins/form-with-math-ed
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 import { ExamPaperQuestionsService } from '../../services/exam-paper-questions.service';
 import { loadExamPapers } from '../../store/actions/exam-paper.actions';
 import { answersMatchValidator } from '../../validators/answers-match.validator';
@@ -29,6 +32,9 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
   faChevronRight = faChevronRight;
   faPlusCircle = faPlusCircle;
   faTrash = faTrash;
+  faSave = faSave;
+  faInfoCircle = faInfoCircle;
+  faSpinner = faSpinner;
   activeQuestion = 0;
   queries: IExamPaperQuestion[] = [];
   editDialogForm: FormGroup = this.fb.group({
@@ -70,9 +76,6 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
   validated = false;
   dialog: { title: string; value: any; index: number; type: any } = {title: '', value: '', index: 0, type: null};
   private store: Store<AppState>;
-
-
-
 
   constructor(
     private fb: FormBuilder,

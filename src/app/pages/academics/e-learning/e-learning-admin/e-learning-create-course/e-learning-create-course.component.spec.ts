@@ -14,6 +14,7 @@ import { SortableModule } from 'ngx-bootstrap/sortable';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { academicsFeatureKey, reducers } from '../../../store/reducers';
 import { AppStarLabelRequiredModule } from '../../../../../components/label-star-required/app-star-label-required';
 import { ELearningCreateCourseComponent } from './e-learning-create-course.component';
@@ -44,7 +45,8 @@ describe('ELearningCreateCourseComponent', () => {
         RouterTestingModule.withRoutes([]),
         AppStarLabelRequiredModule,
         SortableModule.forRoot(),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ELearningCreateCourseComponent],
       providers: [

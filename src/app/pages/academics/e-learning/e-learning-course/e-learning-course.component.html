@@ -2,7 +2,7 @@
   <a class="card-link  btn-block p-2 bg-dark"
      [routerLink]='["/academics","e-learning","courses", course.id]'>
 
-    <span class="icon-folder-open"></span>
+    <fa-icon [icon]="faFolderOpen"></fa-icon>
     <strong>{{ course.name }}</strong><br />
     <div class="d-flex justify-content-between">
       <small> Class Level : {{ course.classLevelAbbreviation }}</small>

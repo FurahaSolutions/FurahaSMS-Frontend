@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { takeUntil } from 'rxjs/operators';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { AppState } from '../../../../store/reducers';
 import { OnlineAssessmentService } from '../services/online-assessment.service';
 import { loadCourses } from '../../store/actions/courses.actions';
@@ -23,9 +25,12 @@ export class TopicOnlineAssessmentListComponent extends subscribedContainerMixin
   @Input() topicId: number | undefined;
   @ViewChild('deleteConfirmationDialogue') deleteConfirmationDialogue: ElementRef | undefined;
   faTrash = faTrash;
+  faEdit = faEdit;
+  faSpinner = faSpinner;
   store: Store<AppState>;
   editedItem: { id: number; name: string; ['exam_paper_name']: string } | undefined;
   contentId: string | undefined;
+
 
   constructor(
     modalService: BsModalService,

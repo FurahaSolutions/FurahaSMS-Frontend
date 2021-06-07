@@ -8,6 +8,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { libraryFeatureKey, reducers } from '../../../store/reducers';
 import { ViewPublisherComponent } from './view-publisher.component';
 
@@ -30,7 +31,8 @@ describe('ViewPublisherComponent', () => {
         AppLoadingBubbleModule,
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([]),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ViewPublisherComponent],
       providers: [

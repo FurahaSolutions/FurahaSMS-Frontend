@@ -10,6 +10,7 @@ import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-subm
 import { SortableModule } from 'ngx-bootstrap/sortable';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ELearningTopicObjectivesModule } from '../../e-learning-topic-objectives/e-learning-topic-objectives.module';
 import { AppStarLabelRequiredModule } from '../../../../../components/label-star-required/app-star-label-required';
 import { ELearningCreateCourseComponent } from './e-learning-create-course.component';
@@ -32,7 +33,8 @@ import { ELearningCreateCourseRoutingModule } from './e-learning-create-course-r
     SortableModule.forRoot(),
     ELearningTopicObjectivesModule,
     NgSelectModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ],
   exports: [
     ELearningCreateCourseComponent

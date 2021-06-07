@@ -8,6 +8,7 @@ import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {academicYearPlanFeatureKey, reducer} from '../store/reducers/academic-year-plan.reducer';
 import {ViewAcademicYearFinancialPlanComponent} from './view-academic-year-financial-plan.component';
 
@@ -29,7 +30,8 @@ describe('ViewAcademicYearFinancialPlanComponent', () => {
         }),
         StoreModule.forFeature(academicYearPlanFeatureKey, reducer),
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ViewAcademicYearFinancialPlanComponent],
       providers: [

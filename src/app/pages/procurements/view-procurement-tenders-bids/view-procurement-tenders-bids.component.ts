@@ -6,6 +6,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { selectDialogShowState } from 'src/app/store/selectors/dialog.selector';
 import { showDialog } from 'src/app/store/actions/dialog.actions';
 import { map, mergeMap, takeUntil } from 'rxjs/operators';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
 import { CreateProcurementTenderBidComponent } from '../create-procurement-tender-bid/create-procurement-tender-bid.component';
 import * as fromStore from '../../../store/reducers';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
@@ -16,6 +17,7 @@ import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-cont
   styleUrls: ['./view-procurement-tenders-bids.component.css']
 })
 export class ViewProcurementTendersBidsComponent extends subscribedContainerMixin() {
+  faPlusCircle = faPlusCircle;
   procurementRequest$ = this.route.paramMap.pipe(
     map(params => Number(params.get('id'))),
     mergeMap(id => this.procurementService.getProcurementRequestWithId(id)));

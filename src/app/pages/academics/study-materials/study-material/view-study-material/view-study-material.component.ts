@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {PDFDocumentProxy} from 'ng2-pdf-viewer';
-import {Observable} from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
-import {map, mergeMap, takeUntil, tap} from 'rxjs/operators';
-import {StudyMaterialsService} from '../../services/study-materials.service';
-import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-container.mixin';
+import { Component, OnInit } from '@angular/core';
+import { PDFDocumentProxy } from 'ng2-pdf-viewer';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { StudyMaterialsService } from '../../services/study-materials.service';
+import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
   selector: 'app-view-study-material',
@@ -12,6 +13,7 @@ import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-
   styleUrls: ['./view-study-material.component.css']
 })
 export class ViewStudyMaterialComponent extends subscribedContainerMixin() implements OnInit {
+  faPlusCircle = faPlusCircle;
   pdf: any;
   outline: any[] = [];
   totalPages = 0;

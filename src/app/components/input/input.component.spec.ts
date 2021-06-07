@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { InputComponent } from './input.component';
 
 describe('InputComponent', () => {
@@ -12,7 +13,8 @@ describe('InputComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         ReactiveFormsModule,
-        BsDatepickerModule.forRoot()
+        BsDatepickerModule.forRoot(),
+        FontAwesomeTestingModule
       ],
       declarations: [InputComponent]
     })

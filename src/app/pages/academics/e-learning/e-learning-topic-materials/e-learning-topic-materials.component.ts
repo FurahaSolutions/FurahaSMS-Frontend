@@ -17,13 +17,12 @@ import {
   styleUrls: ['./e-learning-topic-materials.component.css']
 })
 export class ELearningTopicMaterialsComponent extends modalMixin() {
-  faTrash = faTrash;
-  faEdit = faEdit;
   @Input() learningContents: any[] = [];
   @Input() edit = false;
   @Input() courseId: number | undefined;
   @Input() topicId: number | undefined;
-
+  faTrash = faTrash;
+  faEdit = faEdit;
 
   constructor(store: Store, modalService: BsModalService) {
     super(modalService, store);

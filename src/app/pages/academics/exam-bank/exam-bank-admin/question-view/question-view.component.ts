@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
 @Component({
   selector: 'app-question-view',
@@ -16,6 +19,9 @@ export class QuestionViewComponent {
   @Output() activeQuestionChange = new EventEmitter();
   @Output() deleteQuestion = new EventEmitter();
   @Output() reorderQuestions = new EventEmitter();
+  faPlusCircle = faPlusCircle;
+  faEdit = faEdit;
+  faTrash = faTrash;
 
   constructor() {
   }

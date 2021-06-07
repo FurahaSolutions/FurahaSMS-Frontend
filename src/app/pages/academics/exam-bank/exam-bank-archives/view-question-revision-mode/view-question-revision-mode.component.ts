@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, SimpleChange, OnChanges } from '@angular/core';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 
 @Component({
   selector: 'app-view-question-revision-mode',
@@ -13,6 +14,7 @@ export class ViewQuestionRevisionModeComponent implements OnInit, OnChanges {
   @Input() questionsLength = 0;
   @Output() activeQuestionChange = new EventEmitter();
   @Output() answerChange = new EventEmitter();
+  faCheck = faCheck;
   answers: any;
 
   constructor() { }

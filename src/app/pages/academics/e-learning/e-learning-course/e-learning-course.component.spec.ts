@@ -1,8 +1,8 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {RouterTestingModule} from '@angular/router/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
-import {ELearningCourseComponent} from './e-learning-course.component';
+import { ELearningCourseComponent } from './e-learning-course.component';
 
 describe('ELearningCourseComponent', () => {
   let component: ELearningCourseComponent;

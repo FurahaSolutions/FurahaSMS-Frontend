@@ -5,6 +5,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {AppLoadingBubbleModule} from '../../../modules/app-loading-bubble';
 import {ViewTeacherSubjectsComponent} from './view-teacher-subjects.component';
 
@@ -18,8 +19,8 @@ describe('ViewTeacherSubjectsComponent', () => {
         HttpClientTestingModule,
         AppLoadingBubbleModule,
         RouterTestingModule.withRoutes([]),
-        ReactiveComponentModule
-
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ViewTeacherSubjectsComponent],
       providers: [

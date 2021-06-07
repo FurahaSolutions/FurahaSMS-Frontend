@@ -17,7 +17,7 @@ import { TeacherProfileEffects } from './store/effects/teacher-profile.effects';
 
 
 @NgModule({
-  declarations: [TeachersDashboardComponent, ViewTeacherComponent, ViewTeacherInfoComponent, ViewTeacherSubjectsComponent],
+declarations: [TeachersDashboardComponent, ViewTeacherComponent, ViewTeacherInfoComponent, ViewTeacherSubjectsComponent],
   imports: [
     CommonModule,
     TeachersRoutingModule,

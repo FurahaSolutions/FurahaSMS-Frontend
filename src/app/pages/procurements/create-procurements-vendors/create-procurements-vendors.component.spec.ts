@@ -13,6 +13,8 @@ import {AppStarLabelRequiredModule} from '../../../components/label-star-require
 import {TelInputComponent} from '../../../components/tel-input/tel-input.component';
 import {InputComponent} from '../../../components/input/input.component';
 import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
+import { TabErrorStateModule } from '../../../components/tab-error-state/app-tab-error.module';
+import { AppValidateSubmitButtonsModule } from '../../../components/validate-submit-buttons/validate-submit-buttons.module';
 import {CreateProcurementsVendorsComponent} from './create-procurements-vendors.component';
 
 describe('CreateProcurementsVendorsComponent', () => {
@@ -38,7 +40,9 @@ describe('CreateProcurementsVendorsComponent', () => {
         NgSelectModule,
         AppStarLabelRequiredModule,
         ReactiveComponentModule,
-        FontAwesomeTestingModule
+        FontAwesomeTestingModule,
+        TabErrorStateModule,
+        AppValidateSubmitButtonsModule
       ],
       declarations: [
         CreateProcurementsVendorsComponent,

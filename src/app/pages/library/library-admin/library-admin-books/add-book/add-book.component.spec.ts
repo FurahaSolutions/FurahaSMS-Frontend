@@ -20,6 +20,7 @@ import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testi
 import {AppStarLabelRequiredModule} from '../../../../../components/label-star-required/app-star-label-required';
 import {SelectLibraryClassComponent} from '../../../components/select-library-class/select-library-class.component';
 import {AppCheckboxModule} from '../../../../../shared/checkbox/checkbox.module';
+import { TabErrorStateModule } from '../../../../../components/tab-error-state/app-tab-error.module';
 import {AddBookComponent} from './add-book.component';
 
 describe('AddBookComponent', () => {
@@ -53,7 +54,8 @@ describe('AddBookComponent', () => {
         AppStarLabelRequiredModule,
         ReactiveComponentModule,
         AppCheckboxModule,
-        FontAwesomeTestingModule
+        FontAwesomeTestingModule,
+        TabErrorStateModule
       ],
       declarations: [AddBookComponent, SelectLibraryClassComponent],
       providers: [

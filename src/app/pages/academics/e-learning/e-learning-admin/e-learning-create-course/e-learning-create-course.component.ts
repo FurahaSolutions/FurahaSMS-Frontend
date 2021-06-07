@@ -1,19 +1,19 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {BehaviorSubject, combineLatest, Observable, of} from 'rxjs';
-import {UnitsService} from 'src/app/services/units.service';
-import {select, Store} from '@ngrx/store';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
-import {filter, map, mergeMap, takeUntil, tap} from 'rxjs/operators';
-import {ActivatedRoute, Router} from '@angular/router';
-import {AcademicYearService} from '../../../services/academic-year.service';
-import {ELearningService} from '../../services/e-learning.service';
-import {TopicNumberingService} from '../../../services/topic-numbering.service';
-import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-container.mixin';
-import {formWithEditorMixin} from '../../../../../shared/mixins/form-with-editor.mixin';
-import {modalMixin} from '../../../../../shared/mixins/modal.mixin';
-import {selectAcademicsCourse} from '../../../store/selectors/courses.selectors';
-import {ClassLevelUnitLevelAllocationService} from '../../../services/class-level-unit-level-allocation.service';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
+import { UnitsService } from 'src/app/services/units.service';
+import { select, Store } from '@ngrx/store';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { filter, map, mergeMap, takeUntil, tap } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AcademicYearService } from '../../../services/academic-year.service';
+import { ELearningService } from '../../services/e-learning.service';
+import { TopicNumberingService } from '../../../services/topic-numbering.service';
+import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
+import { formWithEditorMixin } from '../../../../../shared/mixins/form-with-editor.mixin';
+import { modalMixin } from '../../../../../shared/mixins/modal.mixin';
+import { selectAcademicsCourse } from '../../../store/selectors/courses.selectors';
+import { ClassLevelUnitLevelAllocationService } from '../../../services/class-level-unit-level-allocation.service';
 
 @Component({
   selector: 'app-e-learning-create-course',

@@ -8,6 +8,7 @@ import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/tes
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {ReactiveComponentModule} from '@ngrx/component';
 import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
+import { TabErrorStateModule } from '../../../components/tab-error-state/app-tab-error.module';
 import {ViewProcurementTendersAwardedComponent} from './view-procurement-tenders-awarded.component';
 
 describe('ViewProcurementTendersAwardedComponent', () => {
@@ -28,7 +29,8 @@ describe('ViewProcurementTendersAwardedComponent', () => {
           RouterTestingModule.withRoutes([]),
           HttpClientTestingModule,
           ModalModule.forRoot(),
-          ReactiveComponentModule
+          ReactiveComponentModule,
+          TabErrorStateModule
         ],
       declarations: [ViewProcurementTendersAwardedComponent, LoadingBubbleComponent],
       providers: [reducerProvider]

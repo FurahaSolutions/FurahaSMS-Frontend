@@ -5,7 +5,8 @@ import { StoreModule } from '@ngrx/store';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
 import { AppLinksModule } from '../../../../shared/links/links.module';
-import { LoadMyProfileModule } from '../../../my-profile/load-my-profile.module';
+import { myProfileFeatureKey, reducer } from '../../../my-profile/store/reducers/my-profile.reducer';
+import { appFeatureKey, reducers } from '../../../../store/reducers/app.reducer';
 import { BooksLendingComponent } from './books-lending.component';
 
 describe('BooksLendingComponent', () => {
@@ -23,7 +24,8 @@ describe('BooksLendingComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        LoadMyProfileModule,
+        StoreModule.forFeature(appFeatureKey, reducers),
+        StoreModule.forFeature(myProfileFeatureKey, reducer),
         AppLinksModule,
         FontAwesomeTestingModule
       ],

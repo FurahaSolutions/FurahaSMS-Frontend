@@ -7,6 +7,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ProcurementService} from 'src/app/services/procurement.service';
 import {of} from 'rxjs';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
 import {ChipsComponent} from '../../../components/chips/chips.component';
 import {ErrorComponent} from '../../../components/error/error.component';
@@ -29,7 +30,8 @@ describe('ProcurementsVendorsComponent', () => {
       }),
         RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [
         ProcurementsVendorsComponent,

@@ -7,6 +7,7 @@ import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LibraryAdminPublisherItemComponent } from './library-admin-publisher-item/library-admin-publisher-item.component';
 import { LibraryAdminPublisherRoutingModule } from './library-admin-publisher-routing.module';
 import { EditPublisherComponent } from './edit-publisher/edit-publisher.component';
@@ -34,7 +35,8 @@ import { LibraryAdminPublishersComponent } from './library-admin-publishers.comp
     AppInputModule,
     EditorModule,
     AppValidateSubmitButtonsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ],
   providers: [
     { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },

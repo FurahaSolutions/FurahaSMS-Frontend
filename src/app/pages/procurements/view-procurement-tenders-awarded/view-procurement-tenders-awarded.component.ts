@@ -5,6 +5,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { selectDialogShowState } from 'src/app/store/selectors/dialog.selector';
 import { showDialog } from 'src/app/store/actions/dialog.actions';
 import { takeUntil} from 'rxjs/operators';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
 import { FulfillOrRejectTenderFormComponent } from '../fulfill-or-reject-tender-form/fulfill-or-reject-tender-form.component';
 import * as fromStore from '../../../store/reducers';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
@@ -15,7 +17,8 @@ import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-cont
   styleUrls: ['./view-procurement-tenders-awarded.component.css']
 })
 export class ViewProcurementTendersAwardedComponent extends subscribedContainerMixin() {
-
+  faEye = faEye;
+  faCheck = faCheck;
   procurementTenders$ = this.procurementService.getAwardedTenders();
   config = {
     backdrop: false,

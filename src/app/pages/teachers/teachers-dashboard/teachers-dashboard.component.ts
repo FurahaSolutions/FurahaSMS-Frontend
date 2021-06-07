@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
-import {TeacherService} from '../../admissions/services/teacher.service';
+import { TeacherService } from '../../admissions/services/teacher.service';
 
 @Component({
   selector: 'app-teachers-dashboard',
@@ -9,6 +10,7 @@ import {TeacherService} from '../../admissions/services/teacher.service';
 })
 export class TeachersDashboardComponent {
   faPlusCircle = faPlusCircle;
+  faEye = faEye;
   teachers$ = this.teachersService.getActiveTeachers();
 
   constructor(private teachersService: TeacherService) {

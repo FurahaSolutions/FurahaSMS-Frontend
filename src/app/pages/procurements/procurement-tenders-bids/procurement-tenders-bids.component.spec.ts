@@ -5,6 +5,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
 import {ProcurementTendersBidsComponent} from './procurement-tenders-bids.component';
 
@@ -24,7 +25,8 @@ describe('ProcurementTendersBidsComponent', () => {
       }),
         RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ProcurementTendersBidsComponent, LoadingBubbleComponent],
       providers: [reducerProvider]

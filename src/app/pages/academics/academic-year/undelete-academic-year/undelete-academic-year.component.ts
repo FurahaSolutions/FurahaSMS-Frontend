@@ -13,9 +13,9 @@ import { AcademicYearService } from '../../services/academic-year.service';
   styleUrls: ['./undelete-academic-year.component.css']
 })
 export class UndeleteAcademicYearComponent extends formMixin(modalMixin()) {
+  @Input() id = 0;
   faTrash = faTrash;
   faSpinner = faSpinner;
-  @Input() id = 0;
   confirmation = '';
 
   constructor(store: Store, modalService: BsModalService,

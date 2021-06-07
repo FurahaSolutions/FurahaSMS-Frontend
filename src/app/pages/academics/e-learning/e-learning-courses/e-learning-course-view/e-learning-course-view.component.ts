@@ -5,6 +5,7 @@ import { map, mergeMap } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import { selectAcademicsCourse } from '../../../store/selectors/courses.selectors';
 import { selectICan } from '../../../../my-profile/store/selectors/my-profile.selectors';
 
@@ -16,6 +17,7 @@ import { selectICan } from '../../../../my-profile/store/selectors/my-profile.se
 export class ELearningCourseViewComponent {
   faChevronRight = faChevronRight;
   faEdit = faEdit;
+  faInfoCircle = faInfoCircle;
   courseId$ = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id')))
   );
@@ -29,6 +31,7 @@ export class ELearningCourseViewComponent {
     map(([courseId, course, editPermission]) =>
       ({courseId, course, editPermission}))
   );
+
 
 
   constructor(

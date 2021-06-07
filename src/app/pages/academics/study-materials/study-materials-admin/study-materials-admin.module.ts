@@ -7,6 +7,8 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AppValidateSubmitButtonsModule } from '../../../../components/validate-submit-buttons/validate-submit-buttons.module';
 import { AddStudyMaterialsTitleModule } from './add-study-materials-title/add-study-materials-title.module';
 import { CreateStudyMaterialComponent } from './create-study-material/create-study-material.component';
 import { StudyMaterialsAdminComponent } from './study-materials-admin.component';
@@ -24,7 +26,9 @@ import { StudyMaterialsAdminRoutingModule } from './study-materials-admin-routin
     ReactiveFormsModule,
     AddStudyMaterialsTitleModule,
     AppInputModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    AppValidateSubmitButtonsModule,
+    FontAwesomeModule
   ]
 })
 export class StudyMaterialsAdminModule { }

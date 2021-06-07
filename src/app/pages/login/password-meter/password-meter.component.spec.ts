@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../store/reducers';
+import { appFeatureKey, reducers } from '../../../store/reducers/app.reducer';
 import { PasswordMeterComponent } from './password-meter.component';
 
 describe('PasswordMeterComponent', () => {
@@ -8,7 +11,18 @@ describe('PasswordMeterComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [PasswordMeterComponent]
+      imports: [
+        StoreModule.forRoot(REDUCER_TOKEN, {
+          metaReducers,
+          runtimeChecks: {
+            strictStateImmutability: true,
+            strictActionImmutability: true,
+          }
+        }),
+        StoreModule.forFeature(appFeatureKey, reducers)
+      ],
+      declarations: [PasswordMeterComponent],
+      providers: [reducerProvider]
     })
       .compileComponents();
   }));

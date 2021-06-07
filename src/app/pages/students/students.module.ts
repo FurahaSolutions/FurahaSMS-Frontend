@@ -13,6 +13,7 @@ import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-subm
 import { ReactiveComponentModule } from '@ngrx/component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppCheckboxModule } from '../../shared/checkbox/checkbox.module';
+import { TabErrorStateModule } from '../../components/tab-error-state/app-tab-error.module';
 import { StudentsRoutingModule } from './students-routing.module';
 import { CreateStudentGuardianComponent } from './create-student-guardian/create-student-guardian.component';
 import { ViewStudentComponent } from './view-student/view-student.component';
@@ -52,7 +53,8 @@ import { EditStudentAcademicsComponent } from './edit-student-academics/edit-stu
     StudentDashboardModule,
     AppCheckboxModule,
     ReactiveComponentModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TabErrorStateModule
   ]
 })
 export class StudentsModule { }

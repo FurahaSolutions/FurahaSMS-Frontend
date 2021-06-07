@@ -1,13 +1,14 @@
-import {Component, ChangeDetectionStrategy} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs';
-import {AcademicYearService} from 'src/app/pages/academics/services/academic-year.service';
-import {map, mergeMap, tap} from 'rxjs/operators';
-import {modalMixin} from 'src/app/shared/mixins/modal.mixin';
-import {Store} from '@ngrx/store';
-import {BsModalService} from 'ngx-bootstrap/modal';
-import {TimeTableService} from '../../services/time-table.service';
-import {CreateAcademicYearTimeTableComponent} from '../create-academic-year-time-table/create-academic-year-time-table.component';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AcademicYearService } from 'src/app/pages/academics/services/academic-year.service';
+import { map, mergeMap, tap } from 'rxjs/operators';
+import { modalMixin } from 'src/app/shared/mixins/modal.mixin';
+import { Store } from '@ngrx/store';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { TimeTableService } from '../../services/time-table.service';
+import { CreateAcademicYearTimeTableComponent } from '../create-academic-year-time-table/create-academic-year-time-table.component';
 
 @Component({
   selector: 'app-time-table-academic-year-dashboard',
@@ -16,6 +17,7 @@ import {CreateAcademicYearTimeTableComponent} from '../create-academic-year-time
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TimeTableAcademicYearDashboardComponent extends modalMixin() {
+  faPlusCircle = faPlusCircle;
   academicYearId: number | undefined;
 
   academicYearId$: Observable<number> = this.route.paramMap.pipe(

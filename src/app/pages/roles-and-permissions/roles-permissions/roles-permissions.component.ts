@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { takeUntil} from 'rxjs/operators';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { RolesAndPermissionsService } from '../services/roles-and-permissions.service';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 
@@ -9,13 +10,14 @@ import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-cont
   styleUrls: ['./roles-permissions.component.css']
 })
 export class RolesPermissionsComponent extends subscribedContainerMixin() implements OnInit {
-
+  faEdit = faEdit;
   role = 0;
   roles$= this.rolesPermissionsService.roles$
     .pipe(takeUntil(this.destroyed$));
   roles: any[] = [];
   isLoading = true;
   filter: string | RegExp = '';
+
   constructor(
     private rolesPermissionsService: RolesAndPermissionsService
   ) {

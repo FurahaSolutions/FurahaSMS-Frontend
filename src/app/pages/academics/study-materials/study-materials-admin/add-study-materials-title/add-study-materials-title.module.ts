@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddStudyMaterialsTitleComponent } from './add-study-materials-title.component';
 
 
@@ -11,7 +12,8 @@ import { AddStudyMaterialsTitleComponent } from './add-study-materials-title.com
   ],
   imports: [
     CommonModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ],
   exports: [
     AddStudyMaterialsTitleComponent

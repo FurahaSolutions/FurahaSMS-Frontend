@@ -9,6 +9,7 @@ import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/redu
 import { RouterTestingModule } from '@angular/router/testing';
 import { EffectsModule } from '@ngrx/effects';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { LoginTokenComponent } from './login-token.component';
 
 describe('LoginTokenComponent', () => {
@@ -32,7 +33,8 @@ describe('LoginTokenComponent', () => {
           }
         }),
         EffectsModule.forRoot([]),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       providers: [reducerProvider],
       declarations: [LoginTokenComponent]

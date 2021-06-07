@@ -33,7 +33,7 @@
     <button [disabled]='!classLevelCategoryForm.valid || (submitInProgressAction$ | ngrxPush)' class='btn btn-success' type='submit'>
       {{ (editFormAction$ | ngrxPush) ? 'Update': 'Create'}}
       <fa-icon *ngIf='classLevelCategoryForm.valid && (submitInProgressAction$ | ngrxPush) === false' [icon]='faSave'></fa-icon>
-      <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush)' [icon]="faSave" [spin]="true"></fa-icon>
+      <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush)' [icon]="faSpinner" [spin]="true"></fa-icon>
     </button>
   </section>
 

@@ -14,7 +14,7 @@ import { BehaviorSubject, combineLatest } from 'rxjs';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 import { faUndoAlt } from '@fortawesome/free-solid-svg-icons/faUndoAlt';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
-import { faWindowMaximize } from '@fortawesome/free-solid-svg-icons';
+import { faWindowMaximize } from '@fortawesome/free-solid-svg-icons/faWindowMaximize';
 import { rotate360Metadata } from '../../../shared/animations/rotate_360.animation';
 
 interface BreadcrumbInterface {

@@ -15,6 +15,7 @@ import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testi
 import { AppStarLabelRequiredModule } from '../../../../components/label-star-required/app-star-label-required';
 import { ErrorComponent } from '../../../../components/error/error.component';
 import { InputComponent } from '../../../../components/input/input.component';
+import { TabErrorStateModule } from '../../../../components/tab-error-state/app-tab-error.module';
 import { CreateClassLevelCategoryComponent } from './create-class-level-category.component';
 
 describe('CreateClassLevelCategoryComponent', () => {
@@ -40,7 +41,8 @@ describe('CreateClassLevelCategoryComponent', () => {
         AppLoadingBubbleModule,
         AppStarLabelRequiredModule,
         ReactiveComponentModule,
-        FontAwesomeTestingModule
+        FontAwesomeTestingModule,
+        TabErrorStateModule
       ],
       declarations: [CreateClassLevelCategoryComponent, InputComponent, ErrorComponent],
       providers: [

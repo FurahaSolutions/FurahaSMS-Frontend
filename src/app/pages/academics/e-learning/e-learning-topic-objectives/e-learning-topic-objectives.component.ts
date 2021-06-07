@@ -1,13 +1,13 @@
-import {Component, Input, TemplateRef} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {BsModalService} from 'ngx-bootstrap/modal';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {takeUntil} from 'rxjs/operators';
-import {modalMixin} from '../../../../shared/mixins/modal.mixin';
-import {formMixin} from '../../../../shared/mixins/form.mixin';
-import {ELearningService} from '../services/e-learning.service';
-import {subscribedContainerMixin} from '../../../../shared/mixins/subscribed-container.mixin';
-import {loadCourses} from '../../store/actions/courses.actions';
+import { Component, Input, TemplateRef } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { takeUntil } from 'rxjs/operators';
+import { modalMixin } from '../../../../shared/mixins/modal.mixin';
+import { formMixin } from '../../../../shared/mixins/form.mixin';
+import { ELearningService } from '../services/e-learning.service';
+import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
+import { loadCourses } from '../../store/actions/courses.actions';
 import {
   ELearningDeleteLearningOutcomeComponent
 } from '../e-learning-admin/e-learning-delete-learning-outcome/e-learning-delete-learning-outcome.component';

@@ -7,6 +7,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StoreModule } from '@ngrx/store';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { PasswordChangeFormComponent } from './password-change-form.component';
 
 describe('PasswordChangeFormComponent', () => {
@@ -27,7 +28,8 @@ describe('PasswordChangeFormComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       providers: [reducerProvider],
       declarations: [PasswordChangeFormComponent]

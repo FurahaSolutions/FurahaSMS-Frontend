@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ELearningCourseModule } from '../e-learning-course/e-learning-course.module';
 import { ELearningAdminRoutingModule } from './e-learning-admin-routing.module';
 import { ELearningAdminComponent } from './e-learning-admin.component';
@@ -22,7 +23,8 @@ import { ELearningDeleteLearningOutcomeComponent } from './e-learning-delete-lea
     FormsModule,
     AppLoadingBubbleModule,
     ELearningCourseModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class ELearningAdminModule {

@@ -3,6 +3,8 @@ import { Store } from '@ngrx/store';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { BehaviorSubject, Observable, Observer, of } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import * as fromStore from '../../../../store/reducers';
 import { LibraryAuthorService } from '../../services/library-author.service';
 import { LibraryBookService } from '../../services/library-book.service';
@@ -53,6 +55,8 @@ export class LibrarySearchCatalogueComponent extends formMixin() {
       this.submitInProgressSubject$.next(false);
     })
   );
+  faInfoCircle = faInfoCircle;
+  faEye = faEye;
 
   constructor(
     private fb: FormBuilder, private store: Store<fromStore.AppState>,
