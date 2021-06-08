@@ -8,9 +8,9 @@ import { VIEW_UNIT_CURRICULUM } from 'src/app/helpers/links.helpers';
 import { formWithEditorMixin } from 'src/app/shared/mixins/form-with-editor.mixin';
 import { subscribedContainerMixin } from 'src/app/shared/mixins/subscribed-container.mixin';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
-import { SemesterService } from '../semester/services/semester.service';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { SemesterService } from '../semester/services/semester.service';
 
 @Component({
   selector: 'app-edit-unit',
@@ -19,10 +19,10 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 })
 
 export class EditUnitComponent extends subscribedContainerMixin(formWithEditorMixin()) implements OnInit {
-  faPlusCircle = faPlusCircle;
-  faTrash = faTrash;
   @Input() idIndex: number | undefined;
   @Output() valueChange: EventEmitter<any> = new EventEmitter();
+  faPlusCircle = faPlusCircle;
+  faTrash = faTrash;
   faChevronRight = faChevronRight;
   generalInfoHasErrorSubject$ = new BehaviorSubject<boolean>(false);
   generalInfoHasErrorAction$ = this.generalInfoHasErrorSubject$.asObservable();

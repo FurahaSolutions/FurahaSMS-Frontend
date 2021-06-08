@@ -14,7 +14,6 @@ import { faBalanceScale } from '@fortawesome/free-solid-svg-icons/faBalanceScale
 import { faBook } from '@fortawesome/free-solid-svg-icons/faBook';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons/faCalendarAlt';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import { faUserEdit } from '@fortawesome/free-solid-svg-icons/faUserEdit';
 import { faChild } from '@fortawesome/free-solid-svg-icons/faChild';
 import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons/faChalkboardTeacher';
@@ -153,7 +152,7 @@ export const initialState: State = {
       permissions: ['create teacher']
     },
     {
-      name: 'Edit Teacher Details', icon: faInfoCircle, link: 'admissions/staff/teachers/edit',
+      name: 'Edit Teacher Details', icon: faUserEdit, link: 'admissions/staff/teachers/edit',
       permissions: ['update teacher']
     }
   ],

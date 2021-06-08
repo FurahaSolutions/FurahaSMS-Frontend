@@ -3,11 +3,14 @@
   <app-loading-bubble></app-loading-bubble>
 </ng-container>
 <section class='d-flex flex-wrap'>
+  <pdf-viewer [src]='"https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf"'
+              [original-size]="false"
+  ></pdf-viewer>
   <div *ngIf="isLoaded" class="col-md-12 col-lg-12 d-flex justify-content-center">
-    <button aria-label="Toggle Outline" (click)='showOutline = !showOutline' class="btn btn-secondary btn-sm mr-2 align-self-start"><span
-        class="icon-align-justify"></span></button>
-    <button aria-label="Zoom in" (click)='zoomIn()' class="btn btn-secondary btn-sm mr-2"><span
-        class="icon-minus-circled"></span></button>
+    <button aria-label="Toggle Outline" (click)='showOutline = !showOutline' class="btn btn-secondary btn-sm mr-2 align-self-start">
+      <span class="icon-align-justify"></span></button>
+    <button aria-label="Zoom in" (click)='zoomIn()' class="btn btn-secondary btn-sm mr-2">
+      <span [icon]="faMinusCircle"></span></button>
     <button aria-label="Zoom out" (click)='zoomOut()' class="btn btn-secondary btn-sm mr-2">
       <fa-icon [icon]="faPlusCircle"></fa-icon>
     </button>

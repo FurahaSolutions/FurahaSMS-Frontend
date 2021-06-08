@@ -7,7 +7,7 @@
       <form [formGroup]='loginForm' (ngSubmit)='submitLoginForm()' class='card-body form-horizontal'>
         <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' label='Username'
                    placeholder='Enter username/email/admission number'
-                   id='username' formControlName='username' prependIcon='icon-user'
+                   id='username' formControlName='username'
                    autocomplete='username'>
           <fa-icon data-prependIcon [icon]="faUser"></fa-icon>
 

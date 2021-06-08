@@ -26,7 +26,8 @@ import { HeaderCollapseComponent } from './header-collapse/header-collapse.compo
     BreadcrumbComponent,
     MenuSearchComponent,
     UserButtonComponent,
-    LogoutButtonComponent
+    LogoutButtonComponent,
+    FontAwesomeModule
   ],
   imports: [
     CommonModule,

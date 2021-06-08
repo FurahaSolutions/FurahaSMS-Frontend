@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { Store, StoreModule } from '@ngrx/store';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { LogoutButtonComponent } from './logout-button.component';
 
 describe('LogoutButtonComponent', () => {
@@ -19,6 +20,7 @@ describe('LogoutButtonComponent', () => {
             strictActionImmutability: true,
           }
         }),
+        FontAwesomeTestingModule
       ],
       providers: [
         {

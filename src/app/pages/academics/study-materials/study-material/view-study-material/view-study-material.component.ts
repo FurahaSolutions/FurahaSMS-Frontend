@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faMinusCircle } from '@fortawesome/free-solid-svg-icons/faMinusCircle';
 import { StudyMaterialsService } from '../../services/study-materials.service';
 import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
 
@@ -14,6 +15,7 @@ import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribe
 })
 export class ViewStudyMaterialComponent extends subscribedContainerMixin() implements OnInit {
   faPlusCircle = faPlusCircle;
+  faMinusCircle = faMinusCircle;
   pdf: any;
   outline: any[] = [];
   totalPages = 0;

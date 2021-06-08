@@ -4,13 +4,15 @@ import { map, mergeMap, switchMap, tap } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faLockOpen } from '@fortawesome/free-solid-svg-icons/faLockOpen';
+import { faLock } from '@fortawesome/free-solid-svg-icons/faLock';
 import { selectICan } from '../../../my-profile/store/selectors/my-profile.selectors';
 import { modalMixin } from '../../../../shared/mixins/modal.mixin';
 import { CloseAcademicYearSectionComponent } from '../close-academic-year-section/close-academic-year-section.component';
 import { AcademicYearService } from '../../services/academic-year.service';
 import { DeleteAcademicYearComponent } from '../delete-academic-year/delete-academic-year.component';
 import { ArchiveAcademicYearComponent } from '../archive-academic-year/archive-academic-year.component';
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
 @Component({
   selector: 'app-academic-year-setting',
@@ -19,6 +21,8 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 })
 export class AcademicYearSettingComponent extends modalMixin() {
   faTrash = faTrash;
+  faLockOpen = faLockOpen;
+  faLock = faLock;
   academicYearId = 0;
   academicYearId$ = ((this.route.parent as ActivatedRoute).parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id'))),
@@ -37,9 +41,8 @@ export class AcademicYearSettingComponent extends modalMixin() {
     )
   );
   v$ = combineLatest([this.academicYear$, this.archivableItems$]).pipe(
-    map(([academicYear, archivableItems]) =>({academicYear, archivableItems}))
+    map(([academicYear, archivableItems]) => ({academicYear, archivableItems}))
   );
-
 
   constructor(
     private modalService: BsModalService,
@@ -59,7 +62,7 @@ export class AcademicYearSettingComponent extends modalMixin() {
   openArchiveModal() {
     this.openModal({
       id: this.academicYearId,
-      params: { archive: true},
+      params: {archive: true},
       component: ArchiveAcademicYearComponent
     });
   }
@@ -67,7 +70,7 @@ export class AcademicYearSettingComponent extends modalMixin() {
   openUnarchiveModal() {
     this.openModal({
       id: this.academicYearId,
-      params: { archive: false},
+      params: {archive: false},
       component: ArchiveAcademicYearComponent
     });
   }

@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { formMixin } from 'src/app/shared/mixins/form.mixin';
 import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { fadeInOutAnimationMetadata } from '../../../shared/animations/fade-in-out.animation';
 
 type IKey = 'dateOfBirth' | 'middleName' | 'firstName' | 'lastName' | 'otherNames' | 'email' | 'phone';
@@ -28,6 +30,8 @@ export class NameItemComponent extends formMixin() implements OnInit {
   @Output() valueChanged = new EventEmitter<{ fieldName: string; fieldNewValue: string }>();
   faSave = faSave;
   faSpinner = faSpinner;
+  faEdit = faEdit;
+  faPencilAlt = faPencilAlt;
   editHovered = false;
   editable = false;
   editMode$: Observable<boolean> = this.store.pipe(select(selectEditModeOnState));

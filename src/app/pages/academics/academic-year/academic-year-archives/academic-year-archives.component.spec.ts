@@ -6,8 +6,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { AcademicYearArchivesComponent } from './academic-year-archives.component';
-import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('AcademicYearArchivesComponent', () => {
   let component: AcademicYearArchivesComponent;

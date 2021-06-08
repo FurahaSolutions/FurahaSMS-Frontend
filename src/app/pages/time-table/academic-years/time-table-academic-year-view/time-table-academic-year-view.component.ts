@@ -13,6 +13,8 @@ import { ClassStreamService } from 'src/app/pages/academics/services/class-strea
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
 import { TimeTableService } from '../../services/time-table.service';
 
 @Component({
@@ -24,6 +26,8 @@ import { TimeTableService } from '../../services/time-table.service';
 export class TimeTableAcademicYearViewComponent {
   faChevronRight = faChevronRight;
   faEdit = faEdit;
+  faChevronUp = faChevronUp;
+  faChevronDown = faChevronDown;
   faInfoCircle = faInfoCircle;
   isOpen: boolean[] = [false];
 
@@ -104,6 +108,7 @@ export class TimeTableAcademicYearViewComponent {
 
     }, {})))
   );
+
 
 
 

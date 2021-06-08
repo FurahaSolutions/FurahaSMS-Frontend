@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ELearningService } from '../services/e-learning.service';
-import { ICourse } from '../interfaces/course.interface';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { ELearningService } from '../services/e-learning.service';
+import { ICourse } from '../interfaces/course.interface';
 
 @Component({
   selector: 'app-e-learning-admin',

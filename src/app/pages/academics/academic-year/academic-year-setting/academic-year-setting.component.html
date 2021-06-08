@@ -15,11 +15,11 @@
           <td>
             <button [disabled]="!archivableItem.allowed" (click)="openSaveModal({isOpen: true, slug:archivableItem.slug, name:archivableItem.name})"
                     *ngIf="!archivableItem.closed"
-                    class="btn btn-outline-success"><span class="icon-lock-open"></span>open
+                    class="btn btn-outline-success"><fa-icon [icon]="faLockOpen"></fa-icon>open
             </button>
             <button [disabled]="!archivableItem.allowed" (click)="openSaveModal({isOpen: false, slug:archivableItem.slug, name:archivableItem.name})"
-                    *ngIf="archivableItem.closed" class="btn btn-outline-warning"><span
-              class="icon-lock"></span>closed
+                    *ngIf="archivableItem.closed" class="btn btn-outline-warning">
+              <fa-icon [icon]="faLock"></fa-icon> closed
             </button>
           </td>
         </tr>
