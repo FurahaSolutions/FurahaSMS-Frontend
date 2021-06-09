@@ -12,6 +12,7 @@ import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-subm
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { libraryFeatureKey, reducers } from '../../../store/reducers';
 import { CreatePublisherComponent } from './create-publisher.component';
 
@@ -39,7 +40,8 @@ describe('CreatePublisherComponent', () => {
         RouterTestingModule.withRoutes([]),
         EditorModule,
         AppValidateSubmitButtonsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [CreatePublisherComponent],
       providers: [

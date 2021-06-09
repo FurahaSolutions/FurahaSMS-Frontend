@@ -6,6 +6,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faGraduationCap } from '@fortawesome/free-solid-svg-icons/faGraduationCap';
 import { AppState } from '../../../../store/reducers';
 import { OnlineAssessmentService } from '../services/online-assessment.service';
 import { loadCourses } from '../../store/actions/courses.actions';
@@ -27,6 +28,7 @@ export class TopicOnlineAssessmentListComponent extends subscribedContainerMixin
   faTrash = faTrash;
   faEdit = faEdit;
   faSpinner = faSpinner;
+  faGraduationCap = faGraduationCap;
   store: Store<AppState>;
   editedItem: { id: number; name: string; ['exam_paper_name']: string } | undefined;
   contentId: string | undefined;

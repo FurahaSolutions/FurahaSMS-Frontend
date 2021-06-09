@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
 import { ProcurementService } from 'src/app/services/procurement.service';
-import * as fromStore from '../../../store/reducers';
 
 @Component({
   selector: 'app-view-procurements-approved-requests',
@@ -10,8 +10,10 @@ import * as fromStore from '../../../store/reducers';
 })
 export class ViewProcurementsApprovedRequestsComponent {
   procurementItems$ = this.procurementService.getRequestsPendingTendering();
+  faChevronDown = faChevronDown;
+  faChevronUp = faChevronUp;
   isOpen = [false];
 
-  constructor(private store: Store<fromStore.AppState>, private procurementService: ProcurementService) {
+  constructor(private procurementService: ProcurementService) {
   }
 }

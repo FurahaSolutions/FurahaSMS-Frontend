@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faCog } from '@fortawesome/free-solid-svg-icons/faCog';
 import { AcademicYearService } from '../services/academic-year.service';
 import { selectICan } from '../../my-profile/store/selectors/my-profile.selectors';
 import { AppState } from '../../../store/reducers';
@@ -20,6 +21,7 @@ import { UndeleteAcademicYearComponent } from './undelete-academic-year/undelete
 })
 export class AcademicYearComponent extends modalMixin() {
   faChevronRight = faChevronRight;
+  faCog = faCog;
   showForm = this.fb.group({
     archived: [undefined],
     deleted: [undefined],

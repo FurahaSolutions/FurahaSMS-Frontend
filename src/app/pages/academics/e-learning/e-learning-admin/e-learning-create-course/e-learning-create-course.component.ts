@@ -6,6 +6,10 @@ import { select, Store } from '@ngrx/store';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { filter, map, mergeMap, takeUntil, tap } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons/faTimesCircle';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { AcademicYearService } from '../../../services/academic-year.service';
 import { ELearningService } from '../../services/e-learning.service';
 import { TopicNumberingService } from '../../../services/topic-numbering.service';
@@ -23,6 +27,10 @@ import { ClassLevelUnitLevelAllocationService } from '../../../services/class-le
 })
 export class ELearningCreateCourseComponent
   extends subscribedContainerMixin(modalMixin(formWithEditorMixin())) implements OnInit {
+  faPlusCircle = faPlusCircle;
+  faTrash = faTrash;
+  faEdit = faEdit;
+  faTimesCircle = faTimesCircle;
   units$: Observable<any[]> = this.unitsService.getAll();
   academicYears$: Observable<any[]> = this.academicYearService.all$;
   newCourseForm: FormGroup = this.fb.group({
@@ -125,9 +133,6 @@ export class ELearningCreateCourseComponent
   v$ = combineLatest([this.course$, this.academicYears$, this.units$, this.classLevels$]).pipe(
     map(([course, academicYears, units, classLevels]) => ({course, academicYears, units, classLevels}))
   );
-  faPlusCircle: any;
-  faTrash: any;
-  faEdit: any;
 
   constructor(
     modalService: BsModalService,

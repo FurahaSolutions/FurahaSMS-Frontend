@@ -13,7 +13,7 @@
 
       <div class="col-lg-12 d-flex flex-wrap justify-content-between pb-2"
       >
-        <span><i class="icon-college"></i>{{ assessment.exam_paper_name }}</span>
+        <span><fa-icon [icon]="faGraduationCap"></fa-icon>{{ assessment.exam_paper_name }}</span>
         <small>Available: {{ assessment.available_at | date: 'MMM dd, y h:mm a' }} - {{ assessment.closing_at | date: 'MMM dd, y h:mm a' }}</small>
         <small>Period: {{ assessment.period | duration  }}</small>
 

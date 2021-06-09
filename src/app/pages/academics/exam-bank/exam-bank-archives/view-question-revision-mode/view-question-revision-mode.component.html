@@ -5,10 +5,13 @@
     </section>
     <section>
       <button type="button" class="btn btn-sm btn-secondary ml-2" (click)='activeQuestionPrevious()'
-        [disabled]='activeQuestion === 0'> <span class="icon-left-bold"></span>
-        Previous</button>
+              [disabled]='activeQuestion === 0'>
+        <fa-icon [icon]="faAngleDoubleLeft"></fa-icon>
+        Previous
+      </button>
       <button (click)='activeQuestionNext()' [disabled]='activeQuestion === (questionsLength - 1)' type="button"
-        class="btn btn-sm btn-secondary ml-2"> <span class="icon-right-bold"></span>
+              class="btn btn-sm btn-secondary ml-2">
+        <fa-icon [icon]="faAngleDoubleRight"></fa-icon>
         Next
 
       </button>
@@ -31,21 +34,23 @@
             [class.incorrect-answer]="(!answer.isCorrect === answer.selected) && (!answer.isCorrect)"
             *ngFor='let answer of question.answers; let k = index'
             class="list-group-item list-group-flush bg-dark mt-1">
-            <span [class.text-success]='answer.isCorrect'
-              [class.icon-check-empty]='!answer.isCorrect && !answer.selected' [class.icon-check]="answer.isCorrect || answer.selected"
-              style="font-size: 1.2rem;"></span> <span> {{ k | number2Alphabet }}.</span> {{ answer.description }}
-              <span aria-live="polite" style="width: 100%; display: block; font-size: 0.7em" *ngIf='(!!answer.isCorrect === answer.selected) && (!!answer.isCorrect)'>
+            <fa-icon [class.text-success]='answer.isCorrect'
+                  [icon]="(answer.isCorrect || answer.selected) ? faCheckSquare : faSquare "
+                  style="font-size: 1.2rem;"></fa-icon> <span> {{ k | number2Alphabet }}.</span> {{ answer.description }}
+            <span aria-live="polite" style="width: 100%; display: block; font-size: 0.7em"
+                  *ngIf='(!!answer.isCorrect === answer.selected) && (!!answer.isCorrect)'>
                 <fa-icon [icon]="faCheck"></fa-icon> This is Correct
               </span>
-              <span aria-live="polite" style="width: 100%; display: block; font-size: 0.7em" *ngIf='(!answer.isCorrect === answer.selected) && (!answer.isCorrect)'>
-                <span class="icon-cancel"></span>  This is Incorrect
+            <span aria-live="polite" style="width: 100%; display: block; font-size: 0.7em"
+                  *ngIf='(!answer.isCorrect === answer.selected) && (!answer.isCorrect)'>
+                <fa-icon [icon]="faTimes"></fa-icon>  This is Incorrect
               </span>
           </li>
         </ng-container>
         <ng-template #notValidated>
           <li *ngFor='let answer of answers; let k = index' class="list-group-item list-group-flush bg-dark">
             <app-checkbox [label]='(k | number2Alphabet) + ". " + answer.description'
-              (ngModelChange)='emitChangedAnswer(k)' [(ngModel)]='answers[k].selected'></app-checkbox>
+                          (ngModelChange)='emitChangedAnswer(k)' [(ngModel)]='answers[k].selected'></app-checkbox>
           </li>
         </ng-template>
 
@@ -56,13 +61,14 @@
       [disabled]='answerSelected(question.answers) && question.multipleChoices'
       (click)='question.validated = true'
       *ngIf='!question.validated'
-      class="btn btn-success btn-sm"> Check </button>
+      class="btn btn-success btn-sm"> Check
+    </button>
     <section *ngIf='question.validated' [attr.aria-labelledby]='"explanation" + i' tabindex="0">
       <strong [id]='"explanation" + i'>Explanation: </strong><span
-        [innerHtml]='question.correctAnswerDescription'></span>
+      [innerHtml]='question.correctAnswerDescription'></span>
       <section aria-label="This Question is tagged">
         <span *ngFor='let tag of question.tags; let j = index'
-          class="badge badge-secondary p-1 mr-2 mb-2 pl-2 pr-2">{{ tag }}</span>
+              class="badge badge-secondary p-1 mr-2 mb-2 pl-2 pr-2">{{ tag }}</span>
       </section>
     </section>
   </section>

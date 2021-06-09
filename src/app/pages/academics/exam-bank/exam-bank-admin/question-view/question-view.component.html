@@ -1,14 +1,17 @@
 <section class="card mt-1" *ngIf='i === activeQuestion'>
   <section class="card-header d-flex flex-wrap justify-content-between align-items-center">
     <section class="badge badge-primary">Qn:{{ i + 1 }} [{{ question.points | number:'1.1-1' }} points] <span
-        class="sr-only">Question {{ i + 1 }}</span>
+      class="sr-only">Question {{ i + 1 }}</span>
     </section>
     <section>
       <button type="button" class="btn btn-sm btn-secondary ml-2" (click)='activeQuestionPrevious()'
-        [disabled]='activeQuestion === 0'> <span class="icon-left-bold"></span>
-        Previous</button>
+              [disabled]='activeQuestion === 0'>
+        <fa-icon [icon]="faAngleDoubleLeft"></fa-icon>
+        Previous
+      </button>
       <button (click)='activeQuestionNext()' [disabled]='activeQuestion === (questionsLength - 1)'
-        type="button" class="btn btn-sm btn-secondary ml-2"> <span class="icon-right-bold"></span>
+              type="button" class="btn btn-sm btn-secondary ml-2">
+        <fa-icon [icon]="faAngleDoubleRight"></fa-icon>
         Next
 
       </button>
@@ -20,7 +23,7 @@
       <div [innerHTML]="question.description"></div>
       <section>
         <span *ngFor='let tag of question.tags; let j = index'
-          class="badge badge-secondary p-1 mr-2 mb-2 pl-2 pr-2">{{ tag }}</span>
+              class="badge badge-secondary p-1 mr-2 mb-2 pl-2 pr-2">{{ tag }}</span>
       </section>
     </section>
     <fieldset class="bg-dark mt-1">
@@ -28,11 +31,14 @@
       <span *ngIf='!question.multipleChoices'>[Question has no choices]</span>
       <span *ngIf='!question.multipleAnswers && question.multipleChoices'>[Question has one correct answer]</span>
       <span *ngIf='question.multipleAnswers  && question.multipleChoices'>[Question can have multiple answers]</span>
-      <ul class="list-group ">
+      <ul class="list-group">
         <li *ngFor='let answer of question.answers; let k = index' class="list-group-item list-group-flush bg-dark">
-          {{ k | number2Alphabet }}. <span [class.text-success]='answer.isCorrect'
-            [class.icon-check-empty]='!answer.isCorrect' [class.icon-check]="answer.isCorrect"
-            style="font-size: 1.2rem;"></span> {{ answer.description }}
+          {{ k | number2Alphabet }}.
+
+          <fa-icon style="font-size: 1.2rem;"
+                   [class.text-success]='answer.isCorrect'
+                   [icon]="answer.isCorrect ? (question.multipleAnswers ? faCheckSquare : faCheckCircle) : (question.multipleAnswers ? faSquare : faCircle) "></fa-icon>
+
         </li>
       </ul>
 
@@ -45,28 +51,38 @@
     <section>
       <button type="button" class="btn btn-sm btn-secondary ml-2" (click)='editRequest("add-before", i)'>
         <fa-icon [icon]="faPlusCircle"></fa-icon>
-        <span class="icon-up-fat"></span>
+        <fa-icon [icon]="faArrowAltCircleUp"></fa-icon>
         Add
-        Before</button>
+        Before
+      </button>
       <button (click)='editRequest("add-after", i)' type="button" class="btn btn-sm btn-secondary ml-2">
         <fa-icon [icon]="faPlusCircle"></fa-icon>
-        <span class="icon-down-fat"></span>
-        Add After</button>
+        <fa-icon [icon]="faArrowAltCircleDown"></fa-icon>
+        Add After
+      </button>
       <button type="button" class="btn btn-sm btn-primary ml-2" (click)='editRequest("edit", i)'>
-        <fa-icon [icon]="faEdit"></fa-icon> Edit</button>
+        <fa-icon [icon]="faEdit"></fa-icon>
+        Edit
+      </button>
       <button [disabled]='questionsLength === 1' (click)='deleteQuestionRequest(i)' type="button"
-        class="btn btn-sm btn-danger ml-2"><fa-icon [icon]="faTrash"></fa-icon> Delete</button>
+              class="btn btn-sm btn-danger ml-2">
+        <fa-icon [icon]="faTrash"></fa-icon>
+        Delete
+      </button>
     </section>
     <section>
 
       <button [disabled]='activeQuestion === 0' (click)='reorderQuestionsRequest({ move: "up", index: i})' type="button"
-        class="btn btn-sm btn-secondary ml-2">
-        <span class="icon-up"></span>
-        <span class="sr-only">Reorder </span>Move Up</button>
-      <button [disabled]='activeQuestion === (questionsLength - 1)' (click)='reorderQuestionsRequest({ move: "down", index: i})'
-        type="button" class="btn btn-sm btn-secondary ml-2">
-        <span class="icon-down"></span>
-        <span class="sr-only">Reorder</span>Move Down</button>
+              class="btn btn-sm btn-secondary ml-2">
+        <fa-icon [icon]="faLevelUpAlt"></fa-icon>
+        <span class="sr-only">Reorder </span>Move Up
+      </button>
+      <button [disabled]='activeQuestion === (questionsLength - 1)'
+              (click)='reorderQuestionsRequest({ move: "down", index: i})'
+              type="button" class="btn btn-sm btn-secondary ml-2">
+        <fa-icon [icon]="faLevelDownAlt"></fa-icon>
+        <span class="sr-only">Reorder</span>Move Down
+      </button>
     </section>
   </section>
 </section>

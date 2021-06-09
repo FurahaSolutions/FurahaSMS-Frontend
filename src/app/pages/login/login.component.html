@@ -23,8 +23,8 @@
           <app-checkbox formControlName="rememberMe" label="Remember Me" class="mr-4"></app-checkbox>
           <button [disabled]='(submitButtonActive$ | ngrxPush) === false' class='btn btn-success' type='submit'>
             Login
-            <i *ngIf='loginForm.valid && ((submitInProgressAction$ | ngrxPush) === false)' class='icon-login'></i>
-            <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
+            <fa-icon *ngIf='loginForm.valid && ((submitInProgressAction$ | ngrxPush) === false)' [icon]='faSignInAlt'></fa-icon>
+            <fa-icon *ngIf='submitInProgressAction$ | ngrxPush' [icon]='faSpinner' [spin]="true"></fa-icon>
           </button>
         </section>
       </form>

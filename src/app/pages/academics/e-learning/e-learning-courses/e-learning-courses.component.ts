@@ -2,6 +2,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { faFolderOpen } from '@fortawesome/free-solid-svg-icons/faFolderOpen';
+import { faFolder } from '@fortawesome/free-solid-svg-icons/faFolder';
 import { ICourse } from '../interfaces/course.interface';
 import { ELearningService } from '../services/e-learning.service';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
@@ -13,6 +15,8 @@ import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-c
 })
 export class ELearningCoursesComponent extends subscribedContainerMixin() implements OnDestroy {
   faInfoCircle = faInfoCircle;
+  faFolderOpen = faFolderOpen;
+  faFolder = faFolder;
   limit = 100;
   courses$: Observable<ICourse[]> = this.eLearningService.getCourses({limit: this.limit})
     .pipe(takeUntil(this.destroyed$));
@@ -31,17 +35,6 @@ export class ELearningCoursesComponent extends subscribedContainerMixin() implem
   constructor(private eLearningService: ELearningService) {
     super();
   }
-
-  // get filteredCourses(): ICourse[] {
-  //   return this.courses.filter(course => {
-  //
-  //     return (course.name && course.name.includes(this.filterString)) ||
-  //       (course.classLevelName && course.classLevelName.includes(this.filterString)) ||
-  //       (course.academicYearName && course.academicYearName.includes(this.filterString)) ||
-  //       (course.unitName && course.unitName.includes(this.filterString));
-  //   });
-  //
-  // }
 
 
   toggleCollapse(i: number) {

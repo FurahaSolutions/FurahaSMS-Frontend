@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map, mergeMap, takeUntil, tap } from 'rxjs/operators';
 import { CanvasService } from 'src/app/services/canvas.service';
 import { combineLatest } from 'rxjs';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 import { selectLibraryBookPublisher } from '../../../store/selectors/library.selectors';
 import { formWithEditorMixin } from '../../../../../shared/mixins/form-with-editor.mixin';
 import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
@@ -18,6 +19,7 @@ import * as fromStore from '../../../../../store/reducers';
 })
 export class CreatePublisherComponent extends subscribedContainerMixin(formWithEditorMixin()) implements AfterViewInit {
   @ViewChild('profilePicImgTag') profilePicImgTag: ElementRef | undefined;
+  faSpinner = faSpinner;
   newBookPublisherForm: FormGroup = this.fb.group({
     id: [0, []],
     name: ['', [Validators.required]],

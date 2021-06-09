@@ -5,8 +5,9 @@
   <div id='page-content-wrapper' style="max-height: 34rem">
     <app-header></app-header>
     <div tabindex="0" class='container-fluid' id="main">
-      <button (click)='closeFullScreenMode()' class="escape-fullsreen icon-resize-small btn text-light"><span
-        class="sr-only">Exit Full Screen</span></button>
+      <button (click)='closeFullScreenMode()' class="escape-fullsreen btn text-light">
+        <fa-icon [icon]="faCompressArrowsAlt"></fa-icon>
+        <span class="sr-only">Exit Full Screen</span></button>
       <div class="pb-4" [@routerTransition]="getState(o)">
         <router-outlet #o="outlet"></router-outlet>
       </div>

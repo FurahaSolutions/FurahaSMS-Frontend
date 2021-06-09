@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {Observable, throwError} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
-import {map, catchError, shareReplay, tap} from 'rxjs/operators';
-import {select, Store} from '@ngrx/store';
-import {selectTeacher} from '../../teachers/store/selectors/teacher-profile.selectors';
-import {loadTeacherProfiles} from '../../teachers/store/actions/teacher-profile.actions';
+import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { catchError, map, shareReplay, tap } from 'rxjs/operators';
+import { select, Store } from '@ngrx/store';
+import { selectTeacher } from '../../teachers/store/selectors/teacher-profile.selectors';
+import { loadTeacherProfiles } from '../../teachers/store/actions/teacher-profile.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class TeacherService {
   saveTeacher(data: any): Observable<any> {
     const submitDate = {
       ...data,
-      ['date_of_birth']: data.dateOfBirth,
+      ['date_of_birth']: new Date(data.dateOfBirth).toISOString().substr(0, 10),
       ['first_name']: data.firstName,
       ['last_name']: data.lastName,
       ['middle_name']: data.middleName,

@@ -8,6 +8,8 @@ import { AbstractControl, FormArray, FormBuilder, FormGroup } from '@angular/for
 import { TabsetComponent } from 'ngx-bootstrap/tabs/public_api';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
 import { selectPlanForAcademicYearWithId } from '../store/selectors/academic-year-plan.selectors';
 import { FinancialPlanService } from '../../services/financial-plan.service';
 import { FinancialCostsService } from '../../services/financial-costs.service';
@@ -23,6 +25,8 @@ import { loadAcademicYearPlans } from '../store/actions/academic-year-plan.actio
 export class EditAcademicYearFinancialPlanComponent extends subscribedContainerMixin(formMixin()) {
   @ViewChild('staticTabs', {static: false}) staticTabs: TabsetComponent | undefined;
   faChevronRight = faChevronRight;
+  faChevronUp = faChevronUp;
+  faChevronDown = faChevronDown;
   isOpen = [false];
   isOpenTransport = [false];
   academicYearPlanId$ = (this.route.parent as ActivatedRoute).paramMap.pipe(

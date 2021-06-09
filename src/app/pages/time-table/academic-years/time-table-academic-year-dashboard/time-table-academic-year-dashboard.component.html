@@ -9,7 +9,7 @@
       <ul class="list-group d-flex flex-wrap justify-content-between">
         <li class="list-group-item bg-dark col-lg-4" *ngFor='let timeTable of timeTables'>
           <a [routerLink]='["timetables", timeTable.id]' class="btn-block">
-            <span class='icon-clock'></span>
+            <fa-icon [icon]='faClock'></fa-icon>
             {{ timeTable.description }}
           </a>
         </li>

@@ -9,8 +9,8 @@
       <section accordion-heading class="active d-flex justify-content-between">
         <h2>{{ timing.description }}</h2>
         <section>
-          <button class="btn btn-primary btn-sm"><span [class.icon-down-dir]='!isOpen[i]'
-              [class.icon-up-dir]='isOpen[i]'></span>View</button>
+          <button class="btn btn-primary btn-sm">
+            <fa-icon [icon]="isOpen[i] ? faChevronUp : faChevronDown"></fa-icon> View</button>
         </section>
       </section>
       <section>

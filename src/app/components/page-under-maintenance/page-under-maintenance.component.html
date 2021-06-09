@@ -1,10 +1,7 @@
 <section class='alert alert-info'>
-  <h3 class="text-dark"><i class='icon-wrench'></i>Page Under Maintenance</h3>
-  <i class='icon-cog animate-spin'></i>The Requested Page is under maintenance and will be back soon
-  <button
-    routerLink='/dashboard'
-    class='btn btn-outline-primary'
-  >
+  <h3 class="text-dark"><fa-icon [icon]='faWrench'></fa-icon>Page Under Maintenance</h3>
+  <fa-icon [icon]='faCog' [spin]="true"></fa-icon>The Requested Page is under maintenance and will be back soon
+  <button routerLink='/dashboard' class='btn btn-outline-primary'>
     Home
   </button>
 </section>

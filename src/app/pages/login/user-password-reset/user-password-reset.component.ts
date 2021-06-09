@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { map, mergeMap, tap } from 'rxjs/operators';
 import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faKey } from '@fortawesome/free-solid-svg-icons/faKey';
 import { formMixin } from '../../../shared/mixins/form.mixin';
 import { UsersService } from '../../../services/users.service';
 
@@ -15,6 +16,7 @@ import { UsersService } from '../../../services/users.service';
 export class UserPasswordResetComponent extends formMixin() {
   faSpinner = faSpinner;
   faSave = faSave;
+  faKey = faKey;
   routeId$ = this.route.parent?.parent?.parent?.paramMap.pipe(map(params => Number(params.get('id'))));
 
   passwordResetForm = this.fb.group({

@@ -5,6 +5,9 @@ import { BehaviorSubject, Observable, Observer, of } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import * as fromStore from '../../../../store/reducers';
 import { LibraryAuthorService } from '../../services/library-author.service';
 import { LibraryBookService } from '../../services/library-book.service';
@@ -18,6 +21,11 @@ import { formMixin } from '../../../../shared/mixins/form.mixin';
   styleUrls: ['./library-search-catalogue.component.css'],
 })
 export class LibrarySearchCatalogueComponent extends formMixin() {
+  faInfoCircle = faInfoCircle;
+  faEye = faEye;
+  faSearch = faSearch;
+  faSpinner = faSpinner;
+  faTimes = faTimes;
   searchParamsForm = this.fb.group({
     title: [''],
     author: [''],
@@ -55,8 +63,6 @@ export class LibrarySearchCatalogueComponent extends formMixin() {
       this.submitInProgressSubject$.next(false);
     })
   );
-  faInfoCircle = faInfoCircle;
-  faEye = faEye;
 
   constructor(
     private fb: FormBuilder, private store: Store<fromStore.AppState>,

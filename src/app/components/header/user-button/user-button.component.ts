@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild
 import { MyProfileService } from 'src/app/pages/my-profile/services/my-profile.service';
 import { BehaviorSubject, combineLatest, Observable, timer } from 'rxjs';
 import { finalize, takeWhile, tap } from 'rxjs/operators';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle';
 
 
 @Component({
@@ -11,8 +12,8 @@ import { finalize, takeWhile, tap } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserButtonComponent {
-
   @ViewChild('dropdown') dropDownMenu: ElementRef | undefined;
+  faUserCircle = faUserCircle;
   isCollapsed = false;
   isCollapsedSubject$ = new BehaviorSubject<boolean>(false);
   isCollapsedAction$ = this.isCollapsedSubject$.asObservable();

@@ -7,7 +7,7 @@
     </button>
     <div #dropdown [class.show]="(isCollapsedAction$ | ngrxPush) || ((isCollapsedAction$ | ngrxPush) !== isCollapsed)"
          class='dropdown-menu dropdown-menu-right bg-dark' aria-label='User Profile'>
-      <a (click)='toggleMenu()' class='dropdown-item' routerLink='/my-profile'><span class='icon-user'>My Profile</span></a>
+      <a (click)='toggleMenu()' class='dropdown-item' routerLink='/my-profile'><span><fa-icon [icon]="faUserCircle"></fa-icon> My Profile</span></a>
       <div class='dropdown-divider'></div>
       <app-logout-button (click)='toggleMenu()'></app-logout-button>
     </div>

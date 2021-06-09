@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { ELearningCourseModule } from '../e-learning-course/e-learning-course.module';
-import { metaReducers, REDUCER_TOKEN } from '../../../../store/reducers';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
 import { reducer, studentProfileFeatureKey } from '../../../students/store/reducers/student-profile.reducer';
 import { ELearningCoursesComponent } from './e-learning-courses.component';
 
@@ -37,7 +37,8 @@ describe('ELearningCoursesComponent', () => {
         StoreModule.forFeature(studentProfileFeatureKey, reducer),
         FontAwesomeTestingModule
       ],
-      declarations: [ELearningCoursesComponent]
+      declarations: [ELearningCoursesComponent],
+      providers: [reducerProvider]
     })
       .compileComponents();
   }));

@@ -5,6 +5,7 @@ import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/redu
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { MenuSearchComponent } from '../menu-search/menu-search.component';
 import { UserButtonComponent } from '../user-button/user-button.component';
 import { myProfileFeatureKey, reducer } from '../../../pages/my-profile/store/reducers/my-profile.reducer';
@@ -31,7 +32,8 @@ describe('HeaderCollapseComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         RouterTestingModule.withRoutes([]),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [
         HeaderCollapseComponent,

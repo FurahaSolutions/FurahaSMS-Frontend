@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { selectErrorState } from 'src/app/store/selectors/error-message.selector';
 import { loadErrorMessagesFailure } from 'src/app/store/actions/error-message.actions';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons/faExclamationCircle';
 import * as fromStore from '../../store/reducers';
 
 @Component({
@@ -12,6 +13,7 @@ import * as fromStore from '../../store/reducers';
 })
 export class ErrorComponent {
   faTimes = faTimes;
+  faExclamationCircle = faExclamationCircle;
   errorBody$ = this.store.select(selectErrorState);
 
   constructor(private store: Store<fromStore.AppState>) {

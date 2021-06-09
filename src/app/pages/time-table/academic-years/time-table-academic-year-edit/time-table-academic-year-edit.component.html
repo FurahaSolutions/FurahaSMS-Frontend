@@ -13,8 +13,8 @@
       <section accordion-heading class="d-flex justify-content-between">
         <h2 [class.active]="isOpen[i]">{{ classLevel.name }}</h2>
         <section>
-          <button type="button" class="btn btn-primary btn-sm"><span [class.icon-down-dir]='!isOpen[i]'
-                                                                     [class.icon-up-dir]='isOpen[i]'></span>View</button>
+          <button type="button" class="btn btn-primary btn-sm">
+            <fa-icon [icon]="isOpen[i] ? faChevronUp : faChevronDown"></fa-icon> View</button>
         </section>
       </section>
       <section>

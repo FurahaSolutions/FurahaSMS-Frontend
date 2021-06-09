@@ -173,8 +173,8 @@
                                      class="form-control" [(ngModel)]="subTopics[index].description">
                               <div class="input-group-append">
                                 <button type="button" [attr.aria-label]='"delete subtopic " + (index + 1)'
-                                        (click)='deleteSubTopic(index)' class="btn btn-xs btn-danger"><span
-                                  class="icon-cancel-circled-outline"></span>
+                                        (click)='deleteSubTopic(index)' class="btn btn-xs btn-danger">
+                                  <fa-icon [icon]="faTimesCircle"></fa-icon>
                                 </button>
                               </div>
                             </div>

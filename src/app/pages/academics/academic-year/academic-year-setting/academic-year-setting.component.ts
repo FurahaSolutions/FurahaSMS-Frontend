@@ -7,6 +7,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faLockOpen } from '@fortawesome/free-solid-svg-icons/faLockOpen';
 import { faLock } from '@fortawesome/free-solid-svg-icons/faLock';
+import { faArchive } from '@fortawesome/free-solid-svg-icons/faArchive';
 import { selectICan } from '../../../my-profile/store/selectors/my-profile.selectors';
 import { modalMixin } from '../../../../shared/mixins/modal.mixin';
 import { CloseAcademicYearSectionComponent } from '../close-academic-year-section/close-academic-year-section.component';
@@ -23,6 +24,7 @@ export class AcademicYearSettingComponent extends modalMixin() {
   faTrash = faTrash;
   faLockOpen = faLockOpen;
   faLock = faLock;
+  faArchive = faArchive;
   academicYearId = 0;
   academicYearId$ = ((this.route.parent as ActivatedRoute).parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id'))),

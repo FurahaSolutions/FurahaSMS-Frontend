@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormGroup } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
 import { appFeatureKey, reducers } from '../../../../store/reducers/app.reducer';
 import { FormErrorsComponent } from './form-errors.component';
@@ -19,7 +20,8 @@ describe('FormErrorsComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        StoreModule.forFeature(appFeatureKey, reducers)
+        StoreModule.forFeature(appFeatureKey, reducers),
+        FontAwesomeTestingModule
       ],
       declarations: [FormErrorsComponent],
       providers: [reducerProvider]

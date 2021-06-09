@@ -1,5 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {BarcodeComponent} from './barcode.component';
 import {AppBarcodeModule} from './barcode.module';
 
@@ -10,7 +11,8 @@ describe('BarcodeComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        AppBarcodeModule
+        AppBarcodeModule,
+        FontAwesomeTestingModule
       ],
       declarations: []
     })

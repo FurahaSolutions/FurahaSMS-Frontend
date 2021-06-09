@@ -14,6 +14,8 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight
 import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
 import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
 import { loadingMixin } from '../../../../shared/mixins/loading.mixin';
 import { TimeTableService } from '../../services/time-table.service';
 
@@ -28,6 +30,8 @@ export class TimeTableAcademicYearEditComponent extends loadingMixin() {
   faSave = faSave;
   faEdit = faEdit;
   faChevronRight = faChevronRight;
+  faChevronDown = faChevronDown;
+  faChevronUp = faChevronUp;
   academicYearId$: Observable<number> = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id')))
   );

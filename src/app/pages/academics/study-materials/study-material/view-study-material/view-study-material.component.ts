@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { PDFDocumentProxy } from 'ng2-pdf-viewer';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { map, mergeMap, takeUntil, tap } from 'rxjs/operators';
+import { map, mergeMap, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
 import { faMinusCircle } from '@fortawesome/free-solid-svg-icons/faMinusCircle';
+import { faAlignJustify } from '@fortawesome/free-solid-svg-icons/faAlignJustify';
+import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 import { StudyMaterialsService } from '../../services/study-materials.service';
 import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
 
@@ -16,6 +18,8 @@ import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribe
 export class ViewStudyMaterialComponent extends subscribedContainerMixin() implements OnInit {
   faPlusCircle = faPlusCircle;
   faMinusCircle = faMinusCircle;
+  faAlignJustify = faAlignJustify;
+  faExpandAlt = faExpandAlt;
   pdf: any;
   outline: any[] = [];
   totalPages = 0;
@@ -29,6 +33,12 @@ export class ViewStudyMaterialComponent extends subscribedContainerMixin() imple
   studyMaterial: any;
   zoom = 1;
   showOutline = true;
+  pdfSrc$ = this.studyMaterial$.pipe(
+    switchMap(studyMaterial =>
+      this.studyMaterialService.downloadDocumentWithFilePath(studyMaterial.file_document_info.file_path)
+    ),
+    map(res => window.URL.createObjectURL(res))
+  );
 
   constructor(
     private studyMaterialService: StudyMaterialsService,

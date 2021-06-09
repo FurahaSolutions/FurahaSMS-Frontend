@@ -1,12 +1,13 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {RouterTestingModule} from '@angular/router/testing';
-import {PdfViewerModule} from 'ng2-pdf-viewer';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
+import { RouterTestingModule } from '@angular/router/testing';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
-import {AddStudyMaterialsTitleModule} from '../../study-materials-admin/add-study-materials-title/add-study-materials-title.module';
-import {ViewStudyMaterialComponent} from './view-study-material.component';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { AddStudyMaterialsTitleModule } from '../../study-materials-admin/add-study-materials-title/add-study-materials-title.module';
+import { ViewStudyMaterialComponent } from './view-study-material.component';
 
 describe('ViewStudyMaterialComponent', () => {
   let component: ViewStudyMaterialComponent;
@@ -20,7 +21,8 @@ describe('ViewStudyMaterialComponent', () => {
         HttpClientTestingModule,
         AppLoadingBubbleModule,
         AddStudyMaterialsTitleModule,
-        FontAwesomeTestingModule
+        FontAwesomeTestingModule,
+        ReactiveComponentModule
       ],
       declarations: [ViewStudyMaterialComponent]
     })

@@ -15,6 +15,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons/faTimesCircle';
 import { ExamPaperQuestionsService } from '../../services/exam-paper-questions.service';
 import { loadExamPapers } from '../../store/actions/exam-paper.actions';
 import { answersMatchValidator } from '../../validators/answers-match.validator';
@@ -35,6 +36,7 @@ export class AdminExamPaperEditComponent extends subscribedContainerMixin(modalM
   faSave = faSave;
   faInfoCircle = faInfoCircle;
   faSpinner = faSpinner;
+  faTimesCircle = faTimesCircle;
   activeQuestion = 0;
   queries: IExamPaperQuestion[] = [];
   editDialogForm: FormGroup = this.fb.group({

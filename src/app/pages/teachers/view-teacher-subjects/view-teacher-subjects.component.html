@@ -15,7 +15,7 @@
           )</strong>
           <ul class="card-body list-group p-0">
             <li class="list-group-item bg-dark mb-1" *ngFor="let unitLevel of unit.levels">
-              <span class="icon-check"></span> {{ unitLevel.name }}
+              <fa-icon [icon]="faCheck"></fa-icon> {{ unitLevel.name }}
             </li>
           </ul>
         </li>

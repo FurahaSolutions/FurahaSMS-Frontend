@@ -22,7 +22,7 @@
       <section class="card p-2">
         <h2 [class.active]='isCollapsed[i]' [attr.aria-expanded]="!isCollapsed[i]"
             (click)="toggleCollapse(i)" class="mt-1">
-          <span [class.icon-folder-open]='isCollapsed[i]' [class.icon-folder]='!isCollapsed[i]'></span>Academic Year: {{ academicYearCourse[0] }}
+          <fa-icon [icon]="isCollapsed[i] ? faFolderOpen : faFolder"></fa-icon>Academic Year: {{ academicYearCourse[0] }}
 
         </h2>
         <div class="d-flex" *ngIf='isCollapsed[i]'>

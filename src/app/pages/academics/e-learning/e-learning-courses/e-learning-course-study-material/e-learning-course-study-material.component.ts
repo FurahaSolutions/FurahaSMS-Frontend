@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { combineLatest, Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
 import { StudyMaterialsService } from '../../../study-materials/services/study-materials.service';
 import { selectAcademicsCourse } from '../../../store/selectors/courses.selectors';
 import { ICourse } from '../../interfaces/course.interface';
@@ -15,6 +16,7 @@ import { ICourse } from '../../interfaces/course.interface';
 })
 export class ELearningCourseStudyMaterialComponent {
   faChevronRight = faChevronRight;
+  faDownload = faDownload;
   docSrc: string | undefined;
   studyMaterial: any;
   course: ICourse | null | undefined;

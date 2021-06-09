@@ -5,12 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './header-collapse.component.html',
   styleUrls: ['./header-collapse.component.less']
 })
-export class HeaderCollapseComponent implements OnInit {
+export class HeaderCollapseComponent {
 
   constructor() {
-  }
-
-  ngOnInit(): void {
   }
 
 }

@@ -28,12 +28,12 @@
       <button class='btn btn-success'
               [disabled]='!searchParamsForm.dirty || !searchParamsForm.valid || (submitInProgressAction$ | ngrxPush) '>
         Search
-        <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
-        <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-search'></i>
+        <fa-icon *ngIf='submitInProgressAction$ | ngrxPush' [icon]="faSpinner" [spin]="true"></fa-icon>
+        <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush) === false' [icon]="faSearch"></fa-icon>
       </button>
       <button [disabled]='!searchParamsForm.dirty' class="btn btn-secondary" type="button" (click)='clearForm()'>
         Clear
-        <i class='icon-cancel'></i>
+        <fa-icon [icon]="faTimes"></fa-icon>
       </button>
     </section>
   </form>

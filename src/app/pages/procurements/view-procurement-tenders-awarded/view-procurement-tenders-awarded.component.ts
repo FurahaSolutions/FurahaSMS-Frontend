@@ -7,6 +7,7 @@ import { showDialog } from 'src/app/store/actions/dialog.actions';
 import { takeUntil} from 'rxjs/operators';
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { FulfillOrRejectTenderFormComponent } from '../fulfill-or-reject-tender-form/fulfill-or-reject-tender-form.component';
 import * as fromStore from '../../../store/reducers';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
@@ -19,6 +20,7 @@ import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-cont
 export class ViewProcurementTendersAwardedComponent extends subscribedContainerMixin() {
   faEye = faEye;
   faCheck = faCheck;
+  faTimes = faTimes;
   procurementTenders$ = this.procurementService.getAwardedTenders();
   config = {
     backdrop: false,

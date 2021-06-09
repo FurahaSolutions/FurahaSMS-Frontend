@@ -55,19 +55,4 @@ export class LinkService {
     );
 
   }
-
-  // getAcademicYearLinks($id: number): Observable<LinkInterface[]> {
-  //   return this.filerAllowed([
-  //     {
-  //       name: 'Financial Plan',
-  //       icon: 'icon-dollar',
-  //       link: `academics/academic-year/${$id}/financial-plan`
-  //     },
-  //     {
-  //       name: 'Subjects/ Units',
-  //       icon: 'icon-user-plus',
-  //       link: `academics/academic-year/${$id}/units`
-  //     },
-  //   ]);
-  // }
 }

@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ProcurementService } from 'src/app/services/procurement.service';
@@ -6,6 +6,8 @@ import { selectErrorState } from 'src/app/store/selectors/error-message.selector
 import { closeDialog } from 'src/app/store/actions/dialog.actions';
 import { loadErrorMessagesFailure } from 'src/app/store/actions/error-message.actions';
 import { takeUntil, tap } from 'rxjs/operators';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons/faExclamationCircle';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import * as fromStore from '../../../store/reducers';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../shared/mixins/form.mixin';
@@ -17,6 +19,8 @@ import { formMixin } from '../../../shared/mixins/form.mixin';
 })
 export class CreateProcurementTenderBidComponent extends subscribedContainerMixin(formMixin()) {
   @Input() tenderId = 0;
+  faExclamationCircle = faExclamationCircle;
+  faTimes = faTimes;
   newBidForm = this.fb.group({
     vendorName: ['', [Validators.required]],
     unitDescription: ['', [Validators.required]],
@@ -37,7 +41,7 @@ export class CreateProcurementTenderBidComponent extends subscribedContainerMixi
 
   closeDialog() {
     const dialogCloseConfirmed = confirm('Are you sure you wish to close add bid form?');
-    if(dialogCloseConfirmed) {
+    if (dialogCloseConfirmed) {
       this.store.dispatch(closeDialog());
     }
   }

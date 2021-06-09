@@ -7,6 +7,8 @@ import { UsersService } from 'src/app/services/users.service';
 import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { fadeInOutAnimationMetadata } from '../../../shared/animations/fade-in-out.animation';
 import { formMixin } from '../../../shared/mixins/form.mixin';
 
@@ -31,13 +33,14 @@ export class UserSelectItemComponent extends formMixin() implements OnInit {
   faSave = faSave;
   faCheck = faCheck;
   faSpinner = faSpinner;
+  faPencilAlt = faPencilAlt;
+  faEdit = faEdit;
   editMode$: Observable<boolean> | undefined = this.store.pipe(select(selectEditModeOnState));
   editable = false;
   editHovered = false;
   itemForm: FormGroup = this.fb.group({
     fieldName: ['', Validators.required]
   });
-
 
   constructor(
     private store: Store,

@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faBullseye } from '@fortawesome/free-solid-svg-icons';
 import { modalMixin } from '../../../../shared/mixins/modal.mixin';
 import { formMixin } from '../../../../shared/mixins/form.mixin';
 import { ELearningService } from '../services/e-learning.service';
@@ -28,6 +29,7 @@ export class ELearningTopicObjectivesComponent extends subscribedContainerMixin(
   @Input() learningOutcomes: any[] = [];
   faTrash = faTrash;
   faEdit = faEdit;
+  faBullseye = faBullseye;
 
   itemForm: FormGroup = this.fb.group({
     id: [null, [Validators.required]],

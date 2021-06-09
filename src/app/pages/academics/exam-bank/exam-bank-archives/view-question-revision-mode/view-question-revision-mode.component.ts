@@ -1,5 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, SimpleChange, OnChanges } from '@angular/core';
+import { faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons/faAngleDoubleLeft';
+import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons/faAngleDoubleRight';
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons/faCheckSquare';
+import { faSquare } from '@fortawesome/free-solid-svg-icons/faSquare';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
 @Component({
   selector: 'app-view-question-revision-mode',
@@ -16,6 +21,11 @@ export class ViewQuestionRevisionModeComponent implements OnInit, OnChanges {
   @Output() answerChange = new EventEmitter();
   faCheck = faCheck;
   answers: any;
+  faAngleDoubleLeft = faAngleDoubleLeft;
+  faAngleDoubleRight = faAngleDoubleRight;
+  faTimes = faTimes;
+  faSquare = faSquare;
+  faCheckSquare = faCheckSquare;
 
   constructor() { }
 
