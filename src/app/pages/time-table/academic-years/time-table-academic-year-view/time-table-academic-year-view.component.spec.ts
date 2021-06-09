@@ -1,17 +1,18 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {TimeTableAcademicYearViewComponent} from './time-table-academic-year-view.component';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {AccordionModule} from 'ngx-bootstrap/accordion';
-import {RouterTestingModule} from '@angular/router/testing';
-import {StoreModule} from '@ngrx/store';
-import {REDUCER_TOKEN, reducerProvider, metaReducers} from 'src/app/store/reducers';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ActivatedRoute} from '@angular/router';
-import {of} from 'rxjs';
-import {FormErrorsModule} from '../../../../shared/form-errors/form-errors.module';
-import {ReactiveComponentModule} from '@ngrx/component';
-import {AppLoadingBubbleModule} from '../../../../modules/app-loading-bubble';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { FormErrorsModule } from '../../../../shared/form-errors/form-errors.module';
+import { AppLoadingBubbleModule } from '../../../../modules/app-loading-bubble';
+import { TimeTableAcademicYearViewComponent } from './time-table-academic-year-view.component';
 
 describe('TimeTableAcademicYearViewComponent', () => {
   let component: TimeTableAcademicYearViewComponent;
@@ -33,7 +34,8 @@ describe('TimeTableAcademicYearViewComponent', () => {
         }),
         FormErrorsModule,
         ReactiveComponentModule,
-        AppLoadingBubbleModule
+        AppLoadingBubbleModule,
+        FontAwesomeTestingModule
       ],
       declarations: [TimeTableAcademicYearViewComponent],
       providers: [

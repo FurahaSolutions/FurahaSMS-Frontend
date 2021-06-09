@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
-import { StudyMaterialsService } from '../services/study-materials.service';
 import { tap } from 'rxjs/operators';
+import { StudyMaterialsService } from '../services/study-materials.service';
 
 @Component({
   selector: 'app-study-materials-archive',

@@ -1,13 +1,13 @@
-
 <app-form-errors [validated]="validatedAction$ | ngrxPush" [form]="formItem">
 </app-form-errors>
 
 <section class='d-flex justify-content-end mt-2'>
   <button *ngIf='!formItem.valid' (click)='triggerValidation()' type='button'
-    class='btn btn-secondary mr-4'>Validate</button>
+          class='btn btn-secondary mr-4'>Validate
+  </button>
 
   <button class='btn btn-success'
-    [disabled]='!formItem.dirty || !formItem.valid || isSubmitting'>
+          [disabled]='!formItem.dirty || !formItem.valid || isSubmitting'>
     <span #ref>
       <ng-content></ng-content>
     </span>
@@ -15,7 +15,7 @@
     <span *ngIf="ref.children.length === 0">
       Save Details
     </span>
-    <i *ngIf='isSubmitting' class='icon-spin3 animate-spin'></i>
-    <i *ngIf='!isSubmitting && formItem.valid && formItem.dirty' class='icon-ok-1'></i>
+    <fa-icon *ngIf='isSubmitting' [spin]="true" [icon]="faSpinner"></fa-icon>
+    <fa-icon *ngIf='!isSubmitting && formItem.valid && formItem.dirty' [icon]='faSave'></fa-icon>
   </button>
 </section>

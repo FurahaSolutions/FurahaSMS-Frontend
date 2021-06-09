@@ -1,12 +1,13 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ArchiveAcademicYearComponent} from './archive-academic-year.component';
 import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
 import {FormsModule} from '@angular/forms';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
+import {ArchiveAcademicYearComponent} from './archive-academic-year.component';
 
 describe('ArchiveAcademicYearComponent', () => {
   let component: ArchiveAcademicYearComponent;
@@ -25,7 +26,8 @@ describe('ArchiveAcademicYearComponent', () => {
         ModalModule.forRoot(),
         HttpClientTestingModule,
         ReactiveComponentModule,
-        FormsModule
+        FormsModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ArchiveAcademicYearComponent],
       providers: [reducerProvider]

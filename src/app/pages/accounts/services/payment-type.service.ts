@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { selectPaymentMethods } from '../store/selectors/payment-type.selectors';
 import { tap, filter } from 'rxjs/operators';
-import { loadPaymentTypes } from '../store/actions/payment-type.actions';
 import { HttpClient } from '@angular/common/http';
+import { selectPaymentMethods } from '../store/selectors/payment-type.selectors';
+import { loadPaymentTypes } from '../store/actions/payment-type.actions';
 
 @Injectable({
   providedIn: 'root'

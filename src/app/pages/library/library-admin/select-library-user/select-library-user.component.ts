@@ -1,10 +1,10 @@
-import { Component, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BehaviorSubject, Observable, Observer, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
-import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
-import { IUserProfile } from '../../../../interfaces/user-profile.interface';
-import { LibraryBookService } from '../../services/library-book.service';
+import {Component, forwardRef} from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {BehaviorSubject, Observable, Observer, of} from 'rxjs';
+import {map, switchMap} from 'rxjs/operators';
+import {TypeaheadMatch} from 'ngx-bootstrap/typeahead';
+import {IUserProfile} from '../../../../interfaces/user-profile.interface';
+import {LibraryBookService} from '../../services/library-book.service';
 
 @Component({
   selector: 'app-select-library-user',
@@ -46,7 +46,7 @@ export class SelectLibraryUserComponent implements ControlValueAccessor {
   }
 
   writeValue(value: number): void {
-    if(value) {
+    if (value) {
       this.controlValue = value;
     }
   }

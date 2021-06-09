@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ViewStudyMaterialComponent } from './view-study-material.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { AddStudyMaterialsTitleModule } from '../../study-materials-admin/add-study-materials-title/add-study-materials-title.module';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { FormsModule } from '@angular/forms';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AddStudyMaterialsTitleModule } from '../../study-materials-admin/add-study-materials-title/add-study-materials-title.module';
+import { ViewStudyMaterialComponent } from './view-study-material.component';
 
 
 
@@ -17,7 +18,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
     AddStudyMaterialsTitleModule,
     AppLoadingBubbleModule,
     FormsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ],
   exports: [ViewStudyMaterialComponent]
 })

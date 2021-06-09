@@ -9,6 +9,7 @@ import { VIEW_UNIT_CURRICULUM } from 'src/app/helpers/links.helpers';
 import { AppState } from 'src/app/store/reducers';
 import { loadErrorMessagesSuccess } from 'src/app/store/actions/error-message.actions';
 import { takeUntil } from 'rxjs/operators';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../../shared/mixins/form.mixin';
 
@@ -34,6 +35,7 @@ export class CreateUnitComponent extends subscribedContainerMixin(formMixin()) i
   @Input() hasCategories = true;
   @Output() valueChange: EventEmitter<any> = new EventEmitter();
   @Input() hideSubmit: boolean | undefined;
+  faSpinner = faSpinner;
   unitCategories: UnitCategoryInterface[] | undefined;
   unitCategorySelected: any;
   formId: any;

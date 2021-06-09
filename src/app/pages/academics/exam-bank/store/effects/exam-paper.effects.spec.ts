@@ -2,9 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of } from 'rxjs';
 
-import { ExamPaperEffects } from './exam-paper.effects';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { reducerProvider } from 'src/app/store/reducers';
+import { ExamPaperEffects } from './exam-paper.effects';
 
 describe('ExamPaperEffects', () => {
   const actions$: Observable<any> = of('Load');

@@ -1,10 +1,10 @@
-<h1>Time Table For Academic Year <span class="icon-right-dir"></span>{{ academicYearName$ | ngrxPush }}</h1>
+<h1>Time Table For Academic Year <fa-icon [icon]="faChevronRight"></fa-icon> {{ academicYearName$ | ngrxPush }}</h1>
 <div class="card p-2 d-flex flex-wrap justify-content-end"
      *ngIf="timeTableLessons$ | ngrxPush as timeTableLessons; else loading">
 
   <div class="col-lg-3">
     <a class="btn btn-primary btn-sm" [routerLink]='["edit"]'>
-      <span class="icon-edit"></span>Edit time table
+      <fa-icon [icon]="faEdit"></fa-icon> Edit time table
     </a>
   </div>
 
@@ -15,8 +15,8 @@
       <section accordion-heading class="d-flex justify-content-between">
         <h2 [class.active]="isOpen[i]">{{ classLevel.name }}</h2>
         <section>
-          <button type="button" class="btn btn-primary btn-sm"><span [class.icon-down-dir]='!isOpen[i]'
-                                                                     [class.icon-up-dir]='isOpen[i]'></span>View
+          <button type="button" class="btn btn-primary btn-sm">
+            <fa-icon [icon]="isOpen[i] ? faChevronUp : faChevronDown"></fa-icon> View
           </button>
         </section>
       </section>
@@ -70,7 +70,7 @@
     </accordion-group>
   </accordion>
 
-  <div *ngIf="timeTableLessons.length < 1" class="alert alert-info mt-2"><span class="icon-info"></span>No time table
+  <div *ngIf="timeTableLessons.length < 1" class="alert alert-info mt-2"><fa-icon [icon]="faInfoCircle"></fa-icon> No time table
     set up yet
   </div>
 </div>

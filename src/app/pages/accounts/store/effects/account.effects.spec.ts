@@ -2,8 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of } from 'rxjs';
 
-import { AccountEffects } from './account.effects';
 import { createAction } from '@ngrx/store';
+import { AccountEffects } from './account.effects';
 
 describe('AccountEffects', () => {
   let actions$: Observable<any>;

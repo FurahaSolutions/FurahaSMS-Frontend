@@ -1,10 +1,7 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {StudentAdmissionsEditComponent} from './student-admissions-edit.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {StudentSearchComponent} from '../../../../components/student-search/student-search.component';
-import {StudentsRecentlyCreatedComponent} from '../students-recently-created/students-recently-created.component';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
@@ -12,6 +9,10 @@ import {AppInputModule} from 'src/app/components/input/app-input.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TypeaheadModule} from 'ngx-bootstrap/typeahead';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import {StudentsRecentlyCreatedComponent} from '../students-recently-created/students-recently-created.component';
+import {StudentSearchComponent} from '../../../../components/student-search/student-search.component';
+import {StudentAdmissionsEditComponent} from './student-admissions-edit.component';
 
 describe('StudentAdmissionsEditComponent', () => {
   let component: StudentAdmissionsEditComponent;
@@ -34,7 +35,8 @@ describe('StudentAdmissionsEditComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         TypeaheadModule.forRoot(),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [StudentAdmissionsEditComponent, StudentSearchComponent, StudentsRecentlyCreatedComponent],
       providers: [reducerProvider]

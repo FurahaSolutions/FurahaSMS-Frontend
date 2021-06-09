@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { faDollarSign } from '@fortawesome/free-solid-svg-icons/faDollarSign';
+import { LinkInterface } from '../../../interfaces/link.interface';
 
 @Component({
   selector: 'app-accounts-admin',
@@ -7,8 +9,8 @@ import { of } from 'rxjs';
   styleUrls: ['./accounts-admin.component.css']
 })
 export class AccountsAdminComponent {
-  links$ = of([
-    {name: 'Financial Costs', icon: 'icon-dollar', link: 'accounts/admin/financial-costs'},
+  links$: Observable<LinkInterface[]> = of([
+    {name: 'Financial Costs', icon: faDollarSign, link: 'accounts/admin/financial-costs'},
   ]);
 
   constructor() {

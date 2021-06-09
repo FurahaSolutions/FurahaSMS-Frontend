@@ -1,23 +1,26 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { NavbarTopComponent } from './navbar-top.component';
 import { Store, StoreModule } from '@ngrx/store';
-import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
+import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { NavbarTopComponent } from './navbar-top.component';
 
 describe('NavbarTopComponent', () => {
   let component: NavbarTopComponent;
   let fixture: ComponentFixture<NavbarTopComponent>;
   let store: Store<AppState>;
 
-  beforeEach(waitForAsync( () => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ StoreModule.forRoot(REDUCER_TOKEN, {
-          metaReducers,
-          runtimeChecks: {
-            strictStateImmutability: true,
-            strictActionImmutability: true,
-          }
-        }) ],
+      imports: [StoreModule.forRoot(REDUCER_TOKEN, {
+        metaReducers,
+        runtimeChecks: {
+          strictStateImmutability: true,
+          strictActionImmutability: true,
+        }
+      }),
+        FontAwesomeTestingModule
+      ],
       declarations: [NavbarTopComponent],
       providers: [reducerProvider]
     });

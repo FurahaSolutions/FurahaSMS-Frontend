@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, Output, SimpleChange } from '@angular/core';
-import { LibraryBookClassesService } from '../../services/library-book-classes.service';
 import { of } from 'rxjs';
 import { DbService } from 'src/app/services/db.service';
 import { takeUntil } from 'rxjs/operators';
+import { LibraryBookClassesService } from '../../services/library-book-classes.service';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
@@ -25,16 +25,16 @@ export class SelectLibrarySubClassComponent extends subscribedContainerMixin() i
 
   ngOnChanges(changes: { id: SimpleChange; classification: SimpleChange }) {
     let currentValue: any;
-    if(changes) {
-      if(changes.id) {
+    if (changes) {
+      if (changes.id) {
         currentValue = changes.id.currentValue;
       }
-      if(changes.classification) {
+      if (changes.classification) {
         this.cdf.detectChanges();
       }
 
     }
-    if(+currentValue > 0) {
+    if (+currentValue > 0) {
       this.db.get('sub-items-' + currentValue)
         .then((doc: any) => {
           this.libraryBookClasses$ = of(doc.items);
@@ -48,7 +48,7 @@ export class SelectLibrarySubClassComponent extends subscribedContainerMixin() i
               _id: `sub-items-${currentValue}`,
               items
             };
-            if(items.length > 0) {
+            if (items.length > 0) {
 
               this.db.put(doc).then(() => {
               }).catch(() => {

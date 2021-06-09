@@ -1,4 +1,4 @@
-import {Action, createReducer, on} from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 import * as LibraryBookPublisherActions from '../actions/library-book-publisher.actions';
 
 export const libraryPublisherFeatureKey = 'libraryBookPublishers';
@@ -33,7 +33,10 @@ const libraryPublisherReducer = createReducer(
   on(LibraryBookPublisherActions.loadLibraryBookPublishersFailure, (state, _action) => state),
 
   on(LibraryBookPublisherActions.loadLibraryBookPublisher, state => state),
-  on(LibraryBookPublisherActions.loadLibraryBookPublisherSuccess, (state, action) => ({...state, [action.data.id]: {...action.data}})),
+  on(LibraryBookPublisherActions.loadLibraryBookPublisherSuccess, (state, action) => ({
+    ...state,
+    [action.data.id]: {...action.data}
+  })),
   on(LibraryBookPublisherActions.loadLibraryBookPublisherFailure, (state, _action) => state),
 
 

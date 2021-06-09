@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TopicOnlineAssessmentListComponent } from './topic-online-assessment-list.component';
 import {RouterModule} from '@angular/router';
-import {DurationModule} from '../../../../shared/duration/duration.module';
 import {FormsModule} from '@angular/forms';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {DurationModule} from '../../../../shared/duration/duration.module';
+import { TabErrorStateModule } from '../../../../components/tab-error-state/app-tab-error.module';
+import { TopicOnlineAssessmentListComponent } from './topic-online-assessment-list.component';
 
 
 
@@ -18,7 +20,9 @@ import { ReactiveComponentModule } from '@ngrx/component';
     RouterModule,
     DurationModule,
     FormsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule,
+    TabErrorStateModule
   ]
 })
 export class TopicOnlineAssessmentListModule { }

@@ -4,18 +4,18 @@
        class="mb-3">
 
     <button (click)="deleteItem(i)" *ngIf="edit" type="button" aria-label="delete content" class="float-right btn btn-danger btn-sm">
-      <span class="icon-trash"></span>
+      <fa-icon [icon]="faTrash"></fa-icon>
     </button>
     <button (click)="editItem(i)" *ngIf="edit" type="button" aria-label="delete content" class="float-right btn btn-primary btn-sm mr-2">
-      <span class="icon-edit"></span>
+      <fa-icon [icon]="faEdit"></fa-icon>
     </button>
 
     <a
       [routerLink]='["..","study-materials", learningContent.study_material_id]'
       class="d-flex flex-wrap p-0">
       <div class="col-lg-12">
-      <span [style.color]='learningContent.study_material.study_material_doc.type | fileExtention:"color"'
-            [class]='learningContent.study_material.study_material_doc.type | fileExtention:"icon"'></span>
+      <span [style.color]='learningContent.study_material.study_material_doc.type | fileExtension:"color"'
+            [class]='learningContent.study_material.study_material_doc.type | fileExtension:"icon"'></span>
         <strong>{{ learningContent.study_material.title }}</strong>
 
       </div>

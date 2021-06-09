@@ -1,5 +1,7 @@
 import { Component, forwardRef, Input} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { faSquare } from '@fortawesome/free-solid-svg-icons/faSquare';
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons/faCheckSquare';
 
 @Component({
   selector: 'app-checkbox',
@@ -17,6 +19,8 @@ export class CheckboxComponent implements ControlValueAccessor {
   @Input() label = '';
   @Input() readonly = false;
   inputValue: any;
+  faSquare = faSquare;
+  faCheckSquare = faCheckSquare;
 
   constructor() {
   }

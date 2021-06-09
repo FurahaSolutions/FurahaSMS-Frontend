@@ -2,10 +2,10 @@
   <div *ngFor='let assessment of assessments; let i = index' style='border-bottom: rgba(227, 241, 105, 0.226) 2px solid'
        class="mb-3">
     <button (click)="deleteItem(assessment.id)" *ngIf="edit" type="button" aria-label="delete content" class="float-right btn btn-danger btn-sm">
-      <span class="icon-trash"></span>
+      <fa-icon [icon]="faTrash"></fa-icon>
     </button>
     <button (click)="editItem(assessment.exam_paper_id)" *ngIf="edit" type="button" aria-label="delete content" class="float-right btn btn-primary btn-sm mr-2">
-      <span class="icon-edit"></span>
+      <<fa-icon [icon]="faEdit"></fa-icon>
     </button>
     <a
       [routerLink]='["..","assessments", assessment.id]'
@@ -13,7 +13,7 @@
 
       <div class="col-lg-12 d-flex flex-wrap justify-content-between pb-2"
       >
-        <span><i class="icon-college"></i>{{ assessment.exam_paper_name }}</span>
+        <span><fa-icon [icon]="faGraduationCap"></fa-icon>{{ assessment.exam_paper_name }}</span>
         <small>Available: {{ assessment.available_at | date: 'MMM dd, y h:mm a' }} - {{ assessment.closing_at | date: 'MMM dd, y h:mm a' }}</small>
         <small>Period: {{ assessment.period | duration  }}</small>
 
@@ -38,12 +38,12 @@
   </div>
   <div class="modal-footer bg-dark">
     <button (click)='closeModal()' class="btn btn-secondary" type="button">Cancel</button>
-    <button (click)='deleteAssessmentItem()' [disabled]='(contentId !=  "#" + editedItem?.id) || (submitInProgressAction$ | ngrxPush)'
+    <button (click)='deleteAssessmentItem()' [disabled]='(contentId !==  "#" + editedItem?.id) || (submitInProgressAction$ | ngrxPush)'
             class="btn btn-danger">
       <span *ngIf='(submitInProgressAction$ | ngrxPush) === false'>Delete this Assessment</span>
       <span *ngIf='submitInProgressAction$ | ngrxPush'>Deleting...</span>
-      <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-trash'></i>
-      <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
+      <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush) === false' [icon]="faTrash"></fa-icon>
+      <fa-icon *ngIf='submitInProgressAction$ | ngrxPush' [icon]="faSpinner" [spin]="true"></fa-icon>
     </button>
   </div>
 

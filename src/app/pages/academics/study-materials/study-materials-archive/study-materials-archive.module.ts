@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { StudyMaterialsArchiveRoutingModule } from './study-materials-archive-routing.module';
-import { StudyMaterialsArchiveComponent } from './study-materials-archive.component';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { AppFilesizeModule } from 'src/app/shared/filesize/filesize.module';
-import { ELearningTopicMaterialsModule } from '../../e-learning/e-learning-topic-materials/e-learning-topic-materials.module';
 import { FileExtensionModule } from 'src/app/shared/file-extention/file-extension.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ELearningTopicMaterialsModule } from '../../e-learning/e-learning-topic-materials/e-learning-topic-materials.module';
+import { StudyMaterialsArchiveComponent } from './study-materials-archive.component';
+import { StudyMaterialsArchiveRoutingModule } from './study-materials-archive-routing.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
     ELearningTopicMaterialsModule,
     FileExtensionModule,
     FormsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class StudyMaterialsArchiveModule { }

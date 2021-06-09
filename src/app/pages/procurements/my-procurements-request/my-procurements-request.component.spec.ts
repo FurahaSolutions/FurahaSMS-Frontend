@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {MyProcurementsRequestComponent} from './my-procurements-request.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
-import {ViewItemsComponent} from '../../../components/view-items/view-items.component';
 import {RouterTestingModule} from '@angular/router/testing';
-import {ErrorComponent} from '../../../components/error/error.component';
-import {ChipsComponent} from '../../../components/chips/chips.component';
-import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ProcurementService} from 'src/app/services/procurement.service';
 import {of} from 'rxjs';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
+import {ChipsComponent} from '../../../components/chips/chips.component';
+import {ErrorComponent} from '../../../components/error/error.component';
+import {ViewItemsComponent} from '../../../components/view-items/view-items.component';
+import {MyProcurementsRequestComponent} from './my-procurements-request.component';
 
 describe('MyProcurementsRequestComponent', () => {
   let component: MyProcurementsRequestComponent;
@@ -30,7 +31,8 @@ describe('MyProcurementsRequestComponent', () => {
         }),
         RouterTestingModule.withRoutes([]),
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [
         MyProcurementsRequestComponent,

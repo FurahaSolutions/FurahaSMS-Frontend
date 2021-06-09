@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TelInputComponent } from '../components/tel-input/tel-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TelInputComponent } from './tel-input.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
     FormsModule,
     ReactiveFormsModule,
     NgSelectModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class AppTelInputModule { }

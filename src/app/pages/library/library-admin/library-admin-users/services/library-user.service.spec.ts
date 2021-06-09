@@ -1,7 +1,8 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { LibraryUserService } from './library-user.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import {LibraryUserService} from './library-user.service';
 
 describe('LibraryUserService', () => {
   let service: LibraryUserService;
@@ -9,7 +10,8 @@ describe('LibraryUserService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        FontAwesomeTestingModule
       ]
     });
     service = TestBed.inject(LibraryUserService);

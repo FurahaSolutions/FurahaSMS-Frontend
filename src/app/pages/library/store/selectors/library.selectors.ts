@@ -1,4 +1,4 @@
-import {createFeatureSelector, createSelector} from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromLibrary from '../reducers';
 import * as fromLibraryBookPublisher from '../reducers/library-book-publisher.reducer';
 
@@ -14,7 +14,7 @@ export const selectLibraryBookAuthors = createSelector(
 export const selectLibraryBookPublishers = createSelector(
   selectLibraryState,
   library => Object.values(library[fromLibraryBookPublisher.libraryPublisherFeatureKey])
-      .filter((item: any) => item.id !== 0)
+    .filter((item: any) => item.id !== 0)
 );
 
 export const selectLibraryBookPublisher = (id: number) => createSelector(

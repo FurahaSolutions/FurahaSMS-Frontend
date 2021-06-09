@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { LinkInterface } from '../../../interfaces/link.interface';
 
 @Component({
@@ -7,5 +8,9 @@ import { LinkInterface } from '../../../interfaces/link.interface';
   styleUrls: ['./link.component.css']
 })
 export class LinkComponent {
-  @Input() link: LinkInterface = { name: '' };
+  @Input() link: LinkInterface | undefined;
+
+  get icon() {
+    return this.link?.icon as IconDefinition;
+  }
 }

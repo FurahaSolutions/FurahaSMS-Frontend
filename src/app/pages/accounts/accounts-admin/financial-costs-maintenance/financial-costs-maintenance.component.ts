@@ -1,10 +1,16 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
-import { FinancialCostsService } from '../../services/financial-costs.service';
 import { map, takeUntil, tap } from 'rxjs/operators';
-import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 import { formMixin } from '../../../../shared/mixins/form.mixin';
+import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
+import { FinancialCostsService } from '../../services/financial-costs.service';
 
 @Component({
   selector: 'app-financial-costs-maintenance',
@@ -12,6 +18,12 @@ import { formMixin } from '../../../../shared/mixins/form.mixin';
   styleUrls: ['./financial-costs-maintenance.component.css']
 })
 export class FinancialCostsMaintenanceComponent extends subscribedContainerMixin(formMixin()) implements OnInit {
+  faPlusCircle = faPlusCircle;
+  faTrash = faTrash;
+  faInfoCircle = faInfoCircle;
+  faEdit = faEdit;
+  faSpinner = faSpinner;
+  faSave = faSave;
   modalRef: BsModalRef | undefined;
   financialCosts: any[] = [];
   financialCostEditForm = this.fb.group({

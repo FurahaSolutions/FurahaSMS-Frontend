@@ -1,6 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { AppInputModule } from 'src/app/components/input/app-input.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
+import { AppLinksModule } from 'src/app/shared/links/links.module';
+import { ErrorModule } from 'src/app/components/error/error.module';
+import { TabErrorStateModule } from 'src/app/components/tab-error-state/app-tab-error.module';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { AppViewItemsModule } from 'src/app/modules/app-view-items.module';
+import { AppCrudModule } from 'src/app/components/crud/app-crud.module';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CurriculumRoutingModule } from './curriculum-routing.module';
 import { CreateUnitCategoriesComponent } from './create-unit-categories/create-unit-categories.component';
 import { EditUnitCategoryComponent } from './edit-unit-category/edit-unit-category.component';
@@ -23,19 +37,6 @@ import {
   AcademicsCurriculumClassLevelCategoriesComponent
 } from './academics-curriculum-class-level-categories/academics-curriculum-class-level-categories.component';
 import { AcademicsCurriculumClassLevelsComponent } from './academics-curriculum-class-levels/academics-curriculum-class-levels.component';
-import { AppInputModule } from 'src/app/components/input/app-input.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
-import { AppLinksModule } from 'src/app/shared/links/links.module';
-import { ErrorModule } from 'src/app/components/error/error.module';
-import { TabErrorStateModule } from 'src/app/modules/app-tab-error.module';
-import { TabsModule } from 'ngx-bootstrap/tabs';
-import { AppViewItemsModule } from 'src/app/modules/app-view-items.module';
-import { AppCrudModule } from 'src/app/components/crud/app-crud.module';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
-import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
-import { ReactiveComponentModule } from '@ngrx/component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
     NgSelectModule,
     AppValidateSubmitButtonsModule,
     EditorModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ],
   providers: [
     {provide: TINYMCE_SCRIPT_SRC, useValue: '/tinymce/tinymce.min.js'}

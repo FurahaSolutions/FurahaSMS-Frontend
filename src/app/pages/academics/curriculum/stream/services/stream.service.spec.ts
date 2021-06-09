@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { StreamService } from './stream.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { StreamService } from './stream.service';
 
 describe('StreamService', () => {
   beforeEach(() => TestBed.configureTestingModule({

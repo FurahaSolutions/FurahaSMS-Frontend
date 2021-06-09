@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {CountDownTimerComponent} from './count-down-timer.component';
 import {take} from 'rxjs/operators';
+import {CountDownTimerComponent} from './count-down-timer.component';
 
 
 

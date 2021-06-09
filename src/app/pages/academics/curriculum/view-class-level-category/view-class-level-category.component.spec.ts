@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ViewClassLevelCategoryComponent } from './view-class-level-category.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -8,6 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { reducers } from '../../store/reducers';
+import { ViewClassLevelCategoryComponent } from './view-class-level-category.component';
 
 describe('ViewClassLevelCategoryComponent', () => {
   let component: ViewClassLevelCategoryComponent;

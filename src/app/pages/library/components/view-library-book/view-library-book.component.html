@@ -13,7 +13,8 @@
         <div class="col-lg-5 mt-2">Volume:</div>
         <div class="col-lg-7 mt-2"><strong>{{ libraryBook.volume ? libraryBook.volume : 'NA' }}</strong></div>
         <div class="col-lg-5 mt-2">Publication Date:</div>
-        <div class="col-lg-7 mt-2"><strong>{{ libraryBook['publication_date']? libraryBook.volume : 'Not defined' }}</strong></div>
+        <div class="col-lg-7 mt-2">
+          <strong>{{ libraryBook['publication_date'] ? libraryBook.volume : 'Not defined' }}</strong></div>
       </div>
       <div class="col-lg-7">
         <div class="d-flex flex-wrap">

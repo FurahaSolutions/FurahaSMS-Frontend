@@ -13,7 +13,7 @@ export class LibraryAuthorService {
   }
 
   save(data: any): Observable<any> {
-    if(data.id === 0) {
+    if (data.id === 0) {
       return this.http.post('api/library-books/authors', data);
     } else {
       return this.http.patch(`api/library-books/authors/${data.id}`, data);

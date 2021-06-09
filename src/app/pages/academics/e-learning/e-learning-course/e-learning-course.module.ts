@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ELearningCourseComponent } from './e-learning-course.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ELearningCourseComponent } from './e-learning-course.component';
 
 
 
@@ -12,7 +13,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class ELearningCourseModule { }

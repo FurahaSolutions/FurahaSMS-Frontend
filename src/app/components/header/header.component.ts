@@ -4,8 +4,9 @@ import { AppState } from 'src/app/store/reducers';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
-import { showMenu, hideMenu } from 'src/app/store/actions/menu-toggle.actions';
+import { hideMenu, showMenu } from 'src/app/store/actions/menu-toggle.actions';
 import { selectShowMenu } from 'src/app/store/selectors/menu-toggle.selector';
+import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ import { selectShowMenu } from 'src/app/store/selectors/menu-toggle.selector';
 })
 
 export class HeaderComponent implements OnInit {
+  faBars = faBars;
   isMenuClosed$ = this.store.select(selectShowMenu);
   isMenuClosed = true;
   isCollapsed = true;
@@ -24,7 +26,8 @@ export class HeaderComponent implements OnInit {
     );
 
   constructor(private store: Store<AppState>,
-    public breakpointObserver: BreakpointObserver) { }
+              public breakpointObserver: BreakpointObserver) {
+  }
 
   ngOnInit() {
     this.isMenuClosed$.subscribe(isMenuClosed => {

@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import { select, Store } from '@ngrx/store';
 import { map, mergeMap, tap } from 'rxjs/operators';
-import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selectors';
 import { AppState } from 'src/app/store/reducers';
+import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selectors';
 
 @Component({
   selector: 'app-exam-revision-mode',
@@ -11,6 +13,8 @@ import { AppState } from 'src/app/store/reducers';
   styleUrls: ['./exam-revision-mode.component.css']
 })
 export class ExamRevisionModeComponent {
+  faChevronRight = faChevronRight;
+  faInfoCircle = faInfoCircle;
   questions: any[] = [];
   examPaper$ = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => params.get('id')),

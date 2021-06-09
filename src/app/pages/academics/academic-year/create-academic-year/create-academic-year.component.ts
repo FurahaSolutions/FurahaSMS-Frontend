@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {AppState} from '../../../../store/reducers';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {AcademicYearService} from 'src/app/pages/academics/services/academic-year.service';
 import {Router} from '@angular/router';
 import { takeUntil} from 'rxjs/operators';
+import {AppState} from '../../../../store/reducers';
 import {subscribedContainerMixin} from '../../../../shared/mixins/subscribed-container.mixin';
 import {formMixin} from '../../../../shared/mixins/form.mixin';
 import { CustomValidators } from '../../../../validators/custom-validators';

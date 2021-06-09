@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {UnitLevelService} from '../../../../services/unit-level.service';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import {BehaviorSubject, combineLatest} from 'rxjs';
 import {map, mergeMap} from 'rxjs/operators';
+import {UnitLevelService} from '../../../../services/unit-level.service';
 import {ClassLevelUnitLevelAllocationService} from '../../services/class-level-unit-level-allocation.service';
 
 @Component({
@@ -10,6 +11,7 @@ import {ClassLevelUnitLevelAllocationService} from '../../services/class-level-u
   styleUrls: ['./class-level-unit-level-allocation.component.css']
 })
 export class ClassLevelUnitLevelAllocationComponent {
+  faEdit = faEdit;
   loadData$ = new BehaviorSubject(null);
   unitLevels$ = this.unitLevelsService.getAll();
   classLevelsWithUnits$ = this.loadData$.pipe(

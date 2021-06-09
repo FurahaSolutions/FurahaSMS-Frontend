@@ -2,7 +2,7 @@
   <ng-container *ngIf="editMode$ | ngrxPush">
     <button *ngrxLet="studentId$ as studentId" class="btn btn-primary btn-sm mt-2 mb-1"
             [routerLink]='["/students", studentId, "guardians", "create"]'>
-      <span class="icon-plus-circled"></span>
+      <fa-icon [icon]="faPlusCircle"></fa-icon>
       Add Student Guardian
     </button>
   </ng-container>
@@ -27,13 +27,13 @@
       <th scope="col">{{ guardian.phone }}</th>
       <td>
         <a [routerLink]='["/guardians", guardian.id]' [attr.aria-label]='"View Guardian" + guardian.first_name'
-           class="btn btn-primary btn-sm"><span class="icon-eye"></span></a>
+           class="btn btn-primary btn-sm"><fa-icon [icon]="faEye"></fa-icon></a>
       </td>
     </tr>
     <tr *ngIf="guardians.length < 1">
       <td colspan="5">
         <div class="alert alert-info">
-          <span class="icon-info"></span>
+          <fa-icon [icon]="faInfoCircle"></fa-icon>
           No guardians found for this user
         </div>
       </td>

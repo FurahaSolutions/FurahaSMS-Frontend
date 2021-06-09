@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-import {StudentFeePaymentService} from '../../services/student-fee-payment.service';
 import {ActivatedRoute} from '@angular/router';
 import {map, mergeMap, tap} from 'rxjs/operators';
 import {Store} from '@ngrx/store';
-import {selectStudentFeeStatement} from '../../store/selectors/student-fee-statement.selectors';
 import {combineLatest} from 'rxjs';
+import {selectStudentFeeStatement} from '../../store/selectors/student-fee-statement.selectors';
+import {StudentFeePaymentService} from '../../services/student-fee-payment.service';
 
 @Component({
   selector: 'app-student-payment-statement',

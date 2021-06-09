@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {NewPaymentReceiptComponent} from './new-payment-receipt.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
 import {REDUCER_TOKEN, reducerProvider, metaReducers} from 'src/app/store/reducers';
@@ -8,9 +7,10 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {AppInputModule} from 'src/app/components/input/app-input.module';
 import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
+import {ReactiveComponentModule} from '@ngrx/component';
 import {FormErrorsModule} from '../../../../shared/form-errors/form-errors.module';
 import {accountFeatureKey, reducers} from '../../store/reducers';
-import {ReactiveComponentModule} from '@ngrx/component';
+import {NewPaymentReceiptComponent} from './new-payment-receipt.component';
 
 describe('NewPaymentReceiptComponent', () => {
   let component: NewPaymentReceiptComponent;

@@ -6,20 +6,20 @@
         <section accordion-heading class="active d-flex justify-content-between">
           <h3>{{ bid.vendor_name }}</h3>
           <section>
-            <button class="btn btn-primary btn-sm"><span [class.icon-down-dir]='!isOpen[i]'
-                [class.icon-up-dir]='isOpen[i]'></span>View</button>
+            <button class="btn btn-primary btn-sm">
+              <fa-icon [icon]="!isOpen[i] ? faSortDown : faSortUp"></fa-icon> View</button>
           </section>
         </section>
 
         <section>
           <section class="d-flex justify-content-end mt-0 mb-0">
             <button *ngIf='!bid.awarded; else awarded_label' [disabled]='awarding[i] || isAwarded' (click)='awardBidTo(bid.tender_id, bid.id, i)' class='btn btn-success btn-sm mr-2'>
-              <span class='icon-flag-checkered'></span>
+              <fa-icon [icon]='faTrophy'></fa-icon>
               <span *ngIf='!awarding[i]'>Award Tender</span>
               <span *ngIf='awarding[i]'>Awarding...</span>
             </button>
             <ng-template #awarded_label>
-              <span class='badge badge-success p-2'> <i class='icon-fire'></i>Awarded </span>
+              <span class='badge badge-success p-2'> <fa-icon [icon]='faTrophy'></fa-icon>Awarded </span>
             </ng-template>
           </section>
           <h4>Pricing</h4>

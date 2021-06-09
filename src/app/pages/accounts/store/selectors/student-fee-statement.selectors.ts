@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
-import { selectAccountState } from './account.selectors';
 import { studentFeeStatementFeatureKey } from '../reducers/student-fee-statement.reducer';
+import { selectAccountState } from './account.selectors';
 
 export const selectStudentsFeeStatements = createSelector(
   selectAccountState,

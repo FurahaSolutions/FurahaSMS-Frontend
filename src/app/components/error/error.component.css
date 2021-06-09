@@ -1,15 +1,19 @@
 section {
   font-size: 0.8rem;
 }
+
 .alert {
   margin: 0.4rem;
   padding: 0.2rem 2rem 0.2rem 1rem;
 }
+
 p {
   margin: 0.05rem 0 0;
 }
+
 .alert-dismissible .close {
   padding: 0.35em 0 0;
+  margin-right: 0.5em;;
 }
 
 @media (max-width: 500px) {

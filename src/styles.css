@@ -1,7 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@ng-select/ng-select/themes/ant.design.theme.css";
-@import './vendor/fontello/css/fontello.css';
-@import './vendor/fontello/css/animation.css';
 @import './vendor/daneden/animate.css';
 @import '~flag-icon-css/css/flag-icon.css';
 @import "~ngx-bootstrap/datepicker/bs-datepicker.css";
@@ -88,10 +86,10 @@
   margin-right: 5px;
   display: none;
 }
-.ng-select span.ng-arrow-wrapper:before {
-  content: "\e82c" !important;
-  font-family: "fontello", sans-serif;
-}
+/*.ng-select span.ng-arrow-wrapper:before {*/
+/*  content: "\e82c" !important;*/
+/*  font-family: "fontello", sans-serif;*/
+/*}*/
 .ng-select.ng-select-opened>.ng-select-container .ng-arrow-wrapper {
   margin-right: 5px;
 }
@@ -99,11 +97,11 @@
   font-weight: bolder !important;
   margin-left: 5px;
 }
-.ng-option.ng-option-selected:before {
-  content: "\e86d  " !important;
-  white-space: pre;
-  font-family: "fontello", sans-serif;
-}
+/*.ng-option.ng-option-selected:before {*/
+/*  content: "\e86d  " !important;*/
+/*  white-space: pre;*/
+/*  font-family: "fontello", sans-serif;*/
+/*}*/
 
 html, body {
   background: rgb(49, 49, 49);

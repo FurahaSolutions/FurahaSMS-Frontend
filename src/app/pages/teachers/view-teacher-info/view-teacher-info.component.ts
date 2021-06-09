@@ -2,12 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Store, select} from '@ngrx/store';
 import {AppState} from 'src/app/store/reducers';
-import {selectTeacher} from '../store/selectors/teacher-profile.selectors';
 import {map, mergeMap, takeUntil, tap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {GenderService} from 'src/app/services/gender.service';
 import {ReligionService} from 'src/app/services/religion.service';
 import {selectGenders, selectReligions} from 'src/app/store/selectors/app.selectors';
+import {selectTeacher} from '../store/selectors/teacher-profile.selectors';
 import {loadTeacherProfilesSuccess} from '../store/actions/teacher-profile.actions';
 import {subscribedContainerMixin} from '../../../shared/mixins/subscribed-container.mixin';
 

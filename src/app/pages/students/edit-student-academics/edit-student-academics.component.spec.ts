@@ -1,14 +1,15 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {EditStudentAcademicsComponent} from './edit-student-academics.component';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {RouterTestingModule} from '@angular/router/testing';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AppCheckboxModule} from '../../../shared/checkbox/checkbox.module';
-import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../store/reducers';
-import {studentProfileFeatureKey, reducer} from '../store/reducers/student-profile.reducer';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { AppCheckboxModule } from '../../../shared/checkbox/checkbox.module';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../store/reducers';
+import { reducer, studentProfileFeatureKey } from '../store/reducers/student-profile.reducer';
+import { EditStudentAcademicsComponent } from './edit-student-academics.component';
 
 describe('EditStudentAcademicsComponent', () => {
   let component: EditStudentAcademicsComponent;
@@ -30,7 +31,8 @@ describe('EditStudentAcademicsComponent', () => {
           }
         }),
         StoreModule.forFeature(studentProfileFeatureKey, reducer),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [EditStudentAcademicsComponent],
       providers: [reducerProvider]

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { loadReligions, loadReligionsSuccess, loadReligionsFailure } from '../actions/religion.actions';
 import { concatMap, map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { ReligionService } from 'src/app/services/religion.service';
+import { loadReligions, loadReligionsSuccess, loadReligionsFailure } from '../actions/religion.actions';
 
 
 

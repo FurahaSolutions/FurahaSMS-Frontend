@@ -1,5 +1,5 @@
-import { Constructor } from './constructor.mixin';
 import { BehaviorSubject } from 'rxjs';
+import { Constructor } from './constructor.mixin';
 
 export const loadingMixin = <T extends Constructor>(baseClass: T = class { } as T) =>
   class extends baseClass {

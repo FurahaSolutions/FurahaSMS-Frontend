@@ -1,6 +1,7 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {ProcurementItemComponent} from './procurement-item.component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { ProcurementItemComponent } from './procurement-item.component';
 
 describe('ProcurementItemComponent', () => {
   let component: ProcurementItemComponent;
@@ -8,6 +9,9 @@ describe('ProcurementItemComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      imports: [
+        FontAwesomeTestingModule
+      ],
       declarations: [ProcurementItemComponent]
     })
       .compileComponents();

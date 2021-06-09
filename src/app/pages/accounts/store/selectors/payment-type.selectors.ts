@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
-import { selectAccountState } from './account.selectors';
 import { paymentTypeFeatureKey } from '../reducers/payment-type.reducer';
+import { selectAccountState } from './account.selectors';
 
 export const selectPaymentMethods = createSelector(
   selectAccountState,

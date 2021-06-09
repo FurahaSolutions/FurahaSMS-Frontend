@@ -1,9 +1,9 @@
-<h1>Time Table For Academic Year <span class="icon-right-dir"></span>{{ academicYearName$ | ngrxPush }}</h1>
+<h1>Time Table For Academic Year <fa-icon [icon]="faChevronRight"></fa-icon> {{ academicYearName$ | ngrxPush }}</h1>
 <div class="card p-2">
   <div class="d-flex flex-wrap justify-content-between">
-    <a class="btn btn-info btn-sm" [routerLink]='["../"]'><span class="icon-eye"></span>View</a>
+    <a class="btn btn-info btn-sm" [routerLink]='["../"]'><fa-icon [icon]="faEye"></fa-icon> View</a>
 
-    <button (click)='saveChanges()' class="btn btn-success btn-sm">Save All Changes <span class="icon-floppy"></span></button>
+    <button (click)='saveChanges()' class="btn btn-success btn-sm">Save All Changes <fa-icon [icon]="faSave"></fa-icon></button>
   </div>
 <!--  <pre class="text-light">{{timeTableForm$ | ngrxPush | json }}</pre>-->
   <accordion *ngIf='timetableLessons$ | ngrxPush ' [closeOthers]='true' [isAnimated]='true'>
@@ -13,8 +13,8 @@
       <section accordion-heading class="d-flex justify-content-between">
         <h2 [class.active]="isOpen[i]">{{ classLevel.name }}</h2>
         <section>
-          <button type="button" class="btn btn-primary btn-sm"><span [class.icon-down-dir]='!isOpen[i]'
-                                                                     [class.icon-up-dir]='isOpen[i]'></span>View</button>
+          <button type="button" class="btn btn-primary btn-sm">
+            <fa-icon [icon]="isOpen[i] ? faChevronUp : faChevronDown"></fa-icon> View</button>
         </section>
       </section>
       <section>
@@ -35,8 +35,8 @@
               <td *ngFor='let timing of classLevel.timings' class="td-lesson" appTimetableEditor>
                 <button
                   (click)='editLesson({ template:template, classLevelName: classLevel.name, stream:classLevel.streams[0], timing:timing, dayOfWeekName:dayOfWeek, lesson: classLevel.grouped[dayOfWeek] })'
-                  hidden aria-label="Edit Lesson" class="btn btn-outline-primary btn-sm"><i
-                  class="icon-edit"></i></button>
+                  hidden aria-label="Edit Lesson" class="btn btn-outline-primary btn-sm">
+                  <fa-icon [icon]="faEdit"></fa-icon></button>
 <!--                <pre class="text-light">{{ classLevel?.grouped[dayOfWeek] }}</pre>-->
                 <ng-container
                   *ngIf='classLevel.grouped[dayOfWeek] && classLevel.grouped[dayOfWeek][classLevel.streams[0]] && classLevel.grouped[dayOfWeek][classLevel.streams[0]][timing] as lesson'>
@@ -54,8 +54,8 @@
                 <td *ngFor='let timing of classLevel.timings' class="td-lesson" appTimetableEditor>
                   <button
                     (click)='editLesson({template:template, classLevelName: classLevel.name, stream:stream, timing:timing, dayOfWeekName:dayOfWeek })'
-                    hidden aria-label="Edit Lesson" class="btn btn-outline-primary btn-sm"><i
-                    class="icon-edit"></i></button>
+                    hidden aria-label="Edit Lesson" class="btn btn-outline-primary btn-sm">
+                    <fa-icon [icon]="faEdit"></fa-icon></button>
                   <ng-container
                     *ngIf='classLevel.grouped[dayOfWeek] && classLevel.grouped[dayOfWeek][stream] && classLevel.grouped[dayOfWeek][stream][timing] as lesson'>
                     <div class="d-flex flex-column">
@@ -118,7 +118,7 @@
       <button type="button" (click)='modalRef?.hide()' class="btn btn-secondary">Cancel</button>
       <button type="button" [disabled]="editLessonForm.invalid || !editLessonForm.touched" (click)='saveLesson()' class="btn btn-success">
         <span>Save Content</span>
-        <i class='icon-ok-1'></i>
+        <fa-icon [icon]="faSave"></fa-icon>
       </button>
     </div>
   </ng-template>

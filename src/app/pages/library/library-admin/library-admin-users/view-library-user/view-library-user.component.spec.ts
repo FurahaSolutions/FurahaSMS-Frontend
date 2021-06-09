@@ -1,9 +1,10 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ViewLibraryUserComponent } from './view-library-user.component';
-import { UserSearchModule } from '../../../../../components/user-search/user-search.module';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { FormsModule } from '@angular/forms';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {FormsModule} from '@angular/forms';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import {UserSearchModule} from '../../../../../components/user-search/user-search.module';
+import {ViewLibraryUserComponent} from './view-library-user.component';
 
 describe('ViewLibraryUserComponent', () => {
   let component: ViewLibraryUserComponent;
@@ -14,7 +15,8 @@ describe('ViewLibraryUserComponent', () => {
       imports: [
         UserSearchModule,
         HttpClientTestingModule,
-        FormsModule
+        FormsModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ViewLibraryUserComponent]
     })

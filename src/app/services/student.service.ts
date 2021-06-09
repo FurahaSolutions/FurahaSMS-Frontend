@@ -56,7 +56,7 @@ export class StudentService {
     };
 
     let url = this.url;
-    if(idNumber) {
+    if (idNumber) {
       url = `${url}/${data.id}`;
       return this.http.patch<any>(url, {...submitData});
     } else {
@@ -81,8 +81,7 @@ export class StudentService {
   }
 
   getStudentBySchoolId(idNumber: string | number): Observable<any> {
-    const url = `api/student/id-number?q=${idNumber}`;
-    return this.http.get<any>(url).pipe(
+    return this.http.get<any>(this.url, {params: {['school_id']: idNumber}}).pipe(
       map(user => user),
       catchError(error => throwError(error))
     );

@@ -5,6 +5,8 @@ import { switchMap, tap } from 'rxjs/operators';
 import { IUserProfile } from 'src/app/interfaces/user-profile.interface';
 import { StudentService } from 'src/app/services/student.service';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 
 @Component({
   selector: 'app-student-search',
@@ -12,12 +14,14 @@ import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
   styleUrls: ['./student-search.component.css']
 })
 export class StudentSearchComponent implements OnInit {
-
+  faInfoCircle = faInfoCircle;
+  faCheck = faCheck;
   search = '';
   suggestions$: Observable<IUserProfile[]> = of([]);
   errorMessage: string | undefined;
   selectedItemSubject$ = new Subject<IUserProfile>();
   selectedItemAction$ = this.selectedItemSubject$.asObservable();
+
 
   constructor(private studentService: StudentService) {
   }
@@ -28,7 +32,7 @@ export class StudentSearchComponent implements OnInit {
     }).pipe(
       switchMap((query: string) => {
 
-        if(query) {
+        if (query) {
 
           return this.studentService.getStudentByName(query)
             .pipe(

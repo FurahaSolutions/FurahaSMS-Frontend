@@ -1,4 +1,4 @@
-<h1>Academics <span class="icon-right-dir"></span> Academic Years</h1>
+<h1>Academics <fa-icon [icon]="faChevronRight"></fa-icon> Academic Years</h1>
 <div class="card p-2" *ngrxLet="canViewDeletedAcademicYear$ as canViewDeletedAcademicYear">
   <app-links [links$]='links$'></app-links>
 
@@ -18,7 +18,7 @@
         <h2>{{ academicYear.name }}</h2>
         <button [routerLink]='["/academics", "academic-year", academicYear.id, "settings"]'
                 *ngIf="!academicYear.deleted"
-                class="btn btn-outline-info icon-cog">Settings
+                class="btn btn-outline-info"><fa-icon [icon]="faCog"></fa-icon> Settings
         </button>
       </section>
       <section class="card-body p-2" [class.bg-warning]="academicYear.archived"

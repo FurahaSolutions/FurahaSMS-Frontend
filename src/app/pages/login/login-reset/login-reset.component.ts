@@ -1,11 +1,14 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthenticationService} from 'src/app/services/authentication.service';
-import {EmailValidatorDirective} from 'src/app/shared/validators/email-validator/email.validator';
-import {Router} from '@angular/router';
-import {takeUntil} from 'rxjs/operators';
-import {subscribedContainerMixin} from '../../../shared/mixins/subscribed-container.mixin';
-import {formMixin} from '../../../shared/mixins/form.mixin';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { EmailValidatorDirective } from 'src/app/shared/validators/email-validator/email.validator';
+import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
+import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../../shared/mixins/form.mixin';
 
 @Component({
   selector: 'app-login-reset',
@@ -14,6 +17,9 @@ import {formMixin} from '../../../shared/mixins/form.mixin';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginResetComponent extends subscribedContainerMixin(formMixin()) {
+  faEnvelope = faEnvelope;
+  faSpinner = faSpinner;
+  faSave = faSave;
   passwordResetForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, new EmailValidatorDirective()]]
   });

@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { LibraryUserService } from '../services/library-user.service';
-import { ActivatedRoute } from '@angular/router';
-import { map, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
-import { loadingMixin } from '../../../../../shared/mixins/loading.mixin';
-import { BehaviorSubject, combineLatest } from 'rxjs';
+import {Component} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {map, switchMap, takeUntil, tap} from 'rxjs/operators';
+import {BehaviorSubject, combineLatest} from 'rxjs';
+import {LibraryUserService} from '../services/library-user.service';
+import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-container.mixin';
+import {loadingMixin} from '../../../../../shared/mixins/loading.mixin';
 
 @Component({
   selector: 'app-library-user-status',

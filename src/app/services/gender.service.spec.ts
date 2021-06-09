@@ -1,9 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GenderService } from './gender.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { reducerProvider, REDUCER_TOKEN, metaReducers } from '../store/reducers';
 import { StoreModule } from '@ngrx/store';
+import { reducerProvider, REDUCER_TOKEN, metaReducers } from '../store/reducers';
+import { AppValidateSubmitButtonsModule } from '../components/validate-submit-buttons/validate-submit-buttons.module';
+import { GenderService } from './gender.service';
 
 describe('GenderService', () => {
   beforeEach(() => TestBed.configureTestingModule({
@@ -16,7 +17,9 @@ describe('GenderService', () => {
           strictActionImmutability: true,
         }
       }),
-      HttpClientTestingModule]
+      HttpClientTestingModule,
+      AppValidateSubmitButtonsModule
+    ]
   }));
 
   it('should be created', () => {

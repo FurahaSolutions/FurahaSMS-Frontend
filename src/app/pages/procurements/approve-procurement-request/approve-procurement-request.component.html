@@ -8,7 +8,9 @@
       <section accordion-heading class="active d-flex justify-content-between">
         <h2>{{ procurementItem.name }}</h2>
         <section>
-          <button class="btn btn-primary btn-sm"><span [class.icon-down-dir]='!isOpen[i]' [class.icon-up-dir]='isOpen[i]'></span>View</button>
+          <button class="btn btn-primary btn-sm">
+            <fa-icon [icon]="isOpen[i] ? faChevronDown : faChevronUp"></fa-icon> View
+          </button>
         </section>
       </section>
 
@@ -47,12 +49,12 @@
         <section class="d-flex justify-content-between mt-3">
 
           <button  (click)='reject(procurementItem.id, i)' class='btn btn-danger btn-sm mr-2'>
-            Reject <i *ngIf='isRejecting[i]' class='icon-spin3 animate-spin'></i>
-            <i *ngIf='!isRejecting[i]' class='icon-thumbs-down'></i>
+            Reject <fa-icon *ngIf='isRejecting[i]' [icon]='faSpinner' [spin]="true"></fa-icon>
+            <fa-icon *ngIf='!isRejecting[i]' [icon]='faThumbsDown'></fa-icon>
           </button>
           <button (click)='approve(procurementItem.id, i)' class='btn btn-success btn-sm mr-2'>
-            Approve<i *ngIf='isApproving[i]' class='icon-spin3 animate-spin'></i>
-            <i *ngIf='!isApproving[i]' class='icon-thumbs-up'></i>
+            Approve<fa-icon *ngIf='isApproving[i]' [icon]='faSpinner' [spin]="true"></fa-icon>
+            <fa-icon *ngIf='!isApproving[i]' [icon]='faThumbsUp'></fa-icon>
           </button>
         </section>
       </section>

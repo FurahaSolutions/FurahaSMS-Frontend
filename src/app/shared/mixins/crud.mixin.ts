@@ -1,8 +1,8 @@
-import { Constructor } from './constructor.mixin';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, shareReplay } from 'rxjs/operators';
 import { TransformInterface } from 'src/app/interfaces/transforms.interfaces';
+import { Constructor } from './constructor.mixin';
 
 export const crudMixin = <T extends Constructor>(baseClass: T = class { } as T) =>
   class extends baseClass {

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ReportsRoutingModule } from './reports-routing.module';
 import { AppLayoutModule } from 'src/app/modules/app-layout.module';
-import { ReportsComponent } from './reports.component';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { ReportsRoutingModule } from './reports-routing.module';
+import { ReportsComponent } from './reports.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
     CommonModule,
     ReportsRoutingModule,
     AppLayoutModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeTestingModule
   ]
 })
 export class ReportsModule { }

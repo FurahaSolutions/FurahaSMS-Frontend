@@ -1,5 +1,5 @@
-import { answersMatchValidator } from './answers-match.validator';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { answersMatchValidator } from './answers-match.validator';
 
 describe('answersMatchValidator', () => {
   let group: FormGroup;

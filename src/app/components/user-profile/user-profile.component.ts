@@ -16,6 +16,10 @@ import { Store } from '@ngrx/store';
 import { loadEditModesFailure, loadEditModesSuccess } from 'src/app/store/actions/edit-mode.actions';
 import { CanvasService } from 'src/app/services/canvas.service';
 import { BehaviorSubject } from 'rxjs';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { subscribedContainerMixin } from '../../shared/mixins/subscribed-container.mixin';
 
 @Component({
@@ -31,8 +35,11 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
   @Input() includeProfileId = true;
   @ViewChild('profPic') profPic: ElementRef | undefined;
   @Output() valueChanged: EventEmitter<any> = new EventEmitter();
+  faEdit = faEdit;
+  faEye = faEye;
+  faSave = faSave;
+  faSpinner = faSpinner;
   editMode = false;
-
   photoSrc = '';
   context: any;
   modalRef: BsModalRef | undefined;
@@ -40,6 +47,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
   photoFile: File | undefined;
   profPicLoadingSubject$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   profPicLoadingAction$ = this.profPicLoadingSubject$.asObservable();
+
 
   constructor(
     private modalService: BsModalService,
@@ -55,7 +63,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
   }
 
   editModeChangeHandler() {
-    if(this.editMode) {
+    if (this.editMode) {
       this.store.dispatch(loadEditModesSuccess());
     } else {
       this.store.dispatch(loadEditModesFailure());
@@ -80,7 +88,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
   }
 
   fullLink(link: string) {
-    if(this.includeProfileId) {
+    if (this.includeProfileId) {
       return [...this.linkBase, this.profile.id, link];
     }
     return [...this.linkBase, link];
@@ -118,7 +126,7 @@ export class UserProfileComponent extends subscribedContainerMixin() implements 
   onFileSelected(template: TemplateRef<any>) {
     const $input: HTMLInputElement = document.querySelector('#profilePhotoInput') as HTMLInputElement;
     this.photoFile = ($input.files as FileList)[0];
-    if(this.photoFile) {
+    if (this.photoFile) {
       this.openModal(template);
       const $canvas: any = document.querySelector('#profilePhotoCanvas');
       this.context = $canvas.getContext('2d');

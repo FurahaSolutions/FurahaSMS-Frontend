@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {PageUnderMaintenanceComponent} from './page-under-maintenance.component';
+import { PageUnderMaintenanceComponent } from './page-under-maintenance.component';
 
 describe('PageUnderMaintenanceComponent', () => {
   let component: PageUnderMaintenanceComponent;

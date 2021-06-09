@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-import * as fromCourses from '../actions/courses.actions';
 import {catchError, concatMap, map} from 'rxjs/operators';
 import {of} from 'rxjs';
+import * as fromCourses from '../actions/courses.actions';
 import {ELearningService} from '../../e-learning/services/e-learning.service';
 
 

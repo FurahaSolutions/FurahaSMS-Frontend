@@ -1,6 +1,6 @@
 <ng-container *ngIf='!isLoading; else loading'>
 
-  <h1>Roles and Permission Edit <span class="icon-right-dir"></span> {{ role.name | titlecase }} </h1>
+  <h1>Roles and Permission Edit <fa-icon [icon]="faChevronRight"></fa-icon> {{ role.name | titlecase }} </h1>
 
   <form [formGroup]='permissionsForm' (submit)='submitPermission()'>
 

@@ -1,7 +1,7 @@
 import { AbstractControl } from '@angular/forms';
 import { Injectable } from '@angular/core';
-import { StudentService } from '../services/student.service';
 import { map } from 'rxjs/operators';
+import { StudentService } from '../services/student.service';
 
 @Injectable({
   providedIn: 'root'

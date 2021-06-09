@@ -1,10 +1,10 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {SelectLibrarySubClassComponent} from './select-library-sub-class.component';
-import {StoreModule} from '@ngrx/store';
-import {EffectsModule} from '@ngrx/effects';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { SelectLibrarySubClassComponent } from './select-library-sub-class.component';
 
 describe('SelectLibrarySubClassComponent', () => {
   let component: SelectLibrarySubClassComponent;

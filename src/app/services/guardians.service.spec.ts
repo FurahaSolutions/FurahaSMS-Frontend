@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GuardiansService } from './guardians.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StoreModule } from '@ngrx/store';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../store/reducers';
+import { GuardiansService } from './guardians.service';
 
 describe('GuardiansService', () => {
   beforeEach(() => TestBed.configureTestingModule({

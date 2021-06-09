@@ -1,17 +1,18 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {DeleteAcademicYearComponent} from './delete-academic-year.component';
-import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
-import {ModalModule} from 'ngx-bootstrap/modal';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {ReactiveComponentModule} from '@ngrx/component';
-import {FormsModule} from '@angular/forms';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
+import { DeleteAcademicYearComponent } from './delete-academic-year.component';
 
 describe('DeleteAcademicYearComponent', () => {
   let component: DeleteAcademicYearComponent;
   let fixture: ComponentFixture<DeleteAcademicYearComponent>;
 
-  beforeEach(waitForAsync( () => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(REDUCER_TOKEN, {
@@ -24,12 +25,13 @@ describe('DeleteAcademicYearComponent', () => {
         ModalModule.forRoot(),
         HttpClientTestingModule,
         ReactiveComponentModule,
-        FormsModule
+        FormsModule,
+        FontAwesomeTestingModule
       ],
-      declarations: [ DeleteAcademicYearComponent ],
+      declarations: [DeleteAcademicYearComponent],
       providers: [reducerProvider]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

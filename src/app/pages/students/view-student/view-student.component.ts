@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import * as fromStore from '../../../store/reducers';
 import { Observable } from 'rxjs';
 import { tap, map, mergeMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { StudentProfileStateInterface } from 'src/app/store/reducers/student-profile-update.reducer';
+import * as fromStore from '../../../store/reducers';
 import { loadStudentProfiles, loadStudentProfilesSuccess } from '../store/actions/student-profile.actions';
 import { selectStudent } from '../store/selectors/student-profile.selectors';
 

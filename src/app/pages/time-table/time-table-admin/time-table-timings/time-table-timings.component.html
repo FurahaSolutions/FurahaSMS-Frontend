@@ -1,6 +1,6 @@
 <section class="mt-1">
-  <button class="btn btn-primary" (click)="newTimeTablePlan()"><span
-      class="icon-plus-circled"></span>Create New Template</button>
+  <button class="btn btn-primary" (click)="newTimeTablePlan()"><
+    <fa-icon [icon]="faPlusCircle"></fa-icon> Create New Template</button>
 
   <accordion [closeOthers]='true' [isAnimated]='true'>
     <accordion-group class="mt-2" *ngFor='let timing of timings$ | ngrxPush; let i = index'
@@ -9,8 +9,8 @@
       <section accordion-heading class="active d-flex justify-content-between">
         <h2>{{ timing.description }}</h2>
         <section>
-          <button class="btn btn-primary btn-sm"><span [class.icon-down-dir]='!isOpen[i]'
-              [class.icon-up-dir]='isOpen[i]'></span>View</button>
+          <button class="btn btn-primary btn-sm">
+            <fa-icon [icon]="isOpen[i] ? faChevronUp : faChevronDown"></fa-icon> View</button>
         </section>
       </section>
       <section>

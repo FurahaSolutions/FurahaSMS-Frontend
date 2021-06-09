@@ -2,10 +2,10 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of } from 'rxjs';
 
-import { GenderEffects } from './gender.effects';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StoreModule } from '@ngrx/store';
 import { REDUCER_TOKEN, reducerProvider, metaReducers } from '../reducers';
+import { GenderEffects } from './gender.effects';
 
 describe('GenderEffects', () => {
   let actions$: Observable<any>;

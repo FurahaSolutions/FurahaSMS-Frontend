@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { LinkInterface } from '../interfaces/link.interface';
 import { combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { select, Store } from '@ngrx/store';
+import { LinkInterface } from '../interfaces/link.interface';
 import { selectMyPermissions, selectMyRoles } from '../pages/my-profile/store/selectors/my-profile.selectors';
 import * as fromLinks from '../store/selectors/permissions.selectors';
 
@@ -55,19 +55,4 @@ export class LinkService {
     );
 
   }
-
-  // getAcademicYearLinks($id: number): Observable<LinkInterface[]> {
-  //   return this.filerAllowed([
-  //     {
-  //       name: 'Financial Plan',
-  //       icon: 'icon-dollar',
-  //       link: `academics/academic-year/${$id}/financial-plan`
-  //     },
-  //     {
-  //       name: 'Subjects/ Units',
-  //       icon: 'icon-user-plus',
-  //       link: `academics/academic-year/${$id}/units`
-  //     },
-  //   ]);
-  // }
 }

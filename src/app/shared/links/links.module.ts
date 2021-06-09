@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LinksComponent } from './links.component';
-import { LinkComponent } from './link/link.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LinksComponent } from './links.component';
+import { LinkComponent } from './link/link.component';
 
 
 
@@ -12,7 +13,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ],
   exports: [LinksComponent]
 })

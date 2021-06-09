@@ -1,5 +1,6 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {PrintService} from '../../services/print.service';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { faPrint } from '@fortawesome/free-solid-svg-icons/faPrint';
+import { PrintService } from '../../services/print.service';
 
 @Component({
   selector: 'app-print',
@@ -10,7 +11,10 @@ import {PrintService} from '../../services/print.service';
 export class PrintComponent {
 
   @Input() selector = '';
-  constructor(private printService: PrintService) { }
+  faPrint = faPrint;
+
+  constructor(private printService: PrintService) {
+  }
 
   print(): void {
     this.printService.popupPrint(this.selector);

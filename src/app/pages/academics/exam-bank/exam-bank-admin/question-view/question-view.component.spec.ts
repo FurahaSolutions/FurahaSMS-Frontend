@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { QuestionViewComponent } from './question-view.component';
 import { Number2AlphabetModule } from 'src/app/shared/number-2-alphabet/number-2-alphabet.module';
+import { QuestionViewComponent } from './question-view.component';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 describe('QuestionViewComponent', () => {

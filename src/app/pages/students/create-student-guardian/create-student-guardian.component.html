@@ -1,8 +1,10 @@
 <ng-container *ngIf=' student$ | ngrxPush as student; else loading'>
-  <h1>Student Guardian Creation <span class="icon-right-dir"></span>{{ student.firstName }} {{ student.lastName }}</h1>
+  <h1>Student Guardian Creation <fa-icon [icon]="faChevronRight"></fa-icon>{{ student.firstName }} {{ student.lastName }}</h1>
   <section class="card p-2">
     <form [formGroup]="userIdentificationForm" (submit)='submitGuardianForm()'>
-      <button type="button" class='icon-plus-circled btn btn-primary btn-sm' (click)="addGuardians()">Add Guardian <span
+      <button type="button" class='btn btn-primary btn-sm' (click)="addGuardians()">
+
+        <fa-icon [icon]="faPlusCircle"></fa-icon> Add Guardian <span
         class="sr-only">Guardian form section</span></button>
       <section formArrayName="guardians">
         <div class="mb-1 mt-1" *ngFor="let guardian of guardians.controls; let i = index">
@@ -11,8 +13,8 @@
               Enter Details for the {{ i + 1 | ordinal }} Guardian
             </legend>
             <div class="col-12 d-flex justify-content-end"><button type="button" (click)="removeGuardian(i)"
-                         [disabled]="guardians.controls.length === 1" class="btn btn-outline-danger btn-sm"><span
-              class="icon-trash"></span>Delete
+                         [disabled]="guardians.controls.length === 1" class="btn btn-outline-danger btn-sm">
+              <fa-icon [icon]="faTrash"></fa-icon> Delete
             </button></div>
             <fieldset class="card pl-3">
               <legend>

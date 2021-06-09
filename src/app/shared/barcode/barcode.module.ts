@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BarcodeComponent } from './barcode.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BarcodeComponent } from './barcode.component';
 
 
 
@@ -15,7 +16,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
     ModalModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class AppBarcodeModule { }

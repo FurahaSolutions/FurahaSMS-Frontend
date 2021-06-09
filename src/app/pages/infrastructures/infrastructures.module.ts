@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { InfrastructuresRoutingModule } from './infrastructures-routing.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { InfrastructuresRoutingModule } from './infrastructures-routing.module';
 
 
 @NgModule({

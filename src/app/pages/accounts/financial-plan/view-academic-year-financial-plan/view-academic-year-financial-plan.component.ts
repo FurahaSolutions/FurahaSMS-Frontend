@@ -1,11 +1,13 @@
-import {Component} from '@angular/core';
-import {select, Store} from '@ngrx/store';
-import {AppState} from 'src/app/store/reducers';
-import {selectPlanForAcademicYearWithId} from '../store/selectors/academic-year-plan.selectors';
-import {combineLatest, Observable} from 'rxjs';
-import {map, mergeMap} from 'rxjs/operators';
-import {ActivatedRoute} from '@angular/router';
-import {AcademicYearService} from '../../../academics/services/academic-year.service';
+import { Component } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/reducers';
+import { combineLatest, Observable } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { selectPlanForAcademicYearWithId } from '../store/selectors/academic-year-plan.selectors';
+import { AcademicYearService } from '../../../academics/services/academic-year.service';
 
 @Component({
   selector: 'app-view-academic-year-financial-plan',
@@ -13,6 +15,8 @@ import {AcademicYearService} from '../../../academics/services/academic-year.ser
   styleUrls: ['./view-academic-year-financial-plan.component.css']
 })
 export class ViewAcademicYearFinancialPlanComponent {
+  faChevronRight = faChevronRight;
+  faEdit = faEdit;
   academicYearPlanId$ = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id'))),
   );
@@ -43,6 +47,7 @@ export class ViewAcademicYearFinancialPlanComponent {
   v$ = combineLatest([this.academicYear$, this.formattedPlan$, this.semesters$]).pipe(
     map(([academicYear, financialPlan, semesters]) => ({academicYear, financialPlan, semesters}))
   );
+
 
   constructor(
     private store: Store<AppState>,

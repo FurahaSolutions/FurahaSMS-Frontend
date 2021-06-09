@@ -1,12 +1,13 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import {DashboardRoutingModule} from './dashboard-routing.module';
-import {AppLayoutModule} from 'src/app/modules/app-layout.module';
-import {DashboardComponent} from './dashboard.component';
-import {LoadMyProfileModule} from '../my-profile/load-my-profile.module';
-import {AppLinksModule} from 'src/app/shared/links/links.module';
+import { AppLayoutModule } from 'src/app/modules/app-layout.module';
+import { AppLinksModule } from 'src/app/shared/links/links.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LoadMyProfileModule } from '../my-profile/load-my-profile.module';
+import { DashboardComponent } from './dashboard.component';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
     AppLayoutModule,
     AppLinksModule,
     LoadMyProfileModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class DashboardModule {

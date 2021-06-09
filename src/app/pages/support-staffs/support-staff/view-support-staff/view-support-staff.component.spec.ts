@@ -1,15 +1,16 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ViewSupportStaffComponent} from './view-support-staff.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
-import {reducer, supportStaffFeatureKey} from '../../store/reducers/support-staff.reducer';
-import {CreateUnitComponent} from '../../../academics/curriculum/create-unit/create-unit.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {reducer, supportStaffFeatureKey} from '../../store/reducers/support-staff.reducer';
+import {CreateUnitComponent} from '../../../academics/curriculum/create-unit/create-unit.component';
+import { TabErrorStateModule } from '../../../../components/tab-error-state/app-tab-error.module';
+import {ViewSupportStaffComponent} from './view-support-staff.component';
 
 describe('ViewSupportStaffComponent', () => {
   let component: ViewSupportStaffComponent;
@@ -31,7 +32,8 @@ describe('ViewSupportStaffComponent', () => {
         AppLoadingBubbleModule,
         FormsModule,
         ReactiveFormsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        TabErrorStateModule
       ],
       declarations: [ViewSupportStaffComponent, CreateUnitComponent],
       providers: [reducerProvider],

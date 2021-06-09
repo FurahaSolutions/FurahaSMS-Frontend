@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {UserPasswordChangeComponent} from './user-password-change.component';
-import {PasswordChangeFormModule} from '../password-change-form/password-change-form.module';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { PasswordChangeFormModule } from '../password-change-form/password-change-form.module';
+import { UserPasswordChangeComponent } from './user-password-change.component';
 
 
 @NgModule({

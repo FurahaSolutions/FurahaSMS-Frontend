@@ -2,10 +2,10 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of } from 'rxjs';
 
-import { StudentFeeStatementEffects } from './student-fee-statement.effects';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StoreModule } from '@ngrx/store';
 import { REDUCER_TOKEN, reducerProvider, metaReducers } from 'src/app/store/reducers';
+import { StudentFeeStatementEffects } from './student-fee-statement.effects';
 
 describe('StudentFeeStatementEffects', () => {
   let actions$: Observable<any>;

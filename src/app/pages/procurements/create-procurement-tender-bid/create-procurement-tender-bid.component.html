@@ -22,26 +22,18 @@
     </section>
     <section  class="col-lg-12" *ngIf='(errorBody$ | ngrxPush) as errorBody'>
       <section *ngIf='errorBody.show' class="alert alert-danger alert-dismissible fade show">
-        <p class='icon-attention'><strong>{{ errorBody.status + ': ' }}{{ errorBody.title }}</strong></p>
+        <p> <fa-icon [icon]="faExclamationCircle"></fa-icon> <strong>{{ errorBody.status + ': ' }}{{ errorBody.title }}</strong></p>
         <p>{{ errorBody.body }}</p>
         <button (click)='closeMessage()' type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span class='icon-cancel-circled close'></span>
+          <fa-icon [icon]="faTimes" class='close'></fa-icon>
         </button>
       </section>
     </section>
     <section class="col-lg-12">
-      <section class='d-flex justify-content-between flex-wrap'>
-        <button (click)='closeDialog()' type='button'
-          class='btn btn-danger'>Cancel</button>
-        <button *ngIf='!newBidForm.valid' (click)='triggerValidationSubject$.next(true)' type='button'
-          class='btn btn-secondary'>Validate</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <button class='btn btn-success' [disabled]='!newBidForm.valid || (submitInProgressAction$ | ngrxPush)'>
-          Save Bid Info
-          <i *ngIf='(submitInProgressAction$ | ngrxPush)' class='icon-spin3 animate-spin'></i>
-          <i *ngIf='((submitInProgressAction$ | ngrxPush)=== false) && newBidForm.valid' class='icon-ok-1'></i>
-        </button>
-      </section>
+      <app-validate-submit-buttons [isSubmitting]='submitInProgressSubject$ | ngrxPush'
+                                   (validationButtonClicked)='triggerValidationSubject$.next(true)' [formItem]='itemForm'>
+        <span>Save Bid Info</span>
+      </app-validate-submit-buttons>
     </section>
 
   </form>

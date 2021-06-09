@@ -1,12 +1,16 @@
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import {LibraryAuthorService} from './library-author.service';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {CreateUnitComponent} from '../../academics/curriculum/create-unit/create-unit.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { CreateUnitComponent } from '../../academics/curriculum/create-unit/create-unit.component';
+import { LibraryAuthorService } from './library-author.service';
 
 describe('LibraryAuthorService', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [HttpClientTestingModule],
+    imports: [
+      HttpClientTestingModule,
+      FontAwesomeTestingModule
+    ],
     declarations: [CreateUnitComponent]
   }));
 

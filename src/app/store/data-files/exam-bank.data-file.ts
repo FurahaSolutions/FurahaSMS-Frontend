@@ -1,10 +1,13 @@
+import { faFolderOpen } from '@fortawesome/free-solid-svg-icons/faFolderOpen';
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons/faUserSecret';
+
 export const examBankLinks = [
   {
-    name: 'Past Exams', icon: 'icon-folder-open', link: 'academics/exam-bank/archives',
+    name: 'Past Exams', icon: faFolderOpen, link: 'academics/exam-bank/archives',
     permissions: ['access academics']
   },
   {
-    name: 'Admin', icon: 'icon-user-secret', link: 'academics/exam-bank/admin',
+    name: 'Admin', icon: faUserSecret, link: 'academics/exam-bank/admin',
     permissions: ['access exam plan', 'create exam plan']
   },
 ];

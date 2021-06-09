@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
-import {AdmissionsComponent} from './admissions.component';
 import {Store, StoreModule} from '@ngrx/store';
-import {AppState, reducerProvider} from '../../store/reducers';
 import {AppLinksModule} from 'src/app/shared/links/links.module';
 import {REDUCER_TOKEN, metaReducers} from 'src/app/store/reducers';
+import {AppState, reducerProvider} from '../../store/reducers';
 import {myProfileFeatureKey, reducer} from '../my-profile/store/reducers/my-profile.reducer';
 import {appFeatureKey, reducers} from '../../store/reducers/app.reducer';
+import {AdmissionsComponent} from './admissions.component';
 
 describe('AdmissionsComponent', () => {
   let component: AdmissionsComponent;

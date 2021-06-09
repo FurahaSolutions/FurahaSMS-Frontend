@@ -1,22 +1,23 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {CreateUnitComponent} from './create-unit.component';
-import {Store, StoreModule} from '@ngrx/store';
-import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterTestingModule} from '@angular/router/testing';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {AppInputModule} from 'src/app/components/input/app-input.module';
-import {ErrorComponent} from 'src/app/components/error/error.component';
-import {AppValidateSubmitButtonsModule} from '../../../../components/validate-submit-buttons/validate-submit-buttons.module';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { Store, StoreModule } from '@ngrx/store';
+import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AppInputModule } from 'src/app/components/input/app-input.module';
+import { ErrorComponent } from 'src/app/components/error/error.component';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { AppValidateSubmitButtonsModule } from '../../../../components/validate-submit-buttons/validate-submit-buttons.module';
+import { CreateUnitComponent } from './create-unit.component';
 
 describe('CreateUnitComponent', () => {
   let component: CreateUnitComponent;
   let fixture: ComponentFixture<CreateUnitComponent>;
   let store: Store<AppState>;
 
-  beforeEach(waitForAsync( () => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(REDUCER_TOKEN, {
@@ -32,7 +33,8 @@ describe('CreateUnitComponent', () => {
         HttpClientTestingModule,
         AppInputModule,
         AppValidateSubmitButtonsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [
         CreateUnitComponent,
@@ -41,7 +43,7 @@ describe('CreateUnitComponent', () => {
       providers: [reducerProvider]
     });
 
-     TestBed.compileComponents();
+    TestBed.compileComponents();
   }));
 
   beforeEach(() => {

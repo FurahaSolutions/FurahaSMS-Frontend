@@ -1,19 +1,20 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {PasswordManagementComponent} from './password-management.component';
-import {UserPasswordChangeModule} from '../user-password-change/user-password-change.module';
-import {UserPasswordResetModule} from '../user-password-reset/user-password-reset.module';
-import {RouterTestingModule} from '@angular/router/testing';
-import {LoadMyProfileModule} from '../../my-profile/load-my-profile.module';
-import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
-import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
-import {EffectsModule} from '@ngrx/effects';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {ActivatedRoute} from '@angular/router';
-import {of} from 'rxjs';
-import {MyProfileService} from '../../my-profile/services/my-profile.service';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { MyProfileService } from '../../my-profile/services/my-profile.service';
+import { LoadMyProfileModule } from '../../my-profile/load-my-profile.module';
+import { UserPasswordResetModule } from '../user-password-reset/user-password-reset.module';
+import { UserPasswordChangeModule } from '../user-password-change/user-password-change.module';
+import { PasswordManagementComponent } from './password-management.component';
 
 describe('PasswordManagementComponent', () => {
   let component: PasswordManagementComponent;
@@ -36,7 +37,8 @@ describe('PasswordManagementComponent', () => {
           }
         }),
         EffectsModule.forRoot([]),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       providers: [
         reducerProvider,

@@ -1,9 +1,11 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {map, mergeMap} from 'rxjs/operators';
-import {TeacherSubjectService} from '../services/teacher-subject.service';
-import {UnitsService} from '../../../services/units.service';
-import {combineLatest, Observable} from 'rxjs';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { map, mergeMap } from 'rxjs/operators';
+import { combineLatest, Observable } from 'rxjs';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
+import { TeacherSubjectService } from '../services/teacher-subject.service';
+import { UnitsService } from '../../../services/units.service';
 
 @Component({
   selector: 'app-view-teacher-subjects',
@@ -11,7 +13,8 @@ import {combineLatest, Observable} from 'rxjs';
   styleUrls: ['./view-teacher-subjects.component.css']
 })
 export class ViewTeacherSubjectsComponent {
-
+  faEdit = faEdit;
+  faCheck = faCheck;
   teacherId$ = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id')))
   );

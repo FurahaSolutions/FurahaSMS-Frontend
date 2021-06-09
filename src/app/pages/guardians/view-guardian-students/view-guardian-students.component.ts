@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { GuardiansService } from 'src/app/services/guardians.service';
 import { map, mergeMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
 
 @Component({
   selector: 'app-view-guardian-students',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./view-guardian-students.component.css']
 })
 export class ViewGuardianStudentsComponent {
-
+  faEye = faEye;
   students$= (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => Number(params.get('id'))),
     mergeMap(guardianId => this.guardianService.getStudents(guardianId)));

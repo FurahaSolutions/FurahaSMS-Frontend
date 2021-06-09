@@ -1,4 +1,4 @@
-import {Action, createReducer, on} from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 import * as LibraryBookClassificationActions from '../actions/library-book-classification.actions';
 
 export interface State {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { LibraryPublisherService } from '../../services/library-publisher.service';
 import { takeUntil } from 'rxjs/operators';
+import { LibraryPublisherService } from '../../services/library-publisher.service';
 import { selectLibraryBookPublishers } from '../../store/selectors/library.selectors';
 import { removeLibraryBookPublisher } from '../../store/actions/library-book-publisher.actions';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';

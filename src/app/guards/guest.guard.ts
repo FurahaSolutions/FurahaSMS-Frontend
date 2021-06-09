@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthenticationService } from '../services/authentication.service';
 import { Store } from '@ngrx/store';
+import { AuthenticationService } from '../services/authentication.service';
 import { loadToastShowsSuccess } from '../store/actions/toast-show.actions';
 import { AppState } from '../store/reducers';
 

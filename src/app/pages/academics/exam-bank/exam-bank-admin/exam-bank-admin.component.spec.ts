@@ -1,12 +1,13 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ExamBankAdminComponent} from './exam-bank-admin.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {StoreModule} from '@ngrx/store';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import {ExamBankAdminComponent} from './exam-bank-admin.component';
 
 describe('ExamBankAdminComponent', () => {
   let component: ExamBankAdminComponent;
@@ -24,7 +25,8 @@ describe('ExamBankAdminComponent', () => {
           }
         }),
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ExamBankAdminComponent],
       providers: [reducerProvider]

@@ -1,15 +1,16 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {NameItemComponent} from './name-item.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AppInputModule} from 'src/app/components/input/app-input.module';
-import {StoreModule} from '@ngrx/store';
-import {REDUCER_TOKEN, reducerProvider, metaReducers} from 'src/app/store/reducers';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {appFeatureKey, reducers} from 'src/app/store/reducers/app.reducer';
-import {AppValidateSubmitButtonsModule} from '../../validate-submit-buttons/validate-submit-buttons.module';
-import {AppStarLabelRequiredModule} from '../../label-star-required/app-star-label-required';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppInputModule } from 'src/app/components/input/app-input.module';
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { appFeatureKey, reducers } from 'src/app/store/reducers/app.reducer';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { AppValidateSubmitButtonsModule } from '../../validate-submit-buttons/validate-submit-buttons.module';
+import { AppStarLabelRequiredModule } from '../../label-star-required/app-star-label-required';
+import { NameItemComponent } from './name-item.component';
 
 describe('NameItemComponent', () => {
   let component: NameItemComponent;
@@ -32,7 +33,8 @@ describe('NameItemComponent', () => {
         }),
         StoreModule.forFeature(appFeatureKey, reducers),
         AppStarLabelRequiredModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [NameItemComponent],
       providers: [reducerProvider]

@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SupportStaffService } from './support-staff.service';
 import { StoreModule } from '@ngrx/store';
 import { REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SupportStaffService } from './support-staff.service';
 
 describe('SupportStaffService', () => {
   let service: SupportStaffService;

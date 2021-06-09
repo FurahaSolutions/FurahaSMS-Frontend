@@ -1,13 +1,13 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {MyProfileComponent} from './my-profile.component';
 import {AppUserProfileModule} from 'src/app/components/user-profile/user-profile.module';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {StoreModule} from '@ngrx/store';
 import {REDUCER_TOKEN, reducerProvider, metaReducers} from 'src/app/store/reducers';
-import {myProfileFeatureKey, reducer} from './store/reducers/my-profile.reducer';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {myProfileFeatureKey, reducer} from './store/reducers/my-profile.reducer';
+import {MyProfileComponent} from './my-profile.component';
 
 describe('MyProfileComponent', () => {
   let component: MyProfileComponent;

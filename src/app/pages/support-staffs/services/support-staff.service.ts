@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Store, select} from '@ngrx/store';
 import {HttpClient} from '@angular/common/http';
-import {selectSupportStaffWithId} from '../store/selectors/support-staff.selectors';
 import {tap, filter, map, catchError} from 'rxjs/operators';
-import {loadSupportStaffById} from '../store/actions/support-staff.actions';
 import {Observable, throwError} from 'rxjs';
+import {selectSupportStaffWithId} from '../store/selectors/support-staff.selectors';
+import {loadSupportStaffById} from '../store/actions/support-staff.actions';
 import {selectStaffTypes} from '../../admissions/store/selectors/staff-type.selectors';
 import {loadStaffTypes} from '../../admissions/store/actions/staff-type.actions';
 

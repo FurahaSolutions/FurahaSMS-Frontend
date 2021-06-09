@@ -6,6 +6,8 @@ import {ClassLevelCategoryInterface} from 'src/app/interfaces/class-level-catego
 import {filter, map, mergeMap, tap} from 'rxjs/operators';
 import {VIEW_CLASS_LEVEL_CATEGORY_CURRICULUM} from 'src/app/helpers/links.helpers';
 import {formWithEditorMixin} from 'src/app/shared/mixins/form-with-editor.mixin';
+import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 
 @Component({
   selector: 'app-create-class-level-category',
@@ -14,13 +16,15 @@ import {formWithEditorMixin} from 'src/app/shared/mixins/form-with-editor.mixin'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreateClassLevelCategoryComponent extends formWithEditorMixin() implements OnInit {
-
+  faSpinner = faSpinner;
+  faSave = faSave;
   classLevelCategoryForm: FormGroup = this.fb.group({
     id: [null],
     name: ['', [Validators.required]],
     active: [false],
     description: ['']
   });
+
 
   constructor(
     private fb: FormBuilder,

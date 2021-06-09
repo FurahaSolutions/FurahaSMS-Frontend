@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs';
-import {TeacherService} from '../../admissions/services/teacher.service';
 import {ActivatedRoute} from '@angular/router';
 import {map, mergeMap, tap} from 'rxjs/operators';
 import {select, Store} from '@ngrx/store';
 import {AppState} from 'src/app/store/reducers';
+import {TeacherService} from '../../admissions/services/teacher.service';
 import {loadTeacherProfiles, loadTeacherProfilesSuccess} from '../store/actions/teacher-profile.actions';
 import {selectTeacher} from '../store/selectors/teacher-profile.selectors';
 

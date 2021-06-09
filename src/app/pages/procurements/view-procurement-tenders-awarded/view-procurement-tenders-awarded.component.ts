@@ -1,12 +1,15 @@
 import { Component} from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../../store/reducers';
 import { ProcurementService } from 'src/app/services/procurement.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { FulfillOrRejectTenderFormComponent } from '../fulfill-or-reject-tender-form/fulfill-or-reject-tender-form.component';
 import { selectDialogShowState } from 'src/app/store/selectors/dialog.selector';
 import { showDialog } from 'src/app/store/actions/dialog.actions';
 import { takeUntil} from 'rxjs/operators';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import { FulfillOrRejectTenderFormComponent } from '../fulfill-or-reject-tender-form/fulfill-or-reject-tender-form.component';
+import * as fromStore from '../../../store/reducers';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
@@ -15,7 +18,9 @@ import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-cont
   styleUrls: ['./view-procurement-tenders-awarded.component.css']
 })
 export class ViewProcurementTendersAwardedComponent extends subscribedContainerMixin() {
-
+  faEye = faEye;
+  faCheck = faCheck;
+  faTimes = faTimes;
   procurementTenders$ = this.procurementService.getAwardedTenders();
   config = {
     backdrop: false,

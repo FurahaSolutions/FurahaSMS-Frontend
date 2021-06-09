@@ -1,12 +1,13 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {UserSelectItemComponent} from './user-select-item.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {StoreModule} from '@ngrx/store';
-import {REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {appFeatureKey, reducers} from 'src/app/store/reducers/app.reducer';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { appFeatureKey, reducers } from 'src/app/store/reducers/app.reducer';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { UserSelectItemComponent } from './user-select-item.component';
 
 describe('UserSelectItemComponent', () => {
   let component: UserSelectItemComponent;
@@ -26,7 +27,8 @@ describe('UserSelectItemComponent', () => {
           }
         }),
         StoreModule.forFeature(appFeatureKey, reducers),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [UserSelectItemComponent],
       providers: [reducerProvider]

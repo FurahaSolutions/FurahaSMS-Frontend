@@ -1,5 +1,5 @@
-import { Component} from '@angular/core';
-import { LibraryBookTagService } from '../../services/library-book-tag.service';
+import {Component} from '@angular/core';
+import {LibraryBookTagService} from '../../services/library-book-tag.service';
 
 @Component({
   selector: 'app-library-admin-tags',

@@ -1,14 +1,15 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {EditSemesterComponent} from './edit-semester.component';
 import {ErrorModule} from 'src/app/components/error/error.module';
 import {RouterTestingModule} from '@angular/router/testing';
 import {reducerProvider} from 'src/app/store/reducers';
-import { CreateSemesterComponent } from '../create-semester/create-semester.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { CreateSemesterComponent } from '../create-semester/create-semester.component';
 import { AppCrudModule } from '../../../../../components/crud/app-crud.module';
+import {EditSemesterComponent} from './edit-semester.component';
 
 describe('EditSemesterComponent', () => {
   let component: EditSemesterComponent;
@@ -22,7 +23,8 @@ describe('EditSemesterComponent', () => {
         ReactiveFormsModule,
         ReactiveComponentModule,
         HttpClientTestingModule,
-        AppCrudModule
+        AppCrudModule,
+        FontAwesomeTestingModule
       ],
       declarations: [EditSemesterComponent, CreateSemesterComponent],
       providers: [reducerProvider]

@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SchoolRoomService } from './school-room.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SchoolRoomService } from './school-room.service';
 
 describe('SchoolRoomService', () => {
   let service: SchoolRoomService;

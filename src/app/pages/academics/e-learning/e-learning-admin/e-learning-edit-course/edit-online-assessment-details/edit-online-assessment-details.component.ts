@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { OnlineAssessmentService } from '../../../services/online-assessment.service';
-import { subscribedContainerMixin } from '../../../../../../shared/mixins/subscribed-container.mixin';
-import { formMixin } from '../../../../../../shared/mixins/form.mixin';
 import { FormBuilder, Validators } from '@angular/forms';
 import { map, mergeMap, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { OnlineAssessmentService } from '../../../services/online-assessment.service';
+import { subscribedContainerMixin } from '../../../../../../shared/mixins/subscribed-container.mixin';
+import { formMixin } from '../../../../../../shared/mixins/form.mixin';
 
 @Component({
   selector: 'app-edit-online-assessment-details',
@@ -12,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./edit-online-assessment-details.component.css']
 })
 export class EditOnlineAssessmentDetailsComponent extends subscribedContainerMixin(formMixin()) {
+  faChevronRight = faChevronRight;
   assessmentId$ = this.route.paramMap.pipe(
     map(params => Number(params.get('id')))
   );
@@ -31,10 +33,10 @@ export class EditOnlineAssessmentDetailsComponent extends subscribedContainerMix
         closedDateTime: new Date(val.closing_at).toISOString().slice(0, 16),
         period: val.period,
       });
-      console.log(val);
     })
   );
   private topicId: number | undefined;
+
 
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private assessmentService: OnlineAssessmentService) {
     super();
@@ -44,8 +46,9 @@ export class EditOnlineAssessmentDetailsComponent extends subscribedContainerMix
     this.assessmentId$.pipe(
       mergeMap(id => this.assessmentService.save({
         topicId: this.topicId,
-        data: {...this.itemForm.value, id },
-        assessmentId: id})),
+        data: {...this.itemForm.value, id},
+        assessmentId: id
+      })),
       takeUntil(this.destroyed$)
     ).subscribe({
       next: () => {

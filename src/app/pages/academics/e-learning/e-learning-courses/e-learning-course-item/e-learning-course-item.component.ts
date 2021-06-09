@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {map, tap} from 'rxjs/operators';
-import {loadCourses} from '../../../store/actions/courses.actions';
 import {Store} from '@ngrx/store';
+import {loadCourses} from '../../../store/actions/courses.actions';
 
 @Component({
   selector: 'app-e-learning-course-item',

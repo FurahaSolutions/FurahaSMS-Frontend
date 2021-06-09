@@ -1,18 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {TopicOnlineAssessmentListComponent} from './topic-online-assessment-list.component';
-import {ModalModule} from 'ngx-bootstrap/modal';
-import {RouterTestingModule} from '@angular/router/testing';
-import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../store/reducers';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule } from '@ngrx/store';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
+import { TabErrorStateModule } from '../../../../components/tab-error-state/app-tab-error.module';
+import { TopicOnlineAssessmentListComponent } from './topic-online-assessment-list.component';
 
 describe('TopicOnlineAssessmentListComponent', () => {
   let component: TopicOnlineAssessmentListComponent;
   let fixture: ComponentFixture<TopicOnlineAssessmentListComponent>;
 
-  beforeEach(waitForAsync( () => {
-     TestBed.configureTestingModule({
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
       imports: [
         RouterTestingModule.withRoutes([]),
         ModalModule.forRoot(),
@@ -23,7 +25,9 @@ describe('TopicOnlineAssessmentListComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        FontAwesomeTestingModule,
+        TabErrorStateModule
       ],
       declarations: [TopicOnlineAssessmentListComponent],
       providers: [reducerProvider]

@@ -2,11 +2,11 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of } from 'rxjs';
 
-import { GuardianProfileEffects } from './guardian-profile.effects';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StoreModule } from '@ngrx/store';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
 import { guardianProfileFeatureKey, reducer } from '../reducers/guardian-profile.reducer';
+import { GuardianProfileEffects } from './guardian-profile.effects';
 
 describe('GuardianProfileEffects', () => {
   const actions$: Observable<any> = of('Load');

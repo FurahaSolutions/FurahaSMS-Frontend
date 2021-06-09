@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../../store/reducers';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProcurementService } from 'src/app/services/procurement.service';
 import { Observable, Subscriber } from 'rxjs';
@@ -8,6 +7,11 @@ import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { CanComponentDeactivate } from 'src/app/guards/can-deactivate.guard';
 import { Router } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import * as fromStore from '../../../store/reducers';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../shared/mixins/form.mixin';
 
@@ -19,6 +23,9 @@ import { formMixin } from '../../../shared/mixins/form.mixin';
 export class CreateProcurementsVendorsComponent extends subscribedContainerMixin(formMixin())
   implements CanComponentDeactivate {
   @ViewChild('staticTabs', {static: false}) staticTabs: TabsetComponent | undefined;
+  faCheck = faCheck;
+  faTrashAlt = faTrashAlt;
+  faPlusCircle = faPlusCircle;
   procurementVendorForm = this.fb.group({
     name: ['', [Validators.required]],
     address: ['', [Validators.required]],
@@ -31,7 +38,6 @@ export class CreateProcurementsVendorsComponent extends subscribedContainerMixin
   });
   sub: Subscriber<any>[] = [];
   itemCategories$ = this.procurementService.getItemCategories();
-  markTabsWithError = false;
   formSubmitted = false;
 
   constructor(
@@ -93,7 +99,8 @@ export class CreateProcurementsVendorsComponent extends subscribedContainerMixin
 
   getNewPhoneField() {
     return this.fb.group({
-      value: ['', [Validators.required]],
+      // value: ['', [Validators.required]],
+      value: ['', []], // TODO-me required validator fails
       name: ['']
     });
   }
@@ -118,11 +125,6 @@ export class CreateProcurementsVendorsComponent extends subscribedContainerMixin
     }
   }
 
-  validateForm() {
-    this.triggerValidationSubject$.next(true);
-    this.markTabsWithError = true;
-  }
-
   get generalInfoHasError() {
     if(this.controlAsFormGroup('name').errors) {
       return true;
@@ -141,6 +143,7 @@ export class CreateProcurementsVendorsComponent extends subscribedContainerMixin
   }
 
   onCheckboxChange(e: any) {
+    console.log(e);
     const checkArray: FormArray = this.procurementVendorForm.get('procurementItemsCategory') as FormArray;
 
     if(e.target.checked) {

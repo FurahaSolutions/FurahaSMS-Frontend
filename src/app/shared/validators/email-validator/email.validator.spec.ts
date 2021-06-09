@@ -1,5 +1,5 @@
-import { EmailValidatorDirective } from './email.validator';
 import { FormControl } from '@angular/forms';
+import { EmailValidatorDirective } from './email.validator';
 
 describe('EmailValidatorDirective', () => {
   it('should have a function that validates correct emails', () => {

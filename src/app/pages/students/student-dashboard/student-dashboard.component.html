@@ -1,14 +1,14 @@
 <h1>Students</h1>
 <section class="card p-2">
   <div class="d-flex flex-wrap">
-    <a [routerLink]="['/admissions','students','create']" class="btn btn-primary ml-auto"><span class="icon-plus-circled"></span>New Student Admission</a>
+    <a [routerLink]="['/admissions','students','create']" class="btn btn-primary ml-auto"><fa-icon [icon]="faPlusCircle"></fa-icon> New Student Admission</a>
     <div class="col-12 d-flex justify-content-between flex-wrap">
       <h2>Student List</h2>
       <form [formGroup]="studentFilterForm" (submit)="submitStudentFilterForm()"
             class="col-12 d-flex justify-content-between flex-wrap">
         <div class="mt-2 col-12 col-lg-4 col-md-6 col-sm-6">
           <label for="AcademicYear">Academic Year</label>
-          <ng-select id="academicYear" style="width: 100%;" [items]="academicYears$ | ngrxPush" bindLabel="name"
+          <ng-select id="AcademicYear" style="width: 100%;" [items]="academicYears$ | ngrxPush" bindLabel="name"
                      bindValue="id" formControlName='academicYear'>
           </ng-select>
         </div>
@@ -28,8 +28,8 @@
         <div class="mt-2 col-12">
           <button class='btn btn-success' [disabled]='!studentFilterForm.dirty'>
             Get Students
-            <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
-            <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-ok-1'></i>
+            <fa-icon *ngIf='submitInProgressAction$ | ngrxPush' [icon]="faSpinner" [spin]="true"></fa-icon>
+            <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush) === false' [icon]='faCheck'></fa-icon>
           </button>
         </div>
       </form>
@@ -57,10 +57,10 @@
               <td>{{ student.genderAbbr}}</td>
               <td>{{ student.classLevelName }}</td>
               <td>{{ student.streamName }}</td>
-              <td><a aria-label="View Student" class="icon-eye" [routerLink]="[student.id]" ></a></td>
+              <td><a aria-label="View Student" [routerLink]="[student.id]" ><fa-icon [icon]="faEye"></fa-icon></a></td>
             </tr>
             <tr *ngIf="students.length === 0" class="alert alert-info d-print-none">
-              <td class="m-2" colspan="6"><span class="icon-info-circled"></span>No Data Found For Selected Criteria</td>
+              <td class="m-2" colspan="6"><fa-icon [icon]="faInfoCircle"></fa-icon> No Data Found For Selected Criteria</td>
             </tr>
           </ng-container>
           </tbody>

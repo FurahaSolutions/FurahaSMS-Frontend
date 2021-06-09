@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { faBookmark } from '@fortawesome/free-solid-svg-icons/faBookmark';
+import { faPlusSquare } from '@fortawesome/free-solid-svg-icons/faPlusSquare';
 
 @Component({
   selector: 'app-add-study-materials-title',
@@ -8,6 +10,8 @@ import { Component, Input } from '@angular/core';
 export class AddStudyMaterialsTitleComponent {
 
   @Input() items: any[] = [];
+  faBookmark = faBookmark;
+  faPlusSquare = faPlusSquare;
 
   constructor() {
   }

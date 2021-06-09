@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FinancialPlanService } from './financial-plan.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import {AppStarLabelRequiredModule} from '../../../components/label-star-required/app-star-label-required';
+import { FinancialPlanService } from './financial-plan.service';
 
 describe('FinancialPlanService', () => {
   beforeEach(() => TestBed.configureTestingModule({

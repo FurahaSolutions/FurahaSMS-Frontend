@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { selectMyProfileState, selectMyPermissions } from '../store/selectors/my-profile.selectors';
 import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { selectMyProfileState, selectMyPermissions } from '../store/selectors/my-profile.selectors';
 import { loadMyProfiles } from '../store/actions/my-profile.actions';
 
 @Injectable({
