@@ -2,8 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of } from 'rxjs';
 
-import { AcademicYearPlanEffects } from './academic-year-plan.effects';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import { AcademicYearPlanEffects } from './academic-year-plan.effects';
 
 describe('AcademicYearPlanEffects', () => {
   const actions$: Observable<any> = of('Load');

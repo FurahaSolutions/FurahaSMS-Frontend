@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ViewTeacherInfoComponent } from './view-teacher-info.component';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Store, StoreModule } from '@ngrx/store';
@@ -10,6 +9,7 @@ import { of } from 'rxjs';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { AppUserProfileModule } from 'src/app/components/user-profile/user-profile.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { ViewTeacherInfoComponent } from './view-teacher-info.component';
 
 describe('ViewTeacherInfoComponent', () => {
   let component: ViewTeacherInfoComponent;

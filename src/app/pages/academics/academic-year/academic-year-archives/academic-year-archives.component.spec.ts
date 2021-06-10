@@ -1,12 +1,13 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { AcademicYearArchivesComponent } from './academic-year-archives.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { AcademicYearArchivesComponent } from './academic-year-archives.component';
 
 describe('AcademicYearArchivesComponent', () => {
   let component: AcademicYearArchivesComponent;
@@ -26,7 +27,8 @@ describe('AcademicYearArchivesComponent', () => {
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([]),
         AppLoadingBubbleModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [AcademicYearArchivesComponent],
       providers: [reducerProvider]

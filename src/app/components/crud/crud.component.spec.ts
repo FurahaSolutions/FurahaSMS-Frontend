@@ -1,17 +1,17 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {CrudComponent} from './crud.component';
-import {Store, StoreModule} from '@ngrx/store';
-import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterTestingModule} from '@angular/router/testing';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {InputComponent} from '../input/input.component';
-import {SelectComponent} from '../select/select.component';
-import {ErrorComponent} from '../error/error.component';
-import {AppValidateSubmitButtonsModule} from '../validate-submit-buttons/validate-submit-buttons.module';
-import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { Store, StoreModule } from '@ngrx/store';
+import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { InputComponent } from '../input/input.component';
+import { SelectComponent } from '../select/select.component';
+import { ErrorComponent } from '../error/error.component';
+import { AppValidateSubmitButtonsModule } from '../validate-submit-buttons/validate-submit-buttons.module';
+import { CrudComponent } from './crud.component';
 
 describe('CrudComponent', () => {
   let component: CrudComponent;

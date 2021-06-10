@@ -1,12 +1,13 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {ELearningDeleteLearningOutcomeComponent} from './e-learning-delete-learning-outcome.component';
-import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../../store/reducers';
-import {ModalModule} from 'ngx-bootstrap/modal';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {FormsModule} from '@angular/forms';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { StoreModule } from '@ngrx/store';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule } from '@angular/forms';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../../store/reducers';
+import { ELearningDeleteLearningOutcomeComponent } from './e-learning-delete-learning-outcome.component';
 
 describe('ELearningDeleteLearningOutcomeComponent', () => {
   let component: ELearningDeleteLearningOutcomeComponent;
@@ -25,7 +26,8 @@ describe('ELearningDeleteLearningOutcomeComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ELearningDeleteLearningOutcomeComponent],
       providers: [reducerProvider]

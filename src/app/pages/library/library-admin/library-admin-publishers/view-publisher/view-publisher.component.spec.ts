@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ViewPublisherComponent } from './view-publisher.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
@@ -9,7 +8,9 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { libraryFeatureKey, reducers } from '../../../store/reducers';
+import { ViewPublisherComponent } from './view-publisher.component';
 
 describe('ViewPublisherComponent', () => {
   let component: ViewPublisherComponent;
@@ -30,7 +31,8 @@ describe('ViewPublisherComponent', () => {
         AppLoadingBubbleModule,
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([]),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ViewPublisherComponent],
       providers: [

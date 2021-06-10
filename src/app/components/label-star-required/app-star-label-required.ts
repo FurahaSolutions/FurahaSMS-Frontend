@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  LabelStarRequiredComponent,
-  StarRequiredComponent
-} from './label-star-required.component';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LabelStarRequiredComponent, StarRequiredComponent } from './label-star-required.component';
 
 
 @NgModule({
@@ -20,6 +18,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
   imports: [
     CommonModule,
     ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
-export class AppStarLabelRequiredModule { }
+export class AppStarLabelRequiredModule {
+}

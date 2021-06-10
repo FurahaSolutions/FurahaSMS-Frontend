@@ -1,5 +1,5 @@
 <label class="check-container">
   <input type="checkbox" [(ngModel)]="inputValue" (ngModelChange)="propagateValue($event)">
-  <span class="checkmark icon-check"></span>
-  <span class="checkmark icon-check-empty"></span> {{ label }}
+  <fa-icon class="checkmark checked" [icon]="faCheckSquare"></fa-icon>
+  <fa-icon class="checkmark not-checked" [icon]="faSquare"></fa-icon> {{ label }}
 </label>

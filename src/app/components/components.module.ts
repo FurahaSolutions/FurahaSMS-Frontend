@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ToastComponent } from './toast/toast.component';
-import { AppLayoutModule } from '../modules/app-layout.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AppLayoutModule } from '../modules/app-layout.module';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -12,10 +13,12 @@ import { ReactiveComponentModule } from '@ngrx/component';
     CommonModule,
     AppLayoutModule,
     ReactiveComponentModule,
+    FontAwesomeModule
 
   ],
   exports: [
     ToastComponent],
 
 })
-export class ComponentsModule {}
+export class ComponentsModule {
+}

@@ -1,6 +1,6 @@
 <section *ngIf='v$ | ngrxPush as v; else loading'>
   <h1>
-    Financial Plan <span class='icon-right-dir'></span> Academic Year <span class="icon-right-dir"></span>
+    Financial Plan <fa-icon [icon]="faChevronRight"></fa-icon> Academic Year <fa-icon [icon]="faChevronRight"></fa-icon>
     <span>{{ v.academicYear?.name }}</span>
   </h1>
 
@@ -8,7 +8,7 @@
     <section class="d-flex justify-content-end">
       <a [routerLink]='["/accounts", "financial-plan", "academic-year", v.academicYear?.id, "edit"]'
          class='btn btn-primary btn-sm'>
-        Edit <span class="icon-edit"></span>
+        Edit <fa-icon [icon]="faEdit"></fa-icon>
       </a>
     </section>
     <div class="mb-4" *ngFor="let classLevel of v.financialPlan">
@@ -91,6 +91,6 @@
   </div>
 </section>
 <ng-template #loading>
-  <h1>Financial Plan <span class='icon-right-dir'></span> Academic Year</h1>
+  <h1>Financial Plan <fa-icon [icon]="faChevronRight"></fa-icon> Academic Year</h1>
   <app-loading-bubble></app-loading-bubble>
 </ng-template>

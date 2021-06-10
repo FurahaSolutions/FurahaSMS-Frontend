@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ViewClassLevelComponent } from './view-class-level.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -10,6 +9,7 @@ import { ChipsComponent } from 'src/app/components/chips/chips.component';
 import { DescriptionComponent } from 'src/app/components/description/description.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { ViewClassLevelComponent } from './view-class-level.component';
 
 describe('ViewClassLevelComponent', () => {
   let component: ViewClassLevelComponent;

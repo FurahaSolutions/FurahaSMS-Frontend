@@ -1,9 +1,9 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {AdminExamPaperComponent} from './admin-exam-paper.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {StoreModule} from '@ngrx/store';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
+import {AdminExamPaperComponent} from './admin-exam-paper.component';
 
 describe('AdminExamPaperComponent', () => {
   let component: AdminExamPaperComponent;

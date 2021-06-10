@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { LibraryUserStatusComponent } from './library-user-status.component';
-import { ReactiveComponentModule } from '@ngrx/component';
-import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { AppLoadingBubbleModule } from '../../../../../modules/app-loading-bubble';
+import {ReactiveComponentModule} from '@ngrx/component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {AppLoadingBubbleModule} from '../../../../../modules/app-loading-bubble';
+import {LibraryUserStatusComponent} from './library-user-status.component';
 
 describe('LibraryUserStatusComponent', () => {
   let component: LibraryUserStatusComponent;

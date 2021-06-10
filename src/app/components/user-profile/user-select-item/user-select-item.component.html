@@ -13,9 +13,10 @@
         <button type="button" (click)='editable = false' class="btn btn-secondary mt-2">Cancel
         </button>
         <button [disabled]='itemForm.invalid || !itemForm.dirty' class="btn btn-success mt-2">
-          <i *ngIf='itemForm.valid && (submitInProgressAction$ | ngrxPush) === false' class='icon-ok'></i>
-          <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
-          <span class="icon-save"></span>Save </button>
+          <fa-icon *ngIf='itemForm.valid && (submitInProgressAction$ | ngrxPush) === false' [icon]='faCheck'></fa-icon>
+          <fa-icon *ngIf='submitInProgressAction$ | ngrxPush' [icon]='faSpinner' [spin]="true"></fa-icon>
+          <fa-icon [icon]="faSave"></fa-icon> Save
+        </button>
       </div>
     </div>
     <span class='label-name col-12'>{{ label | titlecase }}:</span>
@@ -24,8 +25,8 @@
         &nbsp;{{ valueName | titlecase }}
       </span>
       <button type="button" (click)='editable = true' (mouseout)='editHovered = false' (mouseover)='editHovered = true'
-        *ngIf='editMode$ | ngrxPush' [attr.aria-label]='"Edit " + label' class="icon">
-        <span [class.icon-pencil-1]='!editHovered' [class.icon-edit]="editHovered"></span>
+              *ngIf='editMode$ | ngrxPush' [attr.aria-label]='"Edit " + label' class="icon">
+        <fa-icon [icon]="editHovered ? faEdit : faPencilAlt"></fa-icon>
       </button>
     </span>
   </section>

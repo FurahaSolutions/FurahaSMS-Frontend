@@ -15,11 +15,11 @@
           <td>
             <button [disabled]="!archivableItem.allowed" (click)="openSaveModal({isOpen: true, slug:archivableItem.slug, name:archivableItem.name})"
                     *ngIf="!archivableItem.closed"
-                    class="btn btn-outline-success"><span class="icon-lock-open"></span>open
+                    class="btn btn-outline-success"><fa-icon [icon]="faLockOpen"></fa-icon>open
             </button>
             <button [disabled]="!archivableItem.allowed" (click)="openSaveModal({isOpen: false, slug:archivableItem.slug, name:archivableItem.name})"
-                    *ngIf="archivableItem.closed" class="btn btn-outline-warning"><span
-              class="icon-lock"></span>closed
+                    *ngIf="archivableItem.closed" class="btn btn-outline-warning">
+              <fa-icon [icon]="faLock"></fa-icon> closed
             </button>
           </td>
         </tr>
@@ -30,11 +30,11 @@
   <div class="card mt-2">
     <div class="p-2 d-flex justify-content-around">
       <div class="col-lg-4">
-        <button *ngIf="v.academicYear.archived" (click)="openUnarchiveModal()" class="btn btn-danger"><span class="icon-archive"></span> Unarchive Academic Year</button>
-        <button *ngIf="!v.academicYear.archived" (click)="openArchiveModal()" class="btn btn-warning"><span class="icon-archive"></span> Archive Academic Year</button>
+        <button *ngIf="v.academicYear.archived" (click)="openUnarchiveModal()" class="btn btn-danger"><fa-icon [icon]="faArchive"></fa-icon> Unarchive Academic Year</button>
+        <button *ngIf="!v.academicYear.archived" (click)="openArchiveModal()" class="btn btn-warning"><fa-icon [icon]="faArchive"></fa-icon> Archive Academic Year</button>
       </div>
       <div class="col-lg-4">
-        <button (click)="openDeleteModal()" class="btn btn-danger"><span class="icon-trash"></span> Delete Academic Year</button>
+        <button (click)="openDeleteModal()" class="btn btn-danger"><fa-icon [icon]="faTrash"></fa-icon> Delete Academic Year</button>
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import {AddStudyMaterialsTitleComponent} from './add-study-materials-title.component';
 
 describe('AddStudyMaterialsTitleComponent', () => {
@@ -8,6 +9,9 @@ describe('AddStudyMaterialsTitleComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      imports: [
+        FontAwesomeTestingModule
+      ],
       declarations: [AddStudyMaterialsTitleComponent]
     })
       .compileComponents();

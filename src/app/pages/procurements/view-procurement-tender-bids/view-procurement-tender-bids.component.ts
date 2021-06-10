@@ -1,9 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../../store/reducers';
 import { ProcurementService } from 'src/app/services/procurement.service';
 import { loadToastShowsSuccess } from 'src/app/store/actions/toast-show.actions';
 import { takeUntil } from 'rxjs/operators';
+import { faSortDown } from '@fortawesome/free-solid-svg-icons/faSortDown';
+import { faSortUp } from '@fortawesome/free-solid-svg-icons/faSortUp';
+import { faTrophy } from '@fortawesome/free-solid-svg-icons/faTrophy';
+import * as fromStore from '../../../store/reducers';
 import { subscribedContainerMixin } from '../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
@@ -15,6 +18,9 @@ export class ViewProcurementTenderBidsComponent extends subscribedContainerMixin
   // @Input() procurementRequestId;
   // bids$: Observable<any>;
   @Input() items: any[] = [];
+  faSortUp = faSortUp;
+  faSortDown = faSortDown;
+  faTrophy = faTrophy;
   bids: any[] = [];
   isOpen = [false];
   awarding = [false];

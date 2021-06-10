@@ -1,6 +1,8 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {DescriptionComponent} from './description.component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { AppValidateSubmitButtonsModule } from '../validate-submit-buttons/validate-submit-buttons.module';
+import { DescriptionComponent } from './description.component';
 
 describe('DescriptionComponent', () => {
   let component: DescriptionComponent;
@@ -8,6 +10,10 @@ describe('DescriptionComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      imports: [
+        FontAwesomeTestingModule,
+        AppValidateSubmitButtonsModule
+      ],
       declarations: [DescriptionComponent]
     })
       .compileComponents();

@@ -1,12 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {CreateStudentComponent} from './create-student.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {InputComponent} from '../../../../components/input/input.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {LabelStarRequiredComponent} from '../../../../components/label-star-required/label-star-required.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {GenderService} from 'src/app/services/gender.service';
 import {of} from 'rxjs';
@@ -14,6 +11,10 @@ import {ReligionService} from 'src/app/services/religion.service';
 import {AppInputModule} from 'src/app/components/input/app-input.module';
 import {AppValidateSubmitButtonsModule} from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import {LabelStarRequiredComponent} from '../../../../components/label-star-required/label-star-required.component';
+import {InputComponent} from '../../../../components/input/input.component';
+import {CreateStudentComponent} from './create-student.component';
 
 describe('CreateStudentComponent', () => {
   let component: CreateStudentComponent;
@@ -36,7 +37,8 @@ describe('CreateStudentComponent', () => {
         RouterTestingModule.withRoutes([]),
         AppInputModule,
         AppValidateSubmitButtonsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [CreateStudentComponent, InputComponent, LabelStarRequiredComponent],
       providers: [

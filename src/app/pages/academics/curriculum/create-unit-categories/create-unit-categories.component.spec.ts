@@ -1,10 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { CreateUnitCategoriesComponent } from './create-unit-categories.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CreateUnitComponent } from '../create-unit/create-unit.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppInputModule } from 'src/app/components/input/app-input.module';
@@ -12,8 +10,11 @@ import { ErrorComponent } from 'src/app/components/error/error.component';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
-import { ErrorModule } from '../../../../components/error/error.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { ErrorModule } from '../../../../components/error/error.module';
+import { CreateUnitComponent } from '../create-unit/create-unit.component';
+import { CreateUnitCategoriesComponent } from './create-unit-categories.component';
 
 describe('CreateUnitCategoriesComponent', () => {
   let component: CreateUnitCategoriesComponent;
@@ -40,7 +41,8 @@ describe('CreateUnitCategoriesComponent', () => {
         AppLoadingBubbleModule,
         ErrorModule,
         AppValidateSubmitButtonsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [
         CreateUnitCategoriesComponent,

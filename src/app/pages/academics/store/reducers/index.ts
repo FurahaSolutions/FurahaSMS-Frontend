@@ -2,8 +2,8 @@ import {
   ActionReducerMap,
 } from '@ngrx/store';
 
-import * as fromCourses from './courses.reducer';
 import * as fromRoot from '../../../../store/reducers';
+import * as fromCourses from './courses.reducer';
 
 export const academicsFeatureKey = 'academics';
 

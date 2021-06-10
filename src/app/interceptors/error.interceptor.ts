@@ -3,9 +3,9 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { AuthenticationService } from '../services/authentication.service';
 import { MessageInterface } from '../interfaces/message.interface';
 import { AppState } from '../store/reducers';
 import { loadErrorMessagesSuccess } from '../store/actions/error-message.actions';

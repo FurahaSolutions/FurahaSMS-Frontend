@@ -6,8 +6,8 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { NetworkLoadingService } from '../services/network-loading.service';
 import { finalize } from 'rxjs/operators';
+import { NetworkLoadingService } from '../services/network-loading.service';
 
 @Injectable()
 export class NetworkLoadingInterceptor implements HttpInterceptor {

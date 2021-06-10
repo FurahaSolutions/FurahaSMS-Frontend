@@ -7,11 +7,18 @@ const validateISBNSum = (a: any) => {
   const t = 10;
   const l = a.length;
   if (l === t) {
-    for (i; i < 9; i++){b += a[i] * (t - i);} r = (b + (a[9] === 'X' ? t : a[9])) % 11 === 0;
+    for (i; i < 9; i++) {
+      b += a[i] * (t - i);
+    }
+    r = (b + (a[9] === 'X' ? t : a[9])) % 11 === 0;
   }
   if (l === 13) {
-    for (i; i < 12; i++){b += (i + 1) % 2 ? +a[i] : a[i] * 3;} r = b % t === t - (+a[12] || t);
-  } return r ? a : 0;
+    for (i; i < 12; i++) {
+      b += (i + 1) % 2 ? +a[i] : a[i] * 3;
+    }
+    r = b % t === t - (+a[12] || t);
+  }
+  return r ? a : 0;
 };
 
 

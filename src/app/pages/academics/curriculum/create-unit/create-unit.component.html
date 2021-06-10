@@ -45,7 +45,7 @@
         class='btn btn-secondary btn-sm'>Validate</button>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <button *ngIf='!hideSubmit' class='btn btn-primary' [disabled]='!unitForm.valid || (submitInProgressAction$ | ngrxPush) === false'>
-        {{ newForm ? 'Create': 'Update'}} Subject/Unit<i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
+        {{ newForm ? 'Create': 'Update'}} Subject/Unit <fa-icon *ngIf='submitInProgressAction$ | ngrxPush' [icon]="faSpinner" [spin]="true"></fa-icon>
       </button>
     </section>
 

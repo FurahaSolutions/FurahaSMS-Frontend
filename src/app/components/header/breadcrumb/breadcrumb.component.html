@@ -1,36 +1,52 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb bg-dark" *ngIf='breadcrumbs.length; else dashboard'>
     <li class="breadcrumb-item">
-      <button *ngIf="v$ | ngrxPush" aria-label="Navigate to previous page" (click)='backClicked()' class='btn btn-sm btn-info'><span
-          class='icon-left-big'></span>Back</button>
+      <button *ngIf="v$ | ngrxPush" aria-label="Navigate to previous page" (click)='backClicked()'
+              class='btn btn-sm btn-info'>
+        <fa-icon style="display: inline-block;" [@rotate360]='backState' [icon]='faUndoAlt'></fa-icon>
+        Back
+      </button>
     </li>
     <li class="breadcrumb-item">
-      <a aria-label='Home' routerLinkActive='active' [routerLink]='["/dashboard"]'><span class='icon-home'></span></a>
+      <a aria-label='Home' routerLinkActive='active' [routerLink]='["/dashboard"]'>
+        <fa-icon [icon]="faHome"></fa-icon>
+      </a>
     </li>
     <ng-template #breadcrumbLi>
       <li *ngFor="let breadcrumb of breadcrumbs.slice(0,breadcrumbs.length-1); let i = index" class="breadcrumb-item">
         <a routerLinkActive='active' [routerLink]='["/dashboard"]'
-          *ngIf='breadcrumb.label === "Home"; else nonHomeLink'><span class='icon-home'></span></a>
+           *ngIf='breadcrumb.label === "Home"; else nonHomeLink'>
+          <fa-icon [icon]="faHome"></fa-icon>
+        </a>
         <ng-template #nonHomeLink>
           <a [routerLink]="[breadcrumb.url]" [queryParams]="breadcrumb.params"> {{ breadcrumb.label }} </a>
         </ng-template>
 
       </li>
-      <li class="breadcrumb-item active" aria-current="page">{{ breadcrumbs[breadcrumbs.length-1].label }}</li>
+      <li class="breadcrumb-item active" aria-current="page">{{ breadcrumbs[breadcrumbs.length - 1].label }}</li>
     </ng-template>
 
-    <li *ngIf='(showSpinnerAction$ | ngrxPush); else breadcrumbLi'><span class="breadcrumb-item icon-spin3 animate-spin"></span></li>
-    <li class="breadcrumb-controls"><span class="icon-resize-full" (click)='goFullScreen()'></span></li>
+    <li *ngIf='(showSpinnerAction$ | ngrxPush); else breadcrumbLi'>
+      <fa-icon [spin]="true" [icon]="faSyncAlt" class="breadcrumb-item"></fa-icon>
+    </li>
+    <li class="breadcrumb-controls">
+      <fa-icon [icon]="faWindowMaximize" (click)='goFullScreen()'></fa-icon>
+    </li>
   </ol>
   <ng-template #dashboard>
     <ol class="breadcrumb bg-dark">
       <li class="breadcrumb-item">
-        <button (click)='backClicked()' class='btn btn-sm btn-info'><span class='icon-left-big'></span>Back</button>
+        <button (click)='backClicked()' class='btn btn-sm btn-info'>
+          <fa-icon [@rotate360]='backState' [icon]='faUndoAlt'></fa-icon>
+          Back
+        </button>
       </li>
       <li class="breadcrumb-item active">
-        <span class='icon-home'></span>
+        <fa-icon [icon]="faHome"></fa-icon>
       </li>
-      <li *ngIf='(showSpinnerAction$ | ngrxPush)'><span class="breadcrumb-item icon-spin3 animate-spin"></span></li>
+      <li *ngIf='(showSpinnerAction$ | ngrxPush)'>
+        <fa-icon [spin]="true" [icon]="faSyncAlt" class="breadcrumb-item"></fa-icon>
+      </li>
     </ol>
   </ng-template>
 </nav>

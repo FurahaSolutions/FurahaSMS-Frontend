@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NetworkLoadingComponent } from './components/network-loading/network-loading.component';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NetworkLoadingComponent } from './components/network-loading/network-loading.component';
 
 
 
@@ -10,7 +11,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
   exports: [NetworkLoadingComponent],
   imports: [
     CommonModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class NetworkLoadingModule { }

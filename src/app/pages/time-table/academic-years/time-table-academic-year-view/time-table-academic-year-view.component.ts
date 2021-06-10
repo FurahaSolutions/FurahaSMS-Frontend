@@ -1,16 +1,21 @@
-import {Component, ChangeDetectionStrategy} from '@angular/core';
-import {TimeTableService} from '../../services/time-table.service';
-import {ActivatedRoute} from '@angular/router';
-import {map, mergeMap} from 'rxjs/operators';
-import {AcademicYearService} from 'src/app/pages/academics/services/academic-year.service';
-import {Observable, combineLatest} from 'rxjs';
-import {Store} from '@ngrx/store';
-import {selectICan} from 'src/app/pages/my-profile/store/selectors/my-profile.selectors';
-import {TeacherService} from 'src/app/pages/admissions/services/teacher.service';
-import {UnitsService} from 'src/app/services/units.service';
-import {SchoolRoomService} from 'src/app/pages/infrastructures/services/school-room.service';
-import {ClassLevelService} from 'src/app/services/class-level.service';
-import {ClassStreamService} from 'src/app/pages/academics/services/class-stream.service';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { map, mergeMap } from 'rxjs/operators';
+import { AcademicYearService } from 'src/app/pages/academics/services/academic-year.service';
+import { combineLatest, Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectICan } from 'src/app/pages/my-profile/store/selectors/my-profile.selectors';
+import { TeacherService } from 'src/app/pages/admissions/services/teacher.service';
+import { UnitsService } from 'src/app/services/units.service';
+import { SchoolRoomService } from 'src/app/pages/infrastructures/services/school-room.service';
+import { ClassLevelService } from 'src/app/services/class-level.service';
+import { ClassStreamService } from 'src/app/pages/academics/services/class-stream.service';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
+import { TimeTableService } from '../../services/time-table.service';
 
 @Component({
   selector: 'app-time-table-academic-year-view',
@@ -19,7 +24,11 @@ import {ClassStreamService} from 'src/app/pages/academics/services/class-stream.
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TimeTableAcademicYearViewComponent {
-
+  faChevronRight = faChevronRight;
+  faEdit = faEdit;
+  faChevronUp = faChevronUp;
+  faChevronDown = faChevronDown;
+  faInfoCircle = faInfoCircle;
   isOpen: boolean[] = [false];
 
   academicYearId$ = (this.route.parent as ActivatedRoute).paramMap.pipe(
@@ -99,6 +108,8 @@ export class TimeTableAcademicYearViewComponent {
 
     }, {})))
   );
+
+
 
 
   constructor(

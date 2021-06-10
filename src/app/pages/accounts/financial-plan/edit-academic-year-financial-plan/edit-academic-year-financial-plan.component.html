@@ -1,7 +1,10 @@
 <ng-container *ngIf='v$ | ngrxPush as v; else loading'>
   <div class="card p-2">
     <h1>
-      Financial Plan <span class='icon-right-dir'></span> Academic Year<span class="icon-right-dir"></span>
+      Financial Plan
+      <fa-icon [icon]="faChevronRight"></fa-icon>
+      Academic Year
+      <fa-icon [icon]="faChevronRight"></fa-icon>
       <span>{{ v.academicYearPlan.academicYear.name }}</span>
     </h1>
     <form [formGroup]='feePlanForm' (submit)='submitFeePlanForm()'>
@@ -22,8 +25,9 @@
                   <h2 [class.active]="isOpen[i]">{{ classLevel.name }}</h2>
                   [ {{ totalTuitionFee(i) | currency: localCurrency}} ]
                   <section>
-                    <button type="button" class="btn btn-primary btn-sm"><span [class.icon-down-dir]='!isOpen[i]'
-                                                                               [class.icon-up-dir]='isOpen[i]'></span>View
+                    <button type="button" class="btn btn-primary btn-sm">
+                      <fa-icon [icon]="isOpen[i] ? faChevronUp : faChevronDown"></fa-icon>
+                      View
                     </button>
                   </section>
                 </section>
@@ -72,9 +76,9 @@
 
                       [ {{ totalClassLevelCost(i) | currency: localCurrency }} ]
                       <section>
-                        <button type="button" class="btn btn-primary btn-sm"><span
-                          [class.icon-down-dir]='!isOpenTransport[i]'
-                          [class.icon-up-dir]='isOpenTransport[i]'></span>View
+                        <button type="button" class="btn btn-primary btn-sm">
+                          <fa-icon [icon]="isOpenTransport[i] ? faChevronUp : faChevronDown"></fa-icon>
+                          View
                         </button>
                       </section>
                     </section>
@@ -82,7 +86,8 @@
                       <ng-container *ngIf='classLevel?.get("financialCosts") as financialCosts'>
                         <fieldset *ngFor='let otherCost of getFormArrayControls(financialCosts); let j = index'
                                   [formGroupName]='j'>
-                          <legend>{{ otherCost.value.name }} [ {{ totalClassLevelCost(i, j) | currency: localCurrency }} ]
+                          <legend>{{ otherCost.value.name }} [ {{ totalClassLevelCost(i, j) | currency: localCurrency }}
+                            ]
                           </legend>
                           <section class="d-flex flex-wrap justify-content-start">
                             <table class="table table-flush table-dark">
@@ -108,8 +113,9 @@
                                 <tr formArrayName='semesters'>
                                   <td [id]='"costItemLabel" + j + "" + l'>{{ otherCostItem.value.name }}</td>
                                   <ng-container>
-                                    <td *ngFor='let sem of getFormArrayControls(otherCostItem.get("semesters")); let m = index'
-                                        [formGroupName]='m'>
+                                    <td
+                                      *ngFor='let sem of getFormArrayControls(otherCostItem.get("semesters")); let m = index'
+                                      [formGroupName]='m'>
                                       <input #amountValue (blur)='triggerChange()' [(ngModel)]='sem.value.amount'
                                              [ngModelOptions]="{standalone: true}"
                                              [attr.aria-labelledby]='"semester" + m + " costItemLabel" + j + "" + l'
@@ -199,7 +205,10 @@
 
 <ng-template #loading>
   <h1>
-    Financial Plan <span class='icon-right-dir'></span> Academic Year<span class="icon-right-dir"></span>
+    Financial Plan
+    <fa-icon [icon]="faChevronRight"></fa-icon>
+    Academic Year
+    <fa-icon [icon]="faChevronRight"></fa-icon>
   </h1>
   <app-loading-bubble></app-loading-bubble>
 </ng-template>

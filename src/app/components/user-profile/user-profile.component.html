@@ -2,24 +2,27 @@
   <h1 *ngIf="title === 'My Profile'">{{ title }} </h1>
   <h1 *ngIf="title !== 'My Profile'">{{ title }} Profile </h1>
   <div class="custom-control custom-switch mt-3">
-    <input [(ngModel)]='editMode' (ngModelChange)='editModeChangeHandler()' type="checkbox" class="custom-control-input" id="editMode">
+    <input [(ngModel)]='editMode' (ngModelChange)='editModeChangeHandler()' type="checkbox" class="custom-control-input"
+           id="editMode">
     <label class="custom-control-label" for="editMode">
       Enable Editing
-      <span [class.icon-edit]='editMode'></span>
-      <span [class.icon-eye]='!editMode'></span>
+      <fa-icon *ngIf="editMode" [icon]="faEdit"></fa-icon>
+      <fa-icon *ngIf="!editMode" [icon]="faEye"></fa-icon>
     </label>
   </div>
 </div>
 
 <section class='d-flex flex-wrap pb-1'>
   <section class='col-sm-5 col-md-4 col-lg-2 d-flex justify-content-center'>
-    <span *ngIf='profPicLoadingAction$ | ngrxPush' class="prof-pic-loading d-flex align-items-center justify-content-center"><i class='icon-spin3 animate-spin'></i></span>
+    <span *ngIf='profPicLoadingAction$ | ngrxPush'
+          class="prof-pic-loading d-flex align-items-center justify-content-center">
+      <fa-icon [icon]="faSpinner" [spin]="true"></fa-icon></span>
     <div *ngIf='editMode' class="upload-profile-pic">
       <input id='profilePhotoInput' accept="image/*" (change)='onFileSelected(template)' #fileInput hidden type="file">
       <button (click)='fileInput.click()' class='btn btn secondary'><span>Upload Photo</span></button>
     </div>
     <img #profPic class='img-thumbnail img-fluid' src='assets/images/default-user.jpg'
-      onerror='this.src="assets/images/default-user.jpg";' alt='' />
+         onerror='this.src="assets/images/default-user.jpg";' alt=''/>
   </section>
   <section class='col-sm-7 col-md-8 col-lg-9 d-flex align-items-lg-between flex-wrap'>
     <section class='col-lg-12 d-flex flex-wrap justify-content-between align-items-lg-center'>
@@ -27,16 +30,20 @@
         <h2>{{ fullName | uppercase }}<span *ngIf="profile.studentId"> ({{ profile.studentId }}) </span></h2>
       </section>
       <section class='col-lg-6'>
-        <app-name-item key="firstName" (valueChanged)='changeProfile($event)' [userId]='profile.id' label='First Name' [name]='profile.firstName'></app-name-item>
+        <app-name-item key="firstName" (valueChanged)='changeProfile($event)' [userId]='profile.id' label='First Name'
+                       [name]='profile.firstName'></app-name-item>
       </section>
       <section class='col-lg-6'>
-        <app-name-item key="lastName"  (valueChanged)='changeProfile($event)' [userId]='profile.id' label='Last Name' [name]='profile.lastName'></app-name-item>
+        <app-name-item key="lastName" (valueChanged)='changeProfile($event)' [userId]='profile.id' label='Last Name'
+                       [name]='profile.lastName'></app-name-item>
       </section>
       <section class='col-lg-6' *ngIf='editMode || (profile.middleName && profile.middleName !== "")'>
-        <app-name-item key="middleName"   (valueChanged)='changeProfile($event)' [userId]='profile.id' label='Middle Name' [name]='profile.middleName'></app-name-item>
+        <app-name-item key="middleName" (valueChanged)='changeProfile($event)' [userId]='profile.id' label='Middle Name'
+                       [name]='profile.middleName'></app-name-item>
       </section>
       <section class='col-lg-6' *ngIf='editMode || (profile.otherNames && profile.otherNames !== "")'>
-        <app-name-item key="otherNames"  (valueChanged)='changeProfile($event)'  [userId]='profile.id' label='Other Names' [name]='profile.otherNames'></app-name-item>
+        <app-name-item key="otherNames" (valueChanged)='changeProfile($event)' [userId]='profile.id' label='Other Names'
+                       [name]='profile.otherNames'></app-name-item>
       </section>
     </section>
   </section>
@@ -45,8 +52,8 @@
       <li class="nav-item" *ngFor='let link of links'>
         <a class="nav-link" [routerLink]='fullLink(link)' routerLinkActive='active'>{{ link | titlecase }}</a>
       </li>
-      <li  class="nav-item" >
-        <a class="nav-link" [routerLink]='["password-management"]'  routerLinkActive='active'>Password Management</a>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]='["password-management"]' routerLinkActive='active'>Password Management</a>
       </li>
     </ul>
   </section>
@@ -77,8 +84,8 @@
     <button (click)='saveProfilePic()' class="btn btn-success">
 
       Save Profile Picture
-      <i *ngIf='!savingProfPic' class='icon-floppy'></i>
-      <i *ngIf='savingProfPic' class='icon-spin3 animate-spin'></i>
+      <fa-icon *ngIf='!savingProfPic' [icon]='faSave'></fa-icon>
+      <fa-icon *ngIf='savingProfPic' [icon]='faSpinner' [spin]="true"></fa-icon>
     </button>
   </div>
 </ng-template>

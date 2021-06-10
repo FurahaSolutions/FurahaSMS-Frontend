@@ -1,4 +1,4 @@
-<span [class.icon-ok-1]='!hasError && marked'
-  [class.icon-attention]='hasError && marked'
-  [class.text-danger]='hasError && marked'
-  [class.text-success]='!hasError && marked'></span>
+<fa-icon class="text-success" [icon]="faCheck"
+         *ngIf="!hasError && marked"></fa-icon>
+<fa-icon class="text-danger" [icon]="faExclamationTriangle"
+         *ngIf="hasError && marked"></fa-icon>

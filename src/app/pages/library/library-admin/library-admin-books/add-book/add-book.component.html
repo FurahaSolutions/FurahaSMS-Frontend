@@ -1,138 +1,138 @@
 <h1>Add Library Book</h1>
 <form (submit)='submitNewBookForm()' [formGroup]='newBookForm'>
 
-<div class="card p-2">
-  <tabset role="tablist" #staticTabs>
-    <tab role="tab">
-      <ng-template tabHeading>
-        <span>General Info </span>
-        <span [class.icon-ok-1]='!generalInfoHasError && markTabsWithError'
-              [class.icon-attention]='generalInfoHasError && markTabsWithError'
-              [class.text-danger]='generalInfoHasError && markTabsWithError'
-              [class.text-success]='!generalInfoHasError && markTabsWithError'></span>
-      </ng-template>
+  <div class="card p-2">
+    <tabset role="tablist" #staticTabs>
+      <tab role="tab">
+        <ng-template tabHeading>
+          <span>General Info </span>
+          <app-tab-error-state [hasError]="generalInfoHasError" [marked]="markTabsWithError"></app-tab-error-state>
+        </ng-template>
 
-      <section class='d-flex flex-wrap pt-3'>
-        <section class='col-lg-6 col-md-12 d-flex align-items-center'>
-          <div class="col-11 m-0 p-0">
-            <app-input id="ISBN" placeholder="Please Enter ISBN Number" label="ISBN Number" formControlName="ISBN">
-            </app-input>
-          </div>
-          <div class="col-1 m-0 p-0">
-            <app-barcode (valueChange)='updateISBN($event)'></app-barcode>
-          </div>
+        <section class='d-flex flex-wrap pt-3'>
+          <section class='col-lg-6 col-md-12 d-flex align-items-center'>
+            <div class="col-11 m-0 p-0">
+              <app-input id="ISBN" placeholder="Please Enter ISBN Number" label="ISBN Number" formControlName="ISBN">
+              </app-input>
+            </div>
+            <div class="col-1 m-0 p-0">
+              <app-barcode (valueChange)='updateISBN($event)'></app-barcode>
+            </div>
 
-        </section>
-        <section class='col-lg-6 col-md-12'>
-          <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' id="bookTitle" placeholder='Enter Book Title'
-                     formControlName='bookTitle' label="Book Title">
-
-          </app-input>
-        </section>
-
-        <section class='col-lg-6 col-md-12'>
-          <label for="authors">Authors</label>
-          <ng-select [multiple]="true" id="authors" formControlName='authors'>
-            <ng-option *ngFor='let author of bookAuthors$ | ngrxPush' [value]="author.id"> {{ author.name }}</ng-option>
-          </ng-select>
-        </section>
-        <section class='col-lg-6 col-md-12'>
-          <label for="publisher">Publishers</label>
-          <ng-select formControlName='publishers' [multiple]="true" id="publisher">
-            <ng-option *ngFor='let publisher of bookPublishers$ | ngrxPush' [value]="publisher.id"> {{ publisher.name }}
-            </ng-option>
-          </ng-select>
-        </section>
-        <section class='col-lg-6 col-md-12 mt-2'>
-          <app-input label='Publication Date' placeholder='Publication Date' id='pub-date'
-                     formControlName='publicationDate' type='date'></app-input>
-        </section>
-      </section>
-      <section class='mt-3 col-lg12'>
-        <section class='d-flex justify-content-end'>
-          <button type="button" class="btn btn-primary btn-sm" (click)="selectTab(1)">Next</button>
-        </section>
-      </section>
-    </tab>
-    <tab>
-      <ng-template tabHeading>
-        <span>Classification &amp; Tags</span>
-        <span [class.icon-ok-1]='!classificationInfoHasError && markTabsWithError'
-              [class.icon-attention]='classificationInfoHasError && markTabsWithError'
-              [class.text-danger]='classificationInfoHasError && markTabsWithError'
-              [class.text-success]='!classificationInfoHasError && markTabsWithError'></span>
-      </ng-template>
-      <section class="d-flex flex-wrap pt-3 align-items-start">
-        <section class='col-lg-6 col-md-12'>
-          <label for="classification">Library Book Classification</label>
-          <ng-select [items]="bookClassifications$ | ngrxPush"
-                     id="classification"
-                     bindLabel="name"
-                     bindValue="id"
-                     placeholder="Select Classification"
-                     formControlName='classification'>
-          </ng-select>
-        </section>
-        <section class="col-lg-6">
-          <app-select-library-class formControlName='category'
-                                    [classification]='newBookForm.get("classification")?.value'>
-          </app-select-library-class>
-        </section>
-        <section class='col-lg-6 col-md-12'>
-          <label for="tags">Library Book Tags</label>
-          <ng-select [items]="bookTags$ | ngrxPush"
-                     [multiple]="true"
-                     id="tags"
-                     bindLabel="name"
-                     bindValue="id"
-                     placeholder="Select Book Tags"
-                     formControlName='tags'>
-          </ng-select>
-<!--          <select multiple formControlName='tags' class='form-control' id="tags">-->
-<!--            <option *ngFor='let tag of bookTags$ | ngrxPush' [value]="tag.id">-->
-<!--              {{ tag.name }}</option>-->
-<!--          </select>-->
-        </section>
-      </section>
-    </tab>
-    <tab role="tab">
-      <ng-template tabHeading>
-        <span>Book Items </span>
-        <span [class.icon-ok-1]='!bookItemsHasError && markTabsWithError'
-              [class.icon-attention]='bookItemsHasError && markTabsWithError'
-              [class.text-danger]='bookItemsHasError && markTabsWithError'
-              [class.text-success]='!bookItemsHasError && markTabsWithError'></span>
-      </ng-template>
-      <section class="mt-3" formArrayName='bookItems'>
-        <button (click)='addBookItem()' type="button" class="btn btn-primary btn-sm"> <span
-          class="icon-plus-circled"></span>Add Book Item</button>
-        <section class='d-flex align-items-center flex-wrap' *ngFor='let item of formBookItems.controls; let i=index' [formGroupName]='i'>
-          <section class="col-lg-4">
-            <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' [id]='"bookRef" + i' placeholder='Enter Book Ref'
-                       formControlName='ref' label="Book Ref"></app-input>
           </section>
-          <section class="col-lg-4">
-            <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' [id]='"procuredDate" + i'
-                       placeholder='Enter Procured Date' formControlName='dateProcured' label="Procured Date" type='date'>
+          <section class='col-lg-6 col-md-12'>
+            <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' id="bookTitle"
+                       placeholder='Enter Book Title'
+                       formControlName='bookTitle' label="Book Title">
+
             </app-input>
           </section>
-          <section class="col-lg-2">
-            <app-checkbox label="Reserved" id="reserved" formControlName='reserved'></app-checkbox>
+
+          <section class='col-lg-6 col-md-12'>
+            <label for="authors">Authors</label>
+            <ng-select [multiple]="true" id="authors" formControlName='authors'>
+              <ng-option *ngFor='let author of bookAuthors$ | ngrxPush'
+                         [value]="author.id"> {{ author.name }}</ng-option>
+            </ng-select>
           </section>
-          <section class="col-lg-2">
-            <button type="button" class="btn btn-sm btn-danger" (click)='removeBookItem(i)'>
-              <span class="icon-trash"></span>
-              <span class="sr-only">Remove Item</span>
-            </button>
+          <section class='col-lg-6 col-md-12'>
+            <label for="publisher">Publishers</label>
+            <ng-select formControlName='publishers' [multiple]="true" id="publisher">
+              <ng-option *ngFor='let publisher of bookPublishers$ | ngrxPush'
+                         [value]="publisher.id"> {{ publisher.name }}
+              </ng-option>
+            </ng-select>
+          </section>
+          <section class='col-lg-6 col-md-12 mt-2'>
+            <app-input label='Publication Date' placeholder='Publication Date' id='pub-date'
+                       formControlName='publicationDate' type='date'></app-input>
           </section>
         </section>
-      </section>
-    </tab>
-  </tabset>
-  <section class='col-lg-12 mt-3'>
-    <app-validate-submit-buttons [isSubmitting]='submitInProgressSubject$ | ngrxPush' (validationButtonClicked)='validateForm()'
-                                 [formItem]='newBookForm'>
-    </app-validate-submit-buttons>
-  </section>
-</div>
+        <section class='mt-3 col-lg12'>
+          <section class='d-flex justify-content-end'>
+            <button type="button" class="btn btn-primary btn-sm" (click)="selectTab(1)">Next</button>
+          </section>
+        </section>
+      </tab>
+      <tab>
+        <ng-template tabHeading>
+          <span>Classification &amp; Tags</span>
+          <app-tab-error-state [hasError]="classificationInfoHasError" [marked]="markTabsWithError"></app-tab-error-state>
+        </ng-template>
+        <section class="d-flex flex-wrap pt-3 align-items-start">
+          <section class='col-lg-6 col-md-12'>
+            <label for="classification">Library Book Classification</label>
+            <ng-select [items]="bookClassifications$ | ngrxPush"
+                       id="classification"
+                       bindLabel="name"
+                       bindValue="id"
+                       placeholder="Select Classification"
+                       formControlName='classification'>
+            </ng-select>
+          </section>
+          <section class="col-lg-6">
+            <app-select-library-class formControlName='category'
+                                      [classification]='newBookForm.get("classification")?.value'>
+            </app-select-library-class>
+          </section>
+          <section class='col-lg-6 col-md-12'>
+            <label for="tags">Library Book Tags</label>
+            <ng-select [items]="bookTags$ | ngrxPush"
+                       [multiple]="true"
+                       id="tags"
+                       bindLabel="name"
+                       bindValue="id"
+                       placeholder="Select Book Tags"
+                       formControlName='tags'>
+            </ng-select>
+            <!--          <select multiple formControlName='tags' class='form-control' id="tags">-->
+            <!--            <option *ngFor='let tag of bookTags$ | ngrxPush' [value]="tag.id">-->
+            <!--              {{ tag.name }}</option>-->
+            <!--          </select>-->
+          </section>
+        </section>
+      </tab>
+      <tab role="tab">
+        <ng-template tabHeading>
+          <span>Book Items </span>
+          <app-tab-error-state [hasError]="bookItemsHasError" [marked]="markTabsWithError"></app-tab-error-state>
+        </ng-template>
+        <section class="mt-3" formArrayName='bookItems'>
+          <button (click)='addBookItem()' type="button" class="btn btn-primary btn-sm">
+            <fa-icon [icon]="faPlusCircle"></fa-icon>
+            Add Book Item
+          </button>
+          <section class='d-flex align-items-center flex-wrap' *ngFor='let item of formBookItems.controls; let i=index'
+                   [formGroupName]='i'>
+            <section class="col-lg-4">
+              <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' [id]='"bookRef" + i'
+                         placeholder='Enter Book Ref'
+                         formControlName='ref' label="Book Ref"></app-input>
+            </section>
+            <section class="col-lg-4">
+              <app-input [triggerValidation]='triggerValidationAction$ | ngrxPush' [id]='"procuredDate" + i'
+                         placeholder='Enter Procured Date' formControlName='dateProcured' label="Procured Date"
+                         type='date'>
+              </app-input>
+            </section>
+            <section class="col-lg-2">
+              <app-checkbox label="Reserved" id="reserved" formControlName='reserved'></app-checkbox>
+            </section>
+            <section class="col-lg-2">
+              <button type="button" class="btn btn-sm btn-danger" (click)='removeBookItem(i)'>
+                <fa-icon [icon]="faTrash"></fa-icon>
+                <span class="sr-only">Remove Item</span>
+              </button>
+            </section>
+          </section>
+        </section>
+      </tab>
+    </tabset>
+    <section class='col-lg-12 mt-3'>
+      <app-validate-submit-buttons [isSubmitting]='submitInProgressSubject$ | ngrxPush'
+                                   (validationButtonClicked)='validateForm()'
+                                   [formItem]='newBookForm'>
+      </app-validate-submit-buttons>
+    </section>
+  </div>
 </form>

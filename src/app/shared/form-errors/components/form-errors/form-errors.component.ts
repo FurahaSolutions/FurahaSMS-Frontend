@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormArray, FormGroup, ValidationErrors} from '@angular/forms';
-import { subscribedContainerMixin } from '../../../mixins/subscribed-container.mixin';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormArray, FormGroup, ValidationErrors } from '@angular/forms';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons/faExclamationCircle';
 import { takeUntil, tap } from 'rxjs/operators';
+import { subscribedContainerMixin } from '../../../mixins/subscribed-container.mixin';
 
 interface AllValidationErrors {
   controlName: string;
@@ -17,13 +18,14 @@ interface AllValidationErrors {
 export class FormErrorsComponent extends subscribedContainerMixin() implements OnInit {
   @Input() form: FormGroup = new FormGroup({});
   @Input() validated = false;
-  @Input() messages: { [id: string ]: string };
+  @Input() messages: { [id: string]: string };
+  faExclamationCircle =  faExclamationCircle;
   errors: AllValidationErrors[];
-  constructor(
-  ) {
+
+  constructor() {
     super();
     this.errors = [];
-    this.messages = { };
+    this.messages = {};
   }
 
   ngOnInit(): void {
@@ -32,7 +34,7 @@ export class FormErrorsComponent extends subscribedContainerMixin() implements O
       tap(() => {
         const formErrors = this.form?.errors as ValidationErrors;
         this.errors = [];
-        if(formErrors) {
+        if (formErrors) {
           Object.keys(formErrors).forEach((keyError, val) => {
             this.errors.push({
               controlName: 'Form',
@@ -48,6 +50,7 @@ export class FormErrorsComponent extends subscribedContainerMixin() implements O
 
     this.calculateErrors(this.form);
   }
+
   calculateErrors(form: FormGroup | FormArray) {
     Object.keys(form.controls).forEach(field => {
       const control = form.get(field);
@@ -76,8 +79,8 @@ export class FormErrorsComponent extends subscribedContainerMixin() implements O
 
   getErrorMessage(error: any) {
     let label = this.messages[error.controlName];
-    if(!label){
-      label = error.controlName.replace( /([A-Z])/g, ' $1' );
+    if (!label) {
+      label = error.controlName.replace(/([A-Z])/g, ' $1');
       label = label.charAt(0).toUpperCase() + label.slice(1);
     }
     switch (error.errorName) {

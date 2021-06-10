@@ -1,11 +1,13 @@
-import {Component, ChangeDetectionStrategy, OnInit} from '@angular/core';
-import {modalMixin} from 'src/app/shared/mixins/modal.mixin';
-import {formMixin} from 'src/app/shared/mixins/form.mixin';
-import {Store} from '@ngrx/store';
-import {BsModalService} from 'ngx-bootstrap/modal';
-import {FormBuilder, Validators, FormGroup, FormArray} from '@angular/forms';
-import {TimingTemplateService} from '../../services/timing-template.service';
-import {tap} from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { modalMixin } from 'src/app/shared/mixins/modal.mixin';
+import { formMixin } from 'src/app/shared/mixins/form.mixin';
+import { Store } from '@ngrx/store';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { tap } from 'rxjs/operators';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { TimingTemplateService } from '../../services/timing-template.service';
 
 
 @Component({
@@ -20,6 +22,9 @@ export class CreateTimingTemplateComponent extends formMixin(modalMixin()) imple
     description: ['', Validators.required],
     timings: this.fb.array([])
   });
+  faPlusCircle = faPlusCircle;
+  faTrash = faTrash;
+
   constructor(
     modal: BsModalService,
     store: Store,

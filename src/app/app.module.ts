@@ -1,29 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EffectsModule } from '@ngrx/effects';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { environment } from '../environments/environment';
 import { APIInterceptor } from './interceptors/api.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
-import { StoreModule } from '@ngrx/store';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from './store/reducers';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { CacheInterceptor } from './interceptors/cache.interceptor';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PagesModule } from './pages/pages.module';
-import { EffectsModule } from '@ngrx/effects';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import * as fromApp from './store/reducers/app.reducer';
 import { GenderEffects } from './store/effects/gender.effects';
 import { ReligionEffects } from './store/effects/religion.effects';
 import { ResMessageInterceptor } from './interceptors/res-message.interceptor';
 import { NetworkLoadingInterceptor, NetworkLoadingModule } from './shared/network-loading';
 import { ErrorModule } from './components/error/error.module';
-import { ReactiveComponentModule } from '@ngrx/component';
 
 @NgModule({
   declarations: [

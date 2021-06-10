@@ -1,6 +1,6 @@
 <h1>View Procurement Request </h1>
 <div class="card p-2">
-  <div class="d-flex justify-content-end"><button class="btn btn-primary"><span class="icon-plus-circled"></span>New request</button></div>
+  <div class="d-flex justify-content-end"><button class="btn btn-primary"><fa-icon [icon]="faPlusCircle"></fa-icon> New request</button></div>
   <section *ngIf='(procurementItem$ | ngrxPush) as procurementItem; else item_loading'>
     <h2>Request for "{{ procurementItem.name }}"</h2>
     <table class="table table-bordered bg-dark text-light">

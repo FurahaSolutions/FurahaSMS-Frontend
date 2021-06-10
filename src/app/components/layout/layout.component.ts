@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { RouterOutlet } from '@angular/router';
+import { faCompressArrowsAlt } from '@fortawesome/free-solid-svg-icons/faCompressArrowsAlt';
 import { selectShowMenu } from '../../store/selectors/menu-toggle.selector';
 import { AppState } from '../../store/reducers';
-import { Observable } from 'rxjs';
 import { routerTransition } from '../../shared/animations/route.animation';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -13,8 +14,8 @@ import { RouterOutlet } from '@angular/router';
   animations: [routerTransition],
 })
 export class LayoutComponent {
+  faCompressArrowsAlt = faCompressArrowsAlt;
   isMenuOpen$: Observable<boolean> = this.store.select(selectShowMenu);
-  routerActivated = false;
 
   constructor(private store: Store<AppState>) {
   }
@@ -24,7 +25,7 @@ export class LayoutComponent {
   };
 
   getState(outlet: RouterOutlet) {
-    if(outlet.isActivated) {
+    if (outlet.isActivated) {
       return outlet?.component;
     }
     return null;

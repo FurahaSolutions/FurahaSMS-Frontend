@@ -5,6 +5,7 @@ import { LibraryPublisherService } from 'src/app/pages/library/services/library-
 import { ActivatedRoute } from '@angular/router';
 import { map, mergeMap, takeUntil, takeWhile, tap } from 'rxjs/operators';
 import { CanvasService } from 'src/app/services/canvas.service';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import { selectLibraryBookPublisher } from '../../../store/selectors/library.selectors';
 import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
 
@@ -14,6 +15,7 @@ import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribe
   styleUrls: ['./view-publisher.component.css']
 })
 export class ViewPublisherComponent extends subscribedContainerMixin() implements AfterViewInit {
+  faInfoCircle = faInfoCircle;
   profPicLoading = true;
   profPic: HTMLCanvasElement | undefined;
   profilePicId: number | undefined;
@@ -23,7 +25,7 @@ export class ViewPublisherComponent extends subscribedContainerMixin() implement
     tap(id => this.libraryPublisherService.loadItem(id)),
     mergeMap(id => this.store.pipe(select(selectLibraryBookPublisher(id)))),
     tap(publisher => {
-      if(publisher) {
+      if (publisher) {
         this.profilePicId = publisher.profile_pic_id;
         this.getProfilePic();
       }
@@ -49,7 +51,7 @@ export class ViewPublisherComponent extends subscribedContainerMixin() implement
   placeholderImage() {
     const img = document.querySelector('#placeholder');
     const ctx = (document.querySelector('#profPicCanvas') as HTMLCanvasElement);
-    if(ctx && img) {
+    if (ctx && img) {
       this.canvasService.fitImageOn(ctx, img);
       this.showPlaceholderImage = false;
       this.cdr.detectChanges();

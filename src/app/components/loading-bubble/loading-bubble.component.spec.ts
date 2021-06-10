@@ -1,6 +1,7 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {LoadingBubbleComponent} from './loading-bubble.component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { LoadingBubbleComponent } from './loading-bubble.component';
 
 describe('LoadingBubbleComponent', () => {
   let component: LoadingBubbleComponent;
@@ -8,6 +9,9 @@ describe('LoadingBubbleComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      imports: [
+        FontAwesomeTestingModule
+      ],
       declarations: [LoadingBubbleComponent]
     })
       .compileComponents();

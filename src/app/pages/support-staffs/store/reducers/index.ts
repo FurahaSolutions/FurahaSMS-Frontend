@@ -2,9 +2,9 @@ import {
   ActionReducerMap,
 } from '@ngrx/store';
 
+import * as fromRoot from '../../../../store/reducers';
 import * as fromSupportStaff from './support-staff.reducer';
 
-import * as fromRoot from '../../../../store/reducers';
 
 
 export interface SupportStaffState {

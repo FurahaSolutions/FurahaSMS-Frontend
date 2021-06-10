@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
-import { IdNumberValidator } from './student-id-taken.validator';
-import { StudentService } from '../services/student.service';
 import { FormControl } from '@angular/forms';
 import { of } from 'rxjs';
+import { StudentService } from '../services/student.service';
+import { IdNumberValidator } from './student-id-taken.validator';
 
 describe('IdNumberValidator', () => {
 

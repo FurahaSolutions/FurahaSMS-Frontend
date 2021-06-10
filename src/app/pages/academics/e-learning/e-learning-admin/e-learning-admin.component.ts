@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { ELearningService } from '../services/e-learning.service';
 import { map } from 'rxjs/operators';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { faFolderOpen } from '@fortawesome/free-solid-svg-icons/faFolderOpen';
+import { faFolder } from '@fortawesome/free-solid-svg-icons/faFolder';
+import { ELearningService } from '../services/e-learning.service';
 import { ICourse } from '../interfaces/course.interface';
 
 @Component({
@@ -10,6 +14,10 @@ import { ICourse } from '../interfaces/course.interface';
   styleUrls: ['./e-learning-admin.component.css']
 })
 export class ELearningAdminComponent {
+  faPlusCircle = faPlusCircle;
+  faInfoCircle = faInfoCircle;
+  faFolderOpen = faFolderOpen;
+  faFolder = faFolder;
   search = '';
   isCollapsed: boolean[] = [];
   limit = 100;

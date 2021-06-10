@@ -1,14 +1,14 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {ViewComponent} from './view.component';
-import {Store, StoreModule} from '@ngrx/store';
-import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {DescriptionComponent} from '../description/description.component';
-import {LoadingBubbleComponent} from '../loading-bubble/loading-bubble.component';
-import {ChipsComponent} from '../chips/chips.component';
-import {of} from 'rxjs';
-import {RouterTestingModule} from '@angular/router/testing';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { Store, StoreModule } from '@ngrx/store';
+import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { of } from 'rxjs';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { DescriptionComponent } from '../description/description.component';
+import { LoadingBubbleComponent } from '../loading-bubble/loading-bubble.component';
+import { ChipsComponent } from '../chips/chips.component';
+import { ViewComponent } from './view.component';
 
 describe('ViewComponent', () => {
   let component: ViewComponent;

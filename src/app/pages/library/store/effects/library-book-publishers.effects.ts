@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {catchError, concatMap, map} from 'rxjs/operators';
-import {of} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { catchError, concatMap, map } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 import * as LibraryBookPublisherActions from '../actions/library-book-publisher.actions';
-import {LibraryPublisherService} from '../../services/library-publisher.service';
+import { LibraryPublisherService } from '../../services/library-publisher.service';
 
 
 @Injectable()

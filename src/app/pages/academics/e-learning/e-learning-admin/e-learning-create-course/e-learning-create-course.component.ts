@@ -1,19 +1,23 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {BehaviorSubject, combineLatest, Observable, of} from 'rxjs';
-import {UnitsService} from 'src/app/services/units.service';
-import {AcademicYearService} from '../../../services/academic-year.service';
-import {ELearningService} from '../../services/e-learning.service';
-import {select, Store} from '@ngrx/store';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
-import {TopicNumberingService} from '../../../services/topic-numbering.service';
-import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-container.mixin';
-import {formWithEditorMixin} from '../../../../../shared/mixins/form-with-editor.mixin';
-import {filter, map, mergeMap, takeUntil, tap} from 'rxjs/operators';
-import {modalMixin} from '../../../../../shared/mixins/modal.mixin';
-import {ActivatedRoute, Router} from '@angular/router';
-import {selectAcademicsCourse} from '../../../store/selectors/courses.selectors';
-import {ClassLevelUnitLevelAllocationService} from '../../../services/class-level-unit-level-allocation.service';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
+import { UnitsService } from 'src/app/services/units.service';
+import { select, Store } from '@ngrx/store';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { filter, map, mergeMap, takeUntil, tap } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons/faTimesCircle';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { AcademicYearService } from '../../../services/academic-year.service';
+import { ELearningService } from '../../services/e-learning.service';
+import { TopicNumberingService } from '../../../services/topic-numbering.service';
+import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
+import { formWithEditorMixin } from '../../../../../shared/mixins/form-with-editor.mixin';
+import { modalMixin } from '../../../../../shared/mixins/modal.mixin';
+import { selectAcademicsCourse } from '../../../store/selectors/courses.selectors';
+import { ClassLevelUnitLevelAllocationService } from '../../../services/class-level-unit-level-allocation.service';
 
 @Component({
   selector: 'app-e-learning-create-course',
@@ -23,6 +27,10 @@ import {ClassLevelUnitLevelAllocationService} from '../../../services/class-leve
 })
 export class ELearningCreateCourseComponent
   extends subscribedContainerMixin(modalMixin(formWithEditorMixin())) implements OnInit {
+  faPlusCircle = faPlusCircle;
+  faTrash = faTrash;
+  faEdit = faEdit;
+  faTimesCircle = faTimesCircle;
   units$: Observable<any[]> = this.unitsService.getAll();
   academicYears$: Observable<any[]> = this.academicYearService.all$;
   newCourseForm: FormGroup = this.fb.group({

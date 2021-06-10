@@ -3,9 +3,9 @@ import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {catchError, map, concatMap, exhaustMap, tap} from 'rxjs/operators';
 import {of} from 'rxjs';
 
-import * as MyProfileActions from '../actions/my-profile.actions';
 import {AuthenticationService} from 'src/app/services/authentication.service';
 import {Router} from '@angular/router';
+import * as MyProfileActions from '../actions/my-profile.actions';
 import {initialState} from '../reducers/my-profile.reducer';
 
 

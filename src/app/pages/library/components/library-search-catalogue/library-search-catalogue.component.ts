@@ -1,12 +1,17 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../../../store/reducers';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { LibraryAuthorService } from '../../services/library-author.service';
 import { BehaviorSubject, Observable, Observer, of } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import * as fromStore from '../../../../store/reducers';
+import { LibraryAuthorService } from '../../services/library-author.service';
 import { LibraryBookService } from '../../services/library-book.service';
 import { LibraryPublisherService } from '../../services/library-publisher.service';
-import { switchMap, tap } from 'rxjs/operators';
 import { loadLibraryBooksSuccess } from '../../store/actions/library-book.actions';
 import { formMixin } from '../../../../shared/mixins/form.mixin';
 
@@ -16,6 +21,11 @@ import { formMixin } from '../../../../shared/mixins/form.mixin';
   styleUrls: ['./library-search-catalogue.component.css'],
 })
 export class LibrarySearchCatalogueComponent extends formMixin() {
+  faInfoCircle = faInfoCircle;
+  faEye = faEye;
+  faSearch = faSearch;
+  faSpinner = faSpinner;
+  faTimes = faTimes;
   searchParamsForm = this.fb.group({
     title: [''],
     author: [''],
@@ -43,7 +53,9 @@ export class LibrarySearchCatalogueComponent extends formMixin() {
 
   books$ = this.bookSearchedSubject$.pipe(
     tap(searched => {
-      if(searched) {this.submitInProgressSubject$.next(true);}
+      if (searched) {
+        this.submitInProgressSubject$.next(true);
+      }
     }),
     switchMap(x => x ? this.booksService.filter(this.searchParamsForm.value) : []),
     tap((books) => {

@@ -4,12 +4,12 @@
     <section class="col-lg-4">
       <label for="role">Select Role</label>
       <ng-select id='role' [items]="roles" bindLabel="name" bindValue="id" [(ngModel)]='role'>
-    
+
       </ng-select>
-    
+
     </section>
     <section>
-      <button [routerLink]='[ role, "edit" ]' [disabled]='!role' class="btn btn-primary btn-sm"><span class="icon-edit">Edit</span></button>
+      <button [routerLink]='[ role, "edit" ]' [disabled]='!role' class="btn btn-primary btn-sm"><fa-icon [icon]="faEdit"></fa-icon> Edit</button>
     </section>
   </section>
   <fieldset class="mt-3" *ngIf='role; else permissionsSection'>
@@ -17,7 +17,7 @@
     <input aria-label="filter" placeholder="Filter Permissions" [(ngModel)]='filter' class="form-control" type="text" name="" id="">
     <ul class="d-flex flex-wrap pl-0">
       <li class="col-lg-4 col-md-6 col-sm-12 list-group-item bg-dark" *ngFor='let permission of getFilteredPermissionsWithRoleId(role)'>
-        <span class="icon-thumbs-up text-success"></span> {{ permission.name | titlecase }}
+        <fa-icon [icon]="faThumbsUp" class="text-success"></fa-icon> {{ permission.name | titlecase }}
       </li>
     </ul>
   </fieldset>

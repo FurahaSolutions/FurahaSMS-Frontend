@@ -2,9 +2,12 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, mergeMap, tap } from 'rxjs/operators';
 import { select, Store } from '@ngrx/store';
-import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selectors';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/reducers';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { selectExamPaperItemState } from '../../store/selectors/exam-paper.selectors';
 
 @Component({
   selector: 'app-admin-exam-paper-view',
@@ -12,6 +15,9 @@ import { AppState } from 'src/app/store/reducers';
   styleUrls: ['./admin-exam-paper-view.component.css']
 })
 export class AdminExamPaperViewComponent {
+  faChevronRight = faChevronRight;
+  faEdit = faEdit;
+  faInfoCircle = faInfoCircle;
   examPaper$: Observable<any> = (this.route.parent as ActivatedRoute).paramMap.pipe(
     map(params => params.get('id')),
     mergeMap(id => this.store.pipe(select(selectExamPaperItemState(id)))),
@@ -35,6 +41,7 @@ export class AdminExamPaperViewComponent {
     }));
   questions: any[] = [];
   activeQuestion = 0;
+
 
   constructor(
     private route: ActivatedRoute,

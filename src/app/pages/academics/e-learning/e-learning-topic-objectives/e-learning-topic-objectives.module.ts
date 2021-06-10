@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ELearningTopicObjectivesComponent } from './e-learning-topic-objectives.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {AppValidateSubmitButtonsModule} from '../../../../components/validate-submit-buttons/validate-submit-buttons.module';
 import {AppInputModule} from '../../../../components/input/app-input.module';
-import { ReactiveComponentModule } from '@ngrx/component';
+import { ELearningTopicObjectivesComponent } from './e-learning-topic-objectives.component';
 
 
 
@@ -16,7 +17,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
     ReactiveFormsModule,
     AppValidateSubmitButtonsModule,
     AppInputModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class ELearningTopicObjectivesModule { }

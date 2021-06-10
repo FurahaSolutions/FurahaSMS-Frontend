@@ -1,12 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AppState } from 'src/app/store/reducers';
-import { LibraryBookTagService } from 'src/app/pages/library/services/library-book-tag.service';
-import { filter, map, mergeMap, takeUntil, tap } from 'rxjs/operators';
-import { subscribedContainerMixin } from '../../../../../shared/mixins/subscribed-container.mixin';
-import { formMixin } from '../../../../../shared/mixins/form.mixin';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
+import {Store} from '@ngrx/store';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AppState} from 'src/app/store/reducers';
+import {LibraryBookTagService} from 'src/app/pages/library/services/library-book-tag.service';
+import {filter, map, mergeMap, takeUntil, tap} from 'rxjs/operators';
+import {subscribedContainerMixin} from '../../../../../shared/mixins/subscribed-container.mixin';
+import {formMixin} from '../../../../../shared/mixins/form.mixin';
 
 @Component({
   selector: 'app-create-tag',

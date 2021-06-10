@@ -1,7 +1,9 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {CheckboxComponent} from './checkbox.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { TabErrorStateModule } from '../../components/tab-error-state/app-tab-error.module';
+import { CheckboxComponent } from './checkbox.component';
 
 describe('CheckboxComponent', () => {
   let component: CheckboxComponent;
@@ -10,7 +12,9 @@ describe('CheckboxComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        FormsModule
+        FormsModule,
+        FontAwesomeTestingModule,
+        TabErrorStateModule
       ],
       declarations: [CheckboxComponent]
     })

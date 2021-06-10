@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navbar-top',
   templateUrl: './navbar-top.component.html',
   styleUrls: ['./navbar-top.component.css']
 })
-export class NavbarTopComponent implements OnInit {
+export class NavbarTopComponent {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
   }
 
 }

@@ -23,7 +23,7 @@ export class SkipLinkComponent extends subscribedContainerMixin() implements OnI
       takeUntil(this.destroyed$),
       map(event => (event as any).url)
     ).subscribe(url => {
-      if(!/(.)#main$/.test(url)) {
+      if (!/(.)#main$/.test(url)) {
         this.skipLinkPath = `${url}#main`;
       }
 

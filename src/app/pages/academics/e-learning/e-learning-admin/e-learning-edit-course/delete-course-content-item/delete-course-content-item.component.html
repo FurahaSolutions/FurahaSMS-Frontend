@@ -13,11 +13,11 @@
 </div>
 <div class="modal-footer bg-dark">
   <button (click)='closeModal()' class="btn btn-secondary" type="button">Cancel</button>
-  <button (click)='deleteCourseContentItem()' [disabled]='(contentId !=  "#" + learningContent.id) || (submitInProgressAction$ | ngrxPush)'
+  <button (click)='deleteCourseContentItem()' [disabled]='(contentId !==  "#" + learningContent.id) || (submitInProgressAction$ | ngrxPush)'
           class="btn btn-danger">
     <span *ngIf='(submitInProgressAction$ | ngrxPush) === false'>Delete this Content from Course</span>
     <span *ngIf='submitInProgressAction$ | ngrxPush'>Deleting...</span>
-    <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-trash'></i>
-    <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
+    <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush) === false' [icon]="faTrash"></fa-icon>
+    <fa-icon *ngIf='submitInProgressAction$ | ngrxPush' [icon]="faSpinner" [spin]="true"></fa-icon>
   </button>
 </div>

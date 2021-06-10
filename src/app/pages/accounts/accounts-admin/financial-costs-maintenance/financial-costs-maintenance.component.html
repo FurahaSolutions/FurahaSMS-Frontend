@@ -17,8 +17,8 @@
         <section class="col-lg-12">
           <fieldset formArrayName='costItems'>
             <legend>Cost Items</legend>
-            <button type="button" (click)='addCostItem()' class="btn btn-primary btn-sm mb-2"><span
-              class="icon-plus-circled"></span>Add Cost Item
+            <button type="button" (click)='addCostItem()' class="btn btn-primary btn-sm mb-2">
+              <fa-icon [icon]="faPlusCircle"></fa-icon> Add Cost Item
             </button>
             <section class="col-lg-12 d-flex" *ngFor='let costItem of costItems.controls; let k = index'
                      [formGroupName]='k'>
@@ -30,7 +30,7 @@
               </section>
               <section class="col-lg-1">
                 <button [disabled]='costItems.controls.length < 2' (click)='deleteCostItem(k)' type="button"
-                        aria-label="Delete Cost item" class="btn btn-danger"><span class="icon-trash"></span></button>
+                        aria-label="Delete Cost item" class="btn btn-danger"><fa-icon [icon]="faTrash"></fa-icon></button>
               </section>
             </section>
           </fieldset>
@@ -45,7 +45,7 @@
 </ng-template>
 
 <button (click)='openModal(template)' class="btn btn-primary btn-sm mb-2">
-  <span class="icon-plus-circled"></span>Add Cost
+  <fa-icon [icon]="faPlusCircle"></fa-icon> Add Cost
 </button>
 
 <table *ngIf="financialCosts$ | ngrxPush as financialCosts; else loading"
@@ -68,13 +68,13 @@
     <tr *ngIf="financialCost.costItems.length < 1">
       <td> {{ financialCost.name }} </td>
       <td class="p-1">
-        <div class="alert alert-info m-1 p-1"><span class="icon-info-circled"></span>No Cost Items Found!</div>
+        <div class="alert alert-info m-1 p-1"><fa-icon [icon]="faInfoCircle"></fa-icon> No Cost Items Found!</div>
       </td>
       <td>
         <button (click)='openModal(template, j)' aria-label="Edit Item" class="btn btn-sm btn-primary">
-          <span class="icon-edit"></span></button>
+          <fa-icon [icon]="faEdit"></fa-icon></button>
         <button (click)='deleteItem(j)' aria-label="Delete Item" class="btn btn-sm btn-danger ml-2">
-          <span [class.animate-spin]='deleting[j]' class="icon-trash"></span></button>
+          <fa-icon [spin]='deleting[j]' [icon]="faTrash"></fa-icon></button>
       </td>
     </tr>
     <tr *ngIf="financialCost.costItems.length > 0">
@@ -85,9 +85,9 @@
       <td> {{ financialCost.costItems[0]?.name }}</td>
       <td [attr.rowspan]='financialCost.costItems.length'>
         <button (click)='openModal(template, j)' aria-label="Edit Item" class="btn btn-sm btn-primary">
-          <span class="icon-edit"></span></button>
+          <fa-icon [icon]="faEdit"></fa-icon></button>
         <button (click)='deleteItem(j)' aria-label="Delete Item" class="btn btn-sm btn-danger ml-2">
-          <span [class.animate-spin]='deleting[j]' class="icon-trash"></span></button>
+          <fa-icon [spin]='deleting[j]' [icon]="faTrash"></fa-icon></button>
       </td>
     </tr>
 
@@ -105,8 +105,8 @@
 </ng-template>
 <section class="d-flex justify-content-end">
   <button (click)='submitFinancialCosts()' class="btn btn-sm btn-success">
-    <i *ngIf='submitInProgressAction$ | ngrxPush' class='icon-spin3 animate-spin'></i>
-    <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-ok-1'></i>
+    <fa-icon *ngIf='submitInProgressAction$ | ngrxPush' [icon]="faSpinner" [spin]="true"></fa-icon>
+    <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush) === false' [icon]="faSave"></fa-icon>
 
     Save Changes
   </button>

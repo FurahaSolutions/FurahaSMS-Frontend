@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ViewItemsComponent } from '../components/view-items/view-items.component';
 import { RouterModule } from '@angular/router';
-import { ErrorModule } from '../components/error/error.module';
-import { AppChipsModule } from './app-chip.module';
-import { AppLoadingBubbleModule } from './app-loading-bubble';
-import { ViewComponent } from '../components/view/view.component';
-import { AppDescriptionModule } from './app-description.module';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ViewItemsComponent } from '../components/view-items/view-items.component';
+import { ErrorModule } from '../components/error/error.module';
+import { AppChipsModule } from '../components/chips/app-chip.module';
+import { ViewComponent } from '../components/view/view.component';
+import { AppLoadingBubbleModule } from './app-loading-bubble';
+import { AppDescriptionModule } from './app-description.module';
 
 
 @NgModule({
@@ -26,8 +27,10 @@ import { ReactiveComponentModule } from '@ngrx/component';
     AppChipsModule,
     AppLoadingBubbleModule,
     AppDescriptionModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
 
   ]
 })
-export class AppViewItemsModule { }
+export class AppViewItemsModule {
+}

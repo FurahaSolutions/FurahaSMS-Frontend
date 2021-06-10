@@ -1,10 +1,13 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {StudentAcademicsService} from '../services/student-academics.service';
-import {combineLatest, Observable} from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
-import {map, mergeMap} from 'rxjs/operators';
-import {selectEditModeOnState} from '../../../store/selectors/app.selectors';
-import {select, Store} from '@ngrx/store';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { combineLatest, Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { map, mergeMap } from 'rxjs/operators';
+import { select, Store } from '@ngrx/store';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { selectEditModeOnState } from '../../../store/selectors/app.selectors';
+import { StudentAcademicsService } from '../services/student-academics.service';
 
 @Component({
   selector: 'app-view-student-academics',
@@ -13,6 +16,9 @@ import {select, Store} from '@ngrx/store';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ViewStudentAcademicsComponent {
+  faPlusCircle = faPlusCircle;
+  faInfoCircle = faInfoCircle;
+  faEdit = faEdit;
   studentId$: Observable<number> = (this.route.parent as ActivatedRoute).paramMap
     .pipe(map(params => Number(params.get('id'))));
   academicYearSubjects$: Observable<any> = this.studentId$.pipe(

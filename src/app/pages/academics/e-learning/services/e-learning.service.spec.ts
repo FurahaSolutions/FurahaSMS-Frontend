@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ELearningService } from './e-learning.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ELearningService } from './e-learning.service';
 
 describe('ELearningService', () => {
   let service: ELearningService;

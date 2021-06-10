@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
   ActivatedRoute,
   NavigationCancel,
@@ -8,9 +8,14 @@ import {
   PRIMARY_OUTLET,
   Router
 } from '@angular/router';
-import {filter, tap} from 'rxjs/operators';
-import {Location} from '@angular/common';
-import {BehaviorSubject, combineLatest} from 'rxjs';
+import { filter, tap } from 'rxjs/operators';
+import { Location } from '@angular/common';
+import { BehaviorSubject, combineLatest } from 'rxjs';
+import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
+import { faUndoAlt } from '@fortawesome/free-solid-svg-icons/faUndoAlt';
+import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
+import { faWindowMaximize } from '@fortawesome/free-solid-svg-icons/faWindowMaximize';
+import { rotate360Metadata } from '../../../shared/animations/rotate_360.animation';
 
 interface BreadcrumbInterface {
   label: string;
@@ -22,10 +27,18 @@ interface BreadcrumbInterface {
   selector: 'app-breadcrumb',
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    rotate360Metadata
+  ]
 })
 export class BreadcrumbComponent implements OnInit {
   public breadcrumbs: BreadcrumbInterface[] = [];
+  faHome = faHome;
+  faUndoAlt = faUndoAlt;
+  faSyncAlt = faSyncAlt;
+  faWindowMaximize = faWindowMaximize;
+  backState = 'default';
   showSpinnerSubject$ = new BehaviorSubject<boolean>(false);
   showSpinnerAction$ = this.showSpinnerSubject$.asObservable();
   navigationEvent$ = this.router.events;
@@ -56,10 +69,18 @@ export class BreadcrumbComponent implements OnInit {
   ngOnInit() {
     this.breadcrumbs = this.getBreadcrumbs(this.router.routerState.root);
   }
-  backClicked = () => this.location.back();
+
+  backClicked = () => {
+    this.spinBackButton();
+    this.location.back();
+  };
 
   goFullScreen = () =>
     (document.querySelector('#main') as HTMLElement).requestFullscreen().then();
+
+  spinBackButton() {
+    this.backState = (this.backState === 'default' ? 'rotated' : 'default');
+  }
 
   private getBreadcrumbs(
     route: ActivatedRoute, url: string = '',

@@ -4,9 +4,9 @@ import {formMixin} from 'src/app/shared/mixins/form.mixin';
 import {modalMixin} from 'src/app/shared/mixins/modal.mixin';
 import {BsModalService} from 'ngx-bootstrap/modal';
 import {Store} from '@ngrx/store';
+import {ActivatedRoute, Router} from '@angular/router';
 import {TimingTemplateService} from '../../services/timing-template.service';
 import {TimeTableService} from '../../services/time-table.service';
-import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({

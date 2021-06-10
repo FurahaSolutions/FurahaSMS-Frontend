@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {ChipsComponent} from './chips.component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { ChipsComponent } from './chips.component';
 
 describe('ChipsComponent', () => {
   let component: ChipsComponent;
@@ -8,6 +9,9 @@ describe('ChipsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      imports: [
+        FontAwesomeTestingModule
+      ],
       declarations: [ChipsComponent]
     })
       .compileComponents();

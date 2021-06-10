@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {SelectAcademicYearComponent} from './select-academic-year.component';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
@@ -8,6 +7,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {reducerProvider} from 'src/app/store/reducers';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {SelectAcademicYearComponent} from './select-academic-year.component';
 
 describe('SelectAcademicYearComponent', () => {
   let component: SelectAcademicYearComponent;

@@ -2,9 +2,9 @@ import {
   ActionReducerMap,
 } from '@ngrx/store';
 
+import * as fromRoot from '../../../../store/reducers';
 import * as fromPaymentMethods from './payment-type.reducer';
 import * as fromStudentPaymentStatement from './student-fee-statement.reducer';
-import * as fromRoot from '../../../../store/reducers';
 
 export const accountFeatureKey = 'accounts';
 

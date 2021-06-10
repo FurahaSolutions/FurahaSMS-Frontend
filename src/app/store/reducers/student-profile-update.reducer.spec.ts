@@ -1,6 +1,6 @@
-import { reducer, initialState } from './student-profile-update.reducer';
 import {TestBed, waitForAsync} from '@angular/core/testing';
 import {FormsModule} from '@angular/forms';
+import { reducer, initialState } from './student-profile-update.reducer';
 
 describe('StudentProfileUpdate Reducer', () => {
   describe('an unknown action', () => {

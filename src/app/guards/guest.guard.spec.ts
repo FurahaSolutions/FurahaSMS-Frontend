@@ -1,11 +1,11 @@
 import { inject, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { GuestGuard } from './guest.guard';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { AuthenticationService } from '../services/authentication.service';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { AuthenticationService } from '../services/authentication.service';
+import { GuestGuard } from './guest.guard';
 
 describe('GuestGuard', () => {
   beforeEach(waitForAsync(() => {

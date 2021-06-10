@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ViewGuardianStudentsComponent} from './view-guardian-students.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
@@ -9,6 +8,8 @@ import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
 import {REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import {ViewGuardianStudentsComponent} from './view-guardian-students.component';
 
 describe('ViewGuardianStudentsComponent', () => {
   let component: ViewGuardianStudentsComponent;
@@ -27,7 +28,8 @@ describe('ViewGuardianStudentsComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ViewGuardianStudentsComponent],
       providers: [

@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ProcurementService } from './procurement.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ProcurementService } from './procurement.service';
 
 describe('ProcurementService', () => {
   beforeEach(() => TestBed.configureTestingModule({

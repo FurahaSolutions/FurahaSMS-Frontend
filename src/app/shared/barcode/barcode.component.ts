@@ -4,6 +4,7 @@ import Quagga from 'quagga';
 import { validateISBN } from 'src/app/pages/library/validatots/isbn.validator';
 import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { faCamera } from '@fortawesome/free-solid-svg-icons/faCamera';
 
 @Component({
   selector: 'app-barcode',
@@ -19,6 +20,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class BarcodeComponent implements OnInit, ControlValueAccessor {
   @Output() private valueChange = new EventEmitter();
+  faCamera = faCamera;
   showOpenScannerButton = false;
   scannerIsRunning = false;
   modalRef: BsModalRef | undefined;

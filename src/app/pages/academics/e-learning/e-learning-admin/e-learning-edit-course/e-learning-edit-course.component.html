@@ -1,10 +1,10 @@
 <ng-container *ngIf='(v$ | ngrxPush) as v ; else loading'>
-  <h1>Edit Course <span class="icon-right-dir"></span> {{ v.course?.name }}</h1>
+  <h1>Edit Course <fa-icon [icon]="faChevronRight"></fa-icon> {{ v.course?.name }}</h1>
   <section class="card p-2">
     <ng-container>
       <div class="d-flex justify-content-start">
         <button type="button" [routerLink]="['/academics', 'e-learning', 'admin', 'courses', v.courseId, 'edit']"
-                class="btn btn-primary"><span class="icon-edit"></span>Edit Course Details
+                class="btn btn-primary"><fa-icon [icon]="faEdit"></fa-icon>Edit Course Details
         </button>
       </div>
       <fieldset class="card p-2 mt-2 mb-2">
@@ -30,7 +30,7 @@
         <legend>Contents</legend>
         <section class="d-flex flex-wrap justify-content-center">
           <div class="col-12 alert alert-info" *ngIf="!v.course?.topics || v.course?.topics?.length < 1">
-            <span class="icon-info-circled"></span> No course contents were found!
+            <fa-icon [icon]="faInfoCircle"></fa-icon> No course contents were found!
           </div>
           <fieldset class="col-lg-12 mt-2 mb-3 p-2 card" *ngFor='let topic of v.course?.topics; let i = index'>
             <legend class="mt-2">{{ v.course?.topicNumberStyleName }} {{ i + 1 }}. {{ topic.description }}</legend>
@@ -49,7 +49,7 @@
                 <div class="mt-2">
                   <button (click)='openModalNewContent(templateNewContent, topic.id)' class="btn btn-primary btn-sm"
                           type="button">
-                    <span class="icon-plus-circled"></span>
+                    <fa-icon [icon]="faPlusCircled"></fa-icon>
                     New Content
                   </button>
                 </div>
@@ -79,7 +79,7 @@
                       <button (click)='openModalNewContent(templateNewContent, subTopic.id)'
                               class="btn btn-primary btn-sm"
                               type="button">
-                        <span class="icon-plus-circled"></span>
+                        <fa-icon [icon]="faPlusCircled"></fa-icon>
                         New Content
                       </button>
                     </div>
@@ -110,12 +110,12 @@
       </div>
       <div class="modal-footer bg-dark">
         <button type="button" (click)='closeModal()' class="btn btn-secondary">Cancel</button>
-        <button (click)='deleteCourse()' [disabled]='courseNameConfirmation != v.course?.name || deletingCourse'
+        <button (click)='deleteCourse()' [disabled]='courseNameConfirmation !== v.course?.name || deletingCourse'
                 class="btn btn-danger">
           <span *ngIf='!deletingCourse'>Delete this course</span>
           <span *ngIf='deletingCourse'>Deleting...</span>
-          <i *ngIf='!deletingCourse' class='icon-trash'></i>
-          <i *ngIf='deletingCourse' class='icon-spin3 animate-spin'></i>
+          <fa-icon *ngIf='!deletingCourse' [icon]='faTrash'></fa-icon>
+          <fa-icon *ngIf='deletingCourse' [icon]="faSpinner" class='animate-spin'></fa-icon>
         </button>
       </div>
     </ng-template>
@@ -202,22 +202,22 @@
                 [disabled]='activeForm().invalid || (submitInProgressAction$ | ngrxPush)' class="btn btn-success">
           <span *ngIf='(submitInProgressAction$ | ngrxPush) === false'>Save Content</span>
           <span *ngIf='(submitInProgressAction$ | ngrxPush)'>Saving...</span>
-          <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-ok-1'></i>
-          <i *ngIf='(submitInProgressAction$ | ngrxPush)' class='icon-spin3 animate-spin'></i>
+          <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush) === false' [icon]="faCheck"></fa-icon>
+          <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush)' [icon]="faSpinner" class='animate-spin'></fa-icon>
         </button>
         <button *ngIf='activeFormName === "newLearningOutcomeForm"' form='newLearningOutcomeForm'
                 [disabled]='activeForm().invalid || (submitInProgressAction$ | ngrxPush)' class="btn btn-success">
           <span *ngIf='(submitInProgressAction$ | ngrxPush) === false'>Save Learning Content</span>
           <span *ngIf='(submitInProgressAction$ | ngrxPush)'>Saving...</span>
-          <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-ok-1'></i>
-          <i *ngIf='(submitInProgressAction$ | ngrxPush)' class='icon-spin3 animate-spin'></i>
+          <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush) === false' [icon]='faCheck'></fa-icon>
+          <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush)' [icon]="faSpinner" class='animate-spin'></fa-icon>
         </button>
         <button *ngIf='activeFormName === "onlineAssessmentForm"' [attr.form]='"onlineAssessmentForm"'
                 [disabled]='(formInvalid$ | ngrxPush) || (submitInProgressAction$ | ngrxPush)' class="btn btn-success">
           <span *ngIf='(submitInProgressAction$ | ngrxPush) === false'>Create Assessment</span>
           <span *ngIf='(submitInProgressAction$ | ngrxPush)'>Creating...</span>
-          <i *ngIf='(submitInProgressAction$ | ngrxPush) === false' class='icon-ok-1'></i>
-          <i *ngIf='(submitInProgressAction$ | ngrxPush)' class='icon-spin3 animate-spin'></i>
+          <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush) === false' [icon]='faCheck'></fa-icon>
+          <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush)' [icon]="faSpinner" class='animate-spin'></fa-icon>
         </button>
       </div>
     </ng-template>

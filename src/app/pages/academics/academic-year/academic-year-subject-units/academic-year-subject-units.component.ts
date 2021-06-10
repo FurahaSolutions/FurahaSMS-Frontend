@@ -4,8 +4,8 @@ import { UnitLevelService } from 'src/app/services/unit-level.service';
 import { ClassLevelService } from 'src/app/services/class-level.service';
 import { Observable } from 'rxjs';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { AcademicYearService } from '../../services/academic-year.service';
 import { ActivatedRoute } from '@angular/router';
+import { AcademicYearService } from '../../services/academic-year.service';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 import { formMixin } from '../../../../shared/mixins/form.mixin';
 

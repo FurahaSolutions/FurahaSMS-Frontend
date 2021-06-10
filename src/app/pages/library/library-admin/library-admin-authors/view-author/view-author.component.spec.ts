@@ -1,12 +1,12 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ViewAuthorComponent} from './view-author.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {AppLoadingBubbleModule} from 'src/app/modules/app-loading-bubble';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {ViewAuthorComponent} from './view-author.component';
 
 describe('ViewAuthorComponent', () => {
   let component: ViewAuthorComponent;

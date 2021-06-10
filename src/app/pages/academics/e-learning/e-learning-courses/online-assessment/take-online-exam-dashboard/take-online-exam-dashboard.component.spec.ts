@@ -1,10 +1,11 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { TakeOnlineExamDashboardComponent } from './take-online-exam-dashboard.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {AppLoadingBubbleModule} from '../../../../../../modules/app-loading-bubble';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import {AppLoadingBubbleModule} from '../../../../../../modules/app-loading-bubble';
+import { TakeOnlineExamDashboardComponent } from './take-online-exam-dashboard.component';
 
 describe('TakeOnlineExamDashbpardComponent', () => {
   let component: TakeOnlineExamDashboardComponent;
@@ -16,7 +17,8 @@ describe('TakeOnlineExamDashbpardComponent', () => {
         AppLoadingBubbleModule,
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([]),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [ TakeOnlineExamDashboardComponent ]
     })

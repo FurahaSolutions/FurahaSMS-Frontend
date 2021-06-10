@@ -2,7 +2,7 @@
 <section class="card p-2">
   <div class="d-flex flex-wrap">
     <a [routerLink]='["/admissions","staff","teachers", "create"]'
-       type="button" class="btn btn-sm btn-primary"><span class="icon-plus-circled ml-auto"></span>
+       type="button" class="btn btn-sm btn-primary"><fa-icon class="ml-auto" [icon]="faPlusCircle"></fa-icon>
       New Teacher Admissions
     </a>
     <fieldset class="col-12 card p-2 pt-0 mt-2">
@@ -23,7 +23,9 @@
             <td>{{ teacher.email }}</td>
             <td>{{ teacher.firstName }} {{ teacher.lastName }}</td>
             <td>
-              <button [routerLink]='["/teachers", teacher.id]' class="btn btn-primary btn-sm" type="button" aria-label="View Teacher"><span class="icon-eye"></span></button>
+              <button [routerLink]='["/teachers", teacher.id]' class="btn btn-primary btn-sm" type="button" aria-label="View Teacher">
+                <fa-icon [icon]="faEye"></fa-icon>
+              </button>
             </td>
           </tr>
         </ng-container>

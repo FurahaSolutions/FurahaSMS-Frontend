@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
-import { StudentSearchComponent } from './student-search.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { StudentSearchComponent } from './student-search.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,10 @@ import { ReactiveComponentModule } from '@ngrx/component';
     ReactiveFormsModule,
     TypeaheadModule.forRoot(),
     RouterModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 
-export class StudentSearchModule { }
+export class StudentSearchModule {
+}

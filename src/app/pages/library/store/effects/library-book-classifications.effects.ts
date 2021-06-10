@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {catchError, concatMap, map} from 'rxjs/operators';
-import {of} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { catchError, concatMap, map } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 import * as LibraryBookClassificationActions from '../actions/library-book-classification.actions';
-import {LibraryBookClassificationService} from '../../services/library-book-classification.service';
+import { LibraryBookClassificationService } from '../../services/library-book-classification.service';
 
 
 @Injectable()
@@ -19,6 +19,7 @@ export class LibraryBookClassificationEffects {
       )
     )
   );
+
   constructor(private actions$: Actions, private bookClassificationService: LibraryBookClassificationService) {
   }
 }

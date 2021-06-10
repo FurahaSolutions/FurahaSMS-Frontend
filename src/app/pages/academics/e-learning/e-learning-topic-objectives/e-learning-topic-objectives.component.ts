@@ -1,13 +1,16 @@
-import {Component, Input, TemplateRef} from '@angular/core';
-import {modalMixin} from '../../../../shared/mixins/modal.mixin';
-import {formMixin} from '../../../../shared/mixins/form.mixin';
-import {Store} from '@ngrx/store';
-import {BsModalService} from 'ngx-bootstrap/modal';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ELearningService} from '../services/e-learning.service';
-import {subscribedContainerMixin} from '../../../../shared/mixins/subscribed-container.mixin';
-import {takeUntil} from 'rxjs/operators';
-import {loadCourses} from '../../store/actions/courses.actions';
+import { Component, Input, TemplateRef } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { takeUntil } from 'rxjs/operators';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faBullseye } from '@fortawesome/free-solid-svg-icons';
+import { modalMixin } from '../../../../shared/mixins/modal.mixin';
+import { formMixin } from '../../../../shared/mixins/form.mixin';
+import { ELearningService } from '../services/e-learning.service';
+import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
+import { loadCourses } from '../../store/actions/courses.actions';
 import {
   ELearningDeleteLearningOutcomeComponent
 } from '../e-learning-admin/e-learning-delete-learning-outcome/e-learning-delete-learning-outcome.component';
@@ -24,6 +27,10 @@ export class ELearningTopicObjectivesComponent extends subscribedContainerMixin(
   @Input() topicId: number | undefined;
   @Input() topicNumberStyleName = 'Topic';
   @Input() learningOutcomes: any[] = [];
+  faTrash = faTrash;
+  faEdit = faEdit;
+  faBullseye = faBullseye;
+
   itemForm: FormGroup = this.fb.group({
     id: [null, [Validators.required]],
     description: ['', [Validators.required]]

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IUserProfile } from '../interfaces/user-profile.interface';
 import { map } from 'rxjs/operators';
+import { IUserProfile } from '../interfaces/user-profile.interface';
 
 export interface IUserFilter {
   type?: string;

@@ -1,20 +1,21 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {LibrarySearchCatalogueComponent} from './library-search-catalogue.component';
-import {Store, StoreModule} from '@ngrx/store';
-import {AppState, metaReducers, REDUCER_TOKEN, reducerProvider} from 'src/app/store/reducers';
-import {RouterTestingModule} from '@angular/router/testing';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {TypeaheadModule} from 'ngx-bootstrap/typeahead';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { Store, StoreModule } from '@ngrx/store';
+import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { LibrarySearchCatalogueComponent } from './library-search-catalogue.component';
 
 describe('LibrarySearchCatalogueComponent', () => {
   let component: LibrarySearchCatalogueComponent;
   let fixture: ComponentFixture<LibrarySearchCatalogueComponent>;
   let store: Store<AppState>;
 
-  beforeEach(waitForAsync( () => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(REDUCER_TOKEN, {
@@ -29,7 +30,8 @@ describe('LibrarySearchCatalogueComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         TypeaheadModule.forRoot(),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [
         LibrarySearchCatalogueComponent

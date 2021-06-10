@@ -4,8 +4,9 @@ import { noop, Observable, Observer, of, Subject } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { IUserProfile } from 'src/app/interfaces/user-profile.interface';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
-import { UsersService } from '../../services/users.service';
 import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-user-search',
@@ -26,6 +27,7 @@ import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } f
 })
 export class UserSearchComponent implements OnInit, ControlValueAccessor {
   @Input() type = '';
+  faInfoCircle = faInfoCircle;
   search = '';
   selectedUserId = 0;
   suggestions$: Observable<IUserProfile[]> = of([]);
@@ -41,13 +43,14 @@ export class UserSearchComponent implements OnInit, ControlValueAccessor {
   onTouched: () => void = () => {
   };
 
+
   ngOnInit(): void {
     this.suggestions$ = new Observable((observer: Observer<string>) => {
       observer.next(this.search);
     }).pipe(
       switchMap((query: string) => {
 
-        if(query) {
+        if (query) {
 
           return this.userService.filter({name: query})
             .pipe(
@@ -72,7 +75,7 @@ export class UserSearchComponent implements OnInit, ControlValueAccessor {
   }
 
   writeValue(value: any): void {
-    if(value !== undefined) {
+    if (value !== undefined) {
       this.selectedUserId = value;
     }
   }

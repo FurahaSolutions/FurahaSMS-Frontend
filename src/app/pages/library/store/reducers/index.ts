@@ -1,10 +1,10 @@
-import {ActionReducerMap,} from '@ngrx/store';
+import { ActionReducerMap, } from '@ngrx/store';
 
+import * as fromRoot from '../../../../store/reducers';
 import * as fromLibraryBookAuthor from './library-book-author.reducer';
 import * as fromLibraryBookPublisher from './library-book-publisher.reducer';
 import * as fromLibraryBookClassification from './library-book-classification.reducer';
 import * as fromLibraryBooks from './library-book.reducer';
-import * as fromRoot from '../../../../store/reducers';
 
 export const libraryFeatureKey = 'library';
 

@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 
 @Component({
   selector: 'app-tab-error-state',
@@ -9,6 +11,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class TabErrorStateComponent {
   @Input() hasError = false;
   @Input() marked = false;
+  faCheck = faCheck;
+  faExclamationTriangle = faExclamationTriangle;
 
   constructor() {
   }

@@ -1,10 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { EditAuthorComponent } from './edit-author.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { CreateAuthorComponent } from '../create-author/create-author.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppInputModule } from 'src/app/components/input/app-input.module';
@@ -12,6 +10,9 @@ import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
 import { AppValidateSubmitButtonsModule } from 'src/app/components/validate-submit-buttons/validate-submit-buttons.module';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { CreateAuthorComponent } from '../create-author/create-author.component';
+import { EditAuthorComponent } from './edit-author.component';
 
 describe('EditAuthorComponent', () => {
   let component: EditAuthorComponent;
@@ -36,7 +37,8 @@ describe('EditAuthorComponent', () => {
         AppInputModule,
         AppLoadingBubbleModule,
         AppValidateSubmitButtonsModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [EditAuthorComponent, CreateAuthorComponent],
       providers: [

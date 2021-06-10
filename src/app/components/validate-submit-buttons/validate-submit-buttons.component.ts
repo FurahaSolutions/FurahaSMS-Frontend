@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 import { BehaviorSubject } from 'rxjs';
 
 
@@ -9,10 +11,11 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./validate-submit-buttons.component.css'],
 })
 export class ValidateSubmitButtonsComponent {
-
   @Input() formItem: FormGroup = new FormGroup({});
   @Input() isSubmitting = false;
   @Output() validationButtonClicked = new EventEmitter();
+  faSpinner = faSpinner;
+  faSave = faSave;
   validatedSubject$ = new BehaviorSubject<boolean>(false);
   validatedAction$ = this.validatedSubject$.asObservable();
 

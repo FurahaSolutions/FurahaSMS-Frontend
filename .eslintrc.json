@@ -54,7 +54,7 @@
           "off",
           "always"
         ],
-        "import/order": "off"
+        "import/order": "warn"
       }
     },
     {

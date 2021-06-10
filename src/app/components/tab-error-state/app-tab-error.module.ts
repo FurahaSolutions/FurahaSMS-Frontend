@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TabErrorStateComponent } from '../components/tab-error-state/tab-error-state.component';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TabErrorStateComponent } from './tab-error-state.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ReactiveComponentModule } from '@ngrx/component';
   imports: [
     CommonModule,
     ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
 export class TabErrorStateModule { }

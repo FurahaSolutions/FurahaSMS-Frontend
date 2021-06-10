@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChipsComponent } from '../components/chips/chips.component';
-import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ChipsComponent } from './chips.component';
 
 
 @NgModule({
@@ -14,7 +14,8 @@ import { ReactiveComponentModule } from '@ngrx/component';
 
   imports: [
     CommonModule,
-    ReactiveComponentModule,
+    FontAwesomeModule
   ]
 })
-export class AppChipsModule { }
+export class AppChipsModule {
+}

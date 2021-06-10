@@ -1,12 +1,13 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ViewLibraryBookComponent } from './view-library-book.component';
-import { LibraryModule } from '../../library.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { LibraryModule } from '../../library.module';
+import { ViewLibraryBookComponent } from './view-library-book.component';
 
 describe('ViewLibraryBookComponent', () => {
   let component: ViewLibraryBookComponent;
@@ -25,7 +26,8 @@ describe('ViewLibraryBookComponent', () => {
         }),
         EffectsModule.forRoot([]),
         HttpClientTestingModule,
-        RouterTestingModule
+        RouterTestingModule,
+        FontAwesomeTestingModule
       ],
       declarations: [],
       providers: [reducerProvider]

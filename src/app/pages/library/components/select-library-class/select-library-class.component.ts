@@ -1,10 +1,10 @@
 import { Component, forwardRef, Input, OnChanges, SimpleChange } from '@angular/core';
-import { LibraryBookClassesService } from '../../services/library-book-classes.service';
 import { Observable, of } from 'rxjs';
 
 import { DbService } from 'src/app/services/db.service';
 import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { takeUntil} from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
+import { LibraryBookClassesService } from '../../services/library-book-classes.service';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 
 
@@ -29,12 +29,14 @@ export class SelectLibraryClassComponent extends subscribedContainerMixin() impl
   @Input() classification: any;
   libraryBookClassValue: any;
   libraryBookClasses$: Observable<any> | undefined;
+
   constructor(
     private libraryBookClassesService: LibraryBookClassesService,
     private db: DbService
   ) {
     super();
   }
+
   onChanges: ($value: any) => void = () => {
   };
   onTouched: () => void = () => {
@@ -42,10 +44,10 @@ export class SelectLibraryClassComponent extends subscribedContainerMixin() impl
 
   ngOnChanges(changes: { classification: SimpleChange }) {
     let currentValue: any;
-    if(changes) {
+    if (changes) {
       currentValue = changes.classification.currentValue;
     }
-    if(+currentValue > 0) {
+    if (+currentValue > 0) {
       this.db.get(currentValue)
         .then((doc: any) => {
           this.libraryBookClasses$ = of(doc.items);
@@ -59,7 +61,7 @@ export class SelectLibraryClassComponent extends subscribedContainerMixin() impl
               _id: currentValue,
               items
             };
-            if(items.length > 0) {
+            if (items.length > 0) {
 
               this.db.put(doc).then(() => {
               }).catch(() => {
@@ -76,7 +78,7 @@ export class SelectLibraryClassComponent extends subscribedContainerMixin() impl
   }
 
   writeValue(value: any): void {
-    if(value !== undefined) {
+    if (value !== undefined) {
       // this.inputValue = value;
     }
   }

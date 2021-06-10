@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import * as fromStore from '../../../../store/reducers';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { selectStaffTypes } from '../../store/selectors/staff-type.selectors';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SupportStaffService } from 'src/app/pages/support-staffs/services/support-staff.service';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons/faPaperPlane';
+import { selectStaffTypes } from '../../store/selectors/staff-type.selectors';
+import * as fromStore from '../../../../store/reducers';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
@@ -14,6 +15,7 @@ import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-c
   styleUrls: ['./support-staff-admission.component.css']
 })
 export class SupportStaffAdmissionComponent extends subscribedContainerMixin() implements OnInit {
+  faPaperPlane = faPaperPlane;
   staffTypes$ = this.store.pipe(
     select(selectStaffTypes)
   );
@@ -38,7 +40,7 @@ export class SupportStaffAdmissionComponent extends subscribedContainerMixin() i
   }
 
   staffTypeFormSubmit() {
-    if(this.staffTypeFrom.valid) {
+    if (this.staffTypeFrom.valid) {
       this.router.navigate(['admissions', 'staff', 'support', this.staffTypeFrom.get('staffTypeId')?.value, 'create']);
     }
 

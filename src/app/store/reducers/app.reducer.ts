@@ -1,11 +1,11 @@
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
+import { InjectionToken } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import * as fromEditMode from './edit-mode.reducer';
 import * as fromPermissions from './permissions.reducer';
 import * as fromGenders from './gender.reducer';
 import * as fromReligions from './religion.reducer';
 import * as fromModals from './modal.reducer';
-import { InjectionToken } from '@angular/core';
-import { environment } from 'src/environments/environment';
 
 export const appFeatureKey = 'app';
 

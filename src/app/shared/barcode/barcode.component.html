@@ -1,9 +1,9 @@
-<button 
+<button
   type="button"
   title="BarCode Scanner"
   aria-label="Bar Code Scanner"
   *ngIf='showOpenScannerButton' (click)='openModal(template)' class="btn btn-primary">
-  <span class="icon-camera"></span>
+  <fa-icon [icon]="faCamera"></fa-icon>
 </button>
 <ng-template #template>
   <div class="modal-header bg-dark">

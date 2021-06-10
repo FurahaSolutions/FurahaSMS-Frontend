@@ -1,17 +1,18 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {EditCourseContentItemComponent} from './edit-course-content-item.component';
-import {AppInputModule} from '../../../../../../components/input/app-input.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
+import {ModalModule} from 'ngx-bootstrap/modal';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import {AppInputModule} from '../../../../../../components/input/app-input.module';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../../../store/reducers';
 import {academicsFeatureKey, reducers} from '../../../../store/reducers';
-import {ModalModule} from 'ngx-bootstrap/modal';
 import {AppValidateSubmitButtonsModule} from '../../../../../../components/validate-submit-buttons/validate-submit-buttons.module';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {FileExtensionModule} from '../../../../../../shared/file-extention/file-extension.module';
 import {AppFilesizeModule} from '../../../../../../shared/filesize/filesize.module';
-import {ReactiveComponentModule} from '@ngrx/component';
+import {EditCourseContentItemComponent} from './edit-course-content-item.component';
 
 describe('EditCourseContentItemComponent', () => {
   let component: EditCourseContentItemComponent;
@@ -36,7 +37,8 @@ describe('EditCourseContentItemComponent', () => {
         }),
         StoreModule.forFeature(academicsFeatureKey, reducers),
         ModalModule.forRoot(),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [EditCourseContentItemComponent],
       providers: [reducerProvider]

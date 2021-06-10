@@ -1,6 +1,6 @@
-import {Constructor} from './constructor.mixin';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {FormArray, FormGroup} from '@angular/forms';
+import {Constructor} from './constructor.mixin';
 
 export const formMixin = <T extends Constructor>(baseClass: T = class {
 } as T) =>

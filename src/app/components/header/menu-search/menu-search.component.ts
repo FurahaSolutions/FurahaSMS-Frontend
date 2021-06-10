@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subject, combineLatest } from 'rxjs';
+import { combineLatest, Observable, Subject } from 'rxjs';
 
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { LinkService } from '../../../services/link.service';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { LinkInterface } from 'src/app/interfaces/link.interface';
-import { filter, tap, map, takeWhile } from 'rxjs/operators';
+import { filter, map, takeWhile, tap } from 'rxjs/operators';
+import { LinkService } from '../../../services/link.service';
 
 @Component({
   selector: 'app-menu-search',
@@ -26,7 +26,8 @@ export class MenuSearchComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private linkService: LinkService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     combineLatest([
@@ -46,9 +47,11 @@ export class MenuSearchComponent implements OnInit, OnDestroy {
       takeWhile(() => this.componentIsActive)
     ).subscribe();
   }
+
   get search(): FormControl {
     return this.searchForm.get('search') as FormControl;
   }
+
   submitSearchForm() {
     this.searchSubmittedSubject$.next(true);
   }

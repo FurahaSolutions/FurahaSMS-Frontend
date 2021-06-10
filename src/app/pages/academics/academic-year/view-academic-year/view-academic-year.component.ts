@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { loadActivePagesSuccess } from 'src/app/store/actions/active-page.actions';
 import { AppState } from 'src/app/store/reducers';
 import { map, mergeMap, tap } from 'rxjs/operators';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
 
 @Component({
@@ -14,6 +15,7 @@ import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-c
   styleUrls: ['./view-academic-year.component.css']
 })
 export class ViewAcademicYearComponent extends subscribedContainerMixin() {
+  faChevronRight = faChevronRight;
   academicYearId$ = this.route.paramMap.pipe(
     map(params => Number(params.get('id'))));
   academicYear$: Observable<any> = this.academicYearId$.pipe(
@@ -51,4 +53,5 @@ export class ViewAcademicYearComponent extends subscribedContainerMixin() {
 
   // });
   // }
+
 }

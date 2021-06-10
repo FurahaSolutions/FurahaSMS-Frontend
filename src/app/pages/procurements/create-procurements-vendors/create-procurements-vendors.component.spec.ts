@@ -1,18 +1,21 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {CreateProcurementsVendorsComponent} from './create-procurements-vendors.component';
 import {Store, StoreModule} from '@ngrx/store';
 import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
-import {InputComponent} from '../../../components/input/input.component';
-import {TelInputComponent} from '../../../components/tel-input/tel-input.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {TabsModule} from 'ngx-bootstrap/tabs';
 import {NgSelectModule} from '@ng-select/ng-select';
-import {AppStarLabelRequiredModule} from '../../../components/label-star-required/app-star-label-required';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import {AppStarLabelRequiredModule} from '../../../components/label-star-required/app-star-label-required';
+import {TelInputComponent} from '../../../components/tel-input/tel-input.component';
+import {InputComponent} from '../../../components/input/input.component';
+import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
+import { TabErrorStateModule } from '../../../components/tab-error-state/app-tab-error.module';
+import { AppValidateSubmitButtonsModule } from '../../../components/validate-submit-buttons/validate-submit-buttons.module';
+import {CreateProcurementsVendorsComponent} from './create-procurements-vendors.component';
 
 describe('CreateProcurementsVendorsComponent', () => {
   let component: CreateProcurementsVendorsComponent;
@@ -36,7 +39,10 @@ describe('CreateProcurementsVendorsComponent', () => {
         TabsModule.forRoot(),
         NgSelectModule,
         AppStarLabelRequiredModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule,
+        TabErrorStateModule,
+        AppValidateSubmitButtonsModule
       ],
       declarations: [
         CreateProcurementsVendorsComponent,

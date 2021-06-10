@@ -5,9 +5,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { filter, map, mergeMap, takeUntil, tap } from 'rxjs/operators';
 import { VIEW_UNIT_CURRICULUM } from 'src/app/helpers/links.helpers';
-import { SemesterService } from '../semester/services/semester.service';
 import { formWithEditorMixin } from 'src/app/shared/mixins/form-with-editor.mixin';
 import { subscribedContainerMixin } from 'src/app/shared/mixins/subscribed-container.mixin';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { SemesterService } from '../semester/services/semester.service';
 
 @Component({
   selector: 'app-edit-unit',
@@ -18,6 +21,9 @@ import { subscribedContainerMixin } from 'src/app/shared/mixins/subscribed-conta
 export class EditUnitComponent extends subscribedContainerMixin(formWithEditorMixin()) implements OnInit {
   @Input() idIndex: number | undefined;
   @Output() valueChange: EventEmitter<any> = new EventEmitter();
+  faPlusCircle = faPlusCircle;
+  faTrash = faTrash;
+  faChevronRight = faChevronRight;
   generalInfoHasErrorSubject$ = new BehaviorSubject<boolean>(false);
   generalInfoHasErrorAction$ = this.generalInfoHasErrorSubject$.asObservable();
   unitLevelsHasErrorSubject$ = new BehaviorSubject<boolean>(false);
@@ -44,7 +50,7 @@ export class EditUnitComponent extends subscribedContainerMixin(formWithEditorMi
       })) : [])
     })),
     tap(unit => {
-      if(unit.unitLevels.length === 0) {
+      if (unit.unitLevels.length === 0) {
         this.unitForm.setValue(unit);
         this.addUnitLevelFromValue(false);
       } else {
@@ -68,6 +74,8 @@ export class EditUnitComponent extends subscribedContainerMixin(formWithEditorMi
   v$ = combineLatest([this.semesters$, this.unit$]).pipe(
     map(([semesters, unit]) => ({semesters, unit}))
   );
+
+
 
   constructor(
     private fb: FormBuilder,
@@ -102,14 +110,14 @@ export class EditUnitComponent extends subscribedContainerMixin(formWithEditorMi
 
   removeUnitLevel(i: number) {
     const confirmDeletion = confirm('Are you sure you wish to delete item?');
-    if(confirmDeletion) {
+    if (confirmDeletion) {
       this.unitLevels.controls.splice(i, 1);
       this.unitLevels.updateValueAndValidity();
     }
   }
 
   addUnitLevelFromValue(value: any) {
-    if(!value) {
+    if (!value) {
       this.unitLevels.push(this.fb.group({
         id: [],
         name: ['', [Validators.required]],
@@ -124,7 +132,7 @@ export class EditUnitComponent extends subscribedContainerMixin(formWithEditorMi
     this.unitService.submit(this.unitForm.value)
       .subscribe({
         next: success => {
-          this.router.navigate([VIEW_UNIT_CURRICULUM(success.id)]);
+          this.router.navigate([VIEW_UNIT_CURRICULUM(success.id)]).then();
           this.submitInProgressSubject$.next(false);
 
         }, error: () => this.submitInProgressSubject$.next(false)

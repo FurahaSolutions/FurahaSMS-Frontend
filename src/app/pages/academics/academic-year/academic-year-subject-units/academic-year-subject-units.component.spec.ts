@@ -1,9 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { AcademicYearSubjectUnitsComponent } from './academic-year-subject-units.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, REDUCER_TOKEN, metaReducers, reducerProvider } from 'src/app/store/reducers';
-import { AcademicsModule } from '../../academics.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppLoadingBubbleModule } from 'src/app/modules/app-loading-bubble';
@@ -13,6 +11,8 @@ import { of } from 'rxjs';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AppInputModule } from 'src/app/components/input/app-input.module';
 import { EffectsModule } from '@ngrx/effects';
+import { AcademicsModule } from '../../academics.module';
+import { AcademicYearSubjectUnitsComponent } from './academic-year-subject-units.component';
 
 describe('AcademicYearSubjectUnitsComponent', () => {
   let component: AcademicYearSubjectUnitsComponent;

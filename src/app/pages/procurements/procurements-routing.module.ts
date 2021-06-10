@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {CanDeactivateGuard} from 'src/app/guards/can-deactivate.guard';
 import {ProcurementsComponent} from './procurements.component';
 import {ProcurementsRequestComponent} from './procurements-request/procurements-request.component';
 import {MyProcurementsRequestComponent} from './my-procurements-request/my-procurements-request.component';
@@ -8,7 +9,6 @@ import {EditProcurementRequestComponent} from './edit-procurement-request/edit-p
 import {ApproveProcurementRequestComponent} from './approve-procurement-request/approve-procurement-request.component';
 import {ProcurementsVendorsComponent} from './procurements-vendors/procurements-vendors.component';
 import {CreateProcurementsVendorsComponent} from './create-procurements-vendors/create-procurements-vendors.component';
-import {CanDeactivateGuard} from 'src/app/guards/can-deactivate.guard';
 import {ViewProcurementsVendorComponent} from './view-procurements-vendor/view-procurements-vendor.component';
 import {
   ViewProcurementsApprovedRequestsComponent

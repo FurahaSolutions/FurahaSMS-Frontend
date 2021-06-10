@@ -1,6 +1,10 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {FormErrorsComponent} from './form-errors.component';
-import {FormGroup} from '@angular/forms';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { FormGroup } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../../store/reducers';
+import { appFeatureKey, reducers } from '../../../../store/reducers/app.reducer';
+import { FormErrorsComponent } from './form-errors.component';
 
 describe('FormErrorsComponent', () => {
   let component: FormErrorsComponent;
@@ -8,7 +12,19 @@ describe('FormErrorsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [FormErrorsComponent]
+      imports: [
+        StoreModule.forRoot(REDUCER_TOKEN, {
+          metaReducers,
+          runtimeChecks: {
+            strictStateImmutability: true,
+            strictActionImmutability: true,
+          }
+        }),
+        StoreModule.forFeature(appFeatureKey, reducers),
+        FontAwesomeTestingModule
+      ],
+      declarations: [FormErrorsComponent],
+      providers: [reducerProvider]
     })
       .compileComponents();
   }));

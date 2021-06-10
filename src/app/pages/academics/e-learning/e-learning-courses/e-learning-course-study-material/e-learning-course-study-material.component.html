@@ -1,7 +1,7 @@
 <ng-container *ngIf='v$ | ngrxPush; else loading'>
   <h1>
     E-Learning Course Study Material View
-    <span class='icon-right-dir'></span>
+    <fa-icon [icon]="faChevronRight"></fa-icon>
     {{ studyMaterial.title }}
   </h1>
   <section class="d-flex flex-wrap justify-content-between">
@@ -27,16 +27,16 @@
       </section>
 
       <!-- <a class="btn btn-secondary btn-block mt-4" [routerLink]='["/document", docSrc]'>
-        <span [style.color]='studyMaterial.file_document_info.type | fileExtention:color'
-          [class]="studyMaterial.file_document_info.type | fileExtention:icon"></span>
+        <span [style.color]='studyMaterial.file_document_info.type | fileExtension:color'
+          [class]="studyMaterial.file_document_info.type | fileExtension:icon"></span>
         View Document
-        <span class="icon-eye"></span>
+        <fa-icon [icon]="faEye"></fa-icon>
       </a> -->
       <button (click)='downloadFIle()' type="button" class="btn btn-block btn-success btn-lg text-light mt-4">
-        <span [style.color]='studyMaterial.file_document_info.type | fileExtention:"color"'
-          [class]='studyMaterial.file_document_info.type | fileExtention:"icon"'></span>
+        <span [style.color]='studyMaterial.file_document_info.type | fileExtension:"color"'
+          [class]='studyMaterial.file_document_info.type | fileExtension:"icon"'></span>
         Download File
-        <span class="icon-download"></span>
+        <fa-icon [icon]="faDownload"></fa-icon>
       </button>
     </section>
     <fieldset class="col-lg-6">

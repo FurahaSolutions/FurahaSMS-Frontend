@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ClassLevelUnitLevelAllocationComponent} from './class-level-unit-level-allocation.component';
 import {
   ManageClassLevelUnitLevelAllocationComponent
 } from '../manage-class-level-unit-level-allocation/manage-class-level-unit-level-allocation.component';
+import {ClassLevelUnitLevelAllocationComponent} from './class-level-unit-level-allocation.component';
 
 const routes: Routes = [
   {

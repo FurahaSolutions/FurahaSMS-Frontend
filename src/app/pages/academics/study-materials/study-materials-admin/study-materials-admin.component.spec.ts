@@ -1,7 +1,8 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {StudyMaterialsAdminComponent} from './study-materials-admin.component';
 import {RouterTestingModule} from '@angular/router/testing';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import {StudyMaterialsAdminComponent} from './study-materials-admin.component';
 
 describe('StudyMaterialsAdminComponent', () => {
   let component: StudyMaterialsAdminComponent;
@@ -10,7 +11,8 @@ describe('StudyMaterialsAdminComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        FontAwesomeTestingModule
       ],
       declarations: [StudyMaterialsAdminComponent]
     })

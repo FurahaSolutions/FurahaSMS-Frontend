@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import * as fromMyProfile from '../reducers/my-profile.reducer';
 import { IUserProfile } from 'src/app/interfaces/user-profile.interface';
+import * as fromMyProfile from '../reducers/my-profile.reducer';
 
 export const selectMyProfileState = createFeatureSelector<IUserProfile>(
   fromMyProfile.myProfileFeatureKey

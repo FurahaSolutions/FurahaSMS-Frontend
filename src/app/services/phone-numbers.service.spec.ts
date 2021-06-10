@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PhoneNumbersService } from './phone-numbers.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { PhoneNumbersService } from './phone-numbers.service';
 
 describe('PhoneNumbersService', () => {
   beforeEach(() =>

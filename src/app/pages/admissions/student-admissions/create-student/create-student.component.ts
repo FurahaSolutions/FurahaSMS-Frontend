@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
 import { CanComponentDeactivate } from 'src/app/guards/can-deactivate.guard';
 import { GenderService } from 'src/app/services/gender.service';
 import { ReligionService } from 'src/app/services/religion.service';
+import { takeUntil } from 'rxjs/operators';
 import { formMixin } from '../../../../shared/mixins/form.mixin';
 import { subscribedContainerMixin } from '../../../../shared/mixins/subscribed-container.mixin';
-import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-create-student',

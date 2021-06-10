@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LibraryPublisherService } from '../../../services/library-publisher.service';
 import { ActivatedRoute } from '@angular/router';
 import { map, mergeMap } from 'rxjs/operators';
+import { LibraryPublisherService } from '../../../services/library-publisher.service';
 
 @Component({
   selector: 'app-library-admin-publisher-item',

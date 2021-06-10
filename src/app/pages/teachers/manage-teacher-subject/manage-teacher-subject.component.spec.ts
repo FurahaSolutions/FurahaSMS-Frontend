@@ -1,15 +1,15 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ManageTeacherSubjectComponent} from './manage-teacher-subject.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {StoreModule} from '@ngrx/store';
-import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../store/reducers';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
-import {teacherProfileFeatureKey, reducer} from '../store/reducers/teacher-profile.reducer';
 import {ReactiveComponentModule} from '@ngrx/component';
+import {teacherProfileFeatureKey, reducer} from '../store/reducers/teacher-profile.reducer';
+import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../store/reducers';
+import {ManageTeacherSubjectComponent} from './manage-teacher-subject.component';
 
 describe('ManageTeacherSubjectComponent', () => {
   let component: ManageTeacherSubjectComponent;

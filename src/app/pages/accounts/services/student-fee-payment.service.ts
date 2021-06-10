@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
-import {selectStudentFeeStatement} from '../store/selectors/student-fee-statement.selectors';
 import {tap} from 'rxjs/operators';
+import {selectStudentFeeStatement} from '../store/selectors/student-fee-statement.selectors';
 import {loadStudentFeeStatements} from '../store/actions/student-fee-statement.actions';
 
 @Injectable({

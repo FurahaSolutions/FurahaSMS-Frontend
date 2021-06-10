@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {RouterModule} from '@angular/router';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {DurationModule} from '../../../../../shared/duration/duration.module';
+import {AppLoadingBubbleModule} from '../../../../../modules/app-loading-bubble';
+import { CountDownTimerModule } from '../../count-down-timer/count-down-timer.module';
 import {OnlineAssessmentRoutingModule} from './online-assessment-routing.module';
 import { TakeOnlineExamDashboardComponent } from './take-online-exam-dashboard/take-online-exam-dashboard.component';
-import {DurationModule} from '../../../../../shared/duration/duration.module';
-import {RouterModule} from '@angular/router';
-import {AppLoadingBubbleModule} from '../../../../../modules/app-loading-bubble';
 import { TakeOnlineTestComponent } from './take-online-test/take-online-test.component';
-import { ReactiveComponentModule } from '@ngrx/component';
-import { CountDownTimerModule } from '../../count-down-timer/count-down-timer.module';
 
 
 
@@ -20,7 +21,8 @@ import { CountDownTimerModule } from '../../count-down-timer/count-down-timer.mo
     RouterModule,
     AppLoadingBubbleModule,
     ReactiveComponentModule,
-    CountDownTimerModule
+    CountDownTimerModule,
+    FontAwesomeModule
   ]
 })
 export class OnlineAssessmentModule { }

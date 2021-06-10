@@ -32,8 +32,9 @@
     </fieldset>
     <fieldset *ngIf='(editFormAction$ | ngrxPush) === false'>
       <legend>Subject Details</legend>
-      <button (click)="addSubject()" type="button" class="btn btn-sm btn-primary">Add <span
-          class="icon-plus-circled"></span></button>
+      <button (click)="addSubject()" type="button" class="btn btn-sm btn-primary">
+        <fa-icon [icon]="faPlusCircle"></fa-icon> Add
+      </button>
       <section class="d-flex flex-wrap" formArrayName='units'>
         <section style="border: inset 3px rgba(53, 53, 53, 0.404);" class="col-sm-12"
           *ngFor="let unit of units.controls; let i = index">
@@ -43,8 +44,8 @@
             (valueChange)="updateForm($event, i)" [submitButton]="false">
           </app-create-unit>
           <section class="float-left">
-            <button (click)="removeSubject(i)" type="button" class="btn btn-danger btn-sm"><span
-                class="icon-trash"></span>delete</button>
+            <button (click)="removeSubject(i)" type="button" class="btn btn-danger btn-sm">
+              <fa-icon [icon]="faTrash"></fa-icon> delete</button>
           </section>
         </section>
 

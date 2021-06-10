@@ -14,7 +14,7 @@
         <h3 class="mt-3">About the Publisher</h3>
         <div *ngIf='publisher.biography && publisher.biography !== "" else noDescription' [innerHtml]='publisher.biography | json'></div>
         <ng-template #noDescription>
-          <div class="alert alert-info mt-3"><span class="icon-info"></span>
+          <div class="alert alert-info mt-3"><fa-icon [icon]="faInfoCircle"></fa-icon>
             No Description provided yet
           </div>
         </ng-template>

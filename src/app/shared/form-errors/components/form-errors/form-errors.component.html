@@ -1,5 +1,5 @@
 <div class="alert alert-danger mt-4 mb-2" *ngIf="errors.length > 0 && validated">
-  <div class="icon-attention-circled" *ngFor="let error of errors">
-    {{ getErrorMessage(error) }}
+  <div *ngFor="let error of errors">
+    <fa-icon [icon]="faExclamationCircle"></fa-icon>{{ getErrorMessage(error) }}
   </div>
 </div>

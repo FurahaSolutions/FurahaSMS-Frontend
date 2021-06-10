@@ -9,7 +9,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/be6fe705bc6617da638c/test_coverage)](https://codeclimate.com/github/FurahaSolutions/FurahaSMS-Frontend/test_coverage)
 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0 and has been since updated to Angular version 11.2.0
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0 and has been since updated to Angular version 12.0.0
 
 ## Development server9
 

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { TakeOnlineTestComponent } from './take-online-test.component';
 import { CountDownTimerModule } from '../../../count-down-timer/count-down-timer.module';
+import { TakeOnlineTestComponent } from './take-online-test.component';
 
 describe('TakeOnlineTestComponent', () => {
   let component: TakeOnlineTestComponent;

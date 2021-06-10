@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {FinancialCostsMaintenanceComponent} from './financial-costs-maintenance.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {AppInputModule} from 'src/app/components/input/app-input.module';
@@ -9,6 +8,8 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {REDUCER_TOKEN, reducerProvider, metaReducers} from 'src/app/store/reducers';
 import {StoreModule} from '@ngrx/store';
 import {ReactiveComponentModule} from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import {FinancialCostsMaintenanceComponent} from './financial-costs-maintenance.component';
 
 describe('FinancialCostsMaintenanceComponent', () => {
   let component: FinancialCostsMaintenanceComponent;
@@ -30,7 +31,8 @@ describe('FinancialCostsMaintenanceComponent', () => {
             strictActionImmutability: true,
           }
         }),
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        FontAwesomeTestingModule
       ],
       declarations: [FinancialCostsMaintenanceComponent],
       providers: [reducerProvider]
