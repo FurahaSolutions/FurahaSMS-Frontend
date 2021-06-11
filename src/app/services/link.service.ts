@@ -14,7 +14,6 @@ export class LinkService {
 
   myPermissions$ = this.store.pipe(select(selectMyPermissions));
   myRoles$ = this.store.pipe(select(selectMyRoles));
-
   dashboardLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectDashboardLinks));
   accountsLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectAccountsLinks));
   examBankLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectExamBankLinks));
@@ -35,6 +34,7 @@ export class LinkService {
     = this.filerAllowed(this.store.select(fromLinks.selectTeachingStaffAdmissionsLinks));
   timeTableLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.selectTimeTableLinks));
   rolesAndPermissionsLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.rolesAndPermissionsLinks));
+  eLearningDashboardLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.eLearningDashboardLinks));
   allLinks: Observable<LinkInterface[]> = this.filerAllowed(this.store.select(fromLinks.allLinks));
 
   constructor(private store: Store) {

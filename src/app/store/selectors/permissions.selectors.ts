@@ -46,6 +46,8 @@ export const selectTimeTableLinks = createLinkSelector('timeTable');
 
 export const rolesAndPermissionsLinks = createLinkSelector('rolesAndPermissions');
 
+export const eLearningDashboardLinks = createLinkSelector('eLearningDashboard');
+
 export const allLinks = createSelector(
   selectAppPermissionsState,
   state => Object.values(state).reduce((a, b) => ([...a, ...b]), [])

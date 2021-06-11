@@ -146,6 +146,14 @@ const routes: Routes = [
   {
     path: 'print',
     loadChildren: () => import('./print/print.module').then(m => m.PrintModule)
+  },
+  {
+    path: 'exams',
+    loadChildren: () => import('./academics/e-learning/e-learning-courses/online-assessment/online-assessment.module')
+      .then(m => m.OnlineAssessmentModule),
+    data: {
+      breadcrumb: 'Assessment'
+    }
   }
 ];
 

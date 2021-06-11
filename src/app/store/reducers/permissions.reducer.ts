@@ -28,6 +28,7 @@ import { procurementLinks } from '../data-files/procurement.data-file';
 import { examBankLinks } from '../data-files/exam-bank.data-file';
 import { accountsLinks } from '../data-files/accounts-links.data-file';
 import { dashboardLinks } from '../data-files/dashboard-links.data-file';
+import { eLearningDashboardLinks } from '../data-files/e-learning-data-file';
 
 
 export const permissionsFeatureKey = 'permissions';
@@ -171,7 +172,10 @@ export const initialState: State = {
       name: 'Study Materials', icon: faBookOpen, link: 'academics/study-materials'
     },
     {
-      name: 'E-Learning', icon: faPlaneDeparture, link: 'academics/e-learning'
+      name: 'E-Learning',
+      icon: faPlaneDeparture,
+      link: 'academics/e-learning',
+      permissions: ['access e-learning']
     },
   ],
 
@@ -200,6 +204,7 @@ export const initialState: State = {
     {name: 'My Schedules', icon: faUserClock, link: 'time-table/my-schedules'},
     {name: 'Admin', icon: faUserSecret, link: 'time-table/admin'},
   ],
+
   rolesAndPermissions: [
     {
       name: 'User Roles/ Permissions', icon: faUserShield, link: 'roles-and-permissions/user',
@@ -209,7 +214,9 @@ export const initialState: State = {
       name: 'Roles & Permissions', icon: faSlidersH, link: 'roles-and-permissions/roles',
       permissions: ['change role permissions']
     },
-  ]
+  ],
+
+  eLearningDashboard: eLearningDashboardLinks
 };
 
 

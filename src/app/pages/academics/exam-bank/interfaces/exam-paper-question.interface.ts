@@ -7,5 +7,4 @@ export interface IExamPaperQuestion {
   description: string;
   tags: any[];
   answers: any[];
-
 }

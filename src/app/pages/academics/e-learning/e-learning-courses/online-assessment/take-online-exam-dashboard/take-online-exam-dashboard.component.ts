@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {map, mergeMap} from 'rxjs/operators';
-import {OnlineAssessmentService} from '../../../services/online-assessment.service';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map, mergeMap, take } from 'rxjs/operators';
+import { from } from 'rxjs';
+import { OnlineAssessmentService } from '../../../services/online-assessment.service';
 
 @Component({
   selector: 'app-take-online-exam-dashboard',
@@ -16,7 +17,7 @@ export class TakeOnlineExamDashboardComponent {
     map(params => Number(params.get('id')))
   );
   assessment$ = this.assessmentId$.pipe(
-    mergeMap((assessmentId) => this.onlineAssessment.getAssessmentWithId(assessmentId)),
+    mergeMap((assessmentId) => this.onlineAssessment.getAssessmentWithId({assessmentId})),
     map(assessment => ({
       ...assessment,
       availableAt: assessment.available_at,
@@ -35,7 +36,10 @@ export class TakeOnlineExamDashboardComponent {
 
   takeTest() {
     if (confirm('Are you sure you wish to begin test? ')) {
-      this.router.navigate(['take'], {relativeTo: this.route}).then();
+      this.assessmentId$.pipe(
+        mergeMap(id => from(this.router.navigate(['/exams', id, 'take']))),
+        take(1)
+      ).subscribe();
     }
   }
 }

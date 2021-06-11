@@ -1,5 +1,33 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+interface IChoice {
+  id: number;
+  description: string;
+  isCorrect?: boolean;
+}
+
+interface IQuestion {
+  choices: IChoice[];
+  tags?: string[];
+  description: string;
+  id: number;
+  points: number;
+}
+
+interface IAssessment {
+  id: number;
+  name: string;
+  description?: string;
+  questions?: IQuestion[];
+  totalPoints?: number;
+  ['e_learning_topic_id']: number;
+  ['exam_paper_name']: string;
+  ['available_at']: string;
+  ['closing_at']: string;
+  ['period']: string;
+  ['unit_level_name']: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +50,10 @@ export class OnlineAssessmentService {
 
   deleteAssessmentWithId = ({topicId, assessmentId}: any) => this.http.delete(this.urlWithId(topicId, assessmentId));
 
-  getAssessmentWithId = (assessmentId: number) => this.http.get<{ [key: string]: any }>(this.urlWithId(0, assessmentId));
+  getAssessmentWithId = ({assessmentId, withQuestions = false}: { assessmentId: number; withQuestions?: boolean }) =>
+    this.http.get<IAssessment>(`api/e-learning/online-assessments/${assessmentId}`, {params: {withQuestions}});
+
+  submitAssessment({data, onlineAssessmentId}: { data: any; onlineAssessmentId: number }) {
+    return this.http.post(`api/e-learning/online-assessments/${onlineAssessmentId}`, data);
+  }
 }

@@ -24,7 +24,7 @@ export class EditOnlineAssessmentDetailsComponent extends subscribedContainerMix
     period: ['', [Validators.required]],
   });
   assessment$ = this.assessmentId$.pipe(
-    switchMap(id => this.assessmentService.getAssessmentWithId(id)),
+    switchMap(id => this.assessmentService.getAssessmentWithId({assessmentId: id})),
     tap(val => {
       this.topicId = val.e_learning_topic_id;
       this.itemForm.patchValue({
