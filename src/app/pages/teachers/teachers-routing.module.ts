@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LibraryProfileComponent } from '../../components/user-profile/library-profile/library-profile.component';
 import { ViewTeacherComponent } from './view-teacher/view-teacher.component';
 import { TeachersDashboardComponent } from './teachers-dashboard/teachers-dashboard.component';
 import { ViewTeacherInfoComponent } from './view-teacher-info/view-teacher-info.component';
@@ -48,6 +49,13 @@ const routes: Routes = [
         component: ViewTeacherSubjectsComponent,
         data: {
           breadcrumb: 'Subjects'
+        },
+      },
+      {
+        path: 'library',
+        component: LibraryProfileComponent,
+        data: {
+          breadcrumb: 'Info'
         },
       },
       {
