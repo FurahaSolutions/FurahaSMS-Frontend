@@ -20,18 +20,18 @@
       </span>
     </div>
     <div class="col-lg-2 col-md-3 mt-md-3 mt-sm-3">
-      <span *ngIf="!user.libraryBlocked" class="badge badge-success p-2">
+      <span *ngIf="!user.librarySuspended" class="badge badge-success p-2">
         Active
       </span>
-      <span *ngIf="user.libraryBlocked" class="badge badge-danger p-2">
+      <span *ngIf="user.librarySuspended" class="badge badge-danger p-2">
         Blocked
       </span>
     </div>
     <div class="col-12 d-flex justify-content-end align-items-end mt-md-3">
-      <button (click)="block()" type="button" *ngIf="!user.libraryBlocked" [disabled]="!user.libraryUserId"
+      <button (click)="suspend()" type="button" *ngIf="!user.librarySuspended" [disabled]="!user.libraryUserId"
               class="btn btn-danger mr-3">Block User
       </button>
-      <button (click)="unblock()" type="button" *ngIf="user.libraryBlocked" [disabled]="!user.libraryUserId"
+      <button (click)="unsuspend()" type="button" *ngIf="user.librarySuspended" [disabled]="!user.libraryUserId"
               class="btn btn-secondary mr-3">Unblock User
       </button>
       <button (click)="register()" type="button" *ngIf="!user.libraryUserId" class="btn btn-primary">Register User

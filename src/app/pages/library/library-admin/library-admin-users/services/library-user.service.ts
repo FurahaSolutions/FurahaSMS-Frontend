@@ -16,9 +16,9 @@ export class LibraryUserService {
   getUserWithId = (id: number) =>
     this.http.get(`${this.url}/${id}`);
 
-  block = ({userId}: { userId: string }) =>
-    this.http.post(`${this.url}/${userId}`, {['_method']: 'PATCH', blocked: true});
+  suspend = ({userId}: { userId: string }) =>
+    this.http.post(`${this.url}/${userId}`, {['_method']: 'PATCH', suspended: true});
 
-  unblock = ({userId}: { userId: string }) =>
-    this.http.post(`${this.url}/${userId}`, {['_method']: 'PATCH', blocked: false});
+  unsuspend = ({userId}: { userId: string }) =>
+    this.http.post(`${this.url}/${userId}`, {['_method']: 'PATCH', suspended: false});
 }

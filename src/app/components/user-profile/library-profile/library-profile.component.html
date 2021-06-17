@@ -1,0 +1,27 @@
+<div class="card p-2 mt-2" *ngIf="v$ | ngrxPush as v else loading">
+  <div>
+    <span class="badge badge-secondary p-0 pl-2">
+      Registration
+      <small *ngIf="v.user.libraryUserId" class="p-3 badge badge-success">Registered</small>
+      <small *ngIf="!v.user.libraryUserId" class="p-3 badge badge-danger">Not registered</small>
+    </span>
+    <span class="badge badge-secondary ml-3 p-0 pl-2" *ngIf="v.user.libraryUserId">
+      Library Status
+      <small *ngIf="v.user.librarySuspended" class="p-3 badge badge-danger">Suspended</small>
+      <small *ngIf="!v.user.librarySuspended" class="p-3 badge badge-success">Active</small>
+    </span>
+    <div class="col-12 d-flex justify-content-end align-items-end mt-md-3" *ngIf="v.editMode">
+      <button (click)="suspend()" type="button" *ngIf="!v.user.librarySuspended" [disabled]="!v.user.libraryUserId"
+              class="btn btn-danger mr-3">Suspend User
+      </button>
+      <button (click)="unsuspend()" type="button" *ngIf="v.user.librarySuspended" [disabled]="!v.user.libraryUserId"
+              class="btn btn-secondary mr-3">Unsuspend User
+      </button>
+      <button (click)="register()" type="button" *ngIf="!v.user.libraryUserId" class="btn btn-primary">Register User
+      </button>
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <app-loading-bubble></app-loading-bubble>
+</ng-template>

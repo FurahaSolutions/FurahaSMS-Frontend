@@ -12,4 +12,5 @@ export interface IUserProfile {
   studentId?: number;
   permissions?: string[];
   roles?: string[];
+  libraryUser?: boolean;
 }

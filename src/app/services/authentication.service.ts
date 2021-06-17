@@ -26,10 +26,10 @@ export class AuthenticationService {
 
   get authorizationToken(): string | undefined {
 
-    if(this.sessionStorageUser) {
+    if (this.sessionStorageUser) {
       return `Bearer ${this.sessionStorageUser.access_token}`;
     }
-    if(this.localStorageUser) {
+    if (this.localStorageUser) {
       return `Bearer ${this.localStorageUser.access_token}`;
     }
     return;
@@ -40,32 +40,36 @@ export class AuthenticationService {
   }
 
   public get currentUserProfile$(): Observable<IUserProfile> {
-    if(!this.isLoggedInSubject.value) {
+    if (!this.isLoggedInSubject.value) {
       return EMPTY;
     }
 
-    return this.http.get('api/users/auth')
-      .pipe(
-        catchError(error => {
-          if(error.status === 401) {
-            this.clearStorage();
-          }
+    return this.http.get('api/users/auth').pipe(
+      catchError(error => {
+        if (error.status === 401) {
+          this.clearStorage();
+        }
 
-          return throwError(error);
-        }),
-        map((res: any) => ({
-          ...res,
-          id: res.id,
-          firstName: res.first_name,
-          lastName: res.last_name,
-          middleName: res.middle_name,
-          otherNames: res.other_names,
-          phone: res.phone,
-          email: res.email,
-          dateOfBirth: res.date_of_birth,
-          religionName: res.religion_name,
-          genderName: res.gender_name
-        })));
+        return throwError(error);
+      }),
+      map(this.mapUser));
+  }
+
+  mapUser(res: any) {
+    return {
+      ...res,
+      id: res.id,
+      firstName: res.first_name,
+      lastName: res.last_name,
+      middleName: res.middle_name,
+      otherNames: res.other_names,
+      phone: res.phone,
+      email: res.email,
+      dateOfBirth: res.date_of_birth,
+      religionName: res.religion_name,
+      genderName: res.gender_name,
+      libraryUser: res.library_user
+    };
   }
 
   changePassword(data: any) {
@@ -114,14 +118,13 @@ export class AuthenticationService {
     };
     const url = `api/oauth/token`;
 
-    return this.http.post<any>(url, loginData)
-      .pipe(
-        tap(user => rememberMe ? localStorage.setItem('currentUser', JSON.stringify(user)) : ''),
-        tap(user => !rememberMe ? sessionStorage.setItem('currentUser', JSON.stringify(user)) : ''),
-        tap(user => this.currentUserSubject.next(user)),
-        tap(() => this.isLoggedInSubject.next(true)),
-        catchError(error => throwError(error))
-      );
+    return this.http.post<any>(url, loginData).pipe(
+      tap(user => rememberMe ? localStorage.setItem('currentUser', JSON.stringify(user)) : ''),
+      tap(user => !rememberMe ? sessionStorage.setItem('currentUser', JSON.stringify(user)) : ''),
+      tap(user => this.currentUserSubject.next(user)),
+      tap(() => this.isLoggedInSubject.next(true)),
+      catchError(error => throwError(error))
+    );
   }
 
   clearStorage = () => {
@@ -132,7 +135,7 @@ export class AuthenticationService {
   };
 
   logout(): Observable<any> {
-    if(!this.isLoggedInSubject.value) {
+    if (!this.isLoggedInSubject.value) {
       return EMPTY;
     }
 

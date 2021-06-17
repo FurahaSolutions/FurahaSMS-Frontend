@@ -22,25 +22,24 @@ export class LibraryUserStatusComponent extends subscribedContainerMixin(loading
     this.refresh$,
     this.userId$
   ]).pipe(
-    switchMap(([, id]) => this.libraryUserService.getUserWithId(id)),
-    tap(console.log)
+    switchMap(([, id]) => this.libraryUserService.getUserWithId(id))
   );
 
   constructor(private route: ActivatedRoute, private libraryUserService: LibraryUserService) {
     super();
   }
 
-  block() {
+  suspend() {
     this.userId$.pipe(
-      switchMap(userId => this.libraryUserService.block({userId: String(userId)})),
+      switchMap(userId => this.libraryUserService.suspend({userId: String(userId)})),
       tap(() => this.refresh$.next(true)),
       takeUntil(this.destroyed$)
     ).subscribe();
   }
 
-  unblock() {
+  unsuspend() {
     this.userId$.pipe(
-      switchMap(userId => this.libraryUserService.unblock({userId: String(userId)})),
+      switchMap(userId => this.libraryUserService.unsuspend({userId: String(userId)})),
       tap(() => this.refresh$.next(true)),
       takeUntil(this.destroyed$)
     ).subscribe();

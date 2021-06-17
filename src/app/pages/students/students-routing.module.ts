@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ViewStudentComponent } from './view-student/view-student.component';
 import { ViewStudentInfoComponent } from './view-student-info/view-student-info.component';
 import { ViewStudentGuardiansComponent } from './view-student-guardians/view-student-guardians.component';
 import { ViewStudentAcademicsComponent } from './view-student-academics/view-student-academics.component';
 import { CreateStudentGuardianComponent } from './create-student-guardian/create-student-guardian.component';
 import { CreateStudentAcademicsComponent } from './create-student-academics/create-student-academics.component';
-import {StudentDashboardComponent} from './student-dashboard/student-dashboard.component';
-import {EditStudentAcademicsComponent} from './edit-student-academics/edit-student-academics.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { EditStudentAcademicsComponent } from './edit-student-academics/edit-student-academics.component';
+import { LibraryProfileComponent } from "../../components/user-profile/library-profile/library-profile.component";
 
 const routes: Routes = [
   {
@@ -66,6 +67,10 @@ const routes: Routes = [
         component: ViewStudentAcademicsComponent
       },
       {
+        path: 'library',
+        component: LibraryProfileComponent
+      },
+      {
         path: 'password-management',
         loadChildren: () => import('./../login/password-management/password-management.module')
           .then(m => m.PasswordManagementModule)
@@ -78,4 +83,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class StudentsRoutingModule { }
+export class StudentsRoutingModule {
+}

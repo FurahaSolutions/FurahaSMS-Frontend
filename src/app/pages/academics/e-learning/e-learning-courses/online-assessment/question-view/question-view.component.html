@@ -21,11 +21,7 @@
   </section>
   <section class="card-body mb-0 choices">
     <section class="pb-2 border-bottom mb-2 question">
-      <div [innerHTML]="{latex: question.description }"></div>
-      <section>
-        <span *ngFor='let tag of question.tags; let j = index'
-              class="badge badge-secondary p-1 mr-2 mb-2 pl-2 pr-2">{{ tag }}</span>
-      </section>
+      <div [innerHTML]="question.description"></div>
     </section>
     <fieldset class="bg-dark mt-1 p-2">
       <legend>Choices</legend>
@@ -37,8 +33,7 @@
             [class.active-li]="choices[k]"
             [style.animation-delay]="(k * 0.1 +0.1) + 's'"
         >
-          <app-checkbox [(ngModel)]="choices[k]" (change)="selectChoice(k)">
-            {{ answer.description }}
+          <app-checkbox [label]="answer.description" [(ngModel)]="choices[k]" (change)="selectChoice(k)">
           </app-checkbox>
         </li>
       </ul>

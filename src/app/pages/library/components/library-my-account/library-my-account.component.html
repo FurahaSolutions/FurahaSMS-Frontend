@@ -1,44 +1,53 @@
 <h1>My Library Account</h1>
-<div class="card p-2">
-  <div class="card-header">
-    <form [formGroup]="itemForm" class="d-flex justify-content-end">
-      <app-checkbox formControlName="heldOnly" label="Show only held books"></app-checkbox>
-    </form>
-  </div>
-  <div class="card-body">
-    <div class="card-body">
-      <table class="table table-dark">
-        <thead>
-        <tr>
-          <th>Book Id</th>
-          <th>Title</th>
-          <th>Book Ref</th>
-          <th>Borrowed Date</th>
-          <th>Due Date</th>
-        </tr>
-        </thead>
-        <tbody>
-        <ng-container *ngIf="books$ | ngrxPush as books; else loading">
-          <tr *ngFor="let book of books">
-            <td>{{ book.id }}</td>
-            <td>{{ book.title }}</td>
-            <td>{{ book.ref }}</td>
-            <td>{{ book.borrowed_date }}</td>
-            <td>{{ book.due_date }}</td>
-            <td>{{ book.returned_date }}</td>
-          </tr>
-        </ng-container>
-        <ng-template #loading>
-          <tr>
-            <td colspan="6" class="p-2">
-              <app-loading-bubble></app-loading-bubble>
-            </td>
-          </tr>
-        </ng-template>
-
-        </tbody>
-
-      </table>
+<div class="card p-2" *ngIf="v$ | ngrxPush as v; else loading">
+  <ng-container *ngIf="(v.isLibraryUser !== false) else nonLibraryUser">
+    <div class="card-header">
+      <form [formGroup]="itemForm" class="d-flex justify-content-end">
+        <app-checkbox formControlName="heldOnly" label="Show only held books"></app-checkbox>
+      </form>
     </div>
-  </div>
+    <div class="card-body">
+      <div class="card-body">
+        <table class="table table-dark">
+          <thead>
+          <tr>
+            <th>Book Id</th>
+            <th>Title</th>
+            <th>Book Ref</th>
+            <th>Borrowed Date</th>
+            <th>Due Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <ng-container>
+            <tr *ngFor="let book of v.books">
+              <td>{{ book.id }}</td>
+              <td>{{ book.title }}</td>
+              <td>{{ book.ref }}</td>
+              <td>{{ book.borrowed_date }}</td>
+              <td>{{ book.due_date }}</td>
+              <td>{{ book.returned_date }}</td>
+            </tr>
+            <tr *ngIf="v.books.length < 1">
+              <td colspan="6" class="alert alert-warning">
+                <fa-icon [icon]="faInfoCircle"></fa-icon> No borrowing history found!
+              </td>
+            </tr>
+
+          </ng-container>
+
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #nonLibraryUser>
+      <div class="alert alert-warning"><fa-icon [icon]="faInfoCircle"></fa-icon> You are not registered as Library User</div>
+  </ng-template>
 </div>
+<ng-template #loading>
+  <div colspan="6" class="p-2">
+    <app-loading-bubble></app-loading-bubble>
+  </div>
+</ng-template>

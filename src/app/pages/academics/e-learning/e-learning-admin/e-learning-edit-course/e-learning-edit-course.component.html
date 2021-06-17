@@ -217,7 +217,7 @@
           <span *ngIf='(submitInProgressAction$ | ngrxPush) === false'>Create Assessment</span>
           <span *ngIf='(submitInProgressAction$ | ngrxPush)'>Creating...</span>
           <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush) === false' [icon]='faCheck'></fa-icon>
-          <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush)' [icon]="faSpinner" class='animate-spin'></fa-icon>
+          <fa-icon *ngIf='(submitInProgressAction$ | ngrxPush)' [icon]="faSpinner" [spin]="true"></fa-icon>
         </button>
       </div>
     </ng-template>

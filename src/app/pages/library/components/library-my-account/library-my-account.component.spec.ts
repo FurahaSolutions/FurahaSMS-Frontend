@@ -9,6 +9,7 @@ import { AppCheckboxModule } from '../../../../shared/checkbox/checkbox.module';
 import { AppValidateSubmitButtonsModule } from '../../../../components/validate-submit-buttons/validate-submit-buttons.module';
 import { AppLoadingBubbleModule } from '../../../../modules/app-loading-bubble';
 import { LibraryMyAccountComponent } from './library-my-account.component';
+import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('LibraryMyAccountComponent', () => {
   let component: LibraryMyAccountComponent;
@@ -30,7 +31,8 @@ describe('LibraryMyAccountComponent', () => {
         ReactiveFormsModule,
         AppCheckboxModule,
         ReactiveComponentModule,
-        AppLoadingBubbleModule
+        AppLoadingBubbleModule,
+        FontAwesomeTestingModule
       ],
       declarations: [LibraryMyAccountComponent],
       providers: [reducerProvider]
