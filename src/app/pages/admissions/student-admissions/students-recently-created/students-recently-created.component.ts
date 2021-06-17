@@ -16,7 +16,7 @@ export class StudentsRecentlyCreatedComponent {
   }
 
   getRouterLinks(id: number) {
-    if(this.linksTo) {
+    if(this.linksTo.length > 0) {
       return this.linksTo.map(link => link.replace(':id', String(id)));
     }
     return ['/students', id];

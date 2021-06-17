@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
-import {Store, select} from '@ngrx/store';
-import {HttpClient} from '@angular/common/http';
-import {tap, filter, map, catchError} from 'rxjs/operators';
-import {Observable, throwError} from 'rxjs';
-import {selectSupportStaffWithId} from '../store/selectors/support-staff.selectors';
-import {loadSupportStaffById} from '../store/actions/support-staff.actions';
-import {selectStaffTypes} from '../../admissions/store/selectors/staff-type.selectors';
-import {loadStaffTypes} from '../../admissions/store/actions/staff-type.actions';
+import { Injectable } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { HttpClient } from '@angular/common/http';
+import { catchError, filter, map, tap } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { selectSupportStaffWithId } from '../store/selectors/support-staff.selectors';
+import { loadSupportStaffById } from '../store/actions/support-staff.actions';
+import { selectStaffTypes } from '../../admissions/store/selectors/staff-type.selectors';
+import { loadStaffTypes } from '../../admissions/store/actions/staff-type.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +23,7 @@ export class SupportStaffService {
   }
 
   staffTypes(): Observable<any> {
-    return this.http.get(`api/permissions-and-roles/roles?staff=${true}`);
+    return this.http.get(`api/permissions-and-roles/roles`, {params: {staff: true}});
   }
 
   loadStaffWithId$ = (id: number) => this.store.pipe(
