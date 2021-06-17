@@ -1,17 +1,27 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
+import { RouterTestingModule } from '@angular/router/testing';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ReactiveComponentModule } from '@ngrx/component';
 import { LibraryProfileComponent } from './library-profile.component';
 
 describe('LibraryProfileComponent', () => {
   let component: LibraryProfileComponent;
   let fixture: ComponentFixture<LibraryProfileComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ LibraryProfileComponent ]
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule.withRoutes([]),
+        FontAwesomeTestingModule,
+        HttpClientTestingModule,
+        ReactiveComponentModule
+      ],
+      declarations: [LibraryProfileComponent]
     })
-    .compileComponents();
-  });
+      .compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LibraryProfileComponent);

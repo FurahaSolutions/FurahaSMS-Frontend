@@ -13,5 +13,5 @@ export const loadTeacherProfilesSuccess = createAction(
 
 export const loadTeacherProfilesFailure = createAction(
   '[TeacherProfile] Load TeacherProfiles Failure',
-  props<{ error: any }>()
+  props<{ id: number, error: any }>()
 );

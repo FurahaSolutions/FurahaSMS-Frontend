@@ -1,24 +1,24 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {Store, StoreModule} from '@ngrx/store';
-import {AppState, REDUCER_TOKEN, metaReducers, reducerProvider} from 'src/app/store/reducers';
-import {RouterTestingModule} from '@angular/router/testing';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {AppUserProfileModule} from 'src/app/components/user-profile/user-profile.module';
-import {ReactiveComponentModule} from '@ngrx/component';
+import { Store, StoreModule } from '@ngrx/store';
+import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/store/reducers';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AppUserProfileModule } from 'src/app/components/user-profile/user-profile.module';
+import { ReactiveComponentModule } from '@ngrx/component';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
-import {LoadingBubbleComponent} from '../../../components/loading-bubble/loading-bubble.component';
-import {reducer} from '../store/reducers/student-profile.reducer';
-import {reducers} from '../../../store/reducers/app.reducer';
+import { LoadingBubbleComponent } from '../../../components/loading-bubble/loading-bubble.component';
+import { reducer } from '../store/reducers/student-profile.reducer';
+import { reducers } from '../../../store/reducers/app.reducer';
 import { TabErrorStateModule } from '../../../components/tab-error-state/app-tab-error.module';
-import {ViewStudentComponent} from './view-student.component';
+import { ViewStudentComponent } from './view-student.component';
 
 describe('ViewStudentComponent', () => {
   let component: ViewStudentComponent;
   let fixture: ComponentFixture<ViewStudentComponent>;
   let store: Store<AppState>;
 
-  beforeEach(waitForAsync( () => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         AppUserProfileModule,
@@ -41,7 +41,7 @@ describe('ViewStudentComponent', () => {
       providers: [reducerProvider]
     });
 
-     TestBed.compileComponents();
+    TestBed.compileComponents();
   }));
 
   beforeEach(() => {

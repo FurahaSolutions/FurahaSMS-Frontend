@@ -1,12 +1,21 @@
-
 <ng-container *ngIf='student$ | ngrxPush as studentProfile; else loading'>
   <app-user-profile
-  (valueChanged)='changeProfile($event)'
-  title='Student'
-  [profile]='studentProfile'
-  [linkBase]='["/students"]'
-  [links]='["info", "guardians", "academics", "library"]'
-></app-user-profile>
+    *ngIf="!studentProfile.error?.message; else errorBlock"
+    (valueChanged)='changeProfile($event)'
+    title='Student'
+    [profile]='studentProfile'
+    [linkBase]='["/students"]'
+    [links]='["info", "guardians", "academics", "library"]'
+  ></app-user-profile>
+  <ng-template #errorBlock>
+    <h1>Student Profile</h1>
+    <div class="card p-2">
+      <div class="alert alert-danger p-2">
+        <fa-icon [icon]="faExclamationTriangle"></fa-icon>
+        {{ studentProfile.error?.message }}
+      </div>
+    </div>
+  </ng-template>
 </ng-container>
 <ng-template #loading>
   <h1>Student Profile</h1>

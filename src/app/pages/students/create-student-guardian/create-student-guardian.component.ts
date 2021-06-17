@@ -146,7 +146,7 @@ export class CreateStudentGuardianComponent extends subscribedContainerMixin(for
         Validators.pattern(this.emailPattern), Validators.required
       ]],
       phone: ['', []],
-      relation: ['', Validators.required]
+      relationship: ['', Validators.required]
     });
   }
 

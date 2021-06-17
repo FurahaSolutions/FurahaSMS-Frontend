@@ -1,12 +1,13 @@
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
-import {map, mergeMap, tap} from 'rxjs/operators';
-import {select, Store} from '@ngrx/store';
-import {AppState} from 'src/app/store/reducers';
-import {TeacherService} from '../../admissions/services/teacher.service';
-import {loadTeacherProfiles, loadTeacherProfilesSuccess} from '../store/actions/teacher-profile.actions';
-import {selectTeacher} from '../store/selectors/teacher-profile.selectors';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { map, mergeMap, tap } from 'rxjs/operators';
+import { select, Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/reducers';
+import { TeacherService } from '../../admissions/services/teacher.service';
+import { loadTeacherProfiles, loadTeacherProfilesSuccess } from '../store/actions/teacher-profile.actions';
+import { selectTeacher } from '../store/selectors/teacher-profile.selectors';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
 
 @Component({
   selector: 'app-view-teacher',
@@ -14,6 +15,7 @@ import {selectTeacher} from '../store/selectors/teacher-profile.selectors';
   styleUrls: ['./view-teacher.component.css']
 })
 export class ViewTeacherComponent {
+  faExclamationTriangle = faExclamationTriangle;
   teacherProfile$: Observable<any> = this.route.paramMap.pipe(
     map(params => Number(params.get('id'))),
     tap(id => this.teacherId = id),
@@ -25,7 +27,8 @@ export class ViewTeacherComponent {
     private teacherService: TeacherService,
     private route: ActivatedRoute,
     private store: Store<AppState>
-  ) { }
+  ) {
+  }
 
   changeProfile($event: { fieldName: string; fieldNewValue: string }) {
     this.store.dispatch(loadTeacherProfilesSuccess({

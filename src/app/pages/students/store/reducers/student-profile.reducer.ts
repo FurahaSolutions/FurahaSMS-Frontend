@@ -1,5 +1,5 @@
-import {Action, createReducer, on} from '@ngrx/store';
-import {IUserProfile} from 'src/app/interfaces/user-profile.interface';
+import { Action, createReducer, on } from '@ngrx/store';
+import { IUserProfile } from 'src/app/interfaces/user-profile.interface';
 import * as StudentProfileActions from '../actions/student-profile.actions';
 
 export const studentProfileFeatureKey = 'studentProfiles';
@@ -24,7 +24,14 @@ const studentProfileReducer = createReducer(
     ...state,
     [action.data.id]: {...state[action.data.id], ...(action.data as IUserProfile)}
   })),
-  on(StudentProfileActions.loadStudentProfilesFailure, (state, _action) => state),
+  on(StudentProfileActions.loadStudentProfilesFailure, (state, action) => {
+    console.log({state, action});
+    return state;
+  }),
+  on(StudentProfileActions.loadStudentProfilesFailure, (state, action) => ({
+    ...state,
+    [action.id]: {...state[action.id], ...(action as IUserProfile), error: action.error}
+  })),
 );
 
 export const reducer = (state: State | undefined, action: Action) => studentProfileReducer(state, action);

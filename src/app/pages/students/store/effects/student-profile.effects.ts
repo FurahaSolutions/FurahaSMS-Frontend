@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {catchError, map, concatMap} from 'rxjs/operators';
-import {of} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { catchError, concatMap, map } from 'rxjs/operators';
+import { of } from 'rxjs';
 
-import {StudentService} from 'src/app/services/student.service';
+import { StudentService } from 'src/app/services/student.service';
 import * as StudentProfileActions from '../actions/student-profile.actions';
 
 
@@ -14,7 +14,8 @@ export class StudentProfileEffects {
     ofType(StudentProfileActions.loadStudentProfiles),
     concatMap((payload) => this.studentService.getStudentById(payload.data.id).pipe(
       map(data => StudentProfileActions.loadStudentProfilesSuccess({data})),
-      catchError(error => of(StudentProfileActions.loadStudentProfilesFailure({error})))))
+      catchError(error =>
+        of(StudentProfileActions.loadStudentProfilesFailure({id: payload.data.id, error})))))
   ));
 
   constructor(
