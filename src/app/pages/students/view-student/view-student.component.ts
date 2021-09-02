@@ -4,10 +4,10 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { StudentProfileStateInterface } from 'src/app/store/reducers/student-profile-update.reducer';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
 import * as fromStore from '../../../store/reducers';
 import { loadStudentProfiles, loadStudentProfilesSuccess } from '../store/actions/student-profile.actions';
 import { selectStudent } from '../store/selectors/student-profile.selectors';
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
 
 @Component({
   selector: 'app-view-student',

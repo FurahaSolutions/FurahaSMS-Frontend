@@ -5,11 +5,11 @@ import { AppState, metaReducers, REDUCER_TOKEN, reducerProvider } from 'src/app/
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { AppCheckboxModule } from '../../../../shared/checkbox/checkbox.module';
 import { AppValidateSubmitButtonsModule } from '../../../../components/validate-submit-buttons/validate-submit-buttons.module';
 import { AppLoadingBubbleModule } from '../../../../modules/app-loading-bubble';
 import { LibraryMyAccountComponent } from './library-my-account.component';
-import { FontAwesomeTestingModule } from "@fortawesome/angular-fontawesome/testing";
 
 describe('LibraryMyAccountComponent', () => {
   let component: LibraryMyAccountComponent;

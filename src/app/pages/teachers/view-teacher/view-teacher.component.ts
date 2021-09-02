@@ -4,10 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { map, mergeMap, tap } from 'rxjs/operators';
 import { select, Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/reducers';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
 import { TeacherService } from '../../admissions/services/teacher.service';
 import { loadTeacherProfiles, loadTeacherProfilesSuccess } from '../store/actions/teacher-profile.actions';
 import { selectTeacher } from '../store/selectors/teacher-profile.selectors';
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
 
 @Component({
   selector: 'app-view-teacher',

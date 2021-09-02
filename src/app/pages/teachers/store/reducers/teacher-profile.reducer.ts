@@ -1,7 +1,7 @@
 import {Action, createReducer, on} from '@ngrx/store';
 import * as TeacherProfileActions from '../actions/teacher-profile.actions';
-import * as StudentProfileActions from "../../../students/store/actions/student-profile.actions";
-import { IUserProfile } from "../../../../interfaces/user-profile.interface";
+import * as StudentProfileActions from '../../../students/store/actions/student-profile.actions';
+import { IUserProfile } from '../../../../interfaces/user-profile.interface';
 
 export const teacherProfileFeatureKey = 'teacherProfile';
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LibraryProfileComponent } from '../../components/user-profile/library-profile/library-profile.component';
 import { ViewStudentComponent } from './view-student/view-student.component';
 import { ViewStudentInfoComponent } from './view-student-info/view-student-info.component';
 import { ViewStudentGuardiansComponent } from './view-student-guardians/view-student-guardians.component';
@@ -8,7 +9,6 @@ import { CreateStudentGuardianComponent } from './create-student-guardian/create
 import { CreateStudentAcademicsComponent } from './create-student-academics/create-student-academics.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { EditStudentAcademicsComponent } from './edit-student-academics/edit-student-academics.component';
-import { LibraryProfileComponent } from "../../components/user-profile/library-profile/library-profile.component";
 
 const routes: Routes = [
   {
