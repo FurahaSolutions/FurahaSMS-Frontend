@@ -47,12 +47,12 @@ export class QuestionViewComponent implements OnInit, ControlValueAccessor {
     this.choices[k] = true;
     this.choices = [...this.choices];
 
-    this.value = {id: this.question.id, selected: this.question.answers[k].id};
+    this.value = {id: this.question.id, selected: this.question.answers?.[k].id};
     this.onChanges(this.value);
   }
 
   ngOnInit(): void {
-    this.choices = Array(this.question.answers.length).fill(false);
+    this.choices = Array(this.question?.answers?.length ?? 0).fill(false);
   }
 
   registerOnChange(fn: (val: IQuestionSelect) => void): void {

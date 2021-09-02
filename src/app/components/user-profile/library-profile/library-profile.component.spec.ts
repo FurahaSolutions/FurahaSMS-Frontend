@@ -4,6 +4,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../store/reducers';
 import { LibraryProfileComponent } from './library-profile.component';
 
 describe('LibraryProfileComponent', () => {
@@ -16,9 +18,19 @@ describe('LibraryProfileComponent', () => {
         RouterTestingModule.withRoutes([]),
         FontAwesomeTestingModule,
         HttpClientTestingModule,
-        ReactiveComponentModule
+        ReactiveComponentModule,
+        StoreModule.forRoot(REDUCER_TOKEN, {
+          metaReducers,
+          runtimeChecks: {
+            strictStateImmutability: true,
+            strictActionImmutability: true,
+          }
+        }),
       ],
-      declarations: [LibraryProfileComponent]
+      declarations: [LibraryProfileComponent],
+      providers: [
+        reducerProvider
+      ]
     })
       .compileComponents();
   }));
