@@ -5,7 +5,10 @@ import { FontAwesomeTestingModule } from '@fortawesome/angular-fontawesome/testi
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { StoreModule } from '@ngrx/store';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../store/reducers';
+import { AppLoadingBubbleModule } from '../../../modules/app-loading-bubble';
 import { LibraryProfileComponent } from './library-profile.component';
 
 describe('LibraryProfileComponent', () => {
@@ -19,6 +22,7 @@ describe('LibraryProfileComponent', () => {
         FontAwesomeTestingModule,
         HttpClientTestingModule,
         ReactiveComponentModule,
+        AppLoadingBubbleModule,
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,
           runtimeChecks: {
@@ -29,7 +33,15 @@ describe('LibraryProfileComponent', () => {
       ],
       declarations: [LibraryProfileComponent],
       providers: [
-        reducerProvider
+        reducerProvider,
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            parent: {
+              paramMap: of({get: () => 1})
+            }
+          }
+        }
       ]
     })
       .compileComponents();
