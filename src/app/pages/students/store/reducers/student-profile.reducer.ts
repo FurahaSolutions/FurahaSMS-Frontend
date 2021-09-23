@@ -24,10 +24,7 @@ const studentProfileReducer = createReducer(
     ...state,
     [action.data.id]: {...state[action.data.id], ...(action.data as IUserProfile)}
   })),
-  on(StudentProfileActions.loadStudentProfilesFailure, (state, action) => {
-    console.log({state, action});
-    return state;
-  }),
+  on(StudentProfileActions.loadStudentProfilesFailure, (state) => state),
   on(StudentProfileActions.loadStudentProfilesFailure, (state, action) => ({
     ...state,
     [action.id]: {...state[action.id], ...(action as IUserProfile), error: action.error}

@@ -15,7 +15,6 @@ export class CustomValidators {
     timer(500).pipe(
       switchMap(() => {
         if(CustomValidators.emailRegExp.test(control.value)) {
-          console.log(CustomValidators.userService);
           return CustomValidators.userService.findIfEmailExists(control.value);
         }
         return of(false);
@@ -24,7 +23,6 @@ export class CustomValidators {
     );
 
   static startEndDate(control: FormControl) {
-    console.log(control.get('startDate')?.value);
     if(control.get('startDate')?.value > control.get('endDate')?.value) {
       return {startGreaterThanEnd: true};
     }

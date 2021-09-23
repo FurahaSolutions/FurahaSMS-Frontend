@@ -48,7 +48,6 @@ export class StudentDashboardComponent extends formMixin() {
 
   submitStudentFilterForm() {
     this.submitInProgressSubject$.next(true);
-    console.log(this.studentFilterForm.value);
     this.studentService.getStudents(this.studentFilterForm.value).pipe(
       catchError(() => of([])),
       tap(res => this.studentsSubject$.next(res)),

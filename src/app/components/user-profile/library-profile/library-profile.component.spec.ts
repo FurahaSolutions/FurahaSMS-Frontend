@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { metaReducers, REDUCER_TOKEN, reducerProvider } from '../../../store/reducers';
 import { AppLoadingBubbleModule } from '../../../modules/app-loading-bubble';
+import { appFeatureKey, reducers } from '../../../store/reducers/app.reducer';
 import { LibraryProfileComponent } from './library-profile.component';
 
 describe('LibraryProfileComponent', () => {
@@ -30,6 +31,7 @@ describe('LibraryProfileComponent', () => {
             strictActionImmutability: true,
           }
         }),
+        StoreModule.forFeature(appFeatureKey, reducers)
       ],
       declarations: [LibraryProfileComponent],
       providers: [

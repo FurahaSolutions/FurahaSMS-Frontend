@@ -143,7 +143,6 @@ export class CreateProcurementsVendorsComponent extends subscribedContainerMixin
   }
 
   onCheckboxChange(e: any) {
-    console.log(e);
     const checkArray: FormArray = this.procurementVendorForm.get('procurementItemsCategory') as FormArray;
 
     if(e.target.checked) {

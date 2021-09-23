@@ -1,8 +1,7 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {FormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
+import {FontAwesomeTestingModule} from '@fortawesome/angular-fontawesome/testing';
 import {metaReducers, REDUCER_TOKEN, reducerProvider} from '../../../../../../store/reducers';
 import {QuestionViewComponent} from './question-view.component';
 
@@ -13,7 +12,7 @@ describe('QuestionViewComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        FontAwesomeModule,
+        FontAwesomeTestingModule,
         FormsModule,
         StoreModule.forRoot(REDUCER_TOKEN, {
           metaReducers,
